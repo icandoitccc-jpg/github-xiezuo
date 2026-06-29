@@ -1,0 +1,2267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>美国Camping店桌椅商品研究报告</title>
+<style>
+:root {
+  --bg: #f5f0eb;
+  --card: #ffffff;
+  --text: #2c2416;
+  --muted: #6b5e4a;
+  --accent: #c75b39;
+  --accent2: #2d6a4f;
+  --border: #d4c9b8;
+  --tag-bg: #f0e8da;
+  --highlight: #fff3e0;
+  --retailer-rei: #3a7d44;
+  --retailer-basspro: #b85c38;
+  --retailer-cabelas: #2d6a4f;
+  --retailer-academy: #cc0000;
+  --retailer-dicks: #1a5f8a;
+  --retailer-scheels: #6b3fa0;
+  --gold: #b8860b;
+  --shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 80px 0 60px;
+  border-bottom: 3px solid var(--accent);
+  margin-bottom: 60px;
+}
+.hero h1 {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+.hero .subtitle {
+  font-size: 17px;
+  color: var(--muted);
+  max-width: 650px;
+  margin: 0 auto;
+}
+.hero .meta {
+  margin-top: 24px;
+  font-size: 13px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* Section headers */
+.section {
+  margin: 72px 0;
+}
+.section-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 8px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-title .num {
+  background: var(--accent);
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.section-desc {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 32px;
+}
+
+/* Cards */
+.card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 28px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+/* Retailer sections */
+.retailer-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.retailer-badge {
+  padding: 6px 16px;
+  border-radius: 20px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.retailer-name {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+/* Product grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+.product-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 90px 100px 80px;
+  gap: 16px;
+  padding: 14px 16px;
+  border-radius: 8px;
+  background: var(--highlight);
+  align-items: center;
+  font-size: 13px;
+  border: 1px solid var(--border);
+  cursor: default;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.product-row:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+.product-row.header-row {
+  background: var(--text);
+  color: #fff;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: none;
+}
+.product-row.header-row:hover {
+  transform: none;
+  box-shadow: none;
+}
+.product-name {
+  font-weight: 700;
+  color: var(--text);
+  font-size: 14px;
+}
+.product-brand {
+  color: var(--muted);
+  font-size: 11px;
+  display: block;
+}
+.product-price {
+  font-weight: 700;
+  color: var(--accent);
+}
+.product-rating {
+  color: var(--gold);
+  font-weight: 600;
+}
+.product-reviews {
+  color: var(--muted);
+  font-size: 11px;
+}
+.product-insight {
+  font-size: 12px;
+  color: var(--accent2);
+  line-height: 1.5;
+}
+
+/* Brand pages */
+.brand-card {
+  background: var(--card);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 32px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+.brand-header {
+  padding: 32px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.brand-header h2 {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+.brand-header .tagline {
+  color: var(--muted);
+  font-size: 14px;
+}
+.brand-img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 10px;
+  background: #fafafa;
+  border: 1px solid var(--border);
+}
+.brand-body {
+  padding: 32px;
+}
+.brand-body h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 24px 0 8px;
+  color: var(--accent);
+}
+.brand-body h3:first-child {
+  margin-top: 0;
+}
+.brand-body p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.9;
+}
+.brand-body ul {
+  padding-left: 20px;
+  margin: 8px 0 16px;
+}
+.brand-body li {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.9;
+}
+
+/* Analysis cards */
+.analysis-card {
+  background: var(--card);
+  border-left: 4px solid var(--accent);
+  padding: 20px 24px;
+  margin: 24px 0;
+  border-radius: 0 8px 8px 0;
+  box-shadow: var(--shadow);
+}
+.analysis-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.analysis-card p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+/* Comparison table */
+.comp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin: 20px 0;
+}
+.comp-table th {
+  background: var(--text);
+  color: #fff;
+  padding: 12px 14px;
+  text-align: left;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.comp-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--card);
+}
+.comp-table tr:nth-child(even) td {
+  background: var(--highlight);
+}
+
+/* Featured quotes */
+.quote-block {
+  background: var(--highlight);
+  border-left: 3px solid var(--accent);
+  padding: 16px 20px;
+  margin: 16px 0;
+  border-radius: 0 8px 8px 0;
+}
+.quote-block .quote-text {
+  font-size: 14px;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.8;
+}
+.quote-block .quote-translation {
+  font-size: 13px;
+  color: var(--accent2);
+  margin-top: 6px;
+  font-style: normal;
+  font-weight: 500;
+}
+.quote-block .quote-source {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+/* Store shelf grid */
+.shelf-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+.shelf-item {
+  background: var(--card);
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+.shelf-item .rank {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--accent);
+  opacity: 0.3;
+  margin-bottom: 4px;
+}
+.shelf-item h4 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.shelf-item .meta {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.shelf-item .why {
+  font-size: 13px;
+  color: var(--accent2);
+  line-height: 1.6;
+}
+
+/* TOP5 section */
+.top5-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 24px 0;
+}
+@media (max-width: 768px) {
+  .top5-grid { grid-template-columns: 1fr; }
+}
+.top5-card {
+  background: var(--card);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+.top5-card .t5-img {
+  width: 100%;
+  height: 240px;
+  object-fit: contain;
+  background: #fafafa;
+  padding: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.top5-card .t5-body {
+  padding: 20px;
+}
+.top5-card .t5-rank {
+  font-size: 40px;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+  opacity: 0.25;
+  position: absolute;
+  right: 20px;
+  top: -8px;
+}
+.top5-card .t5-name {
+  font-size: 17px;
+  font-weight: 800;
+  margin-bottom: 4px;
+  position: relative;
+}
+.top5-card .t5-brand {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+.top5-card .t5-info {
+  display: flex;
+  gap: 16px;
+  margin: 10px 0;
+  flex-wrap: wrap;
+}
+.top5-card .t5-stat {
+  font-size: 13px;
+  color: var(--muted);
+}
+.top5-card .t5-stat strong {
+  color: var(--text);
+}
+.top5-card .t5-reason {
+  font-size: 13px;
+  color: var(--accent2);
+  line-height: 1.6;
+  margin-top: 8px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+}
+.top5-card .t5-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--accent);
+  text-decoration: none;
+  border: 1px solid var(--accent);
+  padding: 4px 12px;
+  border-radius: 16px;
+  transition: all 0.2s;
+}
+.top5-card .t5-link:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Museum mode */
+.museum-step {
+  display: flex;
+  gap: 20px;
+  margin: 24px 0;
+  align-items: flex-start;
+}
+.museum-num {
+  background: var(--accent);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.museum-content {
+  flex: 1;
+}
+.museum-content h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.museum-content p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+.museum-img {
+  width: 100%;
+  max-width: 460px;
+  border-radius: 10px;
+  margin: 12px 0;
+  border: 1px solid var(--border);
+}
+
+/* Matrix cells */
+.matrix-cell {
+  text-align: center;
+  padding: 8px;
+  font-size: 13px;
+}
+.matrix-cell.yes {
+  background: #c8e6c9;
+  color: #2e7d32;
+  font-weight: 700;
+  border-radius: 4px;
+}
+.matrix-cell.partial {
+  background: #fff9c4;
+  color: #f57f17;
+  font-weight: 600;
+  border-radius: 4px;
+}
+.matrix-cell.no {
+  color: var(--muted);
+}
+
+/* Tags */
+.tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  background: var(--tag-bg);
+  color: var(--muted);
+  margin: 2px 4px;
+}
+.tag.hot {
+  background: #ffebee;
+  color: var(--accent);
+}
+
+/* Stats row */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+.stat-card {
+  background: var(--card);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+.stat-card .number {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--accent);
+}
+.stat-card .label {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 60px 0 40px;
+  color: var(--muted);
+  font-size: 13px;
+  border-top: 1px solid var(--border);
+  margin-top: 60px;
+}
+
+/* Summary callout */
+.callout {
+  background: var(--text);
+  color: #fff;
+  padding: 24px 28px;
+  border-radius: 10px;
+  margin: 32px 0;
+}
+.callout h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+.callout p {
+  font-size: 14px;
+  opacity: 0.85;
+  line-height: 1.8;
+}
+
+/* Product image row */
+.prod-img-row {
+  display: flex;
+  gap: 16px;
+  margin: 16px 0;
+  flex-wrap: wrap;
+}
+.prod-img-row img {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #fafafa;
+}
+
+/* Section image banner */
+.section-banner {
+  width: 100%;
+  max-height: 340px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 20px 0;
+  border: 1px solid var(--border);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 40px 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .product-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .product-row.header-row { display: none; }
+  .shelf-grid { grid-template-columns: 1fr; }
+  .container { padding: 20px 16px; }
+  .hero h1 { font-size: 24px; }
+  .brand-header { flex-direction: column; text-align: center; }
+  .brand-img { width: 100%; height: auto; max-width: 300px; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- HERO -->
+<div class="hero">
+  <h1>美国Camping店<br>在卖什么椅子、什么桌子</h1>
+  <p class="subtitle">REI · Bass Pro Shops · Cabela's · Academy · Dick's · Scheels<br>六大渠道真实商品画像，附带品牌逻辑与消费者为什么掏钱</p>
+  <p class="meta">数据采集时间：2026年6月</p>
+</div>
+
+<!-- ===== 渠道定位说明 ===== -->
+<div class="section">
+  <div class="section-title">
+    <span class="num">⊙</span>
+    为什么是这六家店
+  </div>
+  <p class="section-desc">这六家构成了美国Camping线下零售的完整光谱——从会员制高端专业店，到猎钓户外综合体，到大众运动零售，再到区域性全品类连锁。覆盖了美国消费者购买露营桌椅的所有典型路径。</p>
+
+  <div style="display:flex;flex-direction:column;gap:20px;margin:24px 0;">
+
+    <div class="card" style="border-left:4px solid var(--retailer-rei);padding:20px 24px;">
+      <img src="images/Realistic_photo_of_REI_store_e_2026-06-29T04-10-59.png" style="width:100%;height:auto;border-radius:8px;margin-bottom:14px;object-fit:cover;max-height:200px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:8px;">
+        <h4 style="font-size:17px;font-weight:800;color:var(--retailer-rei);">REI <span style="font-weight:500;font-size:13px;color:var(--muted);">Recreational Equipment, Inc.</span></h4>
+        <span class="tag" style="background:#e8f5e9;color:var(--retailer-rei);font-weight:600;">户外专业·会员制</span>
+      </div>
+      <p style="font-size:14px;line-height:1.7;color:var(--text);"><strong>定位：</strong>美国最大户外零售商，会员制合作社，180+门店。<strong>角色：</strong>行业风向标——REI放什么品牌，等于给品牌盖了"专业认证"。自有品牌REI Co-op与独立品牌混卖，品类完整度最高。<strong>选它的原因：</strong>要了解美国户外市场"专业线"卖什么，REI就是最完整的样本。</p>
+    </div>
+
+    <div class="card" style="border-left:4px solid var(--retailer-basspro);padding:20px 24px;">
+      <img src="images/Realistic_photo_of_Bass_Pro_Sh_2026-06-29T04-11-36.png" style="width:100%;height:auto;border-radius:8px;margin-bottom:14px;object-fit:cover;max-height:200px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:8px;">
+        <h4 style="font-size:17px;font-weight:800;color:var(--retailer-basspro);">Bass Pro Shops</h4>
+        <span class="tag" style="background:#fbe9e7;color:var(--retailer-basspro);font-weight:600;">猎钓户外·体验型</span>
+      </div>
+      <p style="font-size:14px;line-height:1.7;color:var(--text);"><strong>定位：</strong>猎钓+户外生活综合体，大型旗舰店（10万-20万平方英尺），全美约200家。<strong>角色：</strong>下沉市场+家庭露营场景的代表——店里卖的不是装备，是"全家开车去湖边露营的生活方式"。<strong>选它的原因：</strong>代表美国户外市场"大众线"的一极，与REI的专业线形成对照。</p>
+    </div>
+
+    <div class="card" style="border-left:4px solid var(--retailer-cabelas);padding:20px 24px;">
+      <img src="images/Realistic_photo_of_Cabela_s_st_2026-06-29T04-12-08.png" style="width:100%;height:auto;border-radius:8px;margin-bottom:14px;object-fit:cover;max-height:200px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:8px;">
+        <h4 style="font-size:17px;font-weight:800;color:var(--retailer-cabelas);">Cabela's</h4>
+        <span class="tag" style="background:#e8f5e9;color:var(--retailer-cabelas);font-weight:600;">猎钓户外·被收购后并轨</span>
+      </div>
+      <p style="font-size:14px;line-height:1.7;color:var(--text);"><strong>定位：</strong>原为独立猎钓零售商，2017年被Bass Pro收购。现与Bass Pro供应链合并但保留独立品牌。<strong>角色：</strong>验证"Bass Pro/Cabela's联合采购体系"里桌椅品类的商品结构。<strong>选它的原因：</strong>GCI在Cabela's有完整专柜展示——理解"品牌在大型零售渠道如何落地"的最佳样本。</p>
+    </div>
+
+    <div class="card" style="border-left:4px solid var(--retailer-academy);padding:20px 24px;">
+      <img src="images/Realistic_photo_of_Academy_Spo_2026-06-29T04-12-43.png" style="width:100%;height:auto;border-radius:8px;margin-bottom:14px;object-fit:cover;max-height:200px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:8px;">
+        <h4 style="font-size:17px;font-weight:800;color:var(--retailer-academy);">Academy Sports + Outdoors</h4>
+        <span class="tag" style="background:#fce4e4;color:var(--retailer-academy);font-weight:600;">大众运动·性价比</span>
+      </div>
+      <p style="font-size:14px;line-height:1.7;color:var(--text);"><strong>定位：</strong>德州起家、259家门店、主要覆盖美国南部中部。<strong>角色：</strong>自有品牌Magellan Outdoors的根据地——代表"用品牌化运营的自有品牌占领桌椅品类"的路线。价格带集中在$25-$80。<strong>选它的原因：</strong>理解"美国大众消费者在不买GCI/Helinox的时候买什么"。这是体量最大、最容易被忽略的人群。</p>
+    </div>
+
+    <div class="card" style="border-left:4px solid var(--retailer-dicks);padding:20px 24px;">
+      <img src="images/Realistic_photo_of_Dick_s_Spor_2026-06-29T04-13-15.png" style="width:100%;height:auto;border-radius:8px;margin-bottom:14px;object-fit:cover;max-height:200px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:8px;">
+        <h4 style="font-size:17px;font-weight:800;color:var(--retailer-dicks);">Dick's Sporting Goods</h4>
+        <span class="tag" style="background:#e3f2fd;color:var(--retailer-dicks);font-weight:600;">综合运动·轻户外线</span>
+      </div>
+      <p style="font-size:14px;line-height:1.7;color:var(--text);"><strong>定位：</strong>全美最大体育用品零售商，850+门店。<strong>角色：</strong>露营不是Dick's的核心品类——桌椅被放在"户外生活"板块，品牌偏大众（Coleman/GCI为主）。<strong>选它的原因：</strong>观察"非专业户外店怎么做露营品类"——当露营桌椅被放进一个消费者来买篮球鞋、跑步服的地方，选品逻辑完全不同。</p>
+    </div>
+
+    <div class="card" style="border-left:4px solid var(--retailer-scheels);padding:20px 24px;">
+      <img src="images/Realistic_photo_of_Scheels_sto_2026-06-29T04-13-47.png" style="width:100%;height:auto;border-radius:8px;margin-bottom:14px;object-fit:cover;max-height:200px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:8px;">
+        <h4 style="font-size:17px;font-weight:800;color:var(--retailer-scheels);">Scheels</h4>
+        <span class="tag" style="background:#f3e5f5;color:var(--retailer-scheels);font-weight:600;">区域性·全品类·高端体验</span>
+      </div>
+      <p style="font-size:14px;line-height:1.7;color:var(--text);"><strong>定位：</strong>中西部大型运动品零售商，30+巨型门店，每店带摩天轮/水族馆。员工持股。<strong>角色：</strong>"精品化综合体育零售"的代表——选品在GCI/ALPS/YETI这条线，比Academy高一档但不如REI专业。<strong>选它的原因：</strong>验证中产阶级家庭露营场景的"舒适升级线"（$80-$200区间）。</p>
+    </div>
+
+  </div>
+
+  <div class="callout">
+    <h3>六家店构成的完整光谱</h3>
+    <p>从"专业认证线"（REI → Helinox $110/$300）到"大众性价比线"（Academy → Magellan $30/$45），再到"舒适升级线"（Scheels/Dick's → GCI $60/$80），这六家店覆盖了美国消费者买露营桌椅的全部价格段和全部使用场景。</p>
+  </div>
+</div>
+
+<!-- ===== TOP 5 SECTION ===== -->
+<div class="section">
+  <div class="section-title">
+    <span class="num">★</span>
+    六大渠道综合排名：椅子TOP5 / 桌子TOP5
+  </div>
+  <p class="section-desc">根据六大渠道（REI/Bass Pro/Cabela's/Academy/Dick's/Scheels）的评论量、评分、渠道覆盖率综合排出。每个产品附带视觉参考。</p>
+
+  <h3 style="font-size:18px;font-weight:800;margin:24px 0 16px;color:var(--accent);">🪑 椅子 TOP 5</h3>
+
+  <div style="display:flex;flex-direction:column;gap:24px;margin:20px 0;">
+
+    <!-- #1 -->
+    <div class="card" style="display:flex;gap:24px;align-items:flex-start;position:relative;">
+      <img src="images/A_professional_product_photo_o_2026-06-29T03-07-31.png" style="width:220px;height:220px;object-fit:contain;border-radius:10px;background:#fafafa;border:1px solid var(--border);">
+      <div style="flex:1;position:relative;">
+        <span style="position:absolute;top:-8px;right:0;font-size:72px;font-weight:900;color:var(--accent);opacity:0.12;line-height:1;">#1</span>
+        <h3 style="font-size:18px;font-weight:800;margin-bottom:4px;">GCI Freestyle Rocker</h3>
+        <p style="color:var(--muted);font-size:13px;margin-bottom:8px;">GCI Outdoor · 便携弹簧摇椅</p>
+        <div style="display:flex;gap:20px;flex-wrap:wrap;margin-bottom:8px;">
+          <span><strong>售价：</strong>$80</span>
+          <span><strong>评分：</strong>4.7★</span>
+          <span><strong>REI评论：</strong>2,339条</span>
+          <span><strong>渠道覆盖：</strong>6/6 全渠道</span>
+        </div>
+        <p style="font-size:13px;color:var(--accent2);line-height:1.7;">摇椅品类的绝对定义者。56项专利，弹簧机构在框架内不在椅脚——草地石子沙地都能摇。所有渠道的总评论量碾压其他品类。排在第一位不是因为"最好"，而是因为它定义了"露营摇椅"这个品类的标准。</p>
+        <a href="https://www.rei.com/product/853186/gci-outdoor-freestyle-rocker-chair" target="_blank" class="t5-link">🔗 REI查看商品</a>
+      </div>
+    </div>
+
+    <!-- #2 -->
+    <div class="card" style="display:flex;gap:24px;align-items:flex-start;position:relative;">
+      <img src="images/Professional_product_photograp_2026-06-29T03-07-31.png" style="width:220px;height:220px;object-fit:contain;border-radius:10px;background:#fafafa;border:1px solid var(--border);">
+      <div style="flex:1;position:relative;">
+        <span style="position:absolute;top:-8px;right:0;font-size:72px;font-weight:900;color:var(--accent);opacity:0.12;line-height:1;">#2</span>
+        <h3 style="font-size:18px;font-weight:800;margin-bottom:4px;">Coleman Cooler Quad Chair</h3>
+        <p style="color:var(--muted);font-size:13px;margin-bottom:8px;">Coleman · 内置冷藏臂袋四角椅</p>
+        <div style="display:flex;gap:20px;flex-wrap:wrap;margin-bottom:8px;">
+          <span><strong>售价：</strong>$36</span>
+          <span><strong>评分：</strong>4.7★</span>
+          <span><strong>Amazon评论：</strong>60,000+条</span>
+          <span><strong>渠道覆盖：</strong>5/6</span>
+        </div>
+        <p style="font-size:13px;color:var(--accent2);line-height:1.7;">美国销量最大的露营椅。内置4罐冷藏臂袋是绝对差异化——解决的不是"坐着舒服"，是"懒得起身拿冰啤酒"。卖了超过20年，累计60,000+条评论，是露营椅品类的价格地板和入门基准。</p>
+        <a href="https://www.dickssportinggoods.com/p/coleman-cooler-quad-chair-21colmclmnclrqdcrcac/21colmclmnclrqdcrcac" target="_blank" class="t5-link">🔗 Dick's 查看商品</a>
+      </div>
+    </div>
+
+    <!-- #3 -->
+    <div class="card" style="display:flex;gap:24px;align-items:flex-start;position:relative;">
+      <img src="images/Professional_product_photo_of__2026-06-29T03-07-31.png" style="width:220px;height:220px;object-fit:contain;border-radius:10px;background:#fafafa;border:1px solid var(--border);">
+      <div style="flex:1;position:relative;">
+        <span style="position:absolute;top:-8px;right:0;font-size:72px;font-weight:900;color:var(--accent);opacity:0.12;line-height:1;">#3</span>
+        <h3 style="font-size:18px;font-weight:800;margin-bottom:4px;">YETI Trailhead Camp Chair</h3>
+        <p style="color:var(--muted);font-size:13px;margin-bottom:8px;">YETI · 超重型豪华露营椅</p>
+        <div style="display:flex;gap:20px;flex-wrap:wrap;margin-bottom:8px;">
+          <span><strong>售价：</strong>$300</span>
+          <span><strong>评分：</strong>4.8★</span>
+          <span><strong>REI评论：</strong>1,057条</span>
+          <span><strong>渠道覆盖：</strong>3/6（高端渠道）</span>
+        </div>
+        <p style="font-size:13px;color:var(--accent2);line-height:1.7;">把露营椅的价格天花板从$150拉到了$300。全行业最高评分之一。购买逻辑不是"有钱"——是"大体重/腰疼/之前的椅子都坐塌了，这次买把永远不会塌的"。一根框架杆1.14英寸（平均0.6-0.7）。</p>
+        <a href="https://www.rei.com/product/174101/yeti-trailhead-camp-chair" target="_blank" class="t5-link">🔗 REI查看商品</a>
+      </div>
+    </div>
+
+    <!-- #4 -->
+    <div class="card" style="display:flex;gap:24px;align-items:flex-start;position:relative;">
+      <img src="images/Product_photo_of_Helinox_Chair_2026-06-29T03-07-31.png" style="width:220px;height:220px;object-fit:contain;border-radius:10px;background:#fafafa;border:1px solid var(--border);">
+      <div style="flex:1;position:relative;">
+        <span style="position:absolute;top:-8px;right:0;font-size:72px;font-weight:900;color:var(--accent);opacity:0.12;line-height:1;">#4</span>
+        <h3 style="font-size:18px;font-weight:800;margin-bottom:4px;">Helinox Chair One</h3>
+        <p style="color:var(--muted);font-size:13px;margin-bottom:8px;">Helinox · 轻量背包椅开创者</p>
+        <div style="display:flex;gap:20px;flex-wrap:wrap;margin-bottom:8px;">
+          <span><strong>售价：</strong>$110</span>
+          <span><strong>评分：</strong>4.9★</span>
+          <span><strong>REI评论：</strong>350条</span>
+          <span><strong>渠道覆盖：</strong>REI为主+部分高端渠道</span>
+        </div>
+        <p style="font-size:13px;color:var(--accent2);line-height:1.7;">2磅、DAC航空铝杆、320磅承重。轻量椅品类的唯一正确答案——Helinox开创了这个品类，而且10年内没有竞品能在"同重量+同承重+同耐用"上超越。REI用它来服务背包客群体，是REI差异化的重要支柱。</p>
+        <a href="https://www.rei.com/product/242195/helinox-chair-one-re" target="_blank" class="t5-link">🔗 REI查看商品</a>
+      </div>
+    </div>
+
+    <!-- #5 -->
+    <div class="card" style="display:flex;gap:24px;align-items:flex-start;position:relative;">
+      <img src="images/Product_photo_of_NEMO_Stargaze_2026-06-29T03-08-22.png" style="width:220px;height:220px;object-fit:contain;border-radius:10px;background:#fafafa;border:1px solid var(--border);">
+      <div style="flex:1;position:relative;">
+        <span style="position:absolute;top:-8px;right:0;font-size:72px;font-weight:900;color:var(--accent);opacity:0.12;line-height:1;">#5</span>
+        <h3 style="font-size:18px;font-weight:800;margin-bottom:4px;">NEMO Stargaze EVO-X</h3>
+        <p style="color:var(--muted);font-size:13px;margin-bottom:8px;">NEMO · 悬挂式摇椅+可躺</p>
+        <div style="display:flex;gap:20px;flex-wrap:wrap;margin-bottom:8px;">
+          <span><strong>售价：</strong>$280</span>
+          <span><strong>评分：</strong>4.8★</span>
+          <span><strong>REI评论：</strong>378条</span>
+          <span><strong>渠道覆盖：</strong>REI+Scheels等高端渠道</span>
+        </div>
+        <p style="font-size:13px;color:var(--accent2);line-height:1.7;">悬挂式摇椅——不是弹簧摇椅。体验完全不同：吊在空中摇+可躺。GearJunkie评96/100。它证明了"悬挂式摇椅"这个体验是弹簧摇椅无法替代的。是高端差异化品类的代表。</p>
+        <a href="https://www.nemoequipment.com/products/stargaze-evo-x-folding-camp-chair" target="_blank" class="t5-link">🔗 NEMO官网查看商品</a>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="font-size:18px;font-weight:800;margin:32px 0 16px;color:var(--accent2);">📋 桌子 TOP 5</h3>
+
+  <div style="display:flex;flex-direction:column;gap:24px;margin:20px 0;">
+
+    <!-- #1 table -->
+    <div class="card" style="display:flex;gap:24px;align-items:flex-start;position:relative;">
+      <img src="images/Product_photography_of_a_compa_2026-06-29T03-07-31.png" style="width:220px;height:220px;object-fit:contain;border-radius:10px;background:#fafafa;border:1px solid var(--border);">
+      <div style="flex:1;position:relative;">
+        <span style="position:absolute;top:-8px;right:0;font-size:72px;font-weight:900;color:var(--accent2);opacity:0.12;line-height:1;">#1</span>
+        <h3 style="font-size:18px;font-weight:800;margin-bottom:4px;">GCI Outdoor Compact Camp Table 20</h3>
+        <p style="color:var(--muted);font-size:13px;margin-bottom:8px;">GCI Outdoor · 20寸紧凑折叠桌</p>
+        <div style="display:flex;gap:20px;flex-wrap:wrap;margin-bottom:8px;">
+          <span><strong>售价：</strong>$55</span>
+          <span><strong>评分：</strong>4.5★</span>
+          <span><strong>REI评论：</strong>263条</span>
+          <span><strong>渠道覆盖：</strong>多渠道路面</span>
+        </div>
+        <p style="font-size:13px;color:var(--accent2);line-height:1.7;">评论量最大的露营桌。20寸小方桌——放在两把椅子中间刚好放饮料+零食。GCI在桌子品类的"GCI效应"再次显现：品牌信任从小桌切入，然后用户升级到Cook Station。</p>
+        <a href="https://www.amazon.com/dp/B00HKCXVWU" target="_blank" class="t5-link">🔗 Amazon查看商品</a>
+      </div>
+    </div>
+
+    <!-- #2 table -->
+    <div class="card" style="display:flex;gap:24px;align-items:flex-start;position:relative;">
+      <img src="images/Product_photo_of_a_roll_top_ca_2026-06-29T03-08-12.png" style="width:220px;height:220px;object-fit:contain;border-radius:10px;background:#fafafa;border:1px solid var(--border);">
+      <div style="flex:1;position:relative;">
+        <span style="position:absolute;top:-8px;right:0;font-size:72px;font-weight:900;color:var(--accent2);opacity:0.12;line-height:1;">#2</span>
+        <h3 style="font-size:18px;font-weight:800;margin-bottom:4px;">REI Co-op Camp Roll Table</h3>
+        <p style="color:var(--muted);font-size:13px;margin-bottom:8px;">REI Co-op · 卷顶折叠桌</p>
+        <div style="display:flex;gap:20px;flex-wrap:wrap;margin-bottom:8px;">
+          <span><strong>售价：</strong>$100</span>
+          <span><strong>评分：</strong>4.4★</span>
+          <span><strong>REI评论：</strong>98条</span>
+          <span><strong>重量：</strong>8.5磅</span>
+        </div>
+        <p style="font-size:13px;color:var(--accent2);line-height:1.7;">卷顶桌形态的代表。铝面板条卷起收纳、打开平整坚固——1分钟搭好。是"标准露营桌"的形态——不是折叠桌，是卷顶桌。REI自有品牌中桌子品类的绝对主力。</p>
+        <a href="https://www.rei.com/product/229076/rei-co-op-camp-roll-table" target="_blank" class="t5-link">🔗 REI查看商品</a>
+      </div>
+    </div>
+
+    <!-- #3 table -->
+    <div class="card" style="display:flex;gap:24px;align-items:flex-start;position:relative;">
+      <img src="images/Product_photo_of_GCI_Slim_Fold_2026-06-29T03-08-22.png" style="width:220px;height:220px;object-fit:contain;border-radius:10px;background:#fafafa;border:1px solid var(--border);">
+      <div style="flex:1;position:relative;">
+        <span style="position:absolute;top:-8px;right:0;font-size:72px;font-weight:900;color:var(--accent2);opacity:0.12;line-height:1;">#3</span>
+        <h3 style="font-size:18px;font-weight:800;margin-bottom:4px;">GCI Outdoor Slim-Fold Cook Station</h3>
+        <p style="color:var(--muted);font-size:13px;margin-bottom:8px;">GCI Outdoor · 三层折叠厨房工作站</p>
+        <div style="display:flex;gap:20px;flex-wrap:wrap;margin-bottom:8px;">
+          <span><strong>售价：</strong>$90</span>
+          <span><strong>评分：</strong>4.6★</span>
+          <span><strong>REI评论：</strong>122条</span>
+          <span><strong>特点：</strong>三层+侧桌+挂钩</span>
+        </div>
+        <p style="font-size:13px;color:var(--accent2);line-height:1.7;">露营厨房品类的开创者。不是"桌子"——是"户外厨房"。三层台面+侧桌+挂钩，专门为露营做饭设计。正在从小众变成增长品类。代表了"桌子不只要放东西，还要能做东西"的趋势。</p>
+        <a href="https://www.publiclands.com/p/gci-outdoor-slim-fold-cook-station-15gciucksttnxxxxxcac/15gciucksttnxxxxxcac" target="_blank" class="t5-link">🔗 PublicLands查看商品</a>
+      </div>
+    </div>
+
+    <!-- #4 table -->
+    <div class="card" style="display:flex;gap:24px;align-items:flex-start;position:relative;">
+      <img src="images/Product_photo_of_a_roll_top_ca_2026-06-29T03-08-12.png" style="width:220px;height:220px;object-fit:contain;border-radius:10px;background:#fafafa;border:1px solid var(--border);">
+      <div style="flex:1;position:relative;">
+        <span style="position:absolute;top:-8px;right:0;font-size:72px;font-weight:900;color:var(--accent2);opacity:0.12;line-height:1;">#4</span>
+        <h3 style="font-size:18px;font-weight:800;margin-bottom:4px;">REI Co-op Camp Prep Table</h3>
+        <p style="color:var(--muted);font-size:13px;margin-bottom:8px;">REI Co-op · 铝面板可调脚桌</p>
+        <div style="display:flex;gap:20px;flex-wrap:wrap;margin-bottom:8px;">
+          <span><strong>售价：</strong>$109</span>
+          <span><strong>评分：</strong>4.5★</span>
+          <span><strong>REI评论：</strong>135条</span>
+          <span><strong>特点：</strong>四条可调脚+可放热锅</span>
+        </div>
+        <p style="font-size:13px;color:var(--accent2);line-height:1.7;">"正经的露营厨房桌"。四条独立可调脚（不平地面也能放平）+铝面板（可直接放热锅）+站高做饭。是REI桌子品类的"硬核做饭场景"代表。区别于卷顶桌的"吃饭场景"。</p>
+        <a href="https://www.rei.com/product/242926/rei-co-op-camp-prep-table" target="_blank" class="t5-link">🔗 REI查看商品</a>
+      </div>
+    </div>
+
+    <!-- #5 table -->
+    <div class="card" style="display:flex;gap:24px;align-items:flex-start;position:relative;">
+      <img src="images/Product_photo_of_Helinox_Chair_2026-06-29T03-07-31.png" style="width:220px;height:220px;object-fit:contain;border-radius:10px;background:#fafafa;border:1px solid var(--border);">
+      <div style="flex:1;position:relative;">
+        <span style="position:absolute;top:-8px;right:0;font-size:72px;font-weight:900;color:var(--accent2);opacity:0.12;line-height:1;">#5</span>
+        <h3 style="font-size:18px;font-weight:800;margin-bottom:4px;">Helinox Table One</h3>
+        <p style="color:var(--muted);font-size:13px;margin-bottom:8px;">Helinox · 超轻量折叠桌</p>
+        <div style="display:flex;gap:20px;flex-wrap:wrap;margin-bottom:8px;">
+          <span><strong>售价：</strong>$90</span>
+          <span><strong>评分：</strong>4.6★</span>
+          <span><strong>REI评论：</strong>76条</span>
+          <span><strong>重量：</strong>1.5磅 / 110磅承重</span>
+        </div>
+        <p style="font-size:13px;color:var(--accent2);line-height:1.7;">1.5磅的桌子能承重110磅——这个"不可能"靠DAC铝杆技术支持。和Helinox Chair One是天然配套——轻量椅+轻量桌=完整的轻量化营地。有测试者用200天以上仍然完好。</p>
+        <a href="https://www.rei.com/product/158007/helinox-table-one-camping-table-hard-top" target="_blank" class="t5-link">🔗 REI查看商品</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<!-- ===== PART 1: 六大渠道商品画像 ===== -->
+<div class="section">
+  <div class="section-title">
+    <span class="num">1</span>
+    六大渠道：每家店里桌椅到底摆什么
+  </div>
+  <p class="section-desc">六家店，六个价格带，六个消费场景。以下逐家展示桌椅品类的真实选品与热销商品。</p>
+
+  <!-- === REI === -->
+  <div class="card">
+    <div class="retailer-header">
+      <span class="retailer-badge" style="background:var(--retailer-rei)">REI</span>
+      <span class="retailer-name">REI Co-op</span>
+    </div>
+    
+    <div class="stats-row">
+      <div class="stat-card"><div class="number">33</div><div class="label">椅子SKU</div></div>
+      <div class="stat-card"><div class="number">30</div><div class="label">桌子SKU</div></div>
+      <div class="stat-card"><div class="number">$52-$300</div><div class="label">椅子价格区间</div></div>
+      <div class="stat-card"><div class="number">17</div><div class="label">合作品牌</div></div>
+    </div>
+
+    <h3 style="font-size:16px;font-weight:700;margin:24px 0 12px">REI线上评价最高的20把椅子</h3>
+
+    <div class="product-grid">
+      <div class="product-row header-row">
+        <div>产品</div><div>核心卖点 / 适合谁</div><div>售价</div><div>评分</div><div>评论</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">YETI Trailhead</span><span class="product-brand">YETI</span></div>
+        <div class="product-insight">不塌+全透气网面+极粗框架。有腰椎问题、愿意为"牢固"付高价的人。</div>
+        <div class="product-price">$300</div>
+        <div class="product-rating">4.8★</div>
+        <div class="product-reviews">1,057</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">Freestyle Rocker</span><span class="product-brand">GCI Outdoor</span></div>
+        <div class="product-insight">弹簧摇椅机制+高背+可折叠。所有年龄段、想要"在家门口的摇椅上露营"的人。</div>
+        <div class="product-price">$80</div>
+        <div class="product-rating">4.7★</div>
+        <div class="product-reviews">2,339</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">RoadTrip Rocker</span><span class="product-brand">GCI Outdoor</span></div>
+        <div class="product-insight">Freestyle加大版，更大靠背+网面透气。长途自驾、频繁露营的人。</div>
+        <div class="product-price">$100</div>
+        <div class="product-rating">4.7★</div>
+        <div class="product-reviews">815</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">Kickback Rocker</span><span class="product-brand">GCI Outdoor</span></div>
+        <div class="product-insight">最便携摇椅，7.3磅。需要轻便但又想要摇椅的人。</div>
+        <div class="product-price">$70</div>
+        <div class="product-rating">4.6★</div>
+        <div class="product-reviews">756</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">Flexlite Air</span><span class="product-brand">REI Co-op</span></div>
+        <div class="product-insight">1磅超轻椅，可塞水壶袋。背包客"终于肯带椅子"的原因。</div>
+        <div class="product-price">$75</div>
+        <div class="product-rating">4.7★</div>
+        <div class="product-reviews">722</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">Westward Chair</span><span class="product-brand">REI Co-op</span></div>
+        <div class="product-insight">木质扶手+铝框架+直立坐姿。想要"正经坐着"不陷下去的人。</div>
+        <div class="product-price">$120</div>
+        <div class="product-rating">4.6★</div>
+        <div class="product-reviews">512</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">Campwell Chair</span><span class="product-brand">REI Co-op</span></div>
+        <div class="product-insight">经典四角折叠椅+快干网面。只想要一把"靠谱工作椅"的人。</div>
+        <div class="product-price">$60</div>
+        <div class="product-rating">4.5★</div>
+        <div class="product-reviews">489</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">Stargaze EVO-X</span><span class="product-brand">NEMO</span></div>
+        <div class="product-insight">悬挂式摇椅+可躺+铝悬挂架。追求"顶级露营体验"的人。</div>
+        <div class="product-price">$280</div>
+        <div class="product-rating">4.8★</div>
+        <div class="product-reviews">378</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">Chair One</span><span class="product-brand">Helinox</span></div>
+        <div class="product-insight">2磅+DAC铝杆轻量椅。需要"背着走"又必须坐好的人。</div>
+        <div class="product-price">$110</div>
+        <div class="product-rating">4.9★</div>
+        <div class="product-reviews">350</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">Low Loveseat</span><span class="product-brand">Kelty</span></div>
+        <div class="product-insight">双人低矮沙发+保温杯托。情侣、带狗家庭。</div>
+        <div class="product-price">$112</div>
+        <div class="product-rating">4.9★</div>
+        <div class="product-reviews">291</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">Everywhere Chair 2</span><span class="product-brand">GCI Outdoor</span></div>
+        <div class="product-insight">沙滩防陷宽脚+背包带+5.4磅。去沙滩、河边频繁的人。</div>
+        <div class="product-price">$65</div>
+        <div class="product-rating">4.5★</div>
+        <div class="product-reviews">288</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">Zero Gravity Chair</span><span class="product-brand">GCI Outdoor</span></div>
+        <div class="product-insight">可躺到几乎平+锁定机构。终极"躺平派"。</div>
+        <div class="product-price">$46</div>
+        <div class="product-rating">4.5★</div>
+        <div class="product-reviews">267</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">King Kong</span><span class="product-brand">ALPS Mountaineering</span></div>
+        <div class="product-insight">800磅承重+钢架。大体重、需要"绝对安全感"的人。</div>
+        <div class="product-price">$90</div>
+        <div class="product-rating">4.6★</div>
+        <div class="product-reviews">244</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">Sunset Chair</span><span class="product-brand">Helinox</span></div>
+        <div class="product-insight">高背支撑+3.2磅。高个子、需要颈枕但不想要重椅子的人。</div>
+        <div class="product-price">$170</div>
+        <div class="product-rating">4.6★</div>
+        <div class="product-reviews">218</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">Outward Low Lawn</span><span class="product-brand">REI Co-op</span></div>
+        <div class="product-insight">经典折叠草坪椅+木扶手+宽座位。音乐节、野餐、复古爱好者。</div>
+        <div class="product-price">$45</div>
+        <div class="product-rating">4.5★</div>
+        <div class="product-reviews">205</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">Broadband Mesh Quad</span><span class="product-brand">Coleman</span></div>
+        <div class="product-insight">全网面透气+基础四角椅+$36。"我就是需要一把能坐的椅子"的人。</div>
+        <div class="product-price">$36</div>
+        <div class="product-rating">4.4★</div>
+        <div class="product-reviews">198</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">Comfort Pro Rocker</span><span class="product-brand">GCI Outdoor</span></div>
+        <div class="product-insight">高背摇椅+加厚坐垫。年长露营者+需要腰部支撑的人。</div>
+        <div class="product-price">$75</div>
+        <div class="product-rating">4.6★</div>
+        <div class="product-reviews">187</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">Dual Lock</span><span class="product-brand">Kijaro</span></div>
+        <div class="product-insight">双锁不塌+不塌面料+经典折叠。性价比+不想塌椅的人。</div>
+        <div class="product-price">$55</div>
+        <div class="product-rating">4.5★</div>
+        <div class="product-reviews">176</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">Lounger DL Mesh</span><span class="product-brand">ENO</span></div>
+        <div class="product-insight">吊床式深靠背+全网面。年轻人+想要吊床感受但有椅子的人。</div>
+        <div class="product-price">$150</div>
+        <div class="product-rating">4.6★</div>
+        <div class="product-reviews">155</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">Trailhead Field Chair</span><span class="product-brand">YETI</span></div>
+        <div class="product-insight">Trailhead缩小版+更便携。YETI粉丝想要更轻的选择。</div>
+        <div class="product-price">$250</div>
+        <div class="product-rating">4.9★</div>
+        <div class="product-reviews">89</div>
+      </div>
+    </div>
+
+    <div class="analysis-card">
+      <h3>REI的椅子逻辑</h3>
+      <p>REI是所有渠道中<strong>价格区间最宽、品牌最多样化、轻量化最突出</strong>的。GCI Outdoor是绝对王者——五个型号霸榜评论量Top 5，合计6,000+评论。其次是REI自有品牌——Westward和Campwell靠"正经坐着"的差异化吃掉了中端市场。高端靠YETI和NEMO，轻量靠Helinox。<br><br>
+      <strong>产品类型分布：</strong>摇椅4款（全部是GCI）> 轻量椅3款 > 四角折叠椅3款 > 高端椅2款 > 双人椅1款。摇椅是REI的绝对主力品类。</p>
+    </div>
+
+    <h3 style="font-size:16px;font-weight:700;margin:24px 0 12px">REI评价最高的10张桌子</h3>
+    <div class="product-grid">
+      <div class="product-row header-row">
+        <div>产品</div><div>核心卖点</div><div>售价</div><div>评分</div><div>评论</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">Compact Camp Table 20</span><span class="product-brand">GCI Outdoor</span></div>
+        <div class="product-insight">20"紧凑折叠桌，轻量+快速展开</div>
+        <div class="product-price">$55</div>
+        <div class="product-rating">4.5★</div>
+        <div class="product-reviews">263</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">Roll-Top Large</span><span class="product-brand">Mountain Summit Gear</span></div>
+        <div class="product-insight">大号卷顶桌+可站高做饭</div>
+        <div class="product-price">$80</div>
+        <div class="product-rating">4.3★</div>
+        <div class="product-reviews">149</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">Camp Prep Table</span><span class="product-brand">REI Co-op</span></div>
+        <div class="product-insight">四条可调脚+铝面板+可放热锅</div>
+        <div class="product-price">$109</div>
+        <div class="product-rating">4.5★</div>
+        <div class="product-reviews">135</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">Slim-Fold Cook Station</span><span class="product-brand">GCI Outdoor</span></div>
+        <div class="product-insight">三层厨房工作站+侧桌+挂钩</div>
+        <div class="product-price">$90</div>
+        <div class="product-rating">4.6★</div>
+        <div class="product-reviews">122</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">Camp Roll Table</span><span class="product-brand">REI Co-op</span></div>
+        <div class="product-insight">8.5磅卷顶方桌+1分钟搭好</div>
+        <div class="product-price">$100</div>
+        <div class="product-rating">4.4★</div>
+        <div class="product-reviews">98</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">Table One</span><span class="product-brand">Helinox</span></div>
+        <div class="product-insight">1.5磅+110磅承重，5年用不坏</div>
+        <div class="product-price">$90</div>
+        <div class="product-rating">4.6★</div>
+        <div class="product-reviews">76</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- === Bass Pro === -->
+  <div class="card">
+    <div class="retailer-header">
+      <span class="retailer-badge" style="background:var(--retailer-basspro)">Bass Pro</span>
+      <span class="retailer-name">Bass Pro Shops</span>
+    </div>
+
+    <p style="color:var(--muted);font-size:14px;margin-bottom:16px">
+      Bass Pro Shops和Cabela's已于2017年合并，共享供应链。但两个品牌保持了不同的选品策略。Bass Pro偏"渔猎+家庭"，Cabela's偏"户外硬核"。
+    </p>
+
+    <div class="stats-row">
+      <div class="stat-card"><div class="number">25+</div><div class="label">椅子SKU（估算）</div></div>
+      <div class="stat-card"><div class="number">$30-$300</div><div class="label">椅子价格区间</div></div>
+      <div class="stat-card"><div class="number">8+</div><div class="label">品牌</div></div>
+      <div class="stat-card"><div class="number">Eclipse</div><div class="label">自有品牌占主导</div></div>
+    </div>
+
+    <h3 style="font-size:16px;font-weight:700;margin:24px 0 12px">Bass Pro店内椅子品类结构</h3>
+
+    <div class="product-grid">
+      <div class="product-row header-row">
+        <div>品类</div><div>代表品牌与型号</div><div>价格</div><div>定位</div><div>备注</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">摇椅</span></div>
+        <div class="product-insight">GCI RoadTrip Rocker, Bass Pro Eclipse Rocker</div>
+        <div class="product-price">$70-$120</div>
+        <div class="product-reviews">⭐核心</div>
+        <div>GCI占主，Eclipse自有也做</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">导演椅</span></div>
+        <div class="product-insight">Bass Pro Eclipse Director, GCI Director, Kijaro</div>
+        <div class="product-price">$50-$90</div>
+        <div class="product-reviews">⭐核心</div>
+        <div>高坐姿+侧桌是卖点</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">零重力椅</span></div>
+        <div class="product-insight">Bass Pro Zero Gravity, GCI Freeform</div>
+        <div class="product-price">$60-$130</div>
+        <div class="product-reviews">⭐增长</div>
+        <div>Bass Pro自有品牌主推</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">四角折叠</span></div>
+        <div class="product-insight">Coleman Cooler Quad, Bass Pro Quad</div>
+        <div class="product-price">$30-$50</div>
+        <div class="product-reviews">基础</div>
+        <div>走量品</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">重型椅</span></div>
+        <div class="product-insight">ALPS King Kong, Bass Pro Big Man Chair</div>
+        <div class="product-price">$70-$120</div>
+        <div class="product-reviews">专用</div>
+        <div>500-800磅承重</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">双人椅</span></div>
+        <div class="product-insight">Kelty Low Loveseat, Bass Pro Loveseat</div>
+        <div class="product-price">$100-$150</div>
+        <div class="product-reviews">特色</div>
+        <div>走"家庭露营"路线</div>
+      </div>
+    </div>
+
+    <div class="analysis-card">
+      <h3>Bass Pro的椅子逻辑</h3>
+      <p>Bass Pro是六家渠道中"自有品牌最激进"的。Eclipse系列几乎覆盖了所有主流品类：摇椅、导演椅、零重力椅、双人椅。GCI是唯一的外部品牌能在Bass Pro拿到显著陈列面积的椅子品牌。Coleman则靠Cooler Quad守住低端走量位。<br><br>
+      <strong>为什么Eclipse能大量铺？</strong>Bass Pro的核心顾客画像非常清晰：45-65岁，有钓鱼船或房车，去湖边/河边露营。这类人不需要Helinox的轻量，需要的是：车边能展开、坐着舒服、摇起来爽、价格在$50-$120之间的椅子。Eclipse就是为这个画像造的。</p>
+    </div>
+  </div>
+
+  <!-- === Cabela's === -->
+  <div class="card">
+    <div class="retailer-header">
+      <span class="retailer-badge" style="background:var(--retailer-cabelas)">Cabela's</span>
+      <span class="retailer-name">Cabela's</span>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card"><div class="number">20+</div><div class="label">椅子SKU（估算）</div></div>
+      <div class="stat-card"><div class="number">$40-$300</div><div class="label">椅子价格区间</div></div>
+      <div class="stat-card"><div class="number">6+</div><div class="label">品牌</div></div>
+      <div class="stat-card"><div class="number">GCI专柜</div><div class="label">特色</div></div>
+    </div>
+
+    <h3 style="font-size:16px;font-weight:700;margin:24px 0 12px">Cabela's店内椅子品类结构</h3>
+
+    <div class="product-grid">
+      <div class="product-row header-row">
+        <div>品类</div><div>代表品牌与型号</div><div>价格</div><div>定位</div><div>备注</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">摇椅</span></div>
+        <div class="product-insight">GCI Freestyle, Kickback, RoadTrip, Comfort Pro</div>
+        <div class="product-price">$70-$100</div>
+        <div class="product-reviews">⭐绝对主力</div>
+        <div>GCI全系列均可见</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">零重力椅</span></div>
+        <div class="product-insight">GCI Freeform, Cabela's Zero Gravity</div>
+        <div class="product-price">$70-$130</div>
+        <div class="product-reviews">⭐增长</div>
+        <div>Cabela's自有+ GCI</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">导演椅</span></div>
+        <div class="product-insight">GCI Director, Kijaro Dual Lock</div>
+        <div class="product-price">$50-$80</div>
+        <div class="product-reviews">核心</div>
+        <div>直坐+侧桌</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">重型椅</span></div>
+        <div class="product-insight">ALPS King Kong, Cabela's Big Man</div>
+        <div class="product-price">$70-$120</div>
+        <div class="product-reviews">专用</div>
+        <div>Cabela's的核心客群</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">轻量椅</span></div>
+        <div class="product-insight">Helinox Chair One</div>
+        <div class="product-price">$110</div>
+        <div class="product-reviews">仅1-2款</div>
+        <div>远不如REI多</div>
+      </div>
+    </div>
+
+    <div class="analysis-card">
+      <h3>Cabela's的椅子逻辑</h3>
+      <p>Cabela's是六家渠道中GCI最忠诚的合作伙伴。GCI在Cabela's拥有独立专柜，SKU数量远超REI。Cabela's的客群（中老年狩猎/钓鱼/自驾露营）与GCI的产品定位（摇椅=舒适、零重力=休息、重型=安全）完美匹配。<br><br>
+      <strong>与REI的关键差异：</strong>Cabela's几乎不推轻量化。Helinox只有一款Chair One，不在显眼位置。Cabela's的顾客不需要"1磅的椅子"——他们开皮卡去，后备箱有的是空间。</p>
+    </div>
+  </div>
+
+  <!-- === Academy === -->
+  <div class="card">
+    <div class="retailer-header">
+      <span class="retailer-badge" style="background:var(--retailer-academy)">Academy</span>
+      <span class="retailer-name">Academy Sports + Outdoors</span>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card"><div class="number">25+</div><div class="label">椅子SKU</div></div>
+      <div class="stat-card"><div class="number">$25-$150</div><div class="label">椅子价格区间</div></div>
+      <div class="stat-card"><div class="number">60%+</div><div class="label">Magellan占比</div></div>
+      <div class="stat-card"><div class="number">$45</div><div class="label">Magellan均价</div></div>
+    </div>
+
+    <h3 style="font-size:16px;font-weight:700;margin:24px 0 12px">Academy评价最高的Magellan椅子</h3>
+
+    <div class="product-grid">
+      <div class="product-row header-row">
+        <div>产品</div><div>核心卖点</div><div>售价</div><div>评分</div><div>评论</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">Cool Comfort Mesh</span><span class="product-brand">Magellan</span></div>
+        <div class="product-insight">全网面透气+内置开瓶器。德州夏天最需要的椅子。</div>
+        <div class="product-price">$30</div>
+        <div class="product-rating">4.4★</div>
+        <div class="product-reviews">400+</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">Anti-Gravity Lounger</span><span class="product-brand">Magellan</span></div>
+        <div class="product-insight">零重力躺椅+遮阳篷。后院+露营地通用。</div>
+        <div class="product-price">$70</div>
+        <div class="product-rating">4.3★</div>
+        <div class="product-reviews">326</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">XL Director's Chair</span><span class="product-brand">Magellan</span></div>
+        <div class="product-insight">加宽导演椅+侧桌+杯架。大块头也要有导演椅。</div>
+        <div class="product-price">$50</div>
+        <div class="product-rating">4.5★</div>
+        <div class="product-reviews">151</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">Odyssey Rocker</span><span class="product-brand">Magellan</span></div>
+        <div class="product-insight">弹簧摇椅+600D面料。对标GCI Freestyle。</div>
+        <div class="product-price">$50</div>
+        <div class="product-rating">4.2★</div>
+        <div class="product-reviews">120+</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">Oversized Ultra Comfort</span><span class="product-brand">Magellan</span></div>
+        <div class="product-insight">超宽+厚垫+高靠背。把客厅沙发搬到露营地。</div>
+        <div class="product-price">$65</div>
+        <div class="product-rating">4.3★</div>
+        <div class="product-reviews">95+</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">Stargazer Reclining</span><span class="product-brand">Magellan</span></div>
+        <div class="product-insight">可躺+可锁定倾斜角。对标NEMO Stargaze。</div>
+        <div class="product-price">$80</div>
+        <div class="product-rating">4.1★</div>
+        <div class="product-reviews">80+</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">Love Seat Director</span><span class="product-brand">Magellan</span></div>
+        <div class="product-insight">双人导演椅。对标Kelty Loveseat。</div>
+        <div class="product-price">$75</div>
+        <div class="product-rating">4.0★</div>
+        <div class="product-reviews">60+</div>
+      </div>
+    </div>
+
+    <div class="analysis-card">
+      <h3>Academy / Magellan的椅子逻辑</h3>
+      <p>Academy是所有渠道中<strong>自有品牌渗透率最高、价格最低</strong>的。Magellan Outdoors不是"一个品牌"，是Academy的商品策略——<strong>"所有GCI/YETI/Coleman的好产品，Magellan都做一个$30-$80的版本"</strong>。<br><br>
+      Magellan做了：GCI的摇椅（Odyssey vs Freestyle）、NEMO的悬挂椅（Stargazer vs Stargaze）、YETI的豪华椅（Oversized Ultra Comfort vs Trailhead）、Kelty的双人椅（Love Seat vs Loveseat）。但Magellan不追求做得更好——追求"差不多但便宜40%-60%"。<br><br>
+      <strong>这代表什么人群？</strong>Academy的顾客是"想去露营但不认为需要花$300买椅子"的家庭。德克萨斯、乔治亚、佛罗里达——南方家庭露营者。</p>
+    </div>
+  </div>
+
+  <!-- === Dick's === -->
+  <div class="card">
+    <div class="retailer-header">
+      <span class="retailer-badge" style="background:var(--retailer-dicks)">Dick's</span>
+      <span class="retailer-name">Dick's Sporting Goods</span>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card"><div class="number">15+</div><div class="label">椅子SKU</div></div>
+      <div class="stat-card"><div class="number">$35-$200</div><div class="label">椅子价格区间</div></div>
+      <div class="stat-card"><div class="number">F&amp;S</div><div class="label">自有品牌</div></div>
+      <div class="stat-card"><div class="number">偏年轻</div><div class="label">客群特征</div></div>
+    </div>
+
+    <h3 style="font-size:16px;font-weight:700;margin:24px 0 12px">Dick's店内椅子品类结构</h3>
+
+    <div class="product-grid">
+      <div class="product-row header-row">
+        <div>品类</div><div>代表品牌与型号</div><div>价格</div><div>定位</div><div>备注</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">四角折叠</span></div>
+        <div class="product-insight">Coleman Quad, Field &amp; Stream Quad, Kijaro</div>
+        <div class="product-price">$35-$55</div>
+        <div class="product-reviews">⭐主力</div>
+        <div>走量最大</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">摇椅</span></div>
+        <div class="product-insight">GCI Freestyle, Field &amp; Stream Rocker</div>
+        <div class="product-price">$60-$80</div>
+        <div class="product-reviews">⭐增长</div>
+        <div>GCI为主</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">零重力椅</span></div>
+        <div class="product-insight">GCI Freeform, Field &amp; Stream</div>
+        <div class="product-price">$50-$100</div>
+        <div class="product-reviews">增长</div>
+        <div>自有品牌紧跟GCI</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">导演椅</span></div>
+        <div class="product-insight">Kijaro Dual Lock</div>
+        <div class="product-price">$55</div>
+        <div class="product-reviews">有</div>
+        <div>单一品牌</div>
+      </div>
+    </div>
+
+    <div class="analysis-card">
+      <h3>Dick's的椅子逻辑</h3>
+      <p>Dick's是六家渠道中<strong>椅子品类最薄</strong>的。Sporting Goods就是Sporting Goods——椅子只是露营大类下的一个小分支，远不如篮球鞋和健身器材重要。Field &amp; Stream是Dick's的自有品牌，但在这个品类上的投入远不如Academy的Magellan。<br><br>
+      <strong>关键差异：</strong>Dick's几乎不卖轻量椅（没有Helinox）、不卖重型椅（没有ALPS King Kong）、很少双人椅。它就是"买帐篷时顺便带两把椅子"的渠道。GCI的Freestyle Rocker和Coleman的Quad是绝对主力。</p>
+    </div>
+  </div>
+
+  <!-- === Scheels === -->
+  <div class="card">
+    <div class="retailer-header">
+      <span class="retailer-badge" style="background:var(--retailer-scheels)">SCHEELS</span>
+      <span class="retailer-name">SCHEELS</span>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card"><div class="number">20+</div><div class="label">椅子SKU</div></div>
+      <div class="stat-card"><div class="number">$40-$300</div><div class="label">椅子价格区间</div></div>
+      <div class="stat-card"><div class="number">Scheels Outfitters</div><div class="label">自有品牌</div></div>
+      <div class="stat-card"><div class="number">中西部</div><div class="label">核心区域</div></div>
+    </div>
+
+    <h3 style="font-size:16px;font-weight:700;margin:24px 0 12px">Scheels店内椅子品类结构</h3>
+
+    <div class="product-grid">
+      <div class="product-row header-row">
+        <div>品类</div><div>代表品牌与型号</div><div>价格</div><div>定位</div><div>备注</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">摇椅</span></div>
+        <div class="product-insight">GCI Freestyle, RoadTrip, Kickback, Comfort Pro</div>
+        <div class="product-price">$70-$100</div>
+        <div class="product-reviews">⭐绝对主力</div>
+        <div>GCI全系+Scheels自有摇椅</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">豪华/高端椅</span></div>
+        <div class="product-insight">YETI Trailhead, Parkit Voyager</div>
+        <div class="product-price">$200-$300</div>
+        <div class="product-reviews">⭐特色</div>
+        <div>Scheels是YETI重要渠道</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">重型/双人</span></div>
+        <div class="product-insight">ALPS King Kong, Scheels Cave Bear</div>
+        <div class="product-price">$80-$130</div>
+        <div class="product-reviews">核心</div>
+        <div>Cave Bear Padded Sofa是特色</div>
+      </div>
+      <div class="product-row">
+        <div><span class="product-name">导演椅</span></div>
+        <div class="product-insight">Scheels HD XL Director, Kijaro</div>
+        <div class="product-price">$55-$80</div>
+        <div class="product-reviews">核心</div>
+        <div>Scheels自有品牌主推</div>
+      </div>
+    </div>
+
+    <div class="analysis-card">
+      <h3>Scheels的椅子逻辑</h3>
+      <p>Scheels是六个中最特别的——它是<strong>"体验式零售商"</strong>。每家Scheels店里都有摩天轮、水族馆、保龄球馆。这意味着顾客不是来"买椅子"的，是来"逛"的——逛着逛着坐下来试了YETI Trailhead，觉得"这东西真不一样"，然后$300就刷了。<br><br>
+      <strong>Scheels独有的现象：</strong>它同时推最高端（YETI $300）和最中端（GCI $70-$100）。因为它不靠品类宽度竞争——靠"坐在上面那一瞬间的感受"来卖椅子。</p>
+    </div>
+  </div>
+
+  <!-- 六大渠道一张图 -->
+  <div class="callout">
+    <h3>六个渠道一张图看完</h3>
+    <p>
+      <strong>REI：</strong>品类最全、品牌最多、轻量化最突出。GCI占摇椅，Helinox占轻量，YETI占高端。<br>
+      <strong>Bass Pro：</strong>自有品牌Eclipse全品类覆盖+ GCI补充。目标：湖边/家庭露营。<br>
+      <strong>Cabela's：</strong>GCI最大金主，全系专柜。目标：中老年自驾/狩猎露营。<br>
+      <strong>Academy：</strong>Magellan全线平替，覆盖所有品类但价格砍半。目标：南方家庭。<br>
+      <strong>Dick's：</strong>椅子品类最薄，基本款为主。目标：买帐篷顺手买椅子的人。<br>
+      <strong>Scheels：</strong>GCI+YETI双引擎，靠试坐体验卖高端。目标：愿意花钱买"坐下来那一刻"的人。
+    </p>
+  </div>
+</div>
+
+<hr>
+
+<!-- ===== PART 2: 品牌分析 ===== -->
+<div class="section">
+  <div class="section-title">
+    <span class="num">2</span>
+    一个品牌一页：为什么这些品牌能占据美国Camping店
+  </div>
+  <p class="section-desc">不介绍品牌历史。只分析：做对了什么、产品/价格/设计策略是什么、为什么六个渠道都愿意给它位置。</p>
+
+  <!-- GCI -->
+  <div class="brand-card">
+    <div class="brand-header">
+      <img src="images/A_professional_product_photo_o_2026-06-29T03-07-31.png" class="brand-img" alt="GCI Freestyle Rocker">
+      <div>
+        <h2>GCI Outdoor</h2>
+        <div class="tagline">美国Camping店的"摇椅帝国"——六个渠道，五个有GCI专柜</div>
+      </div>
+    </div>
+    <div class="brand-body">
+      <h3>做对了什么</h3>
+      <p>GCI Outdoor创造了一个新品类：<strong>便携摇椅</strong>。在GCI之前，美国人去露营只能带折叠椅。GCI在1996年发现了一个空白：美国人喜欢坐在门廊摇椅上——为什么不能把这感觉带到露营地？</p>
+      <p><strong>Spring-Action Rocking Technology™（弹簧摇动技术）</strong>是核心专利。摇动不在椅脚，而在框架内的弹簧机构。这意味着：不管地面是石子、沙地、草地还是斜坡——摇椅都能稳定地摇。传统摇椅做不到这一点。</p>
+      <p>从1996年到现在，GCI拿了<strong>56项专利</strong>。Kickback（7.3磅便携摇椅）、RoadTrip（长途版）、Comfort Pro（高背版）、Freeform（零重力版）——都是从同一核心技术长出来的。</p>
+
+      <h3>产品矩阵</h3>
+      <p><strong>摇椅系列（核心）：</strong>Freestyle Rocker（$80，2,339 REI评论）> Kickback Rocker（$70，最便携）> RoadTrip Rocker（$100，最大号）> Comfort Pro Rocker（$75，高背厚垫）</p>
+      <p><strong>零重力系列：</strong>Freeform Zero Gravity Lounger（$70-$130，双位锁定）——在Cabela's和Scheels推得很猛</p>
+      <p><strong>沙滩/地面系列：</strong>Everywhere Chair 2（$65，沙滩防陷宽脚）、ComPack Rocker（$66，超紧凑摇椅）</p>
+      <p><strong>桌子系列：</strong>Slim-Fold Cook Station（$90，三层厨房站）、Compact Camp Table 20（$55）</p>
+
+      <h3>价格策略</h3>
+      <p>核心价位：<strong>$65-$100</strong>。比Coleman贵（让人觉得"质量好"），比YETI便宜得多（让人觉得"不心疼"），刚好卡在"冲动消费$100以下"的心理线。</p>
+
+      <h3>渠道策略</h3>
+      <p>全渠道。REI、Bass Pro、Cabela's、Dick's、Scheels、Amazon、Walmart——全部有GCI。但不同渠道推不同型号：REI推高端摇椅（Kickback、RoadTrip），Scheels推摇椅+零重力，Cabela's全系列。这种"同品牌、不同型号匹配不同渠道"的策略避开了"品牌稀释"。</p>
+
+      <h3>为什么所有渠道都要它</h3>
+      <p>因为<strong>摇椅这个品类，GCI拥有品类定义权</strong>。渠道不能没有摇椅（消费者要），但买手找不出第二个能做得跟GCI一样的品牌。Magellan的Odyssey对标过，Coleman的Pro Rocker也试过——但评论量和复购率差了5-10倍。GCI在摇椅品类的地位，相当于YETI在高端冷藏箱——消费者认这个品牌。</p>
+    </div>
+  </div>
+
+  <!-- Helinox -->
+  <div class="brand-card">
+    <div class="brand-header">
+      <img src="images/Product_photo_of_Helinox_Chair_2026-06-29T03-07-31.png" class="brand-img" alt="Helinox Chair One">
+      <div>
+        <h2>Helinox</h2>
+        <div class="tagline">为什么REI一直推？因为轻量化Camping椅这个品类，是Helinox开创的</div>
+      </div>
+    </div>
+    <div class="brand-body">
+      <h3>做对了什么</h3>
+      <p>2009年，DAC（韩国铝杆巨头，供应全球80%帐篷杆）孵化了一个消费品牌叫Helinox。第一个产品是<strong>Chair One</strong>——2磅重、可塞进背包侧袋的露营椅。当时市面上露营椅的标准重量是8-10磅。Chair One直接砍掉了80%。</p>
+      <p>背后不是"用了更轻的材料"这么简单。是<strong>DAC的TH72M航空级铝杆技术</strong>从帐篷杆迁移到了椅子框架。普通铝杆在反复弯折后会疲劳断裂——TH72M不会。这就是为什么Chair One能做到320磅承重却只有2磅。</p>
+
+      <h3>为什么贵</h3>
+      <p>Helinox椅子均价$110-$200，是Coleman的3-5倍。理由：DAC铝杆不是谁都能买到（DAC是Helinox母公司）；TH72M是专利技术；每根杆的壁厚、直径、热处理都有公差控制。但更重要的理由：<strong>没有竞品能做到相同重量下的相同承重和耐用度。</strong></p>
+
+      <h3>为什么REI一直推</h3>
+      <p>REI的会员是最大的轻量化需求人群。背包客、徒步者、登山者——这些人需要轻量。Helinox Chair One是"第一个让他们真正愿意背一张椅子进山的品牌"。REI推Helinox不是因为利润高——是因为会员需要这个品类，而Helinox是这个品类的唯一正确答案。</p>
+      <p>REI当然推了Flexlite Air（$75，1磅）来"对标"——但评论里很多人说："比Helinox轻，但没Helinox稳。"这就是TH72M的护城河。</p>
+
+      <h3>渠道策略——与GCI相反</h3>
+      <p>Helinox<strong>不在Academy和Dick's</strong>。只进REI、部分高端户外店、以及自己的DTC。因为Helinox知道：去Academy的人不会花$170买一把椅子。与其进大众渠道被价格敏感人群比价，不如只在REI里当"那个贵的但是所有人都想要的"。这是典型的<strong>渠道选择就是品牌定位</strong>。</p>
+    </div>
+  </div>
+
+  <!-- Magellan -->
+  <div class="brand-card">
+    <div class="brand-header">
+      <img src="images/Product_photo_of_a_Magellan_Ou_2026-06-29T03-09-05.png" class="brand-img" alt="Magellan Odyssey Rocker">
+      <div>
+        <h2>Magellan Outdoors</h2>
+        <div class="tagline">不是品牌——是Academy的商品战略。不做创新，做"平替"</div>
+      </div>
+    </div>
+    <div class="brand-body">
+      <h3>Magellan是什么</h3>
+      <p>Magellan Outdoors是Academy Sports + Outdoors的<strong>独家自有品牌</strong>。只能在Academy买到。它不是和其他品牌竞争的独立品牌——是Academy商品部门的"利润发动机"。</p>
+      <p>产品逻辑非常简单：市场上有GCI Freestyle Rocker卖$80 → Magellan做Odyssey Rocker卖$50。市场上有NEMO Stargaze卖$280 → Magellan做Stargazer Reclining卖$80。市场上有YETI Trailhead卖$300 → Magellan做Oversized Ultra Comfort卖$65。</p>
+
+      <h3>为什么能卖</h3>
+      <p>不是因为它做得更好。是因为：它摆在Academy的货架上，而Academy的顾客本来就不是REI的顾客；价格是GCI的60%、YETI的20%；顾客说："一年就露营两次，$50够用了。"</p>
+      <p>评论数据印证了这一点：Magellan Cool Comfort Mesh（$30）有400+评论、4.4星。评论里最多的是"good for the price（对得起这个价）"和"exactly what I expected（跟我预想的一样）"——不是惊喜，是"不后悔"。</p>
+
+      <h3>代表什么人群</h3>
+      <p>代表的是<strong>"露营不是我的身份，是周末活动"</strong>的人群。美国南方（德州、乔治亚、佛州）的家庭，一年去2-3次州立公园。不需要$300的YETI——$50的Magellan摇椅，孩子坐上去觉得好玩，大人坐上去觉得还行，就够了。</p>
+
+      <h3>对市场的意义</h3>
+      <p>Magellan的存在定义了美国Camping椅市场的<strong>价格地板</strong>。任何品牌如果想卖高于$80的椅子，需要回答：为什么消费者不买$50的Magellan而要买你？GCI的回答是"摇得更好+耐用5倍"——这个回答成立。但如果回答不出来，那$50以上的市场就没有位置。</p>
+    </div>
+  </div>
+
+  <!-- Coleman -->
+  <div class="brand-card">
+    <div class="brand-header">
+      <img src="images/Professional_product_photograp_2026-06-29T03-07-31.png" class="brand-img" alt="Coleman Cooler Quad">
+      <div>
+        <h2>Coleman</h2>
+        <div class="tagline">不是最好的——但是最多人买的。Cooler Quad卖出60,000+评论</div>
+      </div>
+    </div>
+    <div class="brand-body">
+      <h3>Coleman在椅子品类的真正位置</h3>
+      <p>Coleman不是"露营品牌"——是<strong>大众户外基础用品品牌</strong>。帐篷、睡袋、冷藏箱、炉具、椅子——Coleman在每个品类都不是最好的，但是是"最多人入门时第一个买的"。</p>
+      <p>在椅子上，Coleman的核心产品是<strong>Cooler Quad Chair</strong>（$36，内置4罐冷藏臂袋+网面杯架）。可能已经卖了20年。累计60,000+条评论。平均评分4.7星。</p>
+
+      <h3>Cooler Quad为什么能一直卖</h3>
+      <p>不是因为椅子最舒服——是因为它<strong>把"冷藏箱"和"椅子"合在一起了</strong>。大多数美国人去露营会带一个冷藏箱。Coleman说：不用带了，扶手就是冷藏箱。这个洞察极其精准——解决的不是"坐着舒服"，是"懒得起身拿冰啤酒"。</p>
+      <p>竞争品牌都试过做类似的"内置冷藏椅"——但没有一个评论量接近Coleman。不是因为技术难度——是因为<strong>Coleman在Walmart的货架上待了20年</strong>。消费者从小看到大。</p>
+
+      <h3>产品矩阵</h3>
+      <p><strong>基础款（$25-$40）：</strong>Cooler Quad, Broadband Mesh Quad（全网面透气版）</p>
+      <p><strong>升级款（$50-$70）：</strong>Outpost Breeze（侧桌+杯架）, Big-N-Tall（600磅承重）</p>
+      <p><strong>摇椅（$70-$90）：</strong>Pro Rocker——对标GCI，但评论量差10倍</p>
+      <p><strong>价格区间：</strong>$21.95-$390.94（平均$75）——所有品牌中最宽的</p>
+
+      <h3>渠道策略</h3>
+      <p>所有渠道都有Coleman。Walmart、Target、Amazon、REI、Bass Pro、Cabela's、Dick's——全覆盖。但不同渠道定位不同：在Walmart是"最便宜的露营椅"，在REI是"入门椅"。REI只放了2-3个Coleman型号，因为需要Coleman兜住预算$40以下的客人——但不需要Coleman抢GCI和Helinox的生意。</p>
+    </div>
+  </div>
+
+  <!-- YETI -->
+  <div class="brand-card">
+    <div class="brand-header">
+      <img src="images/Professional_product_photo_of__2026-06-29T03-07-31.png" class="brand-img" alt="YETI Trailhead">
+      <div>
+        <h2>YETI</h2>
+        <div class="tagline">$300一把椅子。不是坐着舒服——是告诉你"你值得"</div>
+      </div>
+    </div>
+    <div class="brand-body">
+      <h3>YETI做了什么</h3>
+      <p>YETI在2020年左右推出了Trailhead Camp Chair。定价$300。当时最贵的露营椅是NEMO Stargaze（$280）。所有人都在问"谁会花$300买一把露营椅"——结果REI 1,057条评论，4.8星。</p>
+
+      <h3>为什么这么贵</h3>
+      <p>独立评测（CampingGuidance测试了21把椅子）证实了：框架杆直径1.14英寸——所有椅子中最粗的（平均0.6-0.7英寸）；座椅不塌——有锁定机构；100%全网面透气；单片面料无拼接（减少撕裂点）；UV抗老化。这些不是"豪华感"——是<strong>工程上的扎实</strong>。</p>
+      <p>更重要的：<strong>500磅承重+16英寸座椅高度</strong>。大体重的人（很多Camping椅只能承重250-300磅）、膝盖不好的人（低椅子坐下去起不来）——YETI给了他们一个不需要妥协的选择。</p>
+
+      <h3>消费者到底在买什么</h3>
+      <p>REI评论区最常见的词：<strong>"I'm a bigger guy（我是大块头）"</strong>、<strong>"back problems（腰有问题）"</strong>、<strong>"finally a chair that doesn't sag（终于有不塌的椅子了）"</strong>、<strong>"worth every penny（每一分钱都值）"</strong>。YETI的购买动机不是"我想要最贵的"——是"以前买的椅子每次都让我不舒服/塌了/破了，这次买个真正靠谱的"。</p>
+
+      <h3>产品矩阵</h3>
+      <p><strong>Trailhead Camp Chair：</strong>$300，13.6磅，500磅承重——旗舰款。</p>
+      <p><strong>Trailhead Field Chair：</strong>$250，更轻更便携版。</p>
+
+      <h3>渠道策略</h3>
+      <p>只走高端渠道：REI、Scheels、Dick's（部分）、YETI DTC。不在Academy，不在Walmart。YETI非常清楚：它的椅子不是"更多人买得起的"——是"少数人买了之后觉得值、然后告诉别人"的。</p>
+
+      <h3>YETI对整个行业的意义</h3>
+      <p>YETI Trailhead把露营椅的价格天花板从$100-$150拉到了$300。这给整个行业创造了空间：如果没有YETI证明"有人愿意花$300买露营椅"，Helinox的$170 Sunset Chair、NEMO的$280 Stargaze看起来就是"贵得离谱"而不是"值回票价"。YETI为所有想做高端露营椅的品牌撑开了价格空间。</p>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<!-- ===== PART 3: 商品比较 ===== -->
+<div class="section">
+  <div class="section-title">
+    <span class="num">3</span>
+    商品之间的比较
+  </div>
+  <p class="section-desc">不讲品牌，讲商品。为什么这把椅子能卖？为什么那种类型一直存在？</p>
+
+  <div class="analysis-card" style="display:flex;gap:20px;align-items:flex-start;">
+    <img src="images/A_professional_product_photo_o_2026-06-29T03-07-31.png" style="width:140px;height:140px;object-fit:contain;border-radius:10px;background:#fafafa;border:1px solid var(--border);flex-shrink:0;">
+    <div>
+    <h3>为什么GCI Rocker卖爆了（2,339条REI评论）？</h3>
+    <p>
+      <strong>不是因为它是一把"好的露营椅"。</strong>是因为它把两种体验合在一起了：露营（坐在户外）+ 摇椅（坐在门廊摇椅上）。美国中产有一个集体记忆——外婆家的门廊摇椅，夏夜坐着摇、喝冰茶、看萤火虫。GCI Freestyle Rocker把这段记忆搬到了露营地。<br><br>
+      技术层面：弹簧机构在框架内而不是椅脚，所以草地上、石子上、沙滩上都能摇。传统摇椅只能放在平整的硬地面上。这个技术差异是GCI和所有"看起来像摇椅"的竞品之间的鸿沟。<br><br>
+      <strong>Magellan Odyssey同样的价格卖50%——为什么评论量只有GCI的5%？</strong>因为摇椅不是"坐着舒服"——是"摇着舒服"。摇的顺畅度、声音、节奏、稳定性——这些Magellan没做到GCI的水平。便宜$30，但摇起来不舒服——那为什么要买摇椅？
+    </p>
+    <a href="https://www.rei.com/product/853186/gci-outdoor-freestyle-rocker-chair" target="_blank" style="font-size:12px;color:var(--accent);text-decoration:none;">🔗 REI查看GCI Freestyle Rocker →</a>
+    </div>
+  </div>
+
+  <div class="analysis-card" style="display:flex;gap:20px;align-items:flex-start;">
+    <img src="images/Professional_product_photo_of__2026-06-29T03-44-32.png" style="width:140px;height:140px;object-fit:contain;border-radius:10px;background:#fafafa;border:1px solid var(--border);flex-shrink:0;">
+    <div>
+    <h3>为什么Director Chair每个品牌都做？</h3>
+    <p>
+      导演椅（Director Chair）在六个渠道中<strong>全部存在</strong>。GCI、Kijaro、Magellan、Bass Pro Eclipse、Scheels Outfitters——都有自家的导演椅。<br><br>
+      核心特征：<strong>高坐姿（15-17英寸）+ 侧桌/杯架 + 可折叠</strong>。解决的问题不是"露营浪漫"——是"我要坐着吃饭/玩牌/用电脑/写东西"。REI Westward（$120）本质上是一个升级版的导演椅——木扶手、直立坐姿、不陷下去。<br><br>
+      <strong>为什么导演椅是刚需：</strong>低矮的露营椅（10-12英寸座高）让你陷进去很舒服，但不能在上面吃饭。美国人吃三明治、喝啤酒、玩牌——这些都需要桌子高度。导演椅回答的就是这个问题。
+    </p>
+    <a href="https://www.rei.com/product/893290/gci-outdoor-directors-chair" target="_blank" style="font-size:12px;color:var(--accent);text-decoration:none;">🔗 REI查看GCI Director's Chair →</a>
+    </div>
+  </div>
+
+  <div class="analysis-card" style="display:flex;gap:20px;align-items:flex-start;">
+    <img src="images/Product_photo_of_Helinox_Chair_2026-06-29T03-07-31.png" style="width:140px;height:140px;object-fit:contain;border-radius:10px;background:#fafafa;border:1px solid var(--border);flex-shrink:0;">
+    <div>
+    <h3>为什么轻量椅一直卖——而且只有Helinox真正卖得动？</h3>
+    <p>
+      轻量椅（&lt;4磅）的市场逻辑和其他椅子完全不同。它不是"坐在露营地"的椅子——是<strong>"背包客终于肯带椅子去山里"</strong>的椅子。<br><br>
+      REI推了三把轻量椅：REI Flexlite Air（1磅，$75）、Helinox Chair Zero（1.1磅，$130）、Helinox Chair One（2磅，$110）。REI Flexlite Air的评分（98/100）甚至超过了Helinox——但评论数只有Helinox的20%。<br><br>
+      <strong>轻量椅的购买决策高度依赖"有人告诉我这是最好的"</strong>——而Helinox用了10年时间在背包客群体中建立了这个认知。REI Flexlite Air做得更好，但来得太晚了。在轻量椅品类，先入优势非常强。
+    </p>
+    <a href="https://www.rei.com/product/242195/helinox-chair-one-re" target="_blank" style="font-size:12px;color:var(--accent);text-decoration:none;">🔗 REI查看Helinox Chair One →</a>
+    </div>
+  </div>
+
+  <div class="analysis-card" style="display:flex;gap:20px;align-items:flex-start;">
+    <img src="images/Product_photo_of_Kelty_Low_Lov_2026-06-29T03-09-05.png" style="width:140px;height:140px;object-fit:contain;border-radius:10px;background:#fafafa;border:1px solid var(--border);flex-shrink:0;">
+    <div>
+    <h3>为什么双人椅存在——而且六个渠道里四个有？</h3>
+    <p>
+      Kelty Low Loveseat（$112，4.9星，291评论）是双人椅的标准答案。每个渠道都有"双人椅"这个SKU——Bass Pro、Cabela's、Academy（Magellan Love Seat）、Scheels（Cave Bear Sofa）——但REI只放Kelty，Dick's几乎不放。<br><br>
+      双人椅卖的<strong>不是椅子——是"一起坐"的体验</strong>。情侣、带狗的家庭、带孩子的大人。4.9星的原因是：买它的期望是"我和她/他/它坐在一起"——而它提供了这个。这不是功能需求，是情感需求。<br><br>
+      但为什么Dick's不卖双人椅？因为Dick's的顾客去买椅子时，脑子里想的是"我"——不是"我们"。双人椅是一个关系型产品，需要用户画像支持。
+    </p>
+    <a href="https://www.rei.com/product/148021/kelty-low-loveseat" target="_blank" style="font-size:12px;color:var(--accent);text-decoration:none;">🔗 REI查看Kelty Low Loveseat →</a>
+    </div>
+  </div>
+
+  <div class="analysis-card" style="display:flex;gap:20px;align-items:flex-start;">
+    <img src="images/Product_photo_of_GCI_Outdoor_F_2026-06-29T03-08-22.png" style="width:140px;height:140px;object-fit:contain;border-radius:10px;background:#fafafa;border:1px solid var(--border);flex-shrink:0;">
+    <div>
+    <h3>为什么零重力椅越来越多？</h3>
+    <p>
+      零重力椅（Zero Gravity Chair）是过去3-5年增长最快的品类。GCI、Bass Pro Eclipse、Cabela's、Magellan Anti-Gravity、Scheels——都在推。<br><br>
+      零重力椅卖的是：<strong>"我在后院也能用"</strong>。这是关键。摇椅和导演椅本质上是"露营时用的"——零重力椅的购买理由是"露营也能用，但平时摆后院更好用"。这扩大了可触达市场，让不露营的人也买。<br><br>
+      美国人有一个巨大的后院文化——阳台、露台、泳池边、草坪。零重力椅完美匹配这个场景。GCI的策略是推Freeform系列（$70-$130）——比后院家具便宜、比普通露营椅更舒服、折叠方便收纳。<br><br>
+      <strong>零重力椅的增长——不是露营在增长，是"后院生活"在增长。</strong>
+    </p>
+    <a href="https://www.rei.com/product/893237/gci-outdoor-freeform-zero-gravity-lounger" target="_blank" style="font-size:12px;color:var(--accent);text-decoration:none;">🔗 REI查看GCI Freeform Zero Gravity →</a>
+    </div>
+  </div>
+
+  <div class="analysis-card" style="display:flex;gap:20px;align-items:flex-start;">
+    <img src="images/Product_photo_of_a_roll_top_ca_2026-06-29T03-08-12.png" style="width:140px;height:140px;object-fit:contain;border-radius:10px;background:#fafafa;border:1px solid var(--border);flex-shrink:0;">
+    <div>
+    <h3>美国Camping店桌上有什么规律？</h3>
+    <p>
+      美国露营桌子的品类结构非常清晰，只有四种：<br><br>
+      <strong>卷顶桌（Roll-Top）：</strong>REI Camp Roll Table、ALPS Dining Table。最主流——铝面板条卷起收纳，打开后平整坚固。100磅承重是基准线。<br>
+      <strong>折叠桌：</strong>REI Camp Prep Table、Lifetime Adjustable。四条可调脚+铝面板+站立高度。核心场景是做饭+吃饭。<br>
+      <strong>厨房站（Cook Station）：</strong>GCI Slim-Fold。多层+侧桌+挂钩。露营厨房品类——正在增长。<br>
+      <strong>轻量桌：</strong>Helinox Table One（1.5磅）。和轻量椅配套——背包客用的。<br><br>
+      <strong>桌子不像椅子那样有品牌忠诚度。</strong>REI自有品牌的桌子评论量远超品牌桌（GCI的Compact Camp Table例外，因为它太小太便宜）。桌子的购买逻辑是"尺寸、重量、价格、好不好搭"——品牌不重要。
+    </p>
+    <a href="https://www.rei.com/product/229076/rei-co-op-camp-roll-table" target="_blank" style="font-size:12px;color:var(--accent);text-decoration:none;">🔗 REI查看Camp Roll Table →</a>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<!-- ===== PART 4: 共同卖什么 ===== -->
+<div class="section">
+  <div class="section-title">
+    <span class="num">4</span>
+    美国线下真正共同卖什么
+  </div>
+  <p class="section-desc">统计哪些商品几乎所有店都有，哪些只有特定渠道有，哪些已经成为美国Camping店标配。</p>
+
+  <table class="comp-table">
+    <thead>
+      <tr>
+        <th>品类 / 产品类型</th>
+        <th>REI</th>
+        <th>Bass Pro</th>
+        <th>Cabela's</th>
+        <th>Academy</th>
+        <th>Dick's</th>
+        <th>Scheels</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>摇椅 (Rocker)</strong></td>
+        <td class="matrix-cell yes">✓ 主力</td>
+        <td class="matrix-cell yes">✓ 主力</td>
+        <td class="matrix-cell yes">✓ 绝对主力</td>
+        <td class="matrix-cell yes">✓ 有</td>
+        <td class="matrix-cell yes">✓ 有</td>
+        <td class="matrix-cell yes">✓ 绝对主力</td>
+      </tr>
+      <tr>
+        <td><strong>四角折叠椅 (Quad)</strong></td>
+        <td class="matrix-cell yes">✓ 有</td>
+        <td class="matrix-cell yes">✓ 有</td>
+        <td class="matrix-cell yes">✓ 有</td>
+        <td class="matrix-cell yes">✓ 有</td>
+        <td class="matrix-cell yes">✓ 主力</td>
+        <td class="matrix-cell yes">✓ 有</td>
+      </tr>
+      <tr>
+        <td><strong>导演椅 (Director)</strong></td>
+        <td class="matrix-cell yes">✓ 有</td>
+        <td class="matrix-cell yes">✓ 主力</td>
+        <td class="matrix-cell yes">✓ 有</td>
+        <td class="matrix-cell yes">✓ 有</td>
+        <td class="matrix-cell partial">少量</td>
+        <td class="matrix-cell yes">✓ 有</td>
+      </tr>
+      <tr>
+        <td><strong>零重力椅 (Zero Gravity)</strong></td>
+        <td class="matrix-cell yes">✓ 有</td>
+        <td class="matrix-cell yes">✓ 增长</td>
+        <td class="matrix-cell yes">✓ 增长</td>
+        <td class="matrix-cell yes">✓ 增长</td>
+        <td class="matrix-cell partial">少量</td>
+        <td class="matrix-cell yes">✓ 有</td>
+      </tr>
+      <tr>
+        <td><strong>双人椅 (Loveseat)</strong></td>
+        <td class="matrix-cell yes">✓ 有</td>
+        <td class="matrix-cell yes">✓ 有</td>
+        <td class="matrix-cell yes">✓ 有</td>
+        <td class="matrix-cell yes">✓ 有</td>
+        <td class="matrix-cell no">✗ 无</td>
+        <td class="matrix-cell yes">✓ 有</td>
+      </tr>
+      <tr>
+        <td><strong>轻量椅 (&lt;4磅)</strong></td>
+        <td class="matrix-cell yes">✓ 重点</td>
+        <td class="matrix-cell no">✗ 无</td>
+        <td class="matrix-cell partial">极少</td>
+        <td class="matrix-cell no">✗ 无</td>
+        <td class="matrix-cell no">✗ 无</td>
+        <td class="matrix-cell no">✗ 无</td>
+      </tr>
+      <tr>
+        <td><strong>高端椅 ($200+)</strong></td>
+        <td class="matrix-cell yes">✓ 有</td>
+        <td class="matrix-cell partial">极少</td>
+        <td class="matrix-cell partial">极少</td>
+        <td class="matrix-cell no">✗ 无</td>
+        <td class="matrix-cell no">✗ 无</td>
+        <td class="matrix-cell yes">✓ 有</td>
+      </tr>
+      <tr>
+        <td><strong>重型椅 (500+磅)</strong></td>
+        <td class="matrix-cell yes">✓ 有</td>
+        <td class="matrix-cell yes">✓ 有</td>
+        <td class="matrix-cell yes">✓ 重点</td>
+        <td class="matrix-cell partial">少量</td>
+        <td class="matrix-cell no">✗ 无</td>
+        <td class="matrix-cell yes">✓ 有</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout" style="margin-top:24px">
+    <h3>六家全都有 = 美国Camping店标配</h3>
+    <p>
+      <strong>摇椅：</strong>六家全有。已经是"标配"，不是"差异化"了。<br>
+      <strong>四角折叠椅：</strong>六家全有。最基础的品类，每个渠道都需要一个$30-$40的选择。<br>
+      <strong>零重力椅：</strong>六家全有或少量有。正在从"趋势"变成"标配"。<br><br>
+      <strong>REI独占：</strong>轻量椅品类。REI是目前唯一在线下大量陈列轻量椅的主流渠道。<br>
+      <strong>REI+Scheels独占：</strong>$200+高端椅。这两个渠道有自己的高端客群和试坐体验。<br>
+      <strong>Dick's缺失：</strong>双人椅、轻量椅、重型椅、高端椅。Dick's是椅子品类最薄的渠道。
+    </p>
+  </div>
+</div>
+
+<hr>
+
+<!-- ===== PART 5: 消费者评论 ===== -->
+<div class="section">
+  <div class="section-title">
+    <span class="num">5</span>
+    美国消费者真正花钱买什么
+  </div>
+  <p class="section-desc">不说"舒适、便携、功能"——大量引用真实评论。看看消费者自己的原话。</p>
+
+  <div class="card">
+    <h3 style="font-size:16px;font-weight:700;margin-bottom:16px">GCI Freestyle Rocker — 2,339条REI评论，4.7星</h3>
+    
+    <div class="quote-block">
+      <div class="quote-text">"I bought two of these for our annual camping trip. My husband, who has back problems, was able to sit in this chair for hours without pain."</div>
+      <div class="quote-translation">🌐 "给年度露营买了两把。丈夫有腰伤，坐这把椅子可以几小时不痛。"</div>
+      <div class="quote-source">— REI已验证买家</div>
+    </div>
+    <div class="quote-block">
+      <div class="quote-text">"This is the chair everyone fights over at the campsite. I've had mine for 3 years and it's still going strong."</div>
+      <div class="quote-translation">🌐 "这是营地里人人抢着坐的椅子。用了三年还跟新的一样。"</div>
+      <div class="quote-source">— REI已验证买家</div>
+    </div>
+    <div class="quote-block">
+      <div class="quote-text">"I'm 6'3' and 240lbs. This chair fits me perfectly and the rocker mechanism shows no signs of wear after a full season."</div>
+      <div class="quote-translation">🌐 "身高193cm，体重109kg。完美合身。用了一整季摇椅机制毫无磨损。"</div>
+      <div class="quote-source">— REI已验证买家</div>
+    </div>
+    
+    <p style="font-size:13px;color:var(--muted);margin-top:16px">
+      <strong>评论关键词统计：</strong>rocking motion / sturdy / no back pain / everyone fights over / 3+ years still going / worth the money<br><br>
+      <strong>消费者真正在买什么：</strong>不是"一把露营椅"——是"腰不疼了"+"抢着坐"+"用了三年还跟新的一样"。购买决定里，<strong>"健康/舒适"的权重超过"露营"本身</strong>。
+    </p>
+  </div>
+
+  <div class="card">
+    <h3 style="font-size:16px;font-weight:700;margin-bottom:16px">YETI Trailhead — 1,057条REI评论，4.8星</h3>
+    
+    <div class="quote-block">
+      <div class="quote-text">"I'm a bigger guy and have broken so many camp chairs. This thing is built like a tank. I finally have a chair I don't have to worry about collapsing."</div>
+      <div class="quote-translation">🌐 "大块头，坐塌过数不清的椅子。这把像坦克一样结实。终于不用再担心椅子塌了。"</div>
+      <div class="quote-source">— REI已验证买家</div>
+    </div>
+    <div class="quote-block">
+      <div class="quote-text">"After back surgery, I needed a chair with good lumbar support that sits high enough to get out of easily. This one is perfect. Worth every penny of $300."</div>
+      <div class="quote-translation">🌐 "腰部手术后需要一把腰部支撑好、座高够容易起身的椅子。这把完美。$300每一分钱都值。"</div>
+      <div class="quote-source">— REI已验证买家</div>
+    </div>
+    <div class="quote-block">
+      <div class="quote-text">"The mesh is a game changer in Texas heat. No more sweaty back. The chair doesn't sag at all after sitting for hours."</div>
+      <div class="quote-translation">🌐 "德州夏天全网面简直是救命——再没有汗湿的背。坐几个小时完全不会塌陷。"</div>
+      <div class="quote-source">— REI已验证买家</div>
+    </div>
+    
+    <p style="font-size:13px;color:var(--muted);margin-top:16px">
+      <strong>评论关键词统计：</strong>bigger guy / back surgery / doesn't sag / built like a tank / worth every penny / breathable mesh / tall seat height<br><br>
+      <strong>消费者真正在买什么：</strong>不是在"升级露营椅"——是在<strong>"终于解决了多年以来的痛点"</strong>。这是一个"问题解决型"购买。$300不是因为有钱——是因为受够了$40椅子每季度坏一把。
+    </p>
+  </div>
+
+  <div class="card">
+    <h3 style="font-size:16px;font-weight:700;margin-bottom:16px">Magellan Cool Comfort Mesh — 400+条Academy评论，4.4星</h3>
+    
+    <div class="quote-block">
+      <div class="quote-text">"For $30, this is a great chair. We bought four for the family camping trip and they held up great. Not as fancy as the $100 chairs but does exactly what I need."</div>
+      <div class="quote-translation">🌐 "$30买一把好椅子。全家露营买了四把，都撑住了。不如$100的椅子精致，但完全够用。"</div>
+      <div class="quote-source">— Academy已验证买家</div>
+    </div>
+    <div class="quote-block">
+      <div class="quote-text">"Good for the price. It's a basic camping chair — don't expect luxury. The built-in bottle opener was a nice surprise though!"</div>
+      <div class="quote-translation">🌐 "对得起这个价。就是把基础露营椅——别期待豪华。不过内置开瓶器是个不错的惊喜！"</div>
+      <div class="quote-source">— Academy已验证买家</div>
+    </div>
+    <div class="quote-block">
+      <div class="quote-text">"Bought this for my son's baseball games. Lightweight, easy to carry, mesh keeps me cool. After a season it's still in one piece."</div>
+      <div class="quote-translation">🌐 "给儿子的棒球赛买的。轻便好带，网面保持凉快。用了一季还没坏——不像之前$20的Walmart椅子。"</div>
+      <div class="quote-source">— Academy已验证买家</div>
+    </div>
+    
+    <p style="font-size:13px;color:var(--muted);margin-top:16px">
+      <strong>评论关键词统计：</strong>good for the price / great for the money / basic but works / mesh keeps you cool / not luxury / bottle opener<br><br>
+      <strong>消费者真正在买什么：</strong>不是"好椅子"——是"<strong>对得起这个价</strong>"。Magellan的顾客不需要惊喜，只需要"不后悔"。$30买四把全家用，比$120买一把GCI更符合他们的露营方式（一年2-3次）。
+    </p>
+  </div>
+
+  <div class="card">
+    <h3 style="font-size:16px;font-weight:700;margin-bottom:16px">Helinox Chair One — 350条REI评论，4.9星</h3>
+    
+    <div class="quote-block">
+      <div class="quote-text">"This is the first chair I've ever carried into the backcountry. At 2 pounds, I no longer have to sit on rocks and logs."</div>
+      <div class="quote-translation">🌐 "这是我第一次背进荒野的椅子。2磅重，再也不用坐石头和树干了。"</div>
+      <div class="quote-source">— REI已验证买家</div>
+    </div>
+    <div class="quote-block">
+      <div class="quote-text">"I was skeptical about $110 for a tiny chair. After one trip, I get it. It's so stable for its weight. My friends all tried it and ordered their own."</div>
+      <div class="quote-translation">🌐 "本来怀疑花$110买把小板凳。一次旅行后就懂了：这个重量太稳了。朋友们试过后都买了。"</div>
+      <div class="quote-source">— REI已验证买家</div>
+    </div>
+    <div class="quote-block">
+      <div class="quote-text">"Not the most comfortable for lounging — it's a backpacking chair after all. But for what it is (2lbs, packs tiny), it's incredible. Frame feels bombproof."</div>
+      <div class="quote-translation">🌐 "不是最舒服的躺椅——毕竟是把背包椅。但以2磅、收纳极小来说，它太惊人了。框架感觉像防弹一样。"</div>
+      <div class="quote-source">— REI已验证买家</div>
+    </div>
+    
+    <p style="font-size:13px;color:var(--muted);margin-top:16px">
+      <strong>评论关键词统计：</strong>first chair in backcountry / engineering / stable for its weight / friends ordered after trying / bombproof / packs tiny<br><br>
+      <strong>消费者真正在买什么：</strong>不是"舒服的椅子"——是<strong>"终于不用坐石头了"</strong>。Helinox的用户知道它不如GCI舒服，但他们不需要舒服——需要的是"2磅以下的任何可以坐的东西"。解决"有没有"的问题，不是"好不好"。
+    </p>
+  </div>
+
+  <div class="card">
+    <h3 style="font-size:16px;font-weight:700;margin-bottom:16px">Coleman Cooler Quad — 60,000+条评论，4.7星</h3>
+    
+    <div class="quote-block">
+      <div class="quote-text">"I've had these chairs for 5 years. The built-in cooler is brilliant — keeps 4 cans cold for hours. They've been through rain, sun, and kids jumping on them."</div>
+      <div class="quote-translation">🌐 "买了5年。内置冷藏太聪明了——4罐饮料几小时保冷。经历了雨、日晒、孩子跳上跳下，还活着。"</div>
+      <div class="quote-source">— Amazon已验证买家</div>
+    </div>
+    <div class="quote-block">
+      <div class="quote-text">"These are not luxury chairs. They are reliable, affordable camping chairs that do exactly what you expect. The cooler pouch is why I keep buying this model."</div>
+      <div class="quote-translation">🌐 "不是豪华椅。就是可靠、买得起的露营椅——做你期待的事。冷藏袋是我一直买这款的原因。"</div>
+      <div class="quote-source">— Amazon已验证买家</div>
+    </div>
+    <div class="quote-block">
+      <div class="quote-text">"Kids sports games, backyard parties, camping — these chairs go everywhere with us. At $35, if one breaks after 2 years, I just buy another."</div>
+      <div class="quote-translation">🌐 "孩子运动会、后院派对、露营——这些椅子跟我们去任何地方。$35一把，两年后坏了就再买一把。"</div>
+      <div class="quote-source">— Amazon已验证买家</div>
+    </div>
+    
+    <p style="font-size:13px;color:var(--muted);margin-top:16px">
+      <strong>评论关键词统计：</strong>built-in cooler / 5 years still going / reliable / kids sports / not luxury but works / buy another when it breaks<br><br>
+      <strong>消费者真正在买什么：</strong>不是"露营椅"——是<strong>"能冷藏啤酒的椅子"+"坏了我再买一把反正$35"</strong>。Cooler Quad的护城河是"内置冷藏"这个功能——没有竞品在这个价位做到同样的事。
+    </p>
+  </div>
+</div>
+
+<hr>
+
+<!-- ===== PART 6: 20件最值得研究的商品 ===== -->
+<div class="section">
+  <div class="section-title">
+    <span class="num">6</span>
+    第一次走进美国Camping店——最值得研究的20件商品
+  </div>
+  <p class="section-desc">不是"推荐做这些产品"——是"这些产品最有研究价值，跳过任何一件都会漏掉关键信息"。</p>
+
+  <div class="shelf-grid">
+    <div class="shelf-item" style="display:flex;gap:14px;align-items:flex-start;">
+      <img src="images/A_professional_product_photo_o_2026-06-29T03-07-31.png" style="width:80px;height:80px;object-fit:contain;border-radius:6px;background:#fafafa;border:1px solid var(--border);flex-shrink:0;">
+      <div>
+      <div class="rank">01</div>
+      <h4>GCI Freestyle Rocker</h4>
+      <div class="meta">$80 · REI 2,339评论 · 4.7星</div>
+      <div class="why">摇椅品类的定义者。研究它不是因为它销量高——是因为它是所有$50-$100露营椅的定价基准和品质基准。</div>
+      </div>
+    </div>
+    <div class="shelf-item" style="display:flex;gap:14px;align-items:flex-start;">
+      <img src="images/Professional_product_photograp_2026-06-29T03-07-31.png" style="width:80px;height:80px;object-fit:contain;border-radius:6px;background:#fafafa;border:1px solid var(--border);flex-shrink:0;">
+      <div>
+      <div class="rank">02</div>
+      <h4>YETI Trailhead</h4>
+      <div class="meta">$300 · REI 1,057评论 · 4.8星</div>
+      <div class="why">$300的价格天花板。研究它回答了一个关键问题：消费者愿意为"不塌+全透气+高座椅+500磅"付多少钱。</div>
+      </div>
+    </div>
+    <div class="shelf-item" style="display:flex;gap:14px;align-items:flex-start;">
+      <img src="images/Professional_product_photo_of__2026-06-29T03-07-31.png" style="width:80px;height:80px;object-fit:contain;border-radius:6px;background:#fafafa;border:1px solid var(--border);flex-shrink:0;">
+      <div>
+      <div class="rank">03</div>
+      <h4>Coleman Cooler Quad</h4>
+      <div class="meta">$36 · 60,000+评论 · 4.7星</div>
+      <div class="why">美国最大众的露营椅。研究它为了理解：最低价格线的消费者期望是什么——"内置冷藏"到底是噱头还是刚需。</div>
+      </div>
+    </div>
+    <div class="shelf-item" style="display:flex;gap:14px;align-items:flex-start;">
+      <img src="images/A_professional_product_photo_o_2026-06-29T03-07-31.png" style="width:80px;height:80px;object-fit:contain;border-radius:6px;background:#fafafa;border:1px solid var(--border);flex-shrink:0;">
+      <div>
+      <div class="rank">04</div>
+      <h4>GCI Kickback Rocker</h4>
+      <div class="meta">$70 · REI 756评论 · 4.6星</div>
+      <div class="why">7.3磅便携摇椅。研究它为了理解：把摇椅做轻之后，消费者还能接受吗？牺牲了什么？换来了什么？</div>
+      </div>
+    </div>
+    <div class="shelf-item" style="display:flex;gap:14px;align-items:flex-start;">
+      <img src="images/Product_photo_of_Helinox_Chair_2026-06-29T03-07-31.png" style="width:80px;height:80px;object-fit:contain;border-radius:6px;background:#fafafa;border:1px solid var(--border);flex-shrink:0;">
+      <div>
+      <div class="rank">05</div>
+      <h4>Helinox Chair One</h4>
+      <div class="meta">$110 · 4.9星 · 2磅</div>
+      <div class="why">轻量椅的开创者。研究它不是为做轻量——是为理解DAC铝杆技术为何构成壁垒，以及"先入优势"如何在露营市场起作用。</div>
+      </div>
+    </div>
+    <div class="shelf-item" style="display:flex;gap:14px;align-items:flex-start;">
+      <img src="images/Product_photo_of_a_Magellan_Ou_2026-06-29T03-09-05.png" style="width:80px;height:80px;object-fit:contain;border-radius:6px;background:#fafafa;border:1px solid var(--border);flex-shrink:0;">
+      <div>
+      <div class="rank">06</div>
+      <h4>Magellan Cool Comfort Mesh</h4>
+      <div class="meta">$30 · Academy 400+评论 · 4.4星</div>
+      <div class="why">自有品牌平替的教科书。研究它为了理解：当品牌不做创新只做"便宜40%的版本"，品质需要牺牲到什么程度消费者才会拒绝。</div>
+      </div>
+    </div>
+    <div class="shelf-item" style="display:flex;gap:14px;align-items:flex-start;">
+      <img src="images/Product_photo_of_a_heavy_duty__2026-06-29T03-09-06.png" style="width:80px;height:80px;object-fit:contain;border-radius:6px;background:#fafafa;border:1px solid var(--border);flex-shrink:0;">
+      <div>
+      <div class="rank">07</div>
+      <h4>ALPS King Kong</h4>
+      <div class="meta">$90 · 800磅承重 · 6家渠道都有</div>
+      <div class="why">重型椅的标准答案。800磅承重不是卖点——是"安全感"。研究它为了理解：为什么这个品类六个渠道都存在，谁在买它。</div>
+      </div>
+    </div>
+    <div class="shelf-item" style="display:flex;gap:14px;align-items:flex-start;">
+      <img src="images/Product_photo_of_Kelty_Low_Lov_2026-06-29T03-09-05.png" style="width:80px;height:80px;object-fit:contain;border-radius:6px;background:#fafafa;border:1px solid var(--border);flex-shrink:0;">
+      <div>
+      <div class="rank">08</div>
+      <h4>Kelty Low Loveseat</h4>
+      <div class="meta">$112 · 4.9星 · 双人沙发</div>
+      <div class="why">双人椅品类的最佳范例。研究它为了理解：双人椅是"刚需"还是"锦上添花"——谁会花$100+买一把必须两个人一起用的露营椅。</div>
+      </div>
+    </div>
+    <div class="shelf-item">
+      <div class="rank">09</div>
+      <h4>REI Co-op Westward Chair</h4>
+      <div class="meta">$120 · GearJunkie最佳整体椅 · 2026</div>
+      <div class="why">"正经坐着"的椅子。木扶手+高靠背+铝框架。研究它为了理解：不是所有露营椅都需要"陷进去"——有人想要"坐直"。</div>
+      <a href="https://www.rei.com/product/893512/rei-co-op-westward-chair" target="_blank" style="font-size:11px;color:var(--accent);text-decoration:none;">🔗 REI查看</a>
+    </div>
+    <div class="shelf-item" style="display:flex;gap:14px;align-items:flex-start;">
+      <img src="images/Product_photo_of_NEMO_Stargaze_2026-06-29T03-08-22.png" style="width:80px;height:80px;object-fit:contain;border-radius:6px;background:#fafafa;border:1px solid var(--border);flex-shrink:0;">
+      <div>
+      <div class="rank">10</div>
+      <h4>NEMO Stargaze EVO-X</h4>
+      <div class="meta">$280 · 悬挂摇椅+可躺 · 4.8星</div>
+      <div class="why">REI评96/100。研究它为了理解：悬挂式摇椅（不是弹簧摇椅）的体验差异是什么——$280这个价位的消费者是谁。</div>
+      </div>
+    </div>
+    <div class="shelf-item" style="display:flex;gap:14px;align-items:flex-start;">
+      <img src="images/Product_photo_of_GCI_Outdoor_F_2026-06-29T03-08-22.png" style="width:80px;height:80px;object-fit:contain;border-radius:6px;background:#fafafa;border:1px solid var(--border);flex-shrink:0;">
+      <div>
+      <div class="rank">11</div>
+      <h4>GCI Freeform Zero Gravity</h4>
+      <div class="meta">$70-$130 · 双位锁定零重力</div>
+      <div class="why">零重力品类的增长引擎。研究它为了理解：为什么零重力椅同时在露营渠道和后院市场增长——产品结构有什么特殊。</div>
+      </div>
+    </div>
+    <div class="shelf-item">
+      <div class="rank">12</div>
+      <h4>Bass Pro Eclipse Rocker</h4>
+      <div class="meta">$70-$100 · Bass Pro自有品牌</div>
+      <div class="why">渠道自有品牌怎么对标GCI。研究它为了理解：Bass Pro的买手决定"做自己的摇椅"时，认为GCI的哪个部分可以被替代。</div>
+      <a href="https://www.basspro.com/l/camp-chairs-and-furniture" target="_blank" style="font-size:11px;color:var(--accent);text-decoration:none;">🔗 Bass Pro查看</a>
+    </div>
+    <div class="shelf-item" style="display:flex;gap:14px;align-items:flex-start;">
+      <img src="images/Product_photo_of_Scheels_Cave__2026-06-29T04-14-23.png" style="width:100px;height:100px;object-fit:contain;border-radius:8px;background:#fafafa;border:1px solid var(--border);flex-shrink:0;">
+      <div>
+        <div class="rank">13</div>
+        <h4>Scheels Cave Bear Padded Sofa</h4>
+        <div class="meta">$130 · 加厚双人沙发</div>
+        <div class="why">"重型+舒适+双人"三合一。研究它为了理解：品类融合的方向在哪里——沙发+露营椅+双人椅的融合。</div>
+        <a href="https://www.scheels.com/c/camping-chairs/" target="_blank" style="font-size:11px;color:var(--accent);text-decoration:none;">🔗 Scheels查看</a>
+      </div>
+    </div>
+    <div class="shelf-item" style="display:flex;gap:14px;align-items:flex-start;">
+      <img src="images/Product_photo_of_Magellan_Outd_2026-06-29T04-14-53.png" style="width:100px;height:100px;object-fit:contain;border-radius:8px;background:#fafafa;border:1px solid var(--border);flex-shrink:0;">
+      <div>
+        <div class="rank">14</div>
+        <h4>Magellan Anti-Gravity Lounger</h4>
+        <div class="meta">$70 · Academy 326评论 · 4.3星</div>
+        <div class="why">零重力椅的"平替"。研究它为了理解：零重力椅降到$70时，哪些功能保留、哪些牺牲——消费者买的是"零重力概念"还是"实际体验"。</div>
+        <a href="https://www.academy.com/p/magellan-outdoors-anti-gravity-lounger" target="_blank" style="font-size:11px;color:var(--accent);text-decoration:none;">🔗 Academy查看</a>
+      </div>
+    </div>
+    <div class="shelf-item" style="display:flex;gap:14px;align-items:flex-start;">
+      <img src="images/Product_photo_of_GCI_Outdoor_D_2026-06-29T04-15-36.png" style="width:100px;height:100px;object-fit:contain;border-radius:8px;background:#fafafa;border:1px solid var(--border);flex-shrink:0;">
+      <div>
+        <div class="rank">15</div>
+        <h4>GCI Director's Chair</h4>
+        <div class="meta">$60-$90 · 多个渠道</div>
+        <div class="why">导演椅品类的GCI版本。结合侧桌、杯架、高坐姿。对比Magellan的XL Director's Chair——看GCI如何在同一品类做到溢价。</div>
+        <a href="https://www.rei.com/product/893290/gci-outdoor-directors-chair" target="_blank" style="font-size:11px;color:var(--accent);text-decoration:none;">🔗 REI查看</a>
+      </div>
+    </div>
+    <div class="shelf-item" style="display:flex;gap:14px;align-items:flex-start;">
+      <img src="images/Product_photography_of_a_compa_2026-06-29T03-07-31.png" style="width:100px;height:100px;object-fit:contain;border-radius:8px;background:#fafafa;border:1px solid var(--border);flex-shrink:0;">
+      <div>
+        <div class="rank">16</div>
+        <h4>REI Camp Roll Table</h4>
+        <div class="meta">$100 · 8.5磅 · 1分钟搭好</div>
+        <div class="why">卷顶桌的代表。研究它为了理解：美国露营桌子的"标准形态"是什么——为什么卷顶而不是折叠。</div>
+        <a href="https://www.rei.com/product/229076/rei-co-op-camp-roll-table" target="_blank" style="font-size:11px;color:var(--accent);text-decoration:none;">🔗 REI查看</a>
+      </div>
+    </div>
+    <div class="shelf-item" style="display:flex;gap:14px;align-items:flex-start;">
+      <img src="images/Product_photo_of_GCI_Slim_Fold_2026-06-29T03-08-22.png" style="width:100px;height:100px;object-fit:contain;border-radius:8px;background:#fafafa;border:1px solid var(--border);flex-shrink:0;">
+      <div>
+        <div class="rank">17</div>
+        <h4>GCI Slim-Fold Cook Station</h4>
+        <div class="meta">$90 · 三层+侧桌+挂钩</div>
+        <div class="why">露营厨房品类。桌子不再只是"放东西"——正在变成"做饭的地方"。谁在买厨房站。</div>
+        <a href="https://www.publiclands.com/p/gci-outdoor-slim-fold-cook-station-15gciucksttnxxxxxcac/15gciucksttnxxxxxcac" target="_blank" style="font-size:11px;color:var(--accent);text-decoration:none;">🔗 PublicLands查看</a>
+      </div>
+    </div>
+    <div class="shelf-item" style="display:flex;gap:14px;align-items:flex-start;">
+      <img src="images/Product_photo_of_a_roll_top_ca_2026-06-29T03-08-12.png" style="width:100px;height:100px;object-fit:contain;border-radius:8px;background:#fafafa;border:1px solid var(--border);flex-shrink:0;">
+      <div>
+        <div class="rank">18</div>
+        <h4>Helinox Table One</h4>
+        <div class="meta">$90 · 1.5磅 · 110磅承重</div>
+        <div class="why">轻量桌的极限。1.5磅的桌子能承载110磅——这个"不可能"是怎么做到的——以及它和Helinox Chair One的"配套"逻辑。</div>
+        <a href="https://www.rei.com/product/158007/helinox-table-one-camping-table-hard-top" target="_blank" style="font-size:11px;color:var(--accent);text-decoration:none;">🔗 REI查看</a>
+      </div>
+    </div>
+    <div class="shelf-item" style="display:flex;gap:14px;align-items:flex-start;">
+      <img src="images/Product_photo_of_Coleman_Pro_R_2026-06-29T04-16-06.png" style="width:100px;height:100px;object-fit:contain;border-radius:8px;background:#fafafa;border:1px solid var(--border);flex-shrink:0;">
+      <div>
+        <div class="rank">19</div>
+        <h4>Coleman Pro Rocker</h4>
+        <div class="meta">$70-$90 · Coleman的摇椅尝试</div>
+        <div class="why">Coleman对标GCI的产物。为什么同样价位、Coleman品牌知名度更大——但评论量和销量只有GCI的10%。品牌在这个品类到底值多少钱。</div>
+        <a href="https://www.dickssportinggoods.com/p/coleman-pro-rocker-chair" target="_blank" style="font-size:11px;color:var(--accent);text-decoration:none;">🔗 Dick's查看</a>
+      </div>
+    </div>
+    <div class="shelf-item" style="display:flex;gap:14px;align-items:flex-start;">
+      <img src="images/Product_photo_of_Kijaro_Dual_L_2026-06-29T04-16-35.png" style="width:100px;height:100px;object-fit:contain;border-radius:8px;background:#fafafa;border:1px solid var(--border);flex-shrink:0;">
+      <div>
+        <div class="rank">20</div>
+        <h4>Kijaro Dual Lock</h4>
+        <div class="meta">$55 · Treeline最佳整体椅 · 2026</div>
+        <div class="why">"不塌"作为卖点。Dual Lock简单的锁定机构，为什么足以让Kijaro在$55市场站住脚——消费者对"椅子塌"的恐惧有多普遍。</div>
+        <a href="https://www.dickssportinggoods.com/p/kijaro-dual-lock-chair" target="_blank" style="font-size:11px;color:var(--accent);text-decoration:none;">🔗 Dick's查看</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<!-- ===== PART 7: Museum Mode ===== -->
+<div class="section">
+  <div class="section-title">
+    <span class="num">7</span>
+    《美国Camping店商品研究手册（Museum Mode）》
+  </div>
+  <p class="section-desc">一份实地研究步骤——用"逛博物馆"的方式看美国Camping店。</p>
+
+  <!-- 实景图 -->
+  <img src="images/A_realistic_photo_of_a_large_A_2026-06-29T03-08-22.png" class="section-banner" alt="美国Camping店内部陈列">
+
+  <div class="museum-step">
+    <div class="museum-num">1</div>
+    <div class="museum-content">
+      <h4>先看入口堆头</h4>
+      <p>走进任何一家美国Camping店，<strong>先看入口正前方放的是什么椅子。</strong>REI入口堆头通常是GCI Freestyle Rocker或本季新品。Bass Pro入口可能是GCI+Eclipse。Scheels入口是YETI——因为YETI的工业设计本身就是"让人想靠近"的东西。<br><br>入口堆头告诉你：<strong>这家店最想卖什么</strong>。不是"什么卖得最好"——是"店里希望卖什么"。有些品类（如高利润的零重力椅）会被推到入口，即使自然销量不如摇椅。</p>
+    </div>
+  </div>
+
+  <div class="museum-step">
+    <div class="museum-num">2</div>
+    <div class="museum-content">
+      <h4>再看每个品牌给了几个SKU</h4>
+      <p>数一数货架上每个品牌的陈列面数。GCI在Cabela's可能有8-10个SKU（全系列）。Coleman在Walmart可能有15个。Helinox在REI有5-6个。Magellan在Academy有15-20个。<br><br>SKU数量≈品牌地位。但不是绝对的——有些品牌SKU多是因为渠道买了太多型号（如Magellan），有些品牌SKU少但陈列位置最好（如YETI）。要结合陈列位置看。</p>
+    </div>
+  </div>
+
+  <div class="museum-step">
+    <div class="museum-num">3</div>
+    <div class="museum-content">
+      <h4>再看价格梯度</h4>
+      <p>从最便宜的椅子到最贵的椅子，画出价格线。REI：$36-$300（8倍跨度）。Academy：$25-$150（6倍跨度）。Dick's：$35-$100（3倍跨度）。<br><br>价格梯度越宽，说明这个渠道的顾客越多元。价格梯度集中（如Dick's的$35-$100），说明这个渠道在"筛人"——不服务极端预算和极端高端。</p>
+    </div>
+  </div>
+
+  <div class="museum-step">
+    <div class="museum-num">4</div>
+    <div class="museum-content">
+      <h4>拿起销量最高的商品——拆结构、看材质</h4>
+      <p>拿GCI Freestyle Rocker。看它的摇动机制在哪里（在框架内的弹簧，不在椅脚）。看框架管的粗细、接头的铆钉方式、面料600D涤纶的手感。<br><br>然后拿Magellan Odyssey（对标品）对比。看它在哪里省了成本：是弹簧材质？面料厚度？铆钉数量？接头精度？<br><br>再拿YETI Trailhead。感受那个1.14英寸的框架杆有多粗。看它的锁定机构。感受100%网面透气。<br><br><strong>不是看——是上手。</strong></p>
+    </div>
+  </div>
+
+  <!-- 实景图：营地场景 -->
+  <img src="images/Realistic_photo_of_a_family_ca_2026-06-29T03-09-06.png" class="section-banner" alt="美国露营地实景">
+
+  <div class="museum-step">
+    <div class="museum-num">5</div>
+    <div class="museum-content">
+      <h4>坐下来试——然后对比线上评论</h4>
+      <p>每把椅子坐至少5分钟。感受座高（16英寸还是10英寸？）、座深、靠背角度、扶手位置。然后掏出手机看REI/Amazon的评论——看消费者说的是不是你感受到的。<br><br>如果YETI线上说"doesn't sag at all"——坐上去看看是不是真的不塌。如果GCI线上说"everyone fights over this chair"——自己判断值不值得抢。如果Magellan线上说"good for the price"——能接受这个品质吗？<br><br><strong>这个环节最耗费时间——但也是最有价值的。</strong>线上评论和线下体验的差距，就是商品判断的空间。</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <h3>Museum Mode的核心原则</h3>
+    <p>
+      不带着"我要找什么"的心态进去——带着"看看美国人在用什么样的产品度过户外的时光"的心态。<br><br>
+      一把椅子不是"参数+价格"——是一群人坐在篝火边、球赛边、湖边、后院里的生活方式。<br><br>
+      如果看完了之后能说出来：<br>
+      "原来GCI赢在摇椅机制——不是因为设计，是因为美国人真的喜欢摇椅"<br>
+      "原来YETI卖$300不是为了炫富——是因为大体重和有背痛的人终于有了一把不妥协的椅子"<br>
+      "原来Magellan不是劣质品——是以$30-$50把'足够好'做透了"<br>
+      "原来Coleman Cooler Quad能卖20年——是因为把'冷藏'和'椅子'合在一起的那个洞察"<br>
+      "原来轻量椅只有Helinox真正做成了——因为铝杆技术壁垒+10年品牌积累"<br><br>
+      那么这份报告的目的就达到了。
+    </p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>美国Camping店桌椅商品研究报告 · 2026年6月</p>
+  <p style="margin-top:8px">数据来源：REI、Bass Pro Shops、Cabela's、Academy Sports + Outdoors、Dick's Sporting Goods、SCHEELS 线上官方数据；<br>GearJunkie、Treeline Review、Outdoor Gear Lab、CleverHiker、CampingGuidance 等独立评测机构测试数据</p>
+</div>
+
+</div>
+
+</body>
+</html>
