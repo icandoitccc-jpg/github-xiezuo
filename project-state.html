@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project State · 北美AI协作系统</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f7f6f3; color: #1a1a1a; line-height: 1.7; }
+  .header { background: #1a1a1a; color: #fff; padding: 32px 40px; }
+  .header h1 { font-size: 22px; font-weight: 500; letter-spacing: 0.02em; }
+  .header .sub { font-size: 13px; color: #888; margin-top: 6px; }
+  .updated { font-size: 12px; color: #666; margin-top: 4px; }
+  .container { max-width: 820px; margin: 0 auto; padding: 40px 24px; }
+
+  .mcl-box { background: #fff; border: 2px solid #1a1a1a; border-radius: 12px; padding: 32px; margin-bottom: 40px; }
+  .mcl-box h2 { font-size: 13px; font-weight: 500; color: #888; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px; }
+  .mcl-text { font-size: 15px; line-height: 1.9; color: #1a1a1a; }
+  .mcl-text p { margin-bottom: 12px; }
+  .mcl-text strong { font-weight: 500; }
+
+  .section { background: #fff; border-radius: 10px; padding: 28px 32px; margin-bottom: 20px; border: 1px solid #e8e6e0; }
+  .section h2 { font-size: 12px; font-weight: 500; color: #999; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid #e8e6e0; }
+  .section h3 { font-size: 14px; font-weight: 500; color: #1a1a1a; margin-bottom: 6px; margin-top: 18px; }
+  .section h3:first-of-type { margin-top: 0; }
+  .section p, .section li { font-size: 14px; color: #444; line-height: 1.75; }
+  .section ul { padding-left: 18px; }
+  .section li { margin-bottom: 4px; }
+
+  .tag { display: inline-block; font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 4px; }
+  .tag-active { background: #e8f5e9; color: #2e7d32; }
+  .tag-obsolete { background: #f3f3f3; color: #999; }
+  .tag-invalidated { background: #fdecea; color: #c62828; text-decoration: line-through; }
+
+  .five-q { background: #f7f6f3; border-radius: 8px; padding: 20px 24px; margin-top: 20px; }
+  .five-q h3 { font-size: 12px; font-weight: 500; color: #888; letter-spacing: 0.1em; margin-bottom: 14px; }
+  .q-item { font-size: 14px; color: #333; padding: 8px 0; border-bottom: 1px solid #e8e6e0; }
+  .q-item:last-child { border-bottom: none; }
+  .q-item span { font-weight: 500; color: #1a1a1a; margin-right: 8px; }
+  .q-ans { margin-top: 4px; color: #555; font-size: 13px; padding-left: 20px; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 600px) { .two-col { grid-template-columns: 1fr; } }
+
+  .role-card { background: #f7f6f3; border-radius: 8px; padding: 16px 20px; }
+  .role-card .name { font-size: 13px; font-weight: 500; color: #1a1a1a; margin-bottom: 6px; }
+  .role-card .role-title { font-size: 11px; color: #888; margin-bottom: 8px; }
+  .role-card p { font-size: 13px; color: #555; }
+
+  .decision { padding: 14px 0; border-bottom: 1px solid #f0ede8; }
+  .decision:last-child { border-bottom: none; }
+  .decision .d-id { font-size: 11px; color: #aaa; margin-bottom: 4px; }
+  .decision .d-q { font-size: 14px; font-weight: 500; color: #1a1a1a; margin-bottom: 4px; }
+  .decision .d-a { font-size: 13px; color: #555; }
+
+  .oq-item { padding: 10px 0; border-bottom: 1px solid #f0ede8; font-size: 14px; color: #555; }
+  .oq-item:last-child { border-bottom: none; }
+
+  .nav { background: #fff; border-bottom: 1px solid #e8e6e0; padding: 12px 40px; position: sticky; top: 0; z-index: 10; display: flex; gap: 24px; flex-wrap: wrap; }
+  .nav a { font-size: 13px; color: #666; text-decoration: none; }
+  .nav a:hover { color: #1a1a1a; }
+  .back-link { display: inline-block; margin-bottom: 24px; font-size: 13px; color: #888; text-decoration: none; }
+  .back-link:hover { color: #1a1a1a; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Project State</h1>
+  <div class="sub">北美市场开发 × AI协作系统 · 唯一认知同步入口</div>
+  <div class="updated">上次更新：2026-06-30 · 由 WorkBuddy 自动生成</div>
+</div>
+
+<nav class="nav">
+  <a href="index.html">← 报告主页</a>
+  <a href="#mcl">认知启动</a>
+  <a href="#status">当前状态</a>
+  <a href="#decisions">决策日志</a>
+  <a href="#knowledge">已验证事实</a>
+  <a href="#open">未解决问题</a>
+  <a href="#roles">团队分工</a>
+</nav>
+
+<div class="container">
+
+  <!-- MCL: Minimal Cognitive Layer -->
+  <div class="mcl-box" id="mcl">
+    <h2>MCL · 认知启动协议（任何AI进入项目请先读此段）</h2>
+    <div class="mcl-text">
+      <p>这个项目表面上是北美户外装备市场的 B2B 销售开发，实质上是一个更大的实验：<strong>验证"一个人 + 多个AI"能否像真实团队一样协作执行非标准化业务任务。</strong></p>
+      <p>北美开发不是附属案例，AI协作也不是最终目标。两者是<strong>互相咬合的双引擎</strong>——北美开发提供真实世界反馈，AI协作系统从中迭代。</p>
+      <p>Chen 是唯一的<strong>意图源（Intent Source）</strong>——"为什么做这个"只有他知道。AI 负责执行、推理、压缩信息、提供方案，不负责定义方向。</p>
+      <p><strong>当前阶段：客户验证。</strong> 已收集约 40 个美国小B客户，下一步目标是验证真实性、找到触达路径、发出第一批开发信。现在不做的事：继续市场研究、不碰 REI 等大渠道。</p>
+    </div>
+  </div>
+
+  <!-- 五个问题自测 -->
+  <div class="section">
+    <h2>AI 入项自测（读完 MCL 后请回答）</h2>
+    <div class="five-q">
+      <h3>如果你能回答这五个问题，说明你已进入同一个思考世界</h3>
+      <div class="q-item">
+        <span>Q1</span> 这个项目真正的目标是什么？
+        <div class="q-ans">→ 验证多AI协作能否执行真实业务。北美开发是实验场，不是终点。</div>
+      </div>
+      <div class="q-item">
+        <span>Q2</span> 团队目前为什么在做这件事？
+        <div class="q-ans">→ 因为找到了一个真实压力场景（北美小B销售开发），可以检验AI协作系统是否真的降低"Context Transfer Cost"。</div>
+      </div>
+      <div class="q-item">
+        <span>Q3</span> 最近推翻了哪些旧想法？
+        <div class="q-ans">→ ① 大渠道优先（REI）已放弃，转向小B验证。② "市场研究"阶段已结束，不应再生成市场分析报告。③ Context Card → Project Brain → Handoff → MCL，每次都在推翻上一版。</div>
+      </div>
+      <div class="q-item">
+        <span>Q4</span> 目前正在验证什么假设？
+        <div class="q-ans">→ "把 WorkBuddy 的 Working State 输出成 MCL，能否让 Gemini/ChatGPT 在不解释背景的前提下进入同一个认知起点。"</div>
+      </div>
+      <div class="q-item">
+        <span>Q5</span> 什么结果会让团队进入下一阶段？
+        <div class="q-ans">→ Gemini 读完本页，能独立答对上述四个问题，且不需要 Chen 额外解释。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 当前状态 -->
+  <div class="section" id="status">
+    <h2>Current Status · 当前状态</h2>
+    <h3>项目阶段</h3>
+    <p><span class="tag tag-active">ACTIVE</span> 客户验证阶段（Client Verification）</p>
+    <br>
+    <h3>已完成</h3>
+    <ul>
+      <li>市场认知层：六大线下渠道（REI / Bass Pro / Cabela's / Academy / Dick's / Scheels）产品研究</li>
+      <li>品牌数据库初版：GCI / Helinox / YETI / Coleman / Magellan 品牌逻辑</li>
+      <li>Amazon BSR 线上数据：椅子 + 桌子 Top 20</li>
+      <li>约 40 个美国小B客户数据收集</li>
+      <li>GitHub Pages 部署（https://icandoitccc-jpg.github.io/reports/）</li>
+      <li>AI协作系统设计：SSOT → Context Card → Project Brain → Handoff → MCL（当前版本）</li>
+    </ul>
+    <br>
+    <h3>当前最紧要任务</h3>
+    <ul>
+      <li>验证 40 个客户真实性 + 触达路径</li>
+      <li>发出第一批开发信</li>
+      <li>验证本页 MCL 是否真的让 Gemini 进入同一认知起点</li>
+    </ul>
+    <br>
+    <h3>现在不做的事</h3>
+    <ul>
+      <li>继续生成市场分析报告（市场研究阶段已结束）</li>
+      <li>接触 REI 等大渠道（门槛高，资源不够）</li>
+      <li>继续扩展 AI 协作系统结构（设计阶段结束，进入验证）</li>
+    </ul>
+  </div>
+
+  <!-- 决策日志 -->
+  <div class="section" id="decisions">
+    <h2>Decision Log · 决策日志</h2>
+
+    <div class="decision">
+      <div class="d-id">D-001 · 2026-06-24</div>
+      <div class="d-q">为什么研究美国 Camping 线下六大渠道？</div>
+      <div class="d-a">目的是理解"美国消费者实际买什么"，建立产品直觉。不是为了进入 REI，而是为了知道什么类型的产品/价位/卖点能卖动。这是销售开发的前置认知，不是目的本身。</div>
+    </div>
+
+    <div class="decision">
+      <div class="d-id">D-002 · 2026-06-26</div>
+      <div class="d-q">为什么放弃优先开发大渠道（REI）？</div>
+      <div class="d-a">REI 进场门槛极高（EDI、认证、提前备货），公司当前资源不支持。优先找 40 家小B客户验证产品和触达机制，成本更低、反馈更快。</div>
+    </div>
+
+    <div class="decision">
+      <div class="d-id">D-003 · 2026-06-29</div>
+      <div class="d-q">为什么把报告部署到 GitHub Pages 而不是 CloudStudio / paste.rs？</div>
+      <div class="d-a">CloudStudio 域名被 ChatGPT/Gemini 抓取工具拒绝；paste.rs 结构让 ChatGPT 无法读到正文。GitHub Pages 是标准静态 HTML，Gemini 可以直接读取，ChatGPT 粘贴可用。团队报告共享需要稳定公网链接。</div>
+    </div>
+
+    <div class="decision">
+      <div class="d-id">D-004 · 2026-06-30</div>
+      <div class="d-q">为什么不把"北美开发"和"AI协作"分开做？</div>
+      <div class="d-a">两者是互相咬合的双引擎。北美开发提供真实业务压力（不能只在理论层面讨论），AI协作系统从真实任务中迭代。任何一方单独推进都会脱离现实或脱离验证机会。</div>
+    </div>
+
+    <div class="decision">
+      <div class="d-id">D-005 · 2026-06-30</div>
+      <div class="d-q">Context Card → Project Brain → Handoff → MCL，为什么不断推翻？</div>
+      <div class="d-a">每一版都在解决更底层的问题。Context Card 解决信息同步 → Project Brain 加入认知层 → Handoff 关注传递成本 → MCL 关注"认知入口"而非内容量。推翻不是浪费，是在找"最小有效认知启动单元"。</div>
+    </div>
+  </div>
+
+  <!-- 已验证事实 -->
+  <div class="section" id="knowledge">
+    <h2>Knowledge Base · 已验证市场事实</h2>
+    <ul>
+      <li>美国 Car Camping 是主流消费场景，不是 Backpacking</li>
+      <li>Director Chair（导演椅）几乎每家渠道都有，是基础 SKU</li>
+      <li>Rocking Chair（摇椅）是高频爆款，GCI 独占优势</li>
+      <li>轻量椅只有 REI 系渠道有（Helinox），大众渠道几乎没有</li>
+      <li>Amazon 桌子 Top 20 中约 80% 是中国白牌，椅子约 55%</li>
+      <li>Naturehike 是 Amazon 上唯一有品牌辨识度的中国品牌（椅子 #9）</li>
+      <li>GCI 是唯一同时覆盖线上（Amazon Top 5）和线下（REI 主打）的品牌</li>
+      <li>REI 均价 $141 vs Amazon $44——两个完全不同的市场</li>
+      <li>GitHub Pages 标准 HTML 是目前 Gemini 可读、ChatGPT 可粘贴的最稳定托管方式</li>
+    </ul>
+    <br>
+    <h3>已推翻的假设</h3>
+    <ul>
+      <li><span class="tag tag-invalidated">已推翻</span> "先做好市场报告，再找客户"——市场认知够用了，现在是执行卡点不是认知卡点</li>
+      <li><span class="tag tag-invalidated">已推翻</span> "paste.rs / CloudStudio 链接够用"——ChatGPT 和部分网络环境无法读取</li>
+      <li><span class="tag tag-invalidated">已推翻</span> "AI 协作只是工具串联"——核心问题是 Context Transfer Cost，不是工具连接</li>
+    </ul>
+  </div>
+
+  <!-- 未解决问题 -->
+  <div class="section" id="open">
+    <h2>Open Questions · 当前不确定的事</h2>
+    <div class="oq-item">山趣（Shanjue）哪些 SKU 最适合美国小B客户？需要第一批客户反馈才能验证。</div>
+    <div class="oq-item">40 个客户里有多少是真实活跃的？触达率会是多少？尚未验证。</div>
+    <div class="oq-item">开发信的有效格式是什么？第一批发出去才知道。</div>
+    <div class="oq-item">MCL 能不能真的让 Gemini/ChatGPT 进入同一认知起点？本页部署后需要测试验证。</div>
+    <div class="oq-item">AI协作系统在实际销售执行中能降低多少 Context Transfer Cost？只有跑完第一轮客户验证才知道。</div>
+  </div>
+
+  <!-- 团队分工 -->
+  <div class="section" id="roles">
+    <h2>Team Roles · AI 团队定位</h2>
+    <div class="two-col">
+      <div class="role-card">
+        <div class="name">Chen</div>
+        <div class="role-title">Intent Source · Final Authority</div>
+        <p>唯一的意图源。定义"为什么"，做最终决策，判断什么是"对齐"。不是知识来源，是方向来源。</p>
+      </div>
+      <div class="role-card">
+        <div class="name">WorkBuddy</div>
+        <div class="role-title">State Writer · 执行层</div>
+        <p>唯一的 Project State 写入方。执行任务，生成报告，自动更新此页并推送 GitHub。不定义方向。</p>
+      </div>
+      <div class="role-card">
+        <div class="name">Gemini</div>
+        <div class="role-title">Reality Check · 外部验证器</div>
+        <p>可直接读取 GitHub Pages 链接。验证系统和认知在真实信息环境中是否成立，提供第二视角。</p>
+      </div>
+      <div class="role-card">
+        <div class="name">ChatGPT</div>
+        <div class="role-title">认知建模 · 推理层</div>
+        <p>负责"系统结构是否合理"的判断。不能自动读取链接，使用时粘贴此页的 MCL 段落作为上下文。</p>
+      </div>
+    </div>
+  </div>
+
+  <p style="font-size:12px;color:#bbb;text-align:center;margin-top:40px;">
+    此页由 WorkBuddy 自动维护 · 每次任务结束后更新 · 
+    <a href="index.html" style="color:#bbb;">返回报告主页</a>
+  </p>
+
+</div>
+</body>
+</html>
