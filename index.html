@@ -3,97 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GitHub 协作项目</title>
+<title>WorkBuddy Reports</title>
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background: #f4f6f9;
-    color: #1a202c;
-    padding: 40px 20px;
-    line-height: 1.7;
-  }
-  .container { max-width: 700px; margin: 0 auto; }
-  h1 { font-size: 1.6em; margin-bottom: 8px; color: #1a365d; }
-  .sub { color: #718096; margin-bottom: 32px; font-size: 0.95em; }
-  .card {
-    display: block;
-    background: #fff;
-    border: 1px solid #e2e8f0;
-    border-radius: 10px;
-    padding: 20px 24px;
-    margin-bottom: 12px;
-    text-decoration: none;
-    color: inherit;
-    transition: box-shadow 0.15s;
-  }
-  .card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
-  .card h3 { font-size: 1.05em; margin-bottom: 4px; }
-  .card .desc { color: #718096; font-size: 0.88em; }
-  .footer { text-align: center; color: #a0aec0; font-size: 0.82em; margin-top: 40px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 680px; margin: 60px auto; padding: 20px; background: #fafafa; color: #333; }
+  h1 { font-size: 24px; margin-bottom: 8px; }
+  p.subtitle { color: #888; margin-bottom: 32px; }
+  .card { background: white; border-radius: 12px; padding: 20px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); display: flex; align-items: center; gap: 16px; }
+  .card-icon { font-size: 32px; }
+  .card-info h3 { font-size: 16px; margin-bottom: 4px; }
+  .card-info p { font-size: 13px; color: #888; }
+  .card a { text-decoration: none; color: #333; display: block; }
+  .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+  .new-badge { background: #e8783b; color: white; font-size: 11px; padding: 2px 8px; border-radius: 10px; margin-left: 8px; }
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>GitHub 协作项目</h1>
-  <p class="sub">多AI认知同步 · 自动更新 · 团队共享</p>
+<h1>WorkBuddy Reports</h1>
+<p class="subtitle">由 WorkBuddy 生成的项目报告与工具</p>
 
-  <a class="card" href="project-state.html" style="border-color:#1a1a1a;border-width:2px;">
-    <h3>🧠 Project State（AI 协作认知同步入口）</h3>
-    <p class="desc">MCL · 当前状态 · 决策日志 · 已验证事实 · 未解决问题 · 团队分工</p>
-  </a>
-
-  <a class="card" href="snapshot.txt" style="border-color:#e07b39;border-width:2px;background:#fff9f2;">
-    <h3>📋 Context Snapshot · 粘贴给 ChatGPT 用</h3>
-    <p class="desc">纯文本 · 约 300 字 · 当前状态摘要 · 点击即复制粘贴</p>
-  </a>
-
-  <a class="card" href="美国户外桌椅市场数据报告.html">
-    <h3>📊 美国户外桌椅市场数据报告（线上+线下）</h3>
-    <p class="desc">Amazon BSR Top 20 · REI 线下对比 · 五大核心差异 · BSR 查询指南</p>
-  </a>
-
-  <a class="card" href="美国Camping店桌椅商品研究报告.html">
-    <h3>🏕️ 美国 Camping 店桌椅商品研究报告</h3>
-    <p class="desc">6大渠道真实商品画像 · 5大品牌深挖 · 20件最值得研究商品 · Museum Mode</p>
-  </a>
-
-  <a class="card" href="美国线下渠道桌椅产品结构分析.html">
-    <h3>🛒 美国线下渠道桌椅产品结构分析</h3>
-    <p class="desc">REI/Bass Pro/Cabela's/Academy/Dick's/Scheels 跨渠道品类矩阵</p>
-  </a>
-
-  <a class="card" href="chatgpt-brief.html" style="border-color:#f0c040;border-width:2px;background:#141414;color:#e0e0e0;">
-    <h3 style="color:#f0c040;">🤖 ChatGPT AI Brief — 完整项目交付物（AI可读版）</h3>
-    <p class="desc" style="color:rgba(224,224,224,0.7);">98款产品数据 + 28 SKU 选品 + 5大板块目录 + 7个审阅问题 · 供ChatGPT独立审阅</p>
-  </a>
-
-  <a class="card" href="shinetrip-catalog-v1.5.html" style="border-color:#e2b748;border-width:2px;background:#0d0d0d;color:#fff;">
-    <h3 style="color:#e2b748;">📦 ShineTrip Product Catalog v1.5 · B2B 英文产品目录（最新版）</h3>
-    <p class="desc" style="color:rgba(255,255,255,0.7);">31 SKU · 5品类分区 · 双语产品图 · 可直接发美国买手</p>
-  </a>
-
-  <a class="card" href="shinetrip-catalog-v1.5-cn.html">
-    <h3>📦 ShineTrip 产品目录 v1.5 · 中文版</h3>
-    <p class="desc">31 SKU · 中文页面 · 面向大中华区买手</p>
-  </a>
-
-  <a class="card" href="ShineTrip-Catalog-v1.5.pdf">
-    <h3>📥 ShineTrip Catalog v1.5 PDF（英文·可下载）</h3>
-    <p class="desc">8页 · 优化打印排版 · 适合邮件附件</p>
-  </a>
-
-  <a class="card" href="ShineTrip-Catalog-v1.5-CN.pdf">
-    <h3>📥 ShineTrip 产品目录 v1.5 PDF（中文·可下载）</h3>
-    <p class="desc">8页 · 中文版打印输出</p>
-  </a>
-
-  <a class="card" href="获客替代途径指南.html">
-    <h3>📬 获客替代途径指南</h3>
-    <p class="desc">B2B 销售开发渠道拓展策略</p>
-  </a>
-
-  <p class="footer">Updated: 2026-06-30 · icandoitccc-jpg/github-xiezuo</p>
+<div class="card">
+  <div class="card-icon">🐾</div>
+  <div class="card-info">
+    <a href="shelter/">
+      <h3>动物救助募捐系统 <span class="new-badge">NEW</span></h3>
+      <p>基地动物档案展示 · 动态更新 · 捐助记录追踪 · 领养入口</p>
+    </a>
+  </div>
 </div>
+
+
 </body>
 </html>
