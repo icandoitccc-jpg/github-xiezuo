@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MCL Boot Loader v3 · 多AI协作操作系统</title>
+<title>MCL · AI协作执行SOP v1.0</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -308,8 +308,8 @@
 <body>
 
 <div class="header">
-  <h1>MCL · Boot Loader v3</h1>
-  <div class="sub">多AI协作操作系统 · 唯一认知同步入口</div>
+  <h1>MCL · AI协作执行SOP v1.0</h1>
+  <div class="sub">多AI协作操作系统 · 可运行版 · 带现实校验层的决策闭环</div>
   <div class="meta">上次更新：2026-06-30 · 由 WorkBuddy 自动维护</div>
 </div>
 
@@ -321,9 +321,10 @@
   <a href="#sec3">3. 角色机制</a>
   <a href="#sec4">4. Decision System</a>
   <a href="#sec5">5. CTC引擎</a>
-  <a href="#sec6">6. 运行逻辑</a>
-  <a href="#sec7">7. 系统目标</a>
-  <a href="#sec8">8. 行为约束</a>
+  <a href="#sec6">6. Reality Check</a>
+  <a href="#sec7">7. 运行逻辑</a>
+  <a href="#sec8">8. 系统目标</a>
+  <a href="#sec9">9. 行为约束</a>
   <a href="#sec5">Snapshot</a>
 </nav>
 
@@ -422,6 +423,10 @@ Status：ACTIVE / OBSOLETE / REPLACED</pre>
       <dd>直接按亚马逊排名选品——缺线下货架逻辑，会导致选品偏差。</dd>
       <dt>Impact</dt>
       <dd>生成了六大渠道产品研究报告，构成认知层基础。</dd>
+      <dt style="color:#e0e0e0;">Reality Check</dt>
+      <dd style="color:#aaa;">Q1 失败信号：ChatGPT/Gemini 仍反复建议"直接看亚马逊排名"</dd>
+      <dd style="color:#aaa;">Q2 反证条件：小B客户普遍不需要线下货架知识就能做选品决策</dd>
+      <dd style="color:#aaa;">Q3 复核时间：完成第一轮客户触达后（约10个客户反馈）</dd>
     </dl>
     <span class="statustag st-active">ACTIVE</span>
   </div>
@@ -436,6 +441,10 @@ Status：ACTIVE / OBSOLETE / REPLACED</pre>
       <dd>先做 REI 供应商认证再找小B——周期太长，没反馈会死在半路。</dd>
       <dt>Impact</dt>
       <dd>战略重心从小B切入，不做大渠道幻想。</dd>
+      <dt style="color:#e0e0e0;">Reality Check</dt>
+      <dd style="color:#aaa;">Q1 失败信号：小B连续3次触达零回复</dd>
+      <dd style="color:#aaa;">Q2 反证条件：意外获得大渠道准入机会且成本可比小B</dd>
+      <dd style="color:#aaa;">Q3 复核时间：发出第一批开发信后30天</dd>
     </dl>
     <span class="statustag st-active">ACTIVE</span>
   </div>
@@ -449,7 +458,11 @@ Status：ACTIVE / OBSOLETE / REPLACED</pre>
       <dt>Rejected</dt>
       <dd>Notion / Google Docs / 腾讯文档——权限复杂，AI 抓取不稳定。</dd>
       <dt>Impact</dt>
-      <dd>所有报告 + Project State 部署到 https://icandoitccc-jpg.github.io/reports/，永久公网链接。</dd>
+      <dd>所有报告 + Project State 部署到 GitHub Pages，永久公网链接。</dd>
+      <dt style="color:#e0e0e0;">Reality Check</dt>
+      <dd style="color:#aaa;">Q1 失败信号：跨AI信息不一致超过2次（同一报告不同AI读到不同内容）</dd>
+      <dd style="color:#aaa;">Q2 反证条件：出现比 GitHub Pages 更可靠的AI可读托管方案</dd>
+      <dd style="color:#aaa;">Q3 复核时间：每次 GitHub Pages CDN 出现长时间不刷新时</dd>
     </dl>
     <span class="statustag st-active">ACTIVE</span>
   </div>
@@ -464,6 +477,10 @@ Status：ACTIVE / OBSOLETE / REPLACED</pre>
       <dd>先做完市场报告再碰AI协作——市场认知够了，缺的是执行。</dd>
       <dt>Impact</dt>
       <dd>确立双层系统架构，防止后续AI把两者混为一谈。</dd>
+      <dt style="color:#e0e0e0;">Reality Check</dt>
+      <dd style="color:#aaa;">Q1 失败信号：出现"系统为系统服务"倾向（AI讨论系统设计多于执行任务）</dd>
+      <dd style="color:#aaa;">Q2 反证条件：真实业务反馈显示双层分离降低了执行效率</dd>
+      <dd style="color:#aaa;">Q3 复核时间：每次完成一轮客户触达后</dd>
     </dl>
     <span class="statustag st-active">ACTIVE</span>
   </div>
@@ -477,7 +494,11 @@ Status：ACTIVE / OBSOLETE / REPLACED</pre>
       <dt>Rejected</dt>
       <dd>追求完美再发布——不验证就没法知道什么真的有用。</dd>
       <dt>Impact</dt>
-      <dd>收敛到 MCL Boot Loader v3，作为所有AI进入项目的唯一入口。</dd>
+      <dd>收敛到 MCL SOP v1.0，作为所有AI进入项目的唯一入口。</dd>
+      <dt style="color:#e0e0e0;">Reality Check</dt>
+      <dd style="color:#aaa;">Q1 失败信号：新增 AI（或新对话）仍需>3轮对话才能对齐认知</dd>
+      <dd style="color:#aaa;">Q2 反证条件：MCL 格式过于复杂导致 AI 误读率上升</dd>
+      <dd style="color:#aaa;">Q3 复核时间：每次加入新AI或开启新对话时</dd>
     </dl>
     <span class="statustag st-active">ACTIVE</span>
   </div>
@@ -495,8 +516,9 @@ Status：ACTIVE / OBSOLETE / REPLACED</pre>
 
 1. 系统层状态（AI协作）
 - 正在优化：降低 CTC（Context Transfer Cost）
-- 当前版本：MCL Boot Loader v3
-- 验证中：Gemini 能否不解释背景就进入同一认知起点
+- 当前版本：MCL SOP v1.0
+- 验证完成：Gemini 可不解释背景就进入同一认知起点 ✅
+- 当前阶段：系统设计阶段结束，<strong>进入真实世界压力测试</strong>
 
 2. 业务层状态（北美开发）
 - 阶段：Client Validation（客户验证）
@@ -520,7 +542,40 @@ Status：ACTIVE / OBSOLETE / REPLACED</pre>
 
 <!-- ===== 6 ===== -->
 <div class="block" id="sec6">
-  <h2>§6 · 系统运行逻辑</h2>
+  <h2>§6 · Reality Feedback Loop（现实反馈闭环）🔥 新增</h2>
+
+  <p style="margin-bottom:18px;">所有决策不能只在AI之间正确——必须绑定真实世界校验，防止系统自洽但脱离实际。</p>
+
+  <h3>每个 Decision 必须回答三个问题</h3>
+  <div class="fiveq" style="margin-bottom:20px;">
+    <div class="qrow"><span class="qnum">Q1</span> <strong>失败信号是什么？</strong>——哪些现实现象说明这个决策错了？最早能发现的迹象是什么？</div>
+    <div class="qrow"><span class="qnum">Q2</span> <strong>反证条件是什么？</strong>——什么具体结果会推翻当前判断？不是泛泛的"市场变了"，是可观测的具体事件。</div>
+    <div class="qrow"><span class="qnum">Q3</span> <strong>何时重新评估？</strong>——在什么时间点/什么事件触发后必须复核这个决策？</div>
+  </div>
+
+  <h3>三类任务定义（禁止混用）</h3>
+  <div class="twocol" style="margin-top:14px;">
+    <div class="syscard">
+      <div class="label">① 验证任务（Validation）</div>
+      <p>判断真假、测市场、收反馈。<br>例：核实40个客户是否真实营业。</p>
+    </div>
+    <div class="syscard">
+      <div class="label">② 执行任务（Execution）</div>
+      <p>发开发信、找客户、做触达。<br>例：向10个已验证客户发送第一批开发信。</p>
+    </div>
+  </div>
+  <div class="syscard" style="margin-top:12px;">
+    <div class="label">③ 系统任务（Reflection）</div>
+    <p>更新 State、写 Decision Log、优化流程。此类任务只有在验证/执行触发了新认知时才能启动，<strong>禁止脱离业务空转</strong>。</p>
+  </div>
+
+  <div class="forbidden" style="margin-top:16px;">禁止"纯分析无动作输出"</div>
+  <div class="forbidden">禁止脱离当前阶段做战略扩展</div>
+</div>
+
+<!-- ===== 7 ===== -->
+<div class="block" id="sec7">
+  <h2>§7 · 系统运行逻辑</h2>
   <p style="margin-bottom:16px;">每一轮 AI 工作流必须遵循：</p>
   <div class="steps">
     <div class="step-item">读取 Boot Loader（本文件）</div>
@@ -531,17 +586,17 @@ Status：ACTIVE / OBSOLETE / REPLACED</pre>
   </div>
 </div>
 
-<!-- ===== 7 ===== -->
-<div class="block" id="sec7">
-  <h2>§7 · 系统目标（北极星）</h2>
+<!-- ===== 8 ===== -->
+<div class="block" id="sec8">
+  <h2>§8 · 系统目标（北极星）</h2>
   <p><strong>降低 Context Transfer Cost（CTC）</strong></p>
   <p style="margin-top:4px;">→ 提升多AI认知一致性</p>
   <p>→ 保证复杂任务在真实业务中可持续执行</p>
 </div>
 
-<!-- ===== 8 ===== -->
-<div class="block" id="sec8">
-  <h2>§8 · 行为约束（硬规则）</h2>
+<!-- ===== 9 ===== -->
+<div class="block" id="sec9">
+  <h2>§9 · 行为约束（硬规则）</h2>
   <div class="forbidden">自行修改项目目标</div>
   <div class="forbidden">忽略 Decision Log</div>
   <div class="forbidden">使用旧对话替代 Snapshot</div>
