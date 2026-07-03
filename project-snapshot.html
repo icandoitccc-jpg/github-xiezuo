@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Snapshot v1.3 — North America Market Validation Project</title>
+<meta name="description" content="ShineTrip North America Market Validation Project — Project Snapshot v1.3. The single source of truth for all AI collaborators.">
+<style>
+  :root {
+    --primary: #1a73e8;
+    --accent: #0d9488;
+    --dark: #0f172a;
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --border: #e2e8f0;
+    --text: #1e293b;
+    --muted: #64748b;
+    --tag-bg: #eff6ff;
+    --tag-text: #1d4ed8;
+    --green: #16a34a;
+    --yellow: #ca8a04;
+    --blue: #2563eb;
+    --gray: #6b7280;
+    --red: #dc2626;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+
+  /* HEADER */
+  .hero { background: var(--dark); color: #f1f5f9; padding: 40px 48px; }
+  .hero .version { display: inline-block; background: var(--primary); color: #fff; font-size: 0.78rem; font-weight: 700; padding: 3px 12px; border-radius: 20px; margin-bottom: 12px; letter-spacing: 0.04em; }
+  .hero h1 { font-size: 1.75rem; font-weight: 800; letter-spacing: -0.02em; }
+  .hero .sub { font-size: 0.9rem; color: #94a3b8; margin-top: 8px; }
+  .hero .meta-row { display: flex; gap: 24px; margin-top: 20px; font-size: 0.82rem; color: #94a3b8; flex-wrap: wrap; }
+  .hero .meta-row span { display: flex; align-items: center; gap: 6px; }
+
+  /* STAGE BANNER */
+  .stage-banner { background: linear-gradient(90deg, #0f766e, #0d9488); color: #fff; padding: 14px 48px; font-size: 0.88rem; display: flex; align-items: center; gap: 12px; }
+  .stage-dot { width: 10px; height: 10px; background: #34d399; border-radius: 50%; animation: pulse 1.5s infinite; flex-shrink: 0; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+  /* NAV */
+  .nav { background: var(--card); border-bottom: 1px solid var(--border); padding: 0 48px; display: flex; gap: 0; overflow-x: auto; position: sticky; top: 0; z-index: 100; }
+  .nav a { padding: 12px 18px; color: var(--muted); text-decoration: none; font-size: 0.82rem; font-weight: 500; border-bottom: 2px solid transparent; white-space: nowrap; transition: all 0.15s; }
+  .nav a:hover { color: var(--primary); border-color: var(--primary); }
+
+  /* LAYOUT */
+  .container { max-width: 1200px; margin: 0 auto; padding: 32px 48px; }
+  .section { margin-bottom: 56px; }
+  .section-num { display: inline-block; background: var(--dark); color: #f1f5f9; font-size: 0.72rem; font-weight: 700; width: 28px; height: 28px; line-height: 28px; text-align: center; border-radius: 6px; margin-right: 10px; vertical-align: middle; }
+  .section-header { display: flex; align-items: center; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid var(--border); }
+  .section-header h2 { font-size: 1.2rem; font-weight: 700; }
+
+  /* CONTENT BLOCKS */
+  .block { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 24px 28px; margin-bottom: 16px; }
+  .block h3 { font-size: 1rem; font-weight: 700; margin-bottom: 12px; color: var(--text); }
+  .block p { font-size: 0.88rem; color: var(--text); margin-bottom: 8px; }
+  .block ul { list-style: none; padding-left: 0; }
+  .block ul li { font-size: 0.85rem; padding: 4px 0; padding-left: 20px; position: relative; }
+  .block ul li::before { content: "▸"; color: var(--primary); position: absolute; left: 0; }
+
+  /* CALLOUT */
+  .callout { border-radius: 10px; padding: 16px 24px; margin: 16px 0; font-size: 0.88rem; }
+  .callout.goal { background: #eff6ff; border: 1px solid #93c5fd; color: #1e3a5f; }
+  .callout.priority { background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; }
+  .callout.rule { background: #fffbeb; border: 1px solid #fde68a; color: #92400e; }
+  .callout strong { font-weight: 700; }
+
+  /* GROUP CARDS */
+  .group-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+  .group-card { border-radius: 10px; padding: 18px; }
+  .group-card.alpha { background: #dcfce7; border: 1px solid #86efac; }
+  .group-card.beta { background: #fef9c3; border: 1px solid #fde047; }
+  .group-card.validation { background: #dbeafe; border: 1px solid #93c5fd; }
+  .group-card.scale { background: #f3f4f6; border: 1px solid #d1d5db; }
+  .group-card h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 8px; }
+  .status-tag { display: inline-block; font-size: 0.72rem; padding: 2px 10px; border-radius: 20px; margin-bottom: 8px; font-weight: 600; }
+  .group-card.alpha .status-tag { background: var(--green); color: #fff; }
+  .group-card.beta .status-tag { background: var(--yellow); color: #fff; }
+  .group-card.validation .status-tag { background: var(--blue); color: #fff; }
+  .group-card.scale .status-tag { background: var(--gray); color: #fff; }
+  .group-card p { font-size: 0.76rem; color: #374151; margin-bottom: 8px; }
+  .group-card ul { list-style: none; font-size: 0.78rem; color: #374151; }
+  .group-card ul li { padding: 2px 0; padding-left: 14px; position: relative; }
+  .group-card ul li::before { content: "•"; color: #9ca3af; position: absolute; left: 0; }
+
+  /* AI TEAM */
+  .ai-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
+  .ai-card { border-radius: 10px; padding: 20px; border: 1px solid var(--border); background: var(--card); }
+  .ai-card .role-badge { display: inline-block; font-size: 0.72rem; font-weight: 600; padding: 2px 10px; border-radius: 20px; margin-bottom: 8px; }
+  .ai-card.chatgpt .role-badge { background: #d1fae5; color: #065f46; }
+  .ai-card.workbuddy .role-badge { background: #dbeafe; color: #1e3a8a; }
+  .ai-card.codex .role-badge { background: #f3e8ff; color: #6b21a8; }
+  .ai-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
+  .ai-card ul { list-style: none; font-size: 0.82rem; color: var(--text); }
+  .ai-card ul li { padding: 3px 0; padding-left: 16px; position: relative; }
+  .ai-card ul li::before { content: "→"; color: var(--muted); position: absolute; left: 0; }
+
+  /* FLOW DIAGRAM */
+  .flow { display: flex; align-items: center; flex-wrap: wrap; gap: 4px; margin: 16px 0; }
+  .flow .step { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 10px 16px; font-size: 0.82rem; font-weight: 600; color: var(--text); }
+  .flow .arrow { color: var(--muted); font-size: 1.1rem; }
+
+  /* TABLE */
+  .table-wrap { overflow-x: auto; border-radius: 8px; border: 1px solid var(--border); background: var(--card); }
+  table { border-collapse: collapse; width: 100%; font-size: 0.8rem; }
+  thead { background: #f1f5f9; }
+  th { padding: 10px 14px; text-align: left; font-weight: 600; color: var(--muted); border-bottom: 1px solid var(--border); white-space: nowrap; font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.04em; }
+  td { padding: 8px 14px; border-bottom: 1px solid #f1f5f9; vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #fafbfc; }
+
+  /* SIGNAL CARDS */
+  .signal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+  .signal-card { border-radius: 8px; padding: 14px; border: 1px solid var(--border); background: var(--card); }
+  .signal-card h5 { font-size: 0.8rem; font-weight: 700; margin-bottom: 6px; }
+  .signal-card ul { list-style: none; font-size: 0.76rem; color: var(--muted); }
+  .signal-card ul li { padding: 2px 0; padding-left: 14px; position: relative; }
+  .signal-card ul li::before { content: "→"; position: absolute; left: 0; }
+
+  /* FOOTER */
+  .footer { background: var(--dark); color: #94a3b8; padding: 24px 48px; font-size: 0.8rem; margin-top: 40px; }
+  .footer a { color: #cbd5e1; }
+
+  a { color: var(--primary); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero, .stage-banner, .nav, .footer { padding-left: 20px; padding-right: 20px; }
+    .container { padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== HERO ========== -->
+<div class="hero">
+  <span class="version">SNAPSHOT v1.3</span>
+  <h1>Project Snapshot — North America Market Validation Project</h1>
+  <div class="sub">ShineTrip B2B Outdoor · Multi-AI Collaboration · The single source of truth for all team members and AI agents</div>
+  <div class="meta-row">
+    <span>📅 Updated: 2026-07-03</span>
+    <span>📍 Stage: Response Window</span>
+    <span>👥 AI Team: ChatGPT + WorkBuddy + Codex</span>
+    <span>🔄 Rule: Any major decision must produce a new Snapshot</span>
+  </div>
+</div>
+
+<!-- ========== STAGE BANNER ========== -->
+<div class="stage-banner">
+  <div class="stage-dot"></div>
+  <strong>Current Stage: Response Window</strong> — Alpha (5) + Beta (10) = 15 stores reached · Awaiting first real market reply · Validation (15) + Scale (7) on standby
+</div>
+
+<!-- ========== NAV ========== -->
+<nav class="nav">
+  <a href="#s1">1. Background</a>
+  <a href="#s2">2. Completed Work</a>
+  <a href="#s3">3. Customer Pipeline</a>
+  <a href="#s4">4. Response Window</a>
+  <a href="#s5">5. Multi-Channel</a>
+  <a href="#s6">6. BOS</a>
+  <a href="#s7">7. Facebook</a>
+  <a href="#s8">8. LinkedIn</a>
+  <a href="#s9">9. AI Team</a>
+  <a href="#s10">10. Priority</a>
+  <a href="#s11">11. Next Steps</a>
+  <a href="#s12">12. WorkBuddy Role</a>
+  <a href="#s13">13. Snapshot Rule</a>
+</nav>
+
+<div class="container">
+
+  <!-- ========== 1. BACKGROUND ========== -->
+  <section id="s1" class="section">
+    <div class="section-header">
+      <span class="section-num">1</span>
+      <h2>Project Background</h2>
+    </div>
+    <div class="block">
+      <p>This project is not about getting orders immediately. It is not about brand building. It is about <strong>validating whether ShineTrip can enter the US B2B Outdoor market</strong> through real market development.</p>
+      <p style="margin-top:12px;">The entire project follows a <strong>Validation mindset</strong>, not a traditional foreign trade development mindset.</p>
+      <div class="callout goal">
+        <strong>Core Objective:</strong> Obtain the first batch of real responses from US Independent Outdoor Retailers. A "response" includes: Email reply, Facebook Messenger reply, Instagram reply, LinkedIn reply (once restored). <strong>Response is the KPI — not conversion.</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 2. COMPLETED WORK ========== -->
+  <section id="s2" class="section">
+    <div class="section-header">
+      <span class="section-num">2</span>
+      <h2>Completed Work</h2>
+    </div>
+
+    <div class="block">
+      <h3>Market Research (Completed)</h3>
+      <ul>
+        <li>US Outdoor brand database (40 brands)</li>
+        <li>US Independent Outdoor Retailer database (37 entries)</li>
+        <li>6-channel outdoor furniture research</li>
+        <li>US user review analysis</li>
+        <li>Reddit user demand analysis</li>
+        <li>Amazon review analysis</li>
+        <li>Buyer type initial classification</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <h3>Catalog v1.5 (Frozen)</h3>
+      <p>~28 SKUs, organized by US Buyer reading logic, Product Ladder structure, first English catalog. Deployed to GitHub Pages and PDF.</p>
+      <div class="callout rule">
+        <strong>Catalog Status: Freeze.</strong> No major changes until real market feedback is received.
+      </div>
+    </div>
+
+    <div class="block">
+      <h3>Email System (Active)</h3>
+      <p>First-version outreach email system. Different customer types use different templates — not one email for all customers. Alpha + Beta = 15 stores, all sent.</p>
+    </div>
+  </section>
+
+  <!-- ========== 3. CUSTOMER PIPELINE ========== -->
+  <section id="s3" class="section">
+    <div class="section-header">
+      <span class="section-num">3</span>
+      <h2>Customer Database → Validation Pipeline</h2>
+    </div>
+    <p style="font-size:0.88rem;color:var(--muted);margin-bottom:20px;">The customer database has been restructured. It is no longer a flat customer list — it is a <strong>Validation Pipeline</strong> with staged groups.</p>
+
+    <div class="group-grid">
+      <div class="group-card alpha">
+        <h4>🟢 Alpha Group (5)</h4>
+        <span class="status-tag">✓ SENT</span>
+        <p><strong>Purpose:</strong> Verify the entire development system runs correctly (Email + Catalog + Template)</p>
+        <ul>
+          <li>Mountain Shop</li>
+          <li>Ascent Outdoors</li>
+          <li>Feral Mountain Co.</li>
+          <li>Neptune Mountaineering</li>
+          <li>JAX Outdoor Gear</li>
+        </ul>
+      </div>
+      <div class="group-card beta">
+        <h4>🟡 Beta Group (10)</h4>
+        <span class="status-tag">✓ SENT</span>
+        <p><strong>Purpose:</strong> Expand sample, observe real market response. A/B test with Template A, B, C.</p>
+        <ul>
+          <li>Foster Outdoor</li>
+          <li>Mountain Hardware &amp; Sports</li>
+          <li>Happy Hiker</li>
+          <li>Slim Pickins Outfitters</li>
+          <li>Pack Rat Outdoor Center</li>
+          <li>Trailful Outdoor Co.</li>
+          <li>J&amp;H Outdoors</li>
+          <li>Sportago</li>
+          <li>Proof Lab Outdoor Center</li>
+          <li>Stoked</li>
+        </ul>
+      </div>
+      <div class="group-card validation">
+        <h4>🔵 Validation Group (15)</h4>
+        <span class="status-tag">NOT STARTED</span>
+        <p><strong>Purpose:</strong> Validate response patterns across different customer types</p>
+        <ul>
+          <li>Wonderland Gear Exchange</li>
+          <li>Elevation Sierra Adventure Essentials</li>
+          <li>Taos Mountain Outfitters</li>
+          <li>Roam'n Around</li>
+          <li>The Benchmark</li>
+          <li>Alpine Shop</li>
+          <li>Great Outdoor Provisions Co.</li>
+          <li>Outdoor Gear Exchange</li>
+          <li>Rock and Snow</li>
+          <li>The Trail Head</li>
+          <li>URE Outfitters</li>
+          <li>Mountain Outfitters</li>
+          <li>River Rock Outfitter</li>
+          <li>Black Dome Mountain Sports</li>
+          <li>Half Moon Outfitters</li>
+        </ul>
+      </div>
+      <div class="group-card scale">
+        <h4>⚫ Scale Group (7)</h4>
+        <span class="status-tag">NOT STARTED</span>
+        <p><strong>Purpose:</strong> Scale up proven model in future</p>
+        <ul>
+          <li>Campsaver</li>
+          <li>Main Line Overland</li>
+          <li>Sportsman's Warehouse</li>
+          <li>Summit Hut</li>
+          <li>Janky Gear</li>
+          <li>backwoodsadventuremods</li>
+          <li>Walkabout Outfitter</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:16px;">
+      <h4 style="font-size:0.85rem;font-weight:600;margin-bottom:8px;color:var(--muted);">System Logic</h4>
+      <div class="flow">
+        <div class="step">Alpha → System runs?</div>
+        <span class="arrow">→</span>
+        <div class="step">Beta → Market responds?</div>
+        <span class="arrow">→</span>
+        <div class="step">Validation → Who responds?</div>
+        <span class="arrow">→</span>
+        <div class="step">Scale → Can we replicate?</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 4. RESPONSE WINDOW ========== -->
+  <section id="s4" class="section">
+    <div class="section-header">
+      <span class="section-num">4</span>
+      <h2>Current Stage: Response Window</h2>
+    </div>
+    <div class="block">
+      <p>Alpha + Beta outreach is complete. The project is now in a <strong>waiting and observation phase</strong>.</p>
+      <p style="margin-top:8px;"><strong>Observation window:</strong> 3–7 days</p>
+      <div class="callout rule">
+        <strong>Freeze Rules (until first real reply):</strong> Do not adjust the system. Do not modify the Catalog. Do not redesign Templates. Wait for real data.
+      </div>
+    </div>
+
+    <div class="block">
+      <h3>Four Signal Types We're Watching</h3>
+      <div class="signal-grid">
+        <div class="signal-card">
+          <h5>① Technical Signals</h5>
+          <ul><li>Email delivered?</li><li>Bounce / undeliverable?</li></ul>
+        </div>
+        <div class="signal-card">
+          <h5>② Passive Signals</h5>
+          <ul><li>Out-of-office auto-reply</li></ul>
+        </div>
+        <div class="signal-card">
+          <h5>③ Commercial Interest</h5>
+          <ul><li>Asking about catalog</li><li>Asking price / MOQ</li></ul>
+        </div>
+        <div class="signal-card">
+          <h5>④ Strong Signal</h5>
+          <ul><li>Request samples</li><li>Request call</li><li>Clear expressed interest</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 5. MULTI-CHANNEL ========== -->
+  <section id="s5" class="section">
+    <div class="section-header">
+      <span class="section-num">5</span>
+      <h2>New Initiative: Multi-Channel Buyer Acquisition</h2>
+    </div>
+    <div class="block">
+      <p>The project has upgraded from Email-only to <strong>Multi-Channel Buyer Contact</strong>. No longer relying on a single channel.</p>
+      <div class="flow" style="margin-top:16px;">
+        <div class="step">Email</div>
+        <span class="arrow">→</span>
+        <div class="step">Facebook</div>
+        <span class="arrow">→</span>
+        <div class="step">Instagram</div>
+        <span class="arrow">→</span>
+        <div class="step">LinkedIn</div>
+        <span class="arrow">→</span>
+        <div class="step">Phone (if needed)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 6. BOS ========== -->
+  <section id="s6" class="section">
+    <div class="section-header">
+      <span class="section-num">6</span>
+      <h2>Buyer Operating System (BOS) v1.1</h2>
+    </div>
+
+    <div class="block">
+      <p>Codex has completed <strong>Multi-Channel Buyer Acquisition SOP v1.0</strong>, formalized in the BOS (Buyer Operating System) v1.1 Excel workbook.</p>
+      <p style="margin-top:8px;"><strong>BOS = 五大表 (Data Layer) + Buyer SOP (Action Layer)</strong></p>
+    </div>
+
+    <div class="block">
+      <h3>BOS Core Components</h3>
+      <ul>
+        <li><strong>Dashboard</strong> — Boss view funnel: Customers → Email Sent → Email Reply → Messenger Sent → Messenger Reply → First Conversation</li>
+        <li><strong>Buyer Intelligence DB</strong> — Multi-channel buyer data: Facebook, Instagram, LinkedIn, Owner visibility, Last post, Community activity, Email status</li>
+        <li><strong>Touch Sequence</strong> — Standardized touch schedule: Day0 Email → Day2 FB Research → Day3 Like → Day5 Messenger → Day7 Follow-up Email</li>
+        <li><strong>Buyer Accessibility Score</strong> — 10-point model: Facebook (2) + Instagram (2) + LinkedIn (2) + Email (2) + Owner visibility (2). Priority: 8-10 High, 5-7 Medium, 0-4 Low</li>
+        <li><strong>SOP &amp; Rules</strong> — 7-stage SOP: Account Warm-up → Industry Ecosystem → Buyer Intelligence → Touch Sequence → Accessibility Score → Feed Strategy → Absolute No</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <h3>Weekly Operating Rhythm (from BOS Dashboard)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Day</th><th>Channel</th><th>Action</th><th>Rule</th><th>Risk Control</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Day 0</strong></td><td>Email</td><td>Send first email + Catalog</td><td>Wait, don't immediately chase other channels</td><td>Avoid consecutive bombardment</td></tr>
+            <tr><td><strong>Day 2</strong></td><td>Facebook</td><td>Research latest posts, owner, community, events</td><td>Observe only, don't contact</td><td>Don't create pressure</td></tr>
+            <tr><td><strong>Day 3</strong></td><td>Facebook</td><td>Like 2-3 recent posts; leave 1 natural comment if genuine</td><td>No product talk</td><td>Comment like a real person</td></tr>
+            <tr><td><strong>Day 5</strong></td><td>Messenger</td><td>Send one soft hello if some interaction exists</td><td>One sentence, no pitch</td><td>No Catalog/PDF/pricing</td></tr>
+            <tr><td><strong>Day 7</strong></td><td>Email</td><td>Send follow-up email if no reply</td><td>Return to main channel</td><td>Pace should be slow</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="block">
+      <h3>Feed Content Strategy (Facebook/LinkedIn)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Content Type</th><th>Ratio</th><th>Examples</th><th>Purpose</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>International Business</td><td><strong>40%</strong></td><td>What I learned today; market observations; outreach review</td><td>Build professional credibility</td></tr>
+            <tr><td>AI Workflow</td><td><strong>30%</strong></td><td>Tools, processes, efficiency gains</td><td>Show modern work approach</td></tr>
+            <tr><td>Outdoor</td><td><strong>20%</strong></td><td>Travel, nature, product observations</td><td>Align with target industry</td></tr>
+            <tr><td>Life</td><td><strong>10%</strong></td><td>Cat, coffee, animals</td><td>Make the account feel real</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="callout priority">
+      <strong>Absolute No (Stage 7 — Always Active):</strong> No sending Catalog/PDF/pricing on first contact. No copy-paste. No adding dozens of Buyers at once. Every touch must have interval and context. Contact like a real person.
+    </div>
+  </section>
+
+  <!-- ========== 7. FACEBOOK ========== -->
+  <section id="s7" class="section">
+    <div class="section-header">
+      <span class="section-num">7</span>
+      <h2>Facebook — Ariel Chen Personal Brand</h2>
+    </div>
+    <div class="block">
+      <p>Facebook setup is complete: registration, profile, cover, bio, first feed post, basic page build.</p>
+      <div class="callout rule">
+        <strong>Positioning:</strong> This is NOT a company account. It is <strong>Ariel Chen's personal brand</strong> — a long-term asset for international industry networking, Buyer contact, and overseas career development.
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 8. LINKEDIN ========== -->
+  <section id="s8" class="section">
+    <div class="section-header">
+      <span class="section-num">8</span>
+      <h2>LinkedIn — Professional Identity</h2>
+    </div>
+    <div class="block">
+      <p>Registration complete. Identity verification passed. Currently <strong>waiting for official restriction lift</strong> (48 hours ~ 5 days).</p>
+      <p style="margin-top:8px;"><strong>Future positioning:</strong> Professional Identity. Used for Buyer contact, Recruiter network, International network building.</p>
+    </div>
+  </section>
+
+  <!-- ========== 9. AI TEAM ========== -->
+  <section id="s9" class="section">
+    <div class="section-header">
+      <span class="section-num">9</span>
+      <h2>AI Team — Multi-AI Collaboration</h2>
+    </div>
+    <p style="font-size:0.88rem;color:var(--muted);margin-bottom:20px;">The project uses a structured Multi-AI Collaboration model with clear role separation.</p>
+
+    <div class="ai-grid">
+      <div class="ai-card chatgpt">
+        <span class="role-badge">DIRECTION</span>
+        <h4>ChatGPT</h4>
+        <ul>
+          <li>Project planning</li>
+          <li>Business analysis</li>
+          <li>SOP design</li>
+          <li>Strategy</li>
+          <li>Process design</li>
+        </ul>
+      </div>
+      <div class="ai-card workbuddy">
+        <span class="role-badge">MEMORY &amp; KNOWLEDGE</span>
+        <h4>WorkBuddy</h4>
+        <ul>
+          <li>Web pages &amp; documents</li>
+          <li>Database management</li>
+          <li>Long-term GitHub records</li>
+          <li>Project Snapshot maintenance</li>
+          <li>AI collaboration state sync</li>
+        </ul>
+      </div>
+      <div class="ai-card codex">
+        <span class="role-badge">EXECUTION</span>
+        <h4>Codex</h4>
+        <ul>
+          <li>Engineering execution</li>
+          <li>Excel / BOS</li>
+          <li>SOP implementation</li>
+          <li>Code &amp; automation</li>
+          <li>Fast prototyping</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout rule" style="margin-top:16px;">
+      <strong>Collaboration Principle:</strong> ChatGPT sets direction → Codex implements → WorkBuddy maintains long-term records. All important results sync to WorkBuddy and settle into GitHub.
+    </div>
+  </section>
+
+  <!-- ========== 10. PRIORITY ========== -->
+  <section id="s10" class="section">
+    <div class="section-header">
+      <span class="section-num">10</span>
+      <h2>Highest Priority</h2>
+    </div>
+    <div class="callout priority">
+      <strong>NOT:</strong> Continue optimizing the system. Continue designing SOPs.<br>
+      <strong>IS:</strong> Obtain the first real customer response (Response). All current work revolves around this single goal.
+    </div>
+  </section>
+
+  <!-- ========== 11. NEXT STEPS ========== -->
+  <section id="s11" class="section">
+    <div class="section-header">
+      <span class="section-num">11</span>
+      <h2>Next Steps</h2>
+    </div>
+    <div class="block">
+      <ul>
+        <li><strong>①</strong> Continue observing Alpha + Beta replies (3–7 day window)</li>
+        <li><strong>②</strong> Refine Multi-Channel Buyer Acquisition SOP</li>
+        <li><strong>③</strong> Build Buyer Contact Database (BOS Buyer Intelligence DB)</li>
+        <li><strong>④</strong> Add LinkedIn to outreach system once restriction is lifted</li>
+        <li><strong>⑤</strong> Begin Facebook industry ecosystem building</li>
+        <li><strong>⑥</strong> After first replies arrive, adjust Validation phase strategy based on real market data</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========== 12. WORKBUDDY ROLE ========== -->
+  <section id="s12" class="section">
+    <div class="section-header">
+      <span class="section-num">12</span>
+      <h2>WorkBuddy's Role: Project Memory &amp; Knowledge Base</h2>
+    </div>
+    <div class="block">
+      <p>WorkBuddy is no longer just a web/document generation tool. Its role has been adjusted to:</p>
+      <div class="callout goal">
+        <strong>Project Memory &amp; Knowledge Base</strong>
+      </div>
+      <ul style="margin-top:12px;">
+        <li>Save all project decisions</li>
+        <li>Record all version updates</li>
+        <li>Maintain sync with GitHub</li>
+        <li>Maintain SOPs</li>
+        <li>Maintain Buyer Database</li>
+        <li>Keep all AI collaboration states consistent</li>
+      </ul>
+      <p style="margin-top:12px;font-size:0.82rem;color:var(--muted);">Any AI joining the project should first read the latest Project Snapshot before participating in execution.</p>
+    </div>
+  </section>
+
+  <!-- ========== 13. SNAPSHOT RULE ========== -->
+  <section id="s13" class="section">
+    <div class="section-header">
+      <span class="section-num">13</span>
+      <h2>Project Snapshot Rule</h2>
+    </div>
+    <div class="callout rule">
+      <strong>Fixed Rule:</strong> Any decision that affects project direction, SOP, process, or database structure must produce an updated Project Snapshot. Do not wait until information desync is discovered to fix it.
+    </div>
+    <div class="block" style="margin-top:16px;">
+      <p>This ensures GitHub always has the latest "project state." WorkBuddy maintains it, Codex executes, Chen judges direction. Even if an AI is decommissioned or replaced, the project never loses context because of a "memory gap."</p>
+      <p style="margin-top:8px;font-weight:600;">This mechanism is more valuable than adding any new AI.</p>
+    </div>
+  </section>
+
+</div>
+
+<!-- ========== FOOTER ========== -->
+<div class="footer">
+  <strong>Project Snapshot v1.3</strong> · ShineTrip North America Market Validation Project · Updated 2026-07-03<br>
+  Maintained by WorkBuddy · AI Team: ChatGPT + WorkBuddy + Codex · <a href="https://icandoitccc-jpg.github.io/github-xiezuo/">← Back to Project Home</a> · <a href="five-tables.html">五大表 →</a>
+</div>
+
+</body>
+</html>
