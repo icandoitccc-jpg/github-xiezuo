@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>山趣海外官网建设决策分析</title>
+<style>
+  :root {
+    --bg: #f8f9fa;
+    --card: #ffffff;
+    --text: #1a1a2e;
+    --text2: #555;
+    --accent: #2d6a4f;
+    --accent2: #40916c;
+    --warn: #e63946;
+    --border: #dee2e6;
+    --tag-bg: #d8f3dc;
+    --tag-text: #2d6a4f;
+    --shadow: 0 1px 3px rgba(0,0,0,.08);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: -apple-system, "PingFang SC", "Helvetica Neue", Arial, sans-serif; background: var(--bg); color: var(--text); line-height:1.7; }
+  .wrap { max-width:960px; margin:0 auto; padding:24px 20px; }
+  h1 { font-size:28px; font-weight:700; margin-bottom:4px; }
+  h2 { font-size:20px; font-weight:700; color: var(--accent); margin:36px 0 12px; border-bottom:3px solid var(--accent); padding-bottom:6px; }
+  h3 { font-size:16px; font-weight:600; margin:18px 0 8px; }
+  .subtitle { font-size:14px; color:var(--text2); margin-bottom:20px; }
+  .conclusion-box { background:var(--accent); color:#fff; padding:20px 24px; border-radius:8px; font-size:17px; font-weight:600; line-height:1.6; margin:20px 0 28px; }
+  .card { background:var(--card); border-radius:8px; padding:20px 24px; margin:16px 0; box-shadow:var(--shadow); border:1px solid var(--border); }
+  .brand-card { margin:20px 0; }
+  .brand-name { font-size:18px; font-weight:700; color:var(--accent); }
+  .brand-en { font-size:13px; color:var(--text2); margin-left:6px; }
+  .screenshot-placeholder { background:#f0f0f0; border:2px dashed #bbb; padding:20px; text-align:center; color:#888; font-size:13px; margin:12px 0; border-radius:4px; }
+  table { width:100%; border-collapse:collapse; margin:12px 0; font-size:14px; }
+  th { background:var(--accent); color:#fff; font-weight:600; padding:10px 12px; text-align:left; }
+  td { padding:10px 12px; border-bottom:1px solid var(--border); }
+  tr:nth-child(even) td { background:#f8f9fa; }
+  .tag { display:inline-block; background:var(--tag-bg); color:var(--tag-text); padding:2px 8px; border-radius:3px; font-size:12px; font-weight:600; margin:2px 4px; }
+  .tag-warn { background:#fdecea; color:var(--warn); }
+  .tag-good { background:var(--tag-bg); color:var(--accent); }
+  .phase-box { background:linear-gradient(135deg, #d8f3dc, #b7e4c7); padding:16px 20px; border-radius:8px; margin:12px 0; }
+  .phase-num { font-size:32px; font-weight:800; color:var(--accent); float:left; margin-right:16px; line-height:1; }
+  .phase-title { font-size:16px; font-weight:700; color:var(--text); }
+  .phase-desc { font-size:13px; color:var(--text2); margin-top:4px; }
+  .qa-q { font-weight:700; color:var(--accent); margin:14px 0 4px; font-size:15px; }
+  .qa-a { font-size:14px; color:var(--text); margin-bottom:8px; padding-left:16px; border-left:3px solid var(--accent2); }
+  .cost-tier { display:flex; gap:12px; margin:16px 0; flex-wrap:wrap; }
+  .cost-card { flex:1; min-width:260px; background:var(--card); border-radius:8px; padding:16px 20px; box-shadow:var(--shadow); border:2px solid var(--border); }
+  .cost-card.recommended { border-color:var(--accent); }
+  .cost-label { font-size:13px; font-weight:600; color:var(--text2); }
+  .cost-amount { font-size:22px; font-weight:800; color:var(--accent); margin:4px 0; }
+  .cost-card.recommended .cost-amount { color:var(--accent); }
+  .ul { list-style:none; padding:0; }
+  .ul li { padding:4px 0 4px 20px; position:relative; font-size:14px; }
+  .ul li::before { content:"•"; position:absolute; left:6px; color:var(--accent); font-weight:700; }
+  .must { background:#d8f3dc; padding:2px 6px; border-radius:3px; font-size:11px; font-weight:600; }
+  .later { background:#fff3cd; padding:2px 6px; border-radius:3px; font-size:11px; font-weight:600; }
+  .nav-structure { display:flex; flex-wrap:wrap; gap:8px; margin:8px 0; }
+  .nav-item { background:#e9ecef; padding:6px 12px; border-radius:4px; font-size:13px; }
+  .nav-item.must-item { background:var(--tag-bg); color:var(--accent); font-weight:600; }
+  .ref-combo { background:#f0f7f4; border-left:4px solid var(--accent); padding:16px 20px; margin:16px 0; border-radius:0 8px 8px 0; }
+  .footer { text-align:center; font-size:12px; color:var(--text2); margin-top:40px; padding-top:20px; border-top:1px solid var(--border); }
+  .page-break { page-break-after:always; }
+  @media print { body { background:#fff; } .card, .cost-card { box-shadow:none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ========== 一、开头结论 ========== -->
+<h1>山趣海外官网建设决策分析</h1>
+<p class="subtitle">面向北美客户开发 · 2026年7月</p>
+
+<div class="conclusion-box">
+山趣做海外官网，不是为了"重新做一个网站"，而是为了配合北美客户开发，让海外客户在第一次搜索品牌时看到一个<span style="color:#ffd60a">可信、专业、加载快、符合海外审美</span>的品牌入口。
+</div>
+
+<!-- ========== 二、现官网问题 ========== -->
+<h2>一、现官网问题</h2>
+<p style="font-size:13px;color:var(--text2);margin-bottom:8px;">旧官网不适合作为海外市场开发的主要入口，以下为客观问题梳理：</p>
+
+<table>
+<tr><th style="width:18%">问题项</th><th style="width:30%">现状</th><th style="width:30%">对海外客户的影响</th><th style="width:12%">是否影响北美开发</th></tr>
+<tr>
+  <td>海外访问速度慢</td>
+  <td>服务器在国内，海外客户打开页面需5秒以上</td>
+  <td>北美客户打开官网时体验差，直接影响第一印象和信任感</td>
+  <td><span class="tag tag-warn">直接影响</span></td>
+</tr>
+<tr>
+  <td>域名不专业</td>
+  <td>shine-trip.com 带连字符，"shine+trip" 组合像旅游网站</td>
+  <td>海外客户搜索时容易误判为旅行社而非户外用品品牌</td>
+  <td><span class="tag tag-warn">直接影响</span></td>
+</tr>
+<tr>
+  <td>品牌表达不足</td>
+  <td>旧官网设计风格未能承接公司当前新的品牌定位</td>
+  <td>无法在首页快速传达品牌专业性和产品体系</td>
+  <td><span class="tag tag-warn">直接影响</span></td>
+</tr>
+<tr>
+  <td>产品体系展示不完整</td>
+  <td>不适合展示1000+ SKU的产品体系，分类和筛选能力弱</td>
+  <td>客户无法高效浏览和筛选产品，影响选品效率</td>
+  <td><span class="tag tag-warn">直接影响</span></td>
+</tr>
+<tr>
+  <td>缺少外贸关键内容</td>
+  <td>无 Catalog下载、Dealer Inquiry、Warranty、About Brand等外贸入口</td>
+  <td>B2B客户找不到合作入口、产品资料和信任证明</td>
+  <td><span class="tag tag-warn">直接影响</span></td>
+</tr>
+<tr>
+  <td>维护困难</td>
+  <td>原负责人员已离职，公司内部不容易继续修改和更新</td>
+  <td>内容长期不更新，海外客户看到过时信息</td>
+  <td><span class="tag tag-warn">间接影响</span></td>
+</tr>
+</table>
+
+<!-- ========== 三、中国户外品牌出海官网做法 ========== -->
+<h2>二、中国户外品牌出海官网做法分析</h2>
+<p style="font-size:14px;color:var(--text2);margin-bottom:12px;">这节回答老板关心的问题：<b>别的中国品牌到底是一个官网还是多个官网？为什么有些看起来像两个网站？</b></p>
+
+<div class="card">
+<p style="font-size:14px;line-height:1.8;"><b>核心发现：</b>大多数中国户外出海品牌并不是"中国一个官网、美国一个官网"。<br>
+实际上是<b>"一个 .com 英文站 + 国内电商平台"</b>的组合。中国站主要靠京东/天猫旗舰店，海外站用 Shopify 建英文品牌商城。<br>
+少数品牌（如牧高笛）有独立中国站和海外站，但内容策略<b>完全不同</b>——英文站做品牌和海外销售，中文站做招商加盟。<br>
+关键不是"几个官网"，而是<b>"是否有一套适合海外客户的内容和体验"</b>。</p>
+</div>
+
+<!-- Naturehike -->
+<div class="brand-card card">
+<div style="display:flex;align-items:baseline;"><span class="brand-name">1. Naturehike 挪客</span><span class="brand-en">naturehike.com</span></div>
+<div class="screenshot-placeholder">【此处放 Naturehike 首页截图】</div>
+<table>
+<tr><th style="width:22%">维度</th><th>分析</th></tr>
+<tr><td>域名策略</td><td>naturehike.com = 海外英文站（Shopify），无独立中国品牌官网，国内靠京东/天猫</td></tr>
+<tr><td>语言</td><td>仅英文，无语言切换</td></tr>
+<tr><td>中文 vs 英文</td><td>没有中文官网可对比；naturehike.com 是纯海外品牌站，内容英文原创</td></tr>
+<tr><td>海外商城</td><td>独立 Shopify 商城，全球 B2C 直营</td></tr>
+<tr><td>外贸入口</td><td><span class="tag tag-warn">无</span> Dealer/Wholesale/Catalog 等公开入口；国内 b2b.naturehike.cn 专做中国经销商</td></tr>
+<tr><td>视觉风格</td><td><span class="tag tag-good">欧美简约户外风</span> 白色系+大图+卡片式产品展示，接近 MSR/Big Agnes</td></tr>
+<tr><td>产品特点</td><td>产品英文系列命名（Massif™, Star River™ UL），白底+场景图双展示</td></tr>
+<tr><td>山趣参考</td><td>✅ 域名 .com 统一海内外 ✅ 产品英文命名体系 ✅ B2B独立站分离思路</td></tr>
+</table>
+</div>
+
+<!-- Mobi Garden -->
+<div class="brand-card card">
+<div style="display:flex;align-items:baseline;"><span class="brand-name">2. Mobi Garden 牧高笛</span><span class="brand-en">mobigarden.com / mobigarden.com.cn</span></div>
+<div class="screenshot-placeholder">【此处放 Mobi Garden 海外站首页截图】</div>
+<table>
+<tr><th style="width:22%">维度</th><th>分析</th></tr>
+<tr><td>域名策略</td><td>海外 mobigarden.com（Shopify）+ 中国 mobigarden.com.cn（企业站），<b>唯一有独立双站的品牌</b></td></tr>
+<tr><td>语言</td><td>海外站仅英文；中国站中文为主，有英文企业介绍页</td></tr>
+<tr><td>中文 vs 英文</td><td><b>完全不同</b>：海外站主打"Hengduan-Engineered"高端概念；中国站做招商加盟和 OEM/ODM</td></tr>
+<tr><td>海外商城</td><td>Shopify 直营 B2C，目前仅配送美国</td></tr>
+<tr><td>外贸入口</td><td><span class="tag tag-warn">无</span> 公开 Wholesale 入口</td></tr>
+<tr><td>视觉风格</td><td><span class="tag tag-good">高端欧美户外科技风</span> 深色系+大图+视频，类似 Arc'teryx</td></tr>
+<tr><td>产品特点</td><td>按活动场景组织（Hiking/Backpacking/Mountain Sports），技术参数详细</td></tr>
+<tr><td>山趣参考</td><td>✅ 差异化品牌叙事（"横断山脉"） ✅ 场景化导航 ✅ 双站分离内容策略</td></tr>
+</table>
+</div>
+
+<!-- BLACKDEER -->
+<div class="brand-card card">
+<div style="display:flex;align-items:baseline;"><span class="brand-name">3. BLACKDEER 黑鹿</span><span class="brand-en">blackdeer.com / blackdeer.com.tw</span></div>
+<div class="screenshot-placeholder">【此处放 BLACKDEER 首页截图】</div>
+<table>
+<tr><th style="width:22%">维度</th><th>分析</th></tr>
+<tr><td>域名策略</td><td>blackdeer.com（英文 Shopify）+ blackdeer.com.tw（台湾代理站），国内无独立官网</td></tr>
+<tr><td>语言</td><td>英文 + 繁体中文（台湾站）</td></tr>
+<tr><td>海外商城</td><td>Shopify 独立站，但运营活跃度较低，多数产品标记售罄</td></tr>
+<tr><td>外贸入口</td><td><span class="tag tag-warn">无</span></td></tr>
+<tr><td>视觉风格</td><td><span class="tag">基础户外电商风</span> 白底产品图为主</td></tr>
+<tr><td>山趣参考</td><td>⚠️ 出海运营力度不足的案例，证明有站≠有效 ✅ 区域域名思路（.com.tw）</td></tr>
+</table>
+</div>
+
+<!-- OneTigris -->
+<div class="brand-card card">
+<div style="display:flex;align-items:baseline;"><span class="brand-name">4. OneTigris</span><span class="brand-en">onetigris.com</span></div>
+<div class="screenshot-placeholder">【此处放 OneTigris 首页截图】</div>
+<table>
+<tr><th style="width:22%">维度</th><th>分析</th></tr>
+<tr><td>域名策略</td><td>onetigris.com（英文 Shopify）+ camping.onetigris.com（露营子站），本身定位国际品牌</td></tr>
+<tr><td>语言</td><td>仅英文</td></tr>
+<tr><td>海外商城</td><td>Shopify + Amazon 铺货</td></tr>
+<tr><td>外贸入口</td><td><span class="tag tag-warn">无</span> 公开入口，仅在 HKTDC 有供应商页面</td></tr>
+<tr><td>视觉风格</td><td><span class="tag">战术军事户外风</span> 深色背景+粗犷字体，接近 5.11 Tactical</td></tr>
+<tr><td>山趣参考</td><td>✅ 子域名细分品类策略 ✅ 品牌身份完全国际化（看不出中国背景）</td></tr>
+</table>
+</div>
+
+<!-- Fire-Maple -->
+<div class="brand-card card">
+<div style="display:flex;align-items:baseline;"><span class="brand-name">5. Fire-Maple 火枫</span><span class="brand-en">firemaplegear.com / firemaple-official.com</span></div>
+<div class="screenshot-placeholder">【此处放 Fire-Maple 首页截图】</div>
+<table>
+<tr><th style="width:22%">维度</th><th>分析</th></tr>
+<tr><td>域名策略</td><td><b>双海外站</b>：firemaplegear.com（品牌社区站）+ firemaple-official.com（多语言商城）</td></tr>
+<tr><td>语言</td><td>firemaplegear.com 仅英文；firemaple-official.com 多语言（中英法等）</td></tr>
+<tr><td>海外商城</td><td>两个 Shopify 站直营 B2C，全球配送，Trustpilot 4.5分</td></tr>
+<tr><td>外贸入口</td><td><span class="tag tag-warn">无</span> 公开 Wholesale 入口</td></tr>
+<tr><td>视觉风格</td><td><span class="tag tag-good">欧美户外厨房风</span> "Kitchen Without Walls" 品牌理念，暖色调+Instagram UGC 内容丰富</td></tr>
+<tr><td>产品特点</td><td>按活动场景组织（Ultralight/Winter/Family/Bushcraft），社区推荐+真实用户故事</td></tr>
+<tr><td>山趣参考</td><td>✅ 场景即品类策略 ✅ Instagram UGC嵌入建信任 ✅ 品牌口号精确定位 ✅ 双站分离思路</td></tr>
+</table>
+</div>
+
+<!-- KingCamp -->
+<div class="brand-card card">
+<div style="display:flex;align-items:baseline;"><span class="brand-name">6. KingCamp 康尔健野</span><span class="brand-en">kingcamp.com</span></div>
+<div class="screenshot-placeholder">【此处放 KingCamp 首页截图】</div>
+<table>
+<tr><th style="width:22%">维度</th><th>分析</th></tr>
+<tr><td>域名策略</td><td>kingcamp.com（主站Shopify）+ 区域独立站（UK .co.uk / US .com / JP .co.jp）</td></tr>
+<tr><td>语言</td><td><span class="tag tag-good">English / Deutsch / Español 三语切换</span>，支持40+国家/地区选择+多币种</td></tr>
+<tr><td>海外商城</td><td>Shopify 全球商城 + 各区域独立站</td></tr>
+<tr><td>外贸入口</td><td><span class="tag tag-good">✅ 有</span> Wholesale Program + Affiliate Program + 海外KOL合作（Lonewolf902等）</td></tr>
+<tr><td>视觉风格</td><td><span class="tag tag-good">欧美大家庭露营风</span> 大图轮播+场景营销，"Comfort with Nature" 品牌理念</td></tr>
+<tr><td>产品特点</td><td>按系列（Khan系列为核心）+ 活动场景（Glamping/Family/Car Camping）双维度组织</td></tr>
+<tr><td>山趣参考</td><td>✅ 出海标杆级操作：Wholesale入口、KOL合作、多区域站 ✅ 最重要的参考品牌</td></tr>
+</table>
+</div>
+
+<!-- KZM -->
+<div class="brand-card card">
+<div style="display:flex;align-items:baseline;"><span class="brand-name">7. KZM（韩国）</span><span class="brand-en">kzmoutdoor.com / kzmmall.com</span></div>
+<div class="screenshot-placeholder">【此处放 KZM 首页截图】</div>
+<table>
+<tr><th style="width:22%">维度</th><th>分析</th></tr>
+<tr><td>域名策略</td><td>韩国 kzmmall.com + 英文 en.kzmoutdoor.com（品牌展示站，非商城）+ 台湾 kzm.com.tw（代理站）</td></tr>
+<tr><td>语言</td><td>韩文 / 英文 / 繁体中文</td></tr>
+<tr><td>中文 vs 英文</td><td>完全不同：英文站是品牌展示（无商城），各区域站由当地代理运营</td></tr>
+<tr><td>外贸入口</td><td>以区域代理模式为主，无公开 Wholesale</td></tr>
+<tr><td>视觉风格</td><td><span class="tag">韩式精致露营风</span> "KEEP ZEST MOVING!" 清新美学</td></tr>
+<tr><td>山趣参考</td><td>✅ 品牌展示站+电商站分离思路 ✅ 区域代理建站模式</td></tr>
+</table>
+</div>
+
+<!-- 关键模式总结 -->
+<div class="card" style="background:#f0f7f4;">
+<h3 style="margin-top:0;">🔍 关键模式总结</h3>
+<table>
+<tr><th style="width:25%">模式</th><th>代表品牌</th><th style="width:35%">特点</th></tr>
+<tr><td><b>一个 .com 站打全球</b></td><td>Naturehike, OneTigris, KingCamp</td><td>主域名即为英文站，Shopify 建站，全球 B2C 直营</td></tr>
+<tr><td><b>双站分离（品牌+销售）</b></td><td>Fire-Maple</td><td>品牌内容站 + 综合销售站分离，各司其职</td></tr>
+<tr><td><b>区域代理模式</b></td><td>KZM, BLACKDEER（台湾站）</td><td>通过当地代理商建设本地化站点</td></tr>
+</table>
+<p style="font-size:14px;margin-top:8px;"><b>回答老板的问题：</b></p>
+<ul class="ul">
+  <li>大多数品牌不是"中国一个、美国一个"——而是<b>"一个 .com 英文站 + 国内电商平台"</b></li>
+  <li>中文和英文页面内容策略<b>完全不同</b>：英文站做品牌+海外销售，中文做招商+国内电商</li>
+  <li>英文官网更重视：品牌感、产品展示、经销商合作入口、资料下载、海外信任建立</li>
+  <li>关键不是"几个官网"，而是<b>"是否有一套适合海外客户的内容和体验"</b></li>
+</ul>
+</div>
+
+<!-- ========== 四、国际品牌Benchmark ========== -->
+<h2>三、国际优秀户外品牌官网 Benchmark</h2>
+<p style="font-size:14px;color:var(--text2);margin-bottom:12px;">以下品牌不写历史介绍，重点看<b>"官网怎么服务生意"</b>。</p>
+
+<!-- REI -->
+<div class="brand-card card">
+<div style="display:flex;align-items:baseline;"><span class="brand-name">1. REI</span><span class="brand-en">rei.com · 美国</span></div>
+<div class="screenshot-placeholder">【此处放 REI 首页截图】</div>
+<table>
+<tr><th style="width:22%">维度</th><th>分析</th></tr>
+<tr><td>首页第一感觉</td><td>户外生活方式大全，既是商城也是社区入口</td></tr>
+<tr><td>核心目标</td><td><b>零售+社区</b> — 美国最大户外零售商，卖货为主但强生活方式内容</td></tr>
+<tr><td>导航结构</td><td>Camping / Hiking / Climbing / Cycling / Paddling / Snow / Travel + Co-op Members / Classes / Events</td></tr>
+<tr><td>产品页</td><td>极详细的参数+用户长评+对比功能+Q&A区</td></tr>
+<tr><td>信任入口</td><td>✅门店查询 ✅保修 ✅会员体系 ✅课程活动 ✅退货保障</td></tr>
+<tr><td>视觉关键词</td><td><span class="tag">生活方式</span><span class="tag">社区感</span><span class="tag">专业</span></td></tr>
+<tr><td>山趣学习</td><td>✅ 信任感建设方式（会员+保修+门店） ✅ 活动场景导航优于纯品类</td></tr>
+<tr><td>山趣不照搬</td><td>❌ 零售商规模和品类数量远超山趣 ❌ 社区内容体量需要长期投入</td></tr>
+</table>
+</div>
+
+<!-- Helinox -->
+<div class="brand-card card">
+<div style="display:flex;align-items:baseline;"><span class="brand-name">2. Helinox</span><span class="brand-en">helinox.com · 韩国/全球</span></div>
+<div class="screenshot-placeholder">【此处放 Helinox 首页截图】</div>
+<table>
+<tr><th style="width:22%">维度</th><th>分析</th></tr>
+<tr><td>首页第一感觉</td><td>高端、简洁、专业——像科技公司不像户外品牌</td></tr>
+<tr><td>核心目标</td><td><b>建品牌+卖货</b> — 以设计和技术为核心叙事</td></tr>
+<tr><td>导航结构</td><td>Chairs / Tables / Cots / Trekking Poles / Shelters / Accessories + Technology / About / Dealer</td></tr>
+<tr><td>产品页</td><td>极简设计+高端产品摄影，技术参数精确（如重量精确到克）</td></tr>
+<tr><td>信任入口</td><td>✅Dealer查询 ✅Technology页面 ✅Warranty</td></tr>
+<tr><td>视觉关键词</td><td><span class="tag tag-good">极简</span><span class="tag tag-good">高端</span><span class="tag tag-good">技术感</span></td></tr>
+<tr><td>山趣学习</td><td>✅ 简洁高级视觉风格 ✅ 技术页面展示产品优势 ✅ Dealer查询入口</td></tr>
+<tr><td>山趣不照搬</td><td>❌ 品类线太窄（只有椅桌杖），山趣品类更广 ❌ 高端定价定位与山趣不同</td></tr>
+</table>
+</div>
+
+<!-- Snow Peak -->
+<div class="brand-card card">
+<div style="display:flex;align-items:baseline;"><span class="brand-name">3. Snow Peak</span><span class="brand-en">snowpeak.com · 日本/全球</span></div>
+<div class="screenshot-placeholder">【此处放 Snow Peak 首页截图】</div>
+<table>
+<tr><th style="width:22%">维度</th><th>分析</th></tr>
+<tr><td>首页第一感觉</td><td>生活方式深度叙事，日式美学+户外精神融合</td></tr>
+<tr><td>核心目标</td><td><b>生活方式品牌</b> — 露营是一种生活哲学，不是装备消费</td></tr>
+<tr><td>导航结构</td><td>按产品线：Tents / Shelter / Sleeping / Furniture / Stove / Cookware / Wear + Snow Peak Way（活动）+ Stories</td></tr>
+<tr><td>产品页</td><td>大量场景图+细节展示+工匠故事+使用场景叙事</td></tr>
+<tr><td>信任入口</td><td>✅门店查询 ✅Snow Peak Way活动 ✅Warranty ✅品牌故事</td></tr>
+<tr><td>视觉关键词</td><td><span class="tag tag-good">日式美学</span><span class="tag tag-good">生活方式</span><span class="tag">工匠精神</span></td></tr>
+<tr><td>山趣学习</td><td>✅ 品牌氛围表达方式（情感叙事） ✅ "户外哲学"定位思路</td></tr>
+<tr><td>山趣不照搬</td><td>❌ 生活方式内容体量太大 ❌ 品牌积累70年，山趣现阶段支撑不足 ❌ 日式美学可能不适合北美</td></tr>
+</table>
+</div>
+
+<!-- YETI -->
+<div class="brand-card card">
+<div style="display:flex;align-items:baseline;"><span class="brand-name">4. YETI</span><span class="brand-en">yeti.com · 美国</span></div>
+<div class="screenshot-placeholder">【此处放 YETI 首页截图】</div>
+<table>
+<tr><th style="width:22%">维度</th><th>分析</th></tr>
+<tr><td>首页第一感觉</td><td>硬核、自信、大图视觉冲击力强</td></tr>
+<tr><td>核心目标</td><td><b>建品牌+卖货</b> — "Built for the Wild"，产品=态度宣言</td></tr>
+<tr><td>导航结构</td><td>Coolers / Drinkware / Bags / Outdoor Living / Cargo + Stories / About / Support</td></tr>
+<tr><td>产品页</td><td>场景大片+技术细节+极端环境证明</td></tr>
+<tr><td>信任入口</td><td>✅Warranty（首页显著） ✅Support ✅门店查询</td></tr>
+<tr><td>视觉关键词</td><td><span class="tag tag-good">硬核</span><span class="tag tag-good">自信</span><span class="tag">大图冲击</span></td></tr>
+<tr><td>山趣学习</td><td>✅ 保修承诺在首页显著展示 ✅ 极简导航+大图视觉 ✅ 品牌态度一句话表达</td></tr>
+<tr><td>山趣不照搬</td><td>❌ YETI品牌溢价极高，视觉自信感建立在品牌地位上 ❌ 产品线窄（冷却器+杯+包）</td></tr>
+</table>
+</div>
+
+<!-- NEMO -->
+<div class="brand-card card">
+<div style="display:flex;align-items:baseline;"><span class="brand-name">5. NEMO Equipment</span><span class="brand-en">nemoequipment.com · 美国</span></div>
+<div class="screenshot-placeholder">【此处放 NEMO 首页截图】</div>
+<table>
+<tr><th style="width:22%">维度</th><th>分析</th></tr>
+<tr><td>首页第一感觉</td><td>专业、科技感、工程师气质——"装备实验室"感</td></tr>
+<tr><td>核心目标</td><td><b>建品牌+卖货</b> — 技术驱动型户外装备品牌</td></tr>
+<tr><td>导航结构</td><td>按活动场景：Car Camping / Backpacking / Ultralight / Bikepacking / Mountaineering + About / Warranty</td></tr>
+<tr><td>产品页</td><td>技术参数详尽+使用场景图+对比数据+真实用户长评</td></tr>
+<tr><td>信任入口</td><td>✅Warranty ✅Lifetime Guarantee ✅技术文档</td></tr>
+<tr><td>视觉关键词</td><td><span class="tag tag-good">专业</span><span class="tag tag-good">科技感</span><span class="tag">工程师气质</span></td></tr>
+<tr><td>山趣学习</td><td>✅ <b>场景导航优于品类导航</b>（最直接的参考） ✅ 技术参数呈现方式 ✅ 真实用户故事嵌入</td></tr>
+<tr><td>山趣不照搬</td><td>❌ 品牌定位偏高端轻量化，和山趣大众户外定位有差异</td></tr>
+</table>
+</div>
+
+<!-- DOD -->
+<div class="brand-card card">
+<div style="display:flex;align-items:baseline;"><span class="brand-name">6. DOD Outdoor</span><span class="brand-en">camp-dod.com · 日本</span></div>
+<div class="screenshot-placeholder">【此处放 DOD 首页截图】</div>
+<table>
+<tr><th style="width:22%">维度</th><th>分析</th></tr>
+<tr><td>首页第一感觉</td><td>趣味感强、日本露营文化感、产品展示很实用</td></tr>
+<tr><td>核心目标</td><td><b>卖货+生活方式</b> — 日本露营文化的代表品牌</td></tr>
+<tr><td>导航结构</td><td>产品分类为主：Tent / Tarp / Furniture / Sleep / Kitchen / Fire + Look Book / Dealer</td></tr>
+<tr><td>产品页</td><td><b>GIF动图展示功能</b>（椅子摇晃、折叠展开），低成本高效果</td></tr>
+<tr><td>信任入口</td><td>✅Dealer查询 ✅线下门店</td></tr>
+<tr><td>视觉关键词</td><td><span class="tag">趣味</span><span class="tag">实用</span><span class="tag">日式露营</span></td></tr>
+<tr><td>山趣学习</td><td>✅ GIF动图展示产品功能（低成本高效果） ✅ 产品页实用优先</td></tr>
+<tr><td>山趣不照搬</td><td>❌ 日本文化美学在北美不一定通用</td></tr>
+</table>
+</div>
+
+<!-- Coleman -->
+<div class="brand-card card">
+<div style="display:flex;align-items:baseline;"><span class="brand-name">7. Coleman</span><span class="brand-en">coleman.com · 美国</span></div>
+<div class="screenshot-placeholder">【此处放 Coleman 首页截图】</div>
+<table>
+<tr><th style="width:22%">维度</th><th>分析</th></tr>
+<tr><td>首页第一感觉</td><td>大众户外、家庭露营、实用导向</td></tr>
+<tr><td>核心目标</td><td><b>卖货</b> — 美国最大众户外品牌，家庭露营首选</td></tr>
+<tr><td>导航结构</td><td>Tents / Coolers / Sleeping Bags / Camp Furniture / Stoves / Lighting / Packs + Support / Where to Buy</td></tr>
+<tr><td>产品页</td><td>清晰分类+简单参数+家庭使用场景</td></tr>
+<tr><td>信任入口</td><td>✅Warranty ✅Where to Buy门店 ✅Support</td></tr>
+<tr><td>视觉关键词</td><td><span class="tag">大众</span><span class="tag">实用</span><span class="tag">家庭露营</span></td></tr>
+<tr><td>山趣学习</td><td>✅ 清晰简单的产品展示方式 ✅ 家庭/大众露营定位的导航思路 ✅ Where to Buy 入口</td></tr>
+<tr><td>山趣不照搬</td><td>❌ Coleman 在美国有极强的线下零售网络，山趣没有 ❌ 视觉风格偏传统不够现代</td></tr>
+</table>
+</div>
+
+<!-- GCI -->
+<div class="brand-card card">
+<div style="display:flex;align-items:baseline;"><span class="brand-name">8. GCI Outdoor</span><span class="brand-en">gcioutdoor.com · 美国</span></div>
+<div class="screenshot-placeholder">【此处放 GCI 首页截图】</div>
+<table>
+<tr><th style="width:22%">维度</th><th>分析</th></tr>
+<tr><td>首页第一感觉</td><td>极简、专业、小品牌但做得非常清晰</td></tr>
+<tr><td>核心目标</td><td><b>卖货+经销商支持</b> — 小众单品品牌，但B2B入口做得好</td></tr>
+<tr><td>导航结构</td><td>Chairs / Tables / Accessories + Dealer Locator / Warranty / About</td></tr>
+<tr><td>产品页</td><td>参数清晰+使用场景+对比图</td></tr>
+<tr><td>信任入口</td><td>✅Dealer Locator ✅Warranty ✅顶部承诺条（Free Shipping/Warranty/Returns）</td></tr>
+<tr><td>视觉关键词</td><td><span class="tag tag-good">极简</span><span class="tag tag-good">清晰</span><span class="tag tag-good">专业小品牌</span></td></tr>
+<tr><td>山趣学习</td><td>✅ <b>顶部承诺条</b>直接展示保修+配送+退货 ✅ Dealer Locator入口 ✅ 小品牌也能做得专业清晰</td></tr>
+<tr><td>山趣不照搬</td><td>❌ 产品线只有椅子和桌子，过于单一</td></tr>
+</table>
+</div>
+
+<!-- Patagonia -->
+<div class="brand-card card">
+<div style="display:flex;align-items:baseline;"><span class="brand-name">9. Patagonia</span><span class="brand-en">patagonia.com · 美国</span></div>
+<div class="screenshot-placeholder">【此处放 Patagonia 首页截图】</div>
+<table>
+<tr><th style="width:22%">维度</th><th>分析</th></tr>
+<tr><td>首页第一感觉</td><td>环保价值观驱动，品牌即运动</td></tr>
+<tr><td>核心目标</td><td><b>生活方式+价值观运动</b> — 用品牌价值观凝聚用户</td></tr>
+<tr><td>导航结构</td><td>Men's / Women's / Kids' / Packs / Camping + Environmental Activism / Stories / Ironside Guarantee</td></tr>
+<tr><td>产品页</td><td>环保材料说明+功能参数+故事叙事</td></tr>
+<tr><td>信任入口</td><td>✅Ironside Guarantee（终身保修） ✅环保认证 ✅门店 ✅Trade-In回收计划</td></tr>
+<tr><td>视觉关键词</td><td><span class="tag">价值观驱动</span><span class="tag">环保</span><span class="tag">社区运动</span></td></tr>
+<tr><td>山趣学习</td><td>✅ 终身保修承诺的信任感 ✅ 品牌价值观一句话表达</td></tr>
+<tr><td>山趣不照搬</td><td>❌ 环保运动内容需要几十年品牌积累 ❌ Patagonia 的品类是服装为主，和山趣装备品类差异大</td></tr>
+</table>
+</div>
+
+<!-- Big Agnes -->
+<div class="brand-card card">
+<div style="display:flex;align-items:baseline;"><span class="brand-name">10. Big Agnes</span><span class="brand-en">bigagnes.com · 美国</span></div>
+<div class="screenshot-placeholder">【此处放 Big Agnes 首页截图】</div>
+<table>
+<tr><th style="width:22%">维度</th><th>分析</th></tr>
+<tr><td>首页第一感觉</td><td>真实、接地气——AT徒步者200天使用长评比星级更有说服力</td></tr>
+<tr><td>核心目标</td><td><b>建品牌+卖货</b> — 轻量化帐篷和睡袋专业品牌</td></tr>
+<tr><td>导航结构</td><td>Tents / Sleeping Bags / Sleeping Pads / Accessories + Dealer Locator / About / Warranty</td></tr>
+<tr><td>产品页</td><td><b>真实用户长评嵌入</b>（AT徒步者200天使用报告），比星级更有说服力</td></tr>
+<tr><td>信任入口</td><td>✅Dealer Locator ✅Warranty ✅真实用户故事</td></tr>
+<tr><td>视觉关键词</td><td><span class="tag tag-good">真实</span><span class="tag">接地气</span><span class="tag">轻量化专业</span></td></tr>
+<tr><td>山趣学习</td><td>✅ <b>真实用户故事比星级更有说服力</b> ✅ Dealer Locator 入口 ✅ 保修承诺显著</td></tr>
+<tr><td>山趣不照搬</td><td>❌ 品牌定位偏轻量化硬核用户 ❌ 产品线窄（帐篷+睡袋+睡垫）</td></tr>
+</table>
+</div>
+
+<!-- 国际品牌关键共性 -->
+<div class="card" style="background:#f0f7f4;">
+<h3 style="margin-top:0;">🔍 国际品牌官网5个关键共性</h3>
+<ul class="ul" style="font-size:14px;">
+  <li><b>保修政策必须显性化</b> — YETI/GCI/Patagonia 都在首页突出保修，户外装备品牌的信任基石</li>
+  <li><b>场景导航优于纯品类导航</b> — REI/NEMO 按活动场景(Car Camping/Backpacking/Ultralight)分类</li>
+  <li><b>真实用户故事比星级更有力</b> — Big Agnes 嵌入AT徒步者200天使用长评</li>
+  <li><b>GIF动图展示产品功能</b> — DOD 用GIF展示椅子摇晃效果，低成本高效果</li>
+  <li><b>顶部承诺条简洁有力</b> — GCI 一行展示"Free Shipping / Warranty / Returns"</li>
+</ul>
+</div>
+
+<!-- ========== 五、总体对比矩阵 ========== -->
+<h2>四、总体对比矩阵</h2>
+
+<table>
+<tr><th style="width:14%">品牌</th><th style="width:8%">地区</th><th style="width:10%">官网类型</th><th style="width:8%">多语言</th><th style="width:10%">海外内容策略</th><th style="width:8%">品牌感</th><th style="width:10%">产品展示</th><th style="width:10%">经销商支持</th><th style="width:12%">山趣参考价值</th></tr>
+<tr><td>Naturehike</td><td>中国</td><td>Shopify商城</td><td>❌</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐</td><td><b>高</b></td></tr>
+<tr><td>Mobi Garden</td><td>中国</td><td>双站分离</td><td>❌</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐</td><td><b>高</b></td></tr>
+<tr><td>KingCamp</td><td>中国</td><td>多区域站</td><td>✅ 三语</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td><b>最高</b></td></tr>
+<tr><td>Fire-Maple</td><td>中国</td><td>双海外站</td><td>✅ 多语</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐</td><td><b>中高</b></td></tr>
+<tr><td>BLACKDEER</td><td>中国</td><td>Shopify(低活跃)</td><td>❌</td><td>⭐⭐</td><td>⭐⭐⭐</td><td>⭐⭐⭐</td><td>⭐</td><td>低</td></tr>
+<tr><td>OneTigris</td><td>中国</td><td>Shopify商城</td><td>❌</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐</td><td>⭐⭐⭐</td><td>⭐⭐</td><td>中</td></tr>
+<tr><td>KZM</td><td>韩国</td><td>区域代理</td><td>✅</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐</td><td>中</td></tr>
+<tr><td>Helinox</td><td>韩国</td><td>品牌+商城</td><td>✅</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td><b>高</b></td></tr>
+<tr><td>REI</td><td>美国</td><td>零售+社区</td><td>✅</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>中</td></tr>
+<tr><td>Snow Peak</td><td>日本</td><td>生活方式</td><td>✅</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>中</td></tr>
+<tr><td>YETI</td><td>美国</td><td>品牌态度</td><td>✅</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>中高</td></tr>
+<tr><td>NEMO</td><td>美国</td><td>技术品牌</td><td>✅</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td><b>高</b></td></tr>
+<tr><td>GCI</td><td>美国</td><td>单品专业</td><td>❌</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td><b>高</b></td></tr>
+<tr><td>Patagonia</td><td>美国</td><td>价值观运动</td><td>✅</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>低</td></tr>
+<tr><td>DOD</td><td>日本</td><td>实用商城</td><td>✅</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐</td><td>中</td></tr>
+<tr><td>Coleman</td><td>美国</td><td>大众零售</td><td>✅</td><td>⭐⭐⭐</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>中</td></tr>
+<tr><td>Big Agnes</td><td>美国</td><td>专业品牌</td><td>✅</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td><b>高</b></td></tr>
+<tr style="background:#fdecea;"><td><b>山趣现官网</b></td><td>中国</td><td>国内服务器静态站</td><td>❌</td><td>⭐</td><td>⭐⭐</td><td>⭐⭐</td><td>⭐</td><td>—</td></tr>
+</table>
+
+<!-- ========== 六、山趣应该参考哪种方向 ========== -->
+<h2>五、山趣应该参考哪种官网方向</h2>
+
+<div class="ref-combo">
+<p style="font-size:15px;font-weight:700;margin-bottom:8px;">组合参考方向</p>
+<p style="font-size:14px;line-height:1.8;">
+山趣不适合完全照抄 REI——规模和业务模式不同<br>
+山趣不适合完全照抄 Snow Peak——品牌积累和生活方式内容支撑不足<br>
+山趣更适合<b>组合参考</b>：
+</p>
+<ul class="ul" style="font-size:14px;margin-top:8px;">
+  <li><b>Naturehike</b> 的<b>国际化出海思路</b> — .com统一域名、产品英文命名体系、B2B独立分离</li>
+  <li><b>Helinox / YETI</b> 的<b>简洁高级视觉</b> — 极简设计+大图+技术感，不需要复杂内容就能显专业</li>
+  <li><b>Coleman / GCI</b> 的<b>清晰产品展示</b> — 简单参数+实用场景+清晰分类</li>
+  <li><b>KingCamp</b> 的<b>经销商支持入口</b> — Wholesale Program、Dealer Locator、KOL合作</li>
+  <li><b>Snow Peak</b> 的<b>品牌氛围表达方式</b> — 只学表达手法，不学复杂内容体量</li>
+  <li><b>NEMO</b> 的<b>场景化导航</b> — 按活动场景组织产品，优于纯品类列表</li>
+  <li><b>GCI</b> 的<b>顶部承诺条</b> — 一行展示保修+配送+退货承诺</li>
+  <li><b>Big Agnes</b> 的<b>真实用户故事</b> — 嵌入真实使用体验，比星级更有说服力</li>
+</ul>
+</div>
+
+<div class="conclusion-box" style="background:#2d6a4f;">
+山趣第一版海外官网定位：<b>品牌信任型 + 产品展示型 + B2B询盘支持型官网</b><br>
+<span style="font-size:15px;">不是完整电商站，也不是纯品牌形象站。</span>
+</div>
+
+<!-- ========== 七、新官网建议结构 ========== -->
+<h2>六、新官网建议栏目结构</h2>
+
+<div class="nav-structure">
+  <span class="nav-item must-item">Home 首页</span>
+  <span class="nav-item must-item">About Brand 品牌介绍</span>
+  <span class="nav-item must-item">Products 产品中心</span>
+  <span class="nav-item must-item">Product Detail 产品详情页</span>
+  <span class="nav-item must-item">Catalog Download 产品目录下载</span>
+  <span class="nav-item must-item">Dealer Inquiry 经销商合作入口</span>
+  <span class="nav-item">News / Stories <span class="later">第二阶段</span></span>
+  <span class="nav-item must-item">Support / Warranty 售后与质保</span>
+  <span class="nav-item must-item">Contact 联系我们</span>
+</div>
+
+<table>
+<tr><th style="width:30%">栏目</th><th style="width:12%">阶段</th><th>说明</th></tr>
+<tr><td><b>Home 首页</b></td><td><span class="must">第一阶段</span></td><td>品牌标语+核心产品轮播+信任承诺条（Warranty/Shipping/Support）+Dealer入口引导+品牌理念</td></tr>
+<tr><td><b>About Brand</b></td><td><span class="must">第一阶段</span></td><td>品牌故事+公司实力（年份数/出口国家数/SKU数量）+工厂/团队照片+品牌价值观</td></tr>
+<tr><td><b>Products 产品中心</b></td><td><span class="must">第一阶段</span></td><td>按活动场景分类（Camping/Hiking/Glamping/Outdoor Kitchen）+筛选器+产品卡片</td></tr>
+<tr><td><b>Product Detail</b></td><td><span class="must">第一阶段</span></td><td>白底图+场景图+技术参数表+PDF规格单下载+Inquiry按钮</td></tr>
+<tr><td><b>Catalog Download</b></td><td><span class="must">第一阶段</span></td><td>产品目录PDF下载页，B2B客户最常用的入口之一</td></tr>
+<tr><td><b>Dealer Inquiry</b></td><td><span class="must">第一阶段</span></td><td>经销商/Distributor合作询盘表单，北美开发核心工具</td></tr>
+<tr><td><b>News / Stories</b></td><td><span class="later">第二阶段</span></td><td>品牌动态+用户故事+展会信息，第一阶段可弱化为简单列表</td></tr>
+<tr><td><b>Support / Warranty</b></td><td><span class="must">第一阶段</span></td><td>保修政策+售后流程+常见问题，建立海外信任的关键</td></tr>
+<tr><td><b>Contact</b></td><td><span class="must">第一阶段</span></td><td>公司邮箱（info@域名.com）+WhatsApp+地址+表单</td></tr>
+</table>
+
+<p style="font-size:13px;color:var(--text2);margin-top:8px;">⚠️ 第一阶段必须控制范围。首页+产品+品牌+询盘+下载+联系+保修 = 7个核心栏目，先做这些。</p>
+
+<!-- ========== 八、费用与资源需求 ========== -->
+<h2>七、项目资源需求</h2>
+
+<div class="cost-tier">
+  <!-- 保守版 -->
+  <div class="cost-card">
+    <div class="cost-label">A. 保守版 — 轻量验证</div>
+    <div class="cost-amount">¥4,500-6,500/首年</div>
+    <table style="font-size:12px;margin:8px 0;">
+      <tr><td>域名</td><td>¥70-120/年</td></tr>
+      <tr><td>服务器</td><td>¥0（GitHub Pages免费）</td></tr>
+      <tr><td>CDN/图片</td><td>¥0（Cloudflare免费）</td></tr>
+      <tr><td>AI工具</td><td>¥0-580（看报销情况）</td></tr>
+      <tr><td>邮箱</td><td>¥0（Zoho免费版）</td></tr>
+    </table>
+    <p style="font-size:12px;color:var(--warn);">⚠️ 静态站，1000+SKU体验差<br>无管理后台，后续无法扩展电商</p>
+  </div>
+
+  <!-- 推荐版 -->
+  <div class="cost-card recommended">
+    <div class="cost-label">⭐ B. 推荐版 — 海外官网第一版</div>
+    <div class="cost-amount">¥11,000-21,000/首年</div>
+    <table style="font-size:12px;margin:8px 0;">
+      <tr><td>域名</td><td>¥70-120/年</td></tr>
+      <tr><td>海外VPS（Cloudways）</td><td>¥4,200-6,000/年</td></tr>
+      <tr><td>CDN + 图片存储</td><td>¥0-800/年</td></tr>
+      <tr><td>AI开发工具</td><td>¥580-2,160</td></tr>
+      <tr><td>主题/插件</td><td>¥0-600</td></tr>
+      <tr><td>邮箱</td><td>¥0-2,160/年</td></tr>
+      <tr><td style="font-weight:700;border-top:1px solid var(--border)">后续每年</td><td style="font-weight:700;border-top:1px solid var(--border)">¥5,500-8,000</td></tr>
+    </table>
+    <p style="font-size:12px;color:var(--accent);">✅ WordPress+WooCommerce<br>✅ 有管理后台，可自行更新产品<br>✅ 后续可扩展电商</p>
+  </div>
+
+  <!-- 高配版 -->
+  <div class="cost-card">
+    <div class="cost-label">C. 高配版 — 电商+后台+多语言</div>
+    <div class="cost-amount">¥30,000-60,000/首年</div>
+    <table style="font-size:12px;margin:8px 0;">
+      <tr><td>域名</td><td>¥70-120/年</td></tr>
+      <tr><td>高性能VPS</td><td>¥8,400-17,280/年</td></tr>
+      <tr><td>CDN Pro + R2</td><td>¥1,200-2,600/年</td></tr>
+      <tr><td>支付通道（Stripe）</td><td>开户¥0 + 2.9%交易费</td></tr>
+      <tr><td>专业英文翻译</td><td>¥3,000-10,000</td></tr>
+      <tr><td>GDPR合规</td><td>¥0-4,000</td></tr>
+      <tr><td>高级插件/定制</td><td>¥2,000-10,000</td></tr>
+      <tr><td style="font-weight:700;border-top:1px solid var(--border)">后续每年</td><td style="font-weight:700;border-top:1px solid var(--border)">¥12,000-20,000</td></tr>
+    </table>
+    <p style="font-size:12px;color:var(--text2);">第二阶段再考虑<br>不建议第一版就上高配</p>
+  </div>
+</div>
+
+<div class="card">
+<h3 style="margin-top:0;">费用分类说明</h3>
+<table>
+<tr><th style="width:30%">类别</th><th style="width:25%">性质</th><th>说明</th></tr>
+<tr><td>域名</td><td><span class="tag tag-good">公司固定资产</span></td><td>每年续费，域名所有权归公司</td></tr>
+<tr><td>VPS服务器</td><td><span class="tag tag-good">公司固定资产</span></td><td>每年续费，服务器上所有代码和数据归公司</td></tr>
+<tr><td>CDN/图片存储</td><td><span class="tag tag-good">公司固定资产</span></td><td>Cloudflare账号归公司，图片资源永久可用</td></tr>
+<tr><td>AI开发工具</td><td><span class="tag tag-warn">开发阶段临时费用</span></td><td>ChatGPT Business ¥360/月 × 3-6个月，开发完成后可停止</td></tr>
+<tr><td>主题/插件</td><td><span class="tag tag-good">买断型资产</span></td><td>一次性购买，永久使用</td></tr>
+<tr><td>企业邮箱</td><td><span class="tag">持续运营费用</span></td><td>每年续费</td></tr>
+<tr><td>支付通道/电商</td><td><span class="tag tag-warn">未来可选追加</span></td><td>第二阶段视业务需要决定</td></tr>
+<tr><td>英文翻译/合规</td><td><span class="tag tag-warn">未来可选追加</span></td><td>第二阶段视业务需要决定</td></tr>
+</table>
+</div>
+
+<!-- ========== 九、风险 ========== -->
+<h2>八、风险与控制方式</h2>
+
+<table>
+<tr><th style="width:25%">风险</th><th style="width:25%">可能后果</th><th>控制方式</th></tr>
+<tr>
+  <td>品牌方向还在调整</td>
+  <td>过早开发可能导致首页和品牌页返工</td>
+  <td>先确认品牌定位和核心标语，再做首页设计；首页内容模块化，方便后续替换</td>
+</tr>
+<tr>
+  <td>审美意见不一致</td>
+  <td>反复修改增加时间和成本</td>
+  <td>阶段二先做线框图原型确认方向，避免直接开发后大改；确定一个审核节点和最终决策人</td>
+</tr>
+<tr>
+  <td>产品资料不完整</td>
+  <td>产品页建设受阻，影响上线质量</td>
+  <td>第一阶段只上线核心SKU（50-100个），其余分批补充；缺失的英文参数用AI辅助翻译</td>
+</tr>
+<tr>
+  <td>AI开发反复修改</td>
+  <td>增加工具成本和时间成本</td>
+  <td>每次修改需求前先书面确认，减少"改来改去"；使用原型阶段控制修改范围</td>
+</tr>
+<tr>
+  <td>旧官网历史投入无法复用</td>
+  <td>老板担心之前花的钱白花</td>
+  <td>旧官网可作为内容资料参考（产品文案、图片素材），但架构不适合继续投入；新官网是新的资产投入，而非"替换"</td>
+</tr>
+<tr>
+  <td>第一版做太复杂</td>
+  <td>周期和费用失控</td>
+  <td>严格限定第一阶段范围：7个核心栏目，不做电商、不做复杂社区</td>
+</tr>
+<tr>
+  <td>没有明确负责人</td>
+  <td>后期维护混乱，更新停滞</td>
+  <td>指定一个内容负责人+审核流程；WordPress后台可视化操作，降低维护门槛</td>
+</tr>
+</table>
+
+<div class="card" style="background:#fdecea;">
+<p style="font-size:14px;font-weight:700;margin:0;">⚠️ 核心建议</p>
+<p style="font-size:14px;margin:4px 0 0;">先调研 → 再确认方向 → 再做原型 → 再开发。<b>不要一开始就直接做网站。</b></p>
+</div>
+
+<!-- ========== 十、项目阶段 ========== -->
+<h2>九、建议项目阶段</h2>
+
+<div class="phase-box">
+  <span class="phase-num">1</span>
+  <div class="phase-title">官网 Benchmark 和可行性研究</div>
+  <div class="phase-desc">产出：这份决策分析报告 · 目的：帮助老板决定是否做、怎么做、预算多少</div>
+</div>
+
+<div class="phase-box">
+  <span class="phase-num">2</span>
+  <div class="phase-title">官网框架和首页原型</div>
+  <div class="phase-desc">产出：首页线框图、导航结构、核心页面结构 · 目的：确认方向，避免开发后大改</div>
+</div>
+
+<div class="phase-box">
+  <span class="phase-num">3</span>
+  <div class="phase-title">第一版官网开发</div>
+  <div class="phase-desc">产出：首页、产品中心、品牌页、联系页、下载入口、询盘入口 · 目的：满足海外客户信任建立和北美开发需求</div>
+</div>
+
+<div class="phase-box">
+  <span class="phase-num">4</span>
+  <div class="phase-title">测试和上线</div>
+  <div class="phase-desc">产出：海外访问速度测试、手机端测试、表单测试、SEO基础设置</div>
+</div>
+
+<div class="phase-box" style="background:linear-gradient(135deg, #fff3cd, #ffeeba);">
+  <span class="phase-num" style="color:#b45309;">5</span>
+  <div class="phase-title">后续优化（第二阶段）</div>
+  <div class="phase-desc">产出：更多产品页、案例故事、经销商支持系统、电商功能等 · 视第一阶段效果决定</div>
+</div>
+
+<!-- ========== 十一、最终建议 ========== -->
+<h2>十、最终建议</h2>
+
+<div class="conclusion-box">
+山趣现阶段官网建设的核心目标，不是追求复杂功能，而是先解决<b>海外客户第一次搜索品牌时的信任问题</b>。<br><br>
+建议先以<b>中低成本建立海外官网第一版</b>，确认品牌方向和页面结构后再开发，避免再次出现"拍脑袋投入、最后结果不清晰"的情况。<br><br>
+第一版重点解决7件事：<br>
+<span style="font-size:15px;">
+① 海外访问速度 ② 专业域名 ③ 品牌可信度 ④ 产品体系展示 ⑤ Catalog下载 ⑥ Dealer/Distributor Inquiry ⑦ 支持北美客户开发
+</span>
+</div>
+
+<!-- ========== 老板问答 ========== -->
+<h2>附录：老板可能问的问题 & 回答准备</h2>
+
+<div class="qa-q">Q1：为什么不用旧官网？</div>
+<div class="qa-a">旧官网服务器在国内，海外客户打开需要5秒以上。域名shine-trip.com像旅行社不像户外品牌。缺少B2B客户需要的Catalog下载、Dealer入口、Warranty信息。不是旧官网"差"，而是它<b>不适合作为海外市场开发的主要入口</b>。</div>
+
+<div class="qa-q">Q2：旧官网以前花的钱是不是白花了？</div>
+<div class="qa-a">不是白花。旧官网的产品文案、图片素材、品牌资料<b>都可以作为新官网的内容参考</b>。但旧官网的架构和服务器不适合继续投入，就好比旧厂房还在，但新业务需要新厂房——旧厂房没白花，但新生产线得建在新地方。</div>
+
+<div class="qa-q">Q3：为什么一定要海外服务器？</div>
+<div class="qa-a">物理距离决定访问速度。服务器在国内，北美客户打开页面至少5秒；服务器在海外，打开<b>1-2秒</b>。海外客户对官网的第一印象就是速度——打开慢 = 不靠谱。这是物理规律，CDN也救不了多少。</div>
+
+<div class="qa-q">Q4：为什么要换域名？</div>
+<div class="qa-a">shine-trip.com有三个问题：(1) 有连字符，欧美市场认为不专业；(2) "shine+trip"组合听起来像旅行社；(3) 和山趣品牌名没有关联。海外客户搜索品牌名时，域名是他们判断"这是不是正经公司"的第一信号。</div>
+
+<div class="qa-q">Q5：别的中国品牌到底是一个官网还是多个官网？</div>
+<div class="qa-a">调研了7个中国出海户外品牌，<b>大多数不是"中国一个、美国一个"</b>。实际情况是：.com英文站面向海外+国内靠京东/天猫。只有牧高笛有独立的中国站和海外站，但内容策略<b>完全不同</b>——英文站做品牌+海外销售，中文站做招商加盟。</div>
+
+<div class="qa-q">Q6：中文官网和英文官网为什么不一样？</div>
+<div class="qa-a">客户群体不同，需求不同。中文客户看招商加盟、国内活动、社媒互动；英文客户看品牌实力、产品参数、Dealer入口、Catalog下载、Warranty。两套内容服务于<b>两种完全不同的客户</b>，所以不能简单翻译，要<b>重新设计内容</b>。</div>
+
+<div class="qa-q">Q7：第一版为什么不直接做电商？</div>
+<div class="qa-a">三个原因：(1) 山趣现阶段北美核心需求是<b>建立信任和获取B2B询盘</b>，不是B2C在线卖货；(2) 电商系统（支付+物流+售后）复杂度高，第一版做太复杂容易周期费用失控；(3) 先验证品牌方向和页面结构，确认后再加电商功能，避免做出来方向不对还要改。</div>
+
+<div class="qa-q">Q8：这个官网对北美开发有什么具体帮助？</div>
+<div class="qa-a">北美客户收到开发邮件后，<b>几乎100%会去搜索官网</b>。官网是他们建立第一信任感的地方。如果搜出来的是shine-trip.com、打开慢、看不出是户外品牌——信任直接减半。有了专业海外官网，客户能快速看到：品牌实力、产品体系、合作入口、质保承诺。这是<b>北美开发的信任基础设施</b>。</div>
+
+<div class="qa-q">Q9：如果后续不满意，还能改吗？</div>
+<div class="qa-a">完全可以。WordPress架构就是为<b>持续修改和扩展</b>设计的。页面内容可以通过后台随时修改（不需要代码知识）；功能可以通过插件逐步添加；视觉可以通过换主题调整。第一阶段只做7个核心栏目，后续按需扩展，不存在"做完就锁死"的问题。</div>
+
+<div class="qa-q">Q10：这笔钱主要花在哪里？</div>
+<div class="qa-a">最大头是<b>海外服务器</b>（¥4,200-6,000/年）——这是海外客户能快速打开网站的根本保障。其次是<b>AI开发工具</b>（¥580-2,160）——这是用AI代替外包省¥12,000-28,000的关键投入。域名和CDN是小头。整体比请外包公司<b>省一半以上</b>，而且源码和数据<b>100%归公司</b>。</div>
+
+<div class="footer">
+山趣户外用品 · 海外官网建设决策分析 · 2026年7月<br>
+本材料仅供内部决策参考，不作为正式合同依据
+</div>
+
+</div>
+</body>
+</html>
