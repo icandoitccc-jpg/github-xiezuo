@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>客服话术工具调研与自建可行性评估报告</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-soft: #f8f9fa;
+    --bg-card: #f1f3f5;
+    --text: #1a1a2e;
+    --text-secondary: #495057;
+    --text-muted: #868e96;
+    --border: #dee2e6;
+    --green: #2b8a3e;
+    --green-bg: #ebfbee;
+    --green-border: #b2f2bb;
+    --amber: #e67700;
+    --amber-bg: #fff9db;
+    --amber-border: #ffec99;
+    --red: #c92a2a;
+    --red-bg: #fff5f5;
+    --red-border: #ffc9c9;
+    --blue: #1971c2;
+    --blue-bg: #e7f5ff;
+    --blue-border: #a5d8ff;
+    --purple: #5f3dc4;
+    --purple-bg: #f3f0ff;
+    --purple-border: #d0bfff;
+    --teal: #087f5b;
+    --teal-bg: #e6fcf5;
+    --teal-border: #96f2d7;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 0 32px; }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #fff;
+    padding: 56px 0 48px;
+  }
+  .header .container { position: relative; }
+  .header h1 { font-size: 28px; font-weight: 700; line-height: 1.4; margin-bottom: 12px; }
+  .header .subtitle { font-size: 16px; color: #a0aec0; margin-bottom: 24px; }
+  .header .meta { display: flex; gap: 32px; font-size: 13px; color: #718096; flex-wrap: wrap; }
+  .header .meta span { display: flex; align-items: center; gap: 6px; }
+  .header .meta strong { color: #cbd5e0; }
+
+  /* Section */
+  section { padding: 48px 0; border-bottom: 1px solid var(--border); }
+  section:last-child { border-bottom: none; }
+  .section-num {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--blue);
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  h2 { font-size: 22px; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+  h3 { font-size: 17px; font-weight: 600; margin: 28px 0 12px; color: var(--text); }
+  h4 { font-size: 15px; font-weight: 600; margin: 20px 0 8px; color: var(--text-secondary); }
+  p { margin-bottom: 12px; color: var(--text-secondary); }
+  ul, ol { margin: 8px 0 16px 20px; color: var(--text-secondary); }
+  li { margin-bottom: 6px; }
+  strong { color: var(--text); }
+
+  /* Callout */
+  .callout {
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 16px 0;
+    font-size: 14px;
+  }
+  .callout-blue { background: var(--blue-bg); border-left: 4px solid var(--blue); }
+  .callout-green { background: var(--green-bg); border-left: 4px solid var(--green); }
+  .callout-amber { background: var(--amber-bg); border-left: 4px solid var(--amber); }
+  .callout-red { background: var(--red-bg); border-left: 4px solid var(--red); }
+  .callout-purple { background: var(--purple-bg); border-left: 4px solid var(--purple); }
+  .callout-title { font-weight: 700; margin-bottom: 6px; font-size: 15px; }
+
+  /* Table */
+  .table-wrap { overflow-x: auto; margin: 16px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th {
+    background: var(--bg-card);
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text);
+    border-bottom: 2px solid var(--border);
+    white-space: nowrap;
+  }
+  td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-secondary);
+    vertical-align: top;
+  }
+  tr:hover td { background: var(--bg-soft); }
+
+  /* Badges */
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .badge-green { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+  .badge-amber { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-border); }
+  .badge-red { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
+  .badge-blue { background: var(--blue-bg); color: var(--blue); border: 1px solid var(--blue-border); }
+  .badge-gray { background: var(--bg-card); color: var(--text-muted); border: 1px solid var(--border); }
+
+  /* Cards */
+  .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+  .card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    background: var(--bg-soft);
+  }
+  .card-title { font-weight: 700; font-size: 16px; margin-bottom: 8px; }
+  .card-body { font-size: 14px; color: var(--text-secondary); }
+  .card-blue { border-left: 4px solid var(--blue); }
+  .card-green { border-left: 4px solid var(--green); }
+  .card-amber { border-left: 4px solid var(--amber); }
+  .card-red { border-left: 4px solid var(--red); }
+  .card-purple { border-left: 4px solid var(--purple); }
+
+  /* Comparison */
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 16px 0; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  .compare-col { padding: 24px; }
+  .compare-col:first-child { border-right: 1px solid var(--border); }
+  .compare-col h4 { font-size: 16px; margin-top: 0; }
+  .compare-buy { background: var(--blue-bg); }
+  .compare-build { background: var(--green-bg); }
+
+  /* Layer diagram */
+  .layer-stack { margin: 20px 0; }
+  .layer-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+  .layer-num {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 13px;
+    color: #fff;
+  }
+  .layer-green .layer-num { background: var(--green); }
+  .layer-amber .layer-num { background: var(--amber); }
+  .layer-gray .layer-num { background: var(--text-muted); }
+  .layer-green { background: var(--green-bg); border: 1px solid var(--green-border); }
+  .layer-amber { background: var(--amber-bg); border: 1px solid var(--amber-border); }
+  .layer-gray { background: var(--bg-card); border: 1px solid var(--border); }
+  .layer-label { font-weight: 600; color: var(--text); flex-shrink: 0; min-width: 120px; }
+  .layer-desc { color: var(--text-secondary); flex: 1; }
+  .layer-status { flex-shrink: 0; }
+
+  /* Phase timeline */
+  .phase-list { margin: 20px 0; }
+  .phase-item {
+    display: flex;
+    gap: 16px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .phase-item:last-child { border-bottom: none; }
+  .phase-marker {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 16px;
+    color: #fff;
+  }
+  .phase-1 .phase-marker { background: var(--green); }
+  .phase-2 .phase-marker { background: var(--blue); }
+  .phase-3 .phase-marker { background: var(--purple); }
+  .phase-4 .phase-marker { background: var(--amber); }
+  .phase-content { flex: 1; }
+  .phase-title { font-weight: 700; font-size: 16px; margin-bottom: 4px; }
+  .phase-desc { font-size: 14px; color: var(--text-secondary); margin-bottom: 8px; }
+  .phase-features { font-size: 13px; color: var(--text-muted); }
+
+  /* Decision matrix */
+  .decision-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+  .decision-card {
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    background: var(--bg);
+  }
+  .decision-card h4 { font-size: 18px; margin: 0 0 12px; }
+  .decision-card.buy { border-color: var(--blue); background: var(--blue-bg); }
+  .decision-card.build { border-color: var(--green); background: var(--green-bg); }
+  .decision-card .price { font-size: 28px; font-weight: 700; margin: 12px 0; }
+  .decision-card .price-unit { font-size: 14px; font-weight: 400; color: var(--text-muted); }
+
+  /* Footer */
+  .footer {
+    background: var(--bg-card);
+    padding: 32px 0;
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  /* TL;DR box */
+  .tldr {
+    background: linear-gradient(135deg, var(--purple-bg) 0%, var(--blue-bg) 100%);
+    border: 1px solid var(--purple-border);
+    border-radius: 12px;
+    padding: 28px;
+    margin: 24px 0;
+  }
+  .tldr h3 { margin-top: 0; color: var(--purple); }
+  .tldr ul { margin-bottom: 0; }
+  .tldr li { margin-bottom: 10px; }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .container { padding: 0 20px; }
+    .card-grid, .compare-grid, .decision-grid { grid-template-columns: 1fr; }
+    .compare-col:first-child { border-right: none; border-bottom: 1px solid var(--border); }
+    .header h1 { font-size: 22px; }
+    .header .meta { flex-direction: column; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="container">
+    <h1>客服话术工具调研与自建可行性评估报告</h1>
+    <p class="subtitle">快语 AI / 客服宝 产品调研、技术拆解、业务需求匹配与"买 vs 做"决策分析</p>
+    <div class="meta">
+      <span>日期：<strong>2026年8月6日</strong></span>
+      <span>面向：<strong>销售话术赋能项目组</strong></span>
+      <span>用途：<strong>团队内部讨论与决策参考</strong></span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- TL;DR -->
+<div class="tldr">
+  <h3>一页速览（TL;DR）</h3>
+  <ul>
+    <li><strong>快语 AI 和客服宝是两类不同产品</strong>：快语有 AI（自动读对话推荐话术），客服宝没有 AI（纯手动搜 + 一键发送）。两者都靠 Windows 底层 API 实现"窗口吸附"。</li>
+    <li><strong>我们的实际需求不是"打字快"</strong>，而是"话术统一、新人能上手、转化可复制、多语言适配"——这属于<strong>销售话术赋能平台</strong>，不是快捷回复工具。</li>
+    <li><strong>技术可行性</strong>：客服宝的核心功能（话术知识树、彩色标签、拼音搜索、三级团队共享、多端同步、桌面浮动面板），AI 均可构建。客服宝的"吸附"功能（面板贴窗口旁 + 模拟粘贴）也<strong>可以做到</strong>。快语的"AI 自动读对话推荐"那层做不了生产级。</li>
+    <li><strong>AI 增强</strong>：在客服宝基础上可嵌入 DeepSeek 等，实现话术翻译、改写、半自动推荐、兜底生成等 6 项能力。</li>
+    <li><strong>核心决策</strong>：买现成 = 快速上手但功能不贴合、数据不在自己手里、长期订阅成本累积；自建 = 完全定制贴合业务、数据自主、但需要开发周期和持续维护。</li>
+  </ul>
+</div>
+
+<!-- Section 1 -->
+<section>
+  <div class="section-num">PART 01</div>
+  <h2>调研背景</h2>
+  <p>团队同事的前公司使用过"客服宝"，推荐我们评估。网上对比同类产品时发现"快语 AI"营销排名靠前，因此对两款产品进行了深入调研。</p>
+  <p>本报告的目标是：<strong>搞清楚这些软件到底是什么、怎么工作的、我们的真实需求是什么、以及到底是花钱买还是用 AI 自己做</strong>——为团队决策提供充分的信息依据。</p>
+</section>
+
+<!-- Section 2 -->
+<section>
+  <div class="section-num">PART 02</div>
+  <h2>快语 AI 与客服宝是什么</h2>
+
+  <h3>2.1 快语 AI（深圳西部港湾科技）</h3>
+  <p>拆成<strong>两个独立的 Windows 客户端</strong>，账号互通但分开计费：</p>
+  <div class="card-grid">
+    <div class="card card-blue">
+      <div class="card-title">客服聊天助手</div>
+      <div class="card-body">
+        吸附在微信/QQ/企微/WhatsApp/钉钉等聊天窗口旁，浮动一个话术面板。<br><br>
+        <strong>免费版</strong>：永久免费，基础话术管理<br>
+        <strong>专业版</strong>：39.9 元/年，含 AI 话术推荐、图文存储、AI 翻译、文本润色
+      </div>
+    </div>
+    <div class="card card-blue">
+      <div class="card-title">电商客服工作台</div>
+      <div class="card-body">
+        为拼多多/抖店/千牛/微信小店等多店商家设计，把多个店铺的客服消息聚合到一个工作台。<br><br>
+        支持多店聚合、AI 自动回复、工单同步、订单侧栏查单。按店铺数计费（免费 3 店、专业 10 店、旗舰不限店）。
+      </div>
+    </div>
+  </div>
+  <p>AI 采用 DeepSeek V4 大模型，有"三层仲裁"机制：<strong>本地快速匹配 → 大模型从话术库选最优 → 库里没有时 AI 兜底生成</strong>。支持 100+ 语言翻译。</p>
+
+  <h3>2.2 客服宝（深圳千百尺网络科技）</h3>
+  <p>一个客户端通吃，<strong>自动吸附 80+ 聊天软件</strong>（微信、QQ、千牛、拼多多、旺旺、京东、抖店、企微等）。</p>
+  <ul>
+    <li><strong>多彩话术标签</strong>：一眼识别话术类别（售前/售后/产品等）</li>
+    <li><strong>拼音/首字母/关键词混合搜索</strong>：打"cp"匹配"产品卖点"，一秒找到</li>
+    <li><strong>团队话术共享</strong>：公司话术/小组话术/私人话术三级权限</li>
+    <li><strong>多端实时同步</strong>：Win/Mac/安卓/iOS</li>
+    <li><strong>没有 AI</strong>：搜索靠拼音索引 + 关键词匹配，没有模型推荐</li>
+  </ul>
+
+  <h3>2.3 两者核心对比</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:18%">维度</th>
+          <th style="width:41%">客服宝</th>
+          <th style="width:41%">快语 AI</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>有没有 AI</strong></td>
+          <td><span class="badge badge-red">没有 AI</span></td>
+          <td><span class="badge badge-green">有 AI</span>（DeepSeek V4）</td>
+        </tr>
+        <tr>
+          <td><strong>核心卖点</strong></td>
+          <td>话术文件柜 + 快速索引面板</td>
+          <td>AI 读对话 + 自动推荐话术</td>
+        </tr>
+        <tr>
+          <td><strong>谁决定发什么</strong></td>
+          <td>人自己搜、自己选</td>
+          <td>AI 先选，人确认</td>
+        </tr>
+        <tr>
+          <td><strong>解决什么痛点</strong></td>
+          <td>找得慢</td>
+          <td>不知道该发什么</td>
+        </tr>
+        <tr>
+          <td><strong>吸附层数</strong></td>
+          <td>2 层（贴窗口 + 模拟发送）</td>
+          <td>4 层（贴窗口 + 读对话 + AI 推荐 + 模拟发送）</td>
+        </tr>
+        <tr>
+          <td><strong>定价</strong></td>
+          <td>免费版功能很全，专业版低价</td>
+          <td>免费版 + 专业版 39.9 元/年</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-blue">
+    <div class="callout-title">关键结论</div>
+    同样叫"话术工具"，两者解决的是完全不同的问题。客服宝解决<strong>"打得慢"</strong>，快语 AI 解决<strong>"不知道答什么"</strong>。这个区别直接影响我们应该选哪条路线——见第五部分。
+  </div>
+</section>
+
+<!-- Section 3 -->
+<section>
+  <div class="section-num">PART 03</div>
+  <h2>核心技术原理：吸附功能四层拆解</h2>
+  <p>这是理解整个项目技术难度的关键。"吸附"不是一个功能，而是<strong>四层技术叠加</strong>的结果。搞清楚每层做什么，才能判断哪些能做、哪些做不了。</p>
+
+  <div class="layer-stack">
+    <div class="layer-item layer-green">
+      <div class="layer-num">1</div>
+      <div class="layer-label">窗口物理贴靠</div>
+      <div class="layer-desc">找到微信/QQ 等窗口的位置，把话术面板贴在旁边，窗口移动时面板跟着移动</div>
+      <div class="layer-status"><span class="badge badge-green">能做</span></div>
+    </div>
+    <div class="layer-item layer-amber">
+      <div class="layer-num">2</div>
+      <div class="layer-label">读对话内容</div>
+      <div class="layer-desc">用 UI Automation API 读取聊天区里的文字，作为 AI 分析的上下文</div>
+      <div class="layer-status"><span class="badge badge-red">做不了生产级</span></div>
+    </div>
+    <div class="layer-item layer-amber">
+      <div class="layer-num">3</div>
+      <div class="layer-label">AI 自动匹配推荐</div>
+      <div class="layer-desc">把读到的对话发给大模型，从话术库里推荐最匹配的。客户问"运费多少"→AI 自动把运费话术排到最前面</div>
+      <div class="layer-status"><span class="badge badge-amber">可半自动替代</span></div>
+    </div>
+    <div class="layer-item layer-green">
+      <div class="layer-num">4</div>
+      <div class="layer-label">模拟键盘粘贴发送</div>
+      <div class="layer-desc">点一下话术，程序模拟键盘把内容粘进聊天输入框 + 模拟回车发送</div>
+      <div class="layer-status"><span class="badge badge-green">能做</span></div>
+    </div>
+  </div>
+
+  <h3>3.1 客服宝 vs 快语：用了哪几层</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>层级</th>
+          <th>客服宝</th>
+          <th>快语 AI</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>第 1 层：窗口贴靠</td>
+          <td><span class="badge badge-green">有</span></td>
+          <td><span class="badge badge-green">有</span></td>
+        </tr>
+        <tr>
+          <td>第 2 层：读对话内容</td>
+          <td><span class="badge badge-gray">没有</span></td>
+          <td><span class="badge badge-green">有</span></td>
+        </tr>
+        <tr>
+          <td>第 3 层：AI 自动推荐</td>
+          <td><span class="badge badge-gray">没有</span></td>
+          <td><span class="badge badge-green">有</span></td>
+        </tr>
+        <tr>
+          <td>第 4 层：模拟粘贴发送</td>
+          <td><span class="badge badge-green">有</span></td>
+          <td><span class="badge badge-green">有</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-amber">
+    <div class="callout-title">为什么第 2 层做不了生产级？</div>
+    UI Automation 读取聊天区文字需要逐个逆向每个 App（微信、QQ、千牛……）的窗口结构。微信每次更新 UI，读取逻辑就可能失效。要做到稳定适配 80+ 应用，是专业 Windows 桌面开发团队长期投入的活，不是一个项目能覆盖的。<strong>但客服宝本来就没有这层</strong>，所以不影响复制客服宝。
+  </div>
+
+  <h3>3.2 它们和微信/微软有合作吗？</h3>
+  <p><strong>没有。</strong>快语、客服宝和微信(Tencent)、和 Microsoft 都没有特殊合作关系。它们靠的是 Windows 操作系统对所有程序公开的底层 API：</p>
+  <ul>
+    <li><strong>EnumWindows / FindWindow</strong>——枚举屏幕上所有窗口，找到"微信""QQ"的窗口句柄</li>
+    <li><strong>GetWindowRect</strong>——拿到目标窗口的位置和大小</li>
+    <li><strong>SetWindowPos / HWND_TOPMOST</strong>——把面板贴到聊天窗口旁，保持置顶</li>
+    <li><strong>SetWinEventHook</strong>——监听窗口移动/缩放，面板跟着动</li>
+    <li><strong>SendInput</strong>——模拟键盘输入，把话术粘进输入框</li>
+  </ul>
+  <p>这些 API 是 Windows 自带的，不需要微软或微信批准。属于"灰色操作"——微信无法阻止另一个程序读取它的位置或模拟键盘输入。</p>
+</section>
+
+<!-- Section 4 -->
+<section>
+  <div class="section-num">PART 04</div>
+  <h2>我们的实际业务需求</h2>
+
+  <div class="card-grid">
+    <div class="card card-purple">
+      <div class="card-title">业务背景</div>
+      <div class="card-body">
+        B2B 批发销售，面向全球海外客户，世界各地都有。<br><br>
+        使用平台：微信、企业微信、WhatsApp、Facebook、千牛、1688、淘宝。<br><br>
+        <strong>多语言翻译是刚需。</strong>
+      </div>
+    </div>
+    <div class="card card-purple">
+      <div class="card-title">业务员工作场景</div>
+      <div class="card-body">
+        每天面对不同地区的不同客户，需要做到<strong>售前、售中、售后</strong>全流程覆盖。<br><br>
+        同一时间经常要处理多线任务。重复劳动多，精神内耗大。<br><br>
+        业务员水平参差不齐，对产品和公司的了解不一，转化率有高有低。
+      </div>
+    </div>
+  </div>
+
+  <h3>4.1 核心痛点</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:30%">痛点</th>
+          <th>具体表现与影响</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>话术不统一</strong></td>
+          <td>同一问题不同业务员回答不一致，可能答错误导客户，影响专业形象</td>
+        </tr>
+        <tr>
+          <td><strong>新业务员不会答</strong></td>
+          <td>老业务员知道怎么回答，新业务员不一定。老带新成本高，经验无法沉淀</td>
+        </tr>
+        <tr>
+          <td><strong>转化率参差</strong></td>
+          <td>推销话术、成交推进话术没有标准化，全凭个人能力，无法复制成功路径</td>
+        </tr>
+        <tr>
+          <td><strong>多语言障碍</strong></td>
+          <td>面对全球客户，话术需要翻译成多种语言，人工翻译效率低、质量不稳定</td>
+        </tr>
+        <tr>
+          <td><strong>重复劳动</strong></td>
+          <td>同样的问题反复手动打字回答，浪费时间和精力</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>4.2 期望的话术分类结构</h3>
+  <p>团队希望把话术<strong>拆分得非常细致</strong>，形成一棵可检索的知识树：</p>
+  <ul>
+    <li><strong>产品话术</strong>——这个产品有哪些卖点、规格、参数</li>
+    <li><strong>推销话术</strong>——为什么跟我们合作、我们公司的优势</li>
+    <li><strong>成交推进话术</strong>——怎么跟进、怎么促单、怎么处理异议</li>
+    <li><strong>售后话术</strong>——为什么这个不包含运费、不可以退货、售后流程</li>
+    <li><strong>公司通用</strong>——公司介绍、发货政策、付款方式等</li>
+  </ul>
+  <p>每一类下再细分具体场景，每个场景的话术还需支持<strong>多语言版本</strong>。</p>
+</section>
+
+<!-- Section 5 -->
+<section>
+  <div class="section-num">PART 05</div>
+  <h2>品类重判：从"快捷回复"到"销售赋能"</h2>
+
+  <div class="callout callout-purple">
+    <div class="callout-title">最重要的认知转变</div>
+    放弃"吸附"功能后，我们要做的东西，其实已经不再是"快语/客服宝"那个品类了。我们的核心需求是<strong>销售话术赋能平台（Sales Enablement）</strong>，不是快捷回复工具。
+  </div>
+
+  <h3>5.1 两个品类的本质区别</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:20%">维度</th>
+          <th style="width:40%">快捷回复工具（快语/客服宝）</th>
+          <th style="width:40%">销售话术赋能平台（我们的需求）</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>核心价值</strong></td>
+          <td>吸附窗口 + 一键发送，省打字时间</td>
+          <td>话术标准化 + 团队共享 + 知识沉淀</td>
+        </tr>
+        <tr>
+          <td><strong>解决什么</strong></td>
+          <td>打得慢</td>
+          <td>答得对、答得统一、新人能上手、转化可复制</td>
+        </tr>
+        <tr>
+          <td><strong>谁主导</strong></td>
+          <td>工具主导（自动推荐/快速发送）</td>
+          <td>人主导（主动查、主动选，AI 辅助翻译改写）</td>
+        </tr>
+        <tr>
+          <td><strong>技术依赖</strong></td>
+          <td>桌面客户端 + Win32 API 逆向适配</td>
+          <td>Web 应用 + 数据库 + AI API</td>
+        </tr>
+        <tr>
+          <td><strong>市场参照</strong></td>
+          <td>快语 AI、客服宝</td>
+          <td>Mindtickle、Highspot、Seismic、HubSpot Sales Hub</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>5.2 为什么不只是"话术集合器"</h3>
+  <p>一个纯集合器 = 一个文档里堆一堆话术，搜一下复制。那确实太薄。但我们描述的需求明显更厚，有三个东西把它顶起来：</p>
+  <ol>
+    <li><strong>结构化知识树</strong>——售前/成交推进/售后/公司通用，再往下拆到子场景，每个节点自带标准版 + 多语言译版 + AI 可生成变体。这是一棵可检索、可分级、可演进的树，不是一坨文本。</li>
+    <li><strong>团队赋能层</strong>——公司级/部门级/私人三级权限、版本统一更新、新人沿树找答案而不是问老人。核心目的是<strong>新人上手 + 经验不流失</strong>。</li>
+    <li><strong>AI 变体 + 多语言</strong>——不是把话术原样复制，而是按客户地区/语气/场景由 AI 生成合规变体并翻译。把"话术"从静态文档变成了活的、能适配的工具。</li>
+  </ol>
+</section>
+
+<!-- Section 6 -->
+<section>
+  <div class="section-num">PART 06</div>
+  <h2>功能可行性逐条评估</h2>
+  <p>以下是客服宝的 8 项核心功能，逐条评估 AI 自建的可行性：</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:5%">#</th>
+          <th style="width:22%">功能</th>
+          <th style="width:10%">可行性</th>
+          <th>说明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><strong>话术分类树</strong></td>
+          <td><span class="badge badge-green">能做</span></td>
+          <td>多级分类、子分类、拖拽排序。标准前端组件 + 后端数据结构。</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><strong>多彩话术标签</strong></td>
+          <td><span class="badge badge-green">能做</span></td>
+          <td>每个标签一个颜色，前端渲染，一眼区分售前/售后/产品类。</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><strong>拼音/首字母/关键词搜索</strong></td>
+          <td><span class="badge badge-green">能做</span></td>
+          <td>用 pinyin-pro 等库建索引，支持全拼(chanpin)、首字母(cp 匹配"产品卖点")、中文关键词混合搜。成熟方案。</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><strong>三级团队共享</strong></td>
+          <td><span class="badge badge-green">能做</span></td>
+          <td>公司话术全员可见、小组话术组内可见、私人话术只有作者看。后端 RBAC 权限系统。</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><strong>多端实时同步</strong></td>
+          <td><span class="badge badge-green">能做</span></td>
+          <td>Win/Mac 桌面端全覆盖。后端 WebSocket 或轮询，任何一端改了话术，其他端很快刷新到。</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td><strong>桌面浮动面板</strong></td>
+          <td><span class="badge badge-green">能做</span></td>
+          <td>Electron/Tauri 桌面应用，always-on-top 窗口，拖到屏幕任意位置。不挑聊天软件。</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td><strong>窗口吸附（贴靠+模拟发送）</strong></td>
+          <td><span class="badge badge-green">能做</span></td>
+          <td>检测聊天窗口位置(auto-win/get-windows)，面板自动贴旁边。模拟粘贴用 nut.js/robotjs。有现成库。</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td><strong>图文话术</strong></td>
+          <td><span class="badge badge-green">能做</span></td>
+          <td>支持文字 + 图片 + 文件的话术。标准存储 + 前端渲染。</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-green">
+    <div class="callout-title">结论</div>
+    客服宝的 8 项核心功能，<strong>全部可以自建</strong>。包括窗口吸附（第 1 层物理贴靠 + 第 4 层模拟粘贴）。唯一做不了的是快语 AI 的第 2 层（读对话内容）和第 3 层（AI 自动推荐），但客服宝本来也没有这两层。
+  </div>
+
+  <h3>6.1 窗口吸附的技术细节</h3>
+  <p>客服宝的吸附只用两层，技术门槛比快语低得多：</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>功能</th>
+          <th>Windows</th>
+          <th>macOS</th>
+          <th>现成库</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>检测窗口位置</td>
+          <td>Win32 API</td>
+          <td>Accessibility API</td>
+          <td>active-win / get-windows</td>
+        </tr>
+        <tr>
+          <td>面板跟随移动</td>
+          <td>轮询窗口位置</td>
+          <td>同左</td>
+          <td>Electron 自带</td>
+        </tr>
+        <tr>
+          <td>模拟粘贴发送</td>
+          <td>SendInput</td>
+          <td>CGEvent / AppleScript</td>
+          <td>nut.js / robotjs</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>6.2 发送模式：双模式可切换设计</h3>
+  <div class="card-grid">
+    <div class="card card-green">
+      <div class="card-title">默认模式：复制到剪贴板</div>
+      <div class="card-body">
+        点话术 → 内容到剪贴板 → 手动 Ctrl+V / Cmd+V 粘贴发送。<br><br>
+        <strong>100% 稳定</strong>，不挑任何平台，永远不会失效。
+      </div>
+    </div>
+    <div class="card card-blue">
+      <div class="card-title">增强模式：自动粘贴</div>
+      <div class="card-body">
+        点话术 → 程序自动粘进当前输入框 + 模拟回车发送。<br><br>
+        省掉手动粘贴，但偶尔遇到不兼容的输入框可切回默认模式。
+      </div>
+    </div>
+  </div>
+  <p>两个模式随时一键切换。吸附的"面板贴旁边"体验始终有，只是"发送"这步给两个档位选。</p>
+
+  <h3>6.3 三个真实风险及对策</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:25%">风险</th>
+          <th style="width:40%">说明</th>
+          <th>对策</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>macOS 需授权辅助功能</td>
+          <td>Mac 安全机制要求用户在"系统设置 → 隐私与安全性 → 辅助功能"手动勾选应用</td>
+          <td>一次性操作，引导用户授权即可</td>
+        </tr>
+        <tr>
+          <td>App 更新后定位偏移</td>
+          <td>微信/QQ 更新窗口标题或类名，匹配规则可能失效</td>
+          <td>匹配规则配置化，App 更新后改一条规则即可</td>
+        </tr>
+        <tr>
+          <td>模拟粘贴偶尔被拒</td>
+          <td>某些输入框（尤其网页内嵌的）可能不接受模拟键盘输入</td>
+          <td>切回"复制到剪贴板"默认模式</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Section 7 -->
+<section>
+  <div class="section-num">PART 07</div>
+  <h2>AI 增强方案：在客服宝基础上能加什么</h2>
+  <p>客服宝没有 AI，但我们可以在其基础上嵌入 DeepSeek 等大模型，实现 6 层 AI 增强：</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:5%">#</th>
+          <th style="width:18%">AI 能力</th>
+          <th style="width:12%">优先级</th>
+          <th>说明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><strong>话术翻译</strong></td>
+          <td><span class="badge badge-red">第一刚需</span></td>
+          <td>选一条中文话术，一键翻成英/日/西/阿/法等。海外 B2B 的核心需求。</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><strong>话术改写/地区适配</strong></td>
+          <td><span class="badge badge-red">第一刚需</span></td>
+          <td>同一条话术，日本客户要正式措辞，美国客户要直接口语，AI 帮你调语气。</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><strong>半自动话术推荐</strong></td>
+          <td><span class="badge badge-amber">高优</span></td>
+          <td>粘贴客户问的一句话，AI 帮你从话术库里找匹配的排好序。比纯手动搜快，比快语"全自动读对话"多一步手动。</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><strong>兜底生成</strong></td>
+          <td><span class="badge badge-amber">高优</span></td>
+          <td>库里没覆盖的问题，AI 现场生成一条草稿，确认后可存入话术库。知识库越用越全。</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><strong>批量多语言变体</strong></td>
+          <td><span class="badge badge-blue">中优</span></td>
+          <td>一条中文话术，AI 一次性生成 5 个语言版本，不用一条条翻。</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td><strong>知识缺口检测</strong></td>
+          <td><span class="badge badge-blue">中优</span></td>
+          <td>AI 分析哪些客户问题库里没覆盖，提醒管理者补话术。管理增值。</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>7.1 AI 的角色：辅助而非主导</h3>
+  <div class="compare-grid">
+    <div class="compare-col compare-buy">
+      <h4>快语 AI 模型</h4>
+      <p style="font-size:14px;"><strong>AI 被动</strong>读你的对话 → 自动推荐话术 → 你确认发送。</p>
+      <p style="font-size:14px;">AI 是主导，你是确认者。</p>
+      <p style="font-size:14px;">依赖第 2 层（读对话内容），做不了生产级。</p>
+    </div>
+    <div class="compare-col compare-build">
+      <h4>客服宝 + AI 模型（推荐）</h4>
+      <p style="font-size:14px;"><strong>你主动</strong>选话术 → AI 帮你翻译/改写/生成变体。</p>
+      <p style="font-size:14px;">你是主导，AI 是工具。</p>
+      <p style="font-size:14px;">不依赖读对话内容，完全可行。</p>
+    </div>
+  </div>
+
+  <div class="callout callout-green">
+    <div class="callout-title">为什么"客服宝 + AI"更适合我们</div>
+    我们的核心痛点是话术统一、新人上手、转化可复制——这些靠的是<strong>一套结构化、统一、可检索、团队共享的话术知识库</strong>，不是 AI 替你决定发什么。新人需要的是沿知识树查到标准答案并理解它，不是 AI 替他回答完他也不知道为什么这么答。AI 作为"翻译 + 改写"的辅助工具，比"替你决定发什么"更贴合需求。
+  </div>
+</section>
+
+<!-- Section 8 -->
+<section>
+  <div class="section-num">PART 08</div>
+  <h2>买 vs 做：决策框架</h2>
+
+  <div class="decision-grid">
+    <div class="decision-card buy">
+      <h4>方案 A：买现成（客服宝/快语）</h4>
+      <div class="price">39.9 元/年<span class="price-unit">起 / 人</span></div>
+      <h4 style="margin-top:16px;">优势</h4>
+      <ul>
+        <li>即装即用，零开发周期</li>
+        <li>经过大量用户验证，稳定性有保障</li>
+        <li>80+ 平台吸附已适配好</li>
+        <li>初期成本低</li>
+      </ul>
+      <h4>劣势</h4>
+      <ul>
+        <li><strong>功能不贴合业务</strong>：没有多语言话术树、没有销售流程分类、没有团队知识沉淀</li>
+        <li><strong>没有 AI 翻译/改写</strong>（客服宝）/ AI 依赖 Windows 桌面端（快语）</li>
+        <li><strong>数据不在自己手里</strong>：话术存在第三方服务器</li>
+        <li><strong>无法定制</strong>：售前/成交推进/售后/公司通用的分级结构做不了</li>
+        <li><strong>长期成本累积</strong>：按人头按年付费，团队扩大成本线性增长</li>
+        <li><strong>只支持 Windows</strong>：Mac 用户无法使用</li>
+      </ul>
+    </div>
+    <div class="decision-card build">
+      <h4>方案 B：AI 自建（客服宝 + AI 增强）</h4>
+      <div class="price">开发积分<span class="price-unit">+ 运营 AI 成本</span></div>
+      <h4 style="margin-top:16px;">优势</h4>
+      <ul>
+        <li><strong>完全贴合业务</strong>：话术分类按售前/成交/售后/公司通用定制</li>
+        <li><strong>AI 翻译/改写/推荐</strong>：多语言是核心功能，不是附加</li>
+        <li><strong>数据自主</strong>：话术资产存在自己服务器，可导出可迁移</li>
+        <li><strong>Win + Mac 双端</strong>：Electron 跨平台覆盖</li>
+        <li><strong>可演进</strong>：先做核心功能，后续按需加 AI 能力</li>
+        <li><strong>无持续订阅费</strong>：只有 AI API 调用成本（约 0.01 元/条）</li>
+      </ul>
+      <h4>劣势</h4>
+      <ul>
+        <li><strong>需要开发周期</strong>：不是即装即用</li>
+        <li><strong>需要持续维护</strong>：App 更新后吸附规则需跟进</li>
+        <li><strong>初期投入较大</strong>：开发积分消耗高于一年订阅费</li>
+        <li><strong>模拟粘贴非 100% 稳定</strong>：有默认剪贴板模式兜底</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>8.1 成本对比</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>成本项</th>
+          <th>买现成（客服宝专业版）</th>
+          <th>AI 自建</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>初期成本</strong></td>
+          <td>~40 元/人/年</td>
+          <td>开发积分（一次性，较高）</td>
+        </tr>
+        <tr>
+          <td><strong>年度成本（10人团队）</strong></td>
+          <td>~400 元/年</td>
+          <td>AI API 调用费（约 100-300 元/月，按用量）</td>
+        </tr>
+        <tr>
+          <td><strong>3年总成本</strong></td>
+          <td>~1,200 元 + 功能受限</td>
+          <td>开发积分（一次性）+ 运营费 ~3,600-10,800 元</td>
+        </tr>
+        <tr>
+          <td><strong>功能贴合度</strong></td>
+          <td><span class="badge badge-red">低</span> 无多语言/无分级/无AI</td>
+          <td><span class="badge badge-green">高</span> 完全按需求定制</td>
+        </tr>
+        <tr>
+          <td><strong>数据归属</strong></td>
+          <td><span class="badge badge-red">第三方服务器</span></td>
+          <td><span class="badge badge-green">自有服务器</span></td>
+        </tr>
+        <tr>
+          <td><strong>平台支持</strong></td>
+          <td><span class="badge badge-amber">仅 Windows</span></td>
+          <td><span class="badge badge-green">Win + Mac</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-blue">
+    <div class="callout-title">决策建议</div>
+    如果团队<strong>只需要基础的快捷回复 + Windows 单平台</strong>，且<strong>不在乎多语言和话术分级</strong>，买客服宝最省事。<br><br>
+    但如果<strong>多语言翻译、话术分级（售前/成交/售后/公司通用）、团队知识沉淀、Win+Mac 双端</strong>是硬需求——这些客服宝都不具备，<strong>自建的投入是值得的</strong>，因为买来的工具解决不了核心问题。
+  </div>
+</section>
+
+<!-- Section 9 -->
+<section>
+  <div class="section-num">PART 09</div>
+  <h2>推荐建设路线（分阶段）</h2>
+  <p>如果决定自建，建议分 4 个阶段推进，每个阶段都能独立使用，避免一次性投入太大方向跑偏：</p>
+
+  <div class="phase-list">
+    <div class="phase-item phase-1">
+      <div class="phase-marker">1</div>
+      <div class="phase-content">
+        <div class="phase-title">最小可用版（MVP）</div>
+        <div class="phase-desc">话术知识库 + 搜索 + 桌面浮动面板</div>
+        <div class="phase-features">
+          话术分类树（售前/成交/售后/公司通用）→ 彩色标签 → 拼音/首字母/关键词搜索 → 桌面浮动面板（置顶 + 复制到剪贴板）→ Web 管理后台
+        </div>
+      </div>
+    </div>
+    <div class="phase-item phase-2">
+      <div class="phase-marker">2</div>
+      <div class="phase-content">
+        <div class="phase-title">团队协作 + 多端</div>
+        <div class="phase-desc">三级共享 + Win/Mac 同步</div>
+        <div class="phase-features">
+          公司/小组/私人三级权限 → 用户管理 → 多端实时同步（WebSocket）→ 图文话术支持 → 窗口吸附（面板贴靠 + 模拟粘贴双模式）
+        </div>
+      </div>
+    </div>
+    <div class="phase-item phase-3">
+      <div class="phase-marker">3</div>
+      <div class="phase-content">
+        <div class="phase-title">AI 增强</div>
+        <div class="phase-desc">DeepSeek 接入，翻译 + 改写 + 推荐</div>
+        <div class="phase-features">
+          话术一键多语言翻译 → 地区语气适配改写 → 半自动话术推荐（粘贴客户问题→AI 搜库）→ 兜底生成（库没有的 AI 现场生成）→ 批量多语言变体
+        </div>
+      </div>
+    </div>
+    <div class="phase-item phase-4">
+      <div class="phase-marker">4</div>
+      <div class="phase-content">
+        <div class="phase-title">持续优化</div>
+        <div class="phase-desc">知识缺口检测 + 管理增值</div>
+        <div class="phase-features">
+          AI 分析未覆盖的客户问题 → 提醒管理者补话术 → 话术使用统计 → 转化率关联分析 → 持续跟进各平台 App 更新的吸附适配
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 10 -->
+<section>
+  <div class="section-num">PART 10</div>
+  <h2>技术架构概览</h2>
+
+  <h3>10.1 技术选型</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:20%">层</th>
+          <th style="width:25%">技术</th>
+          <th>说明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>桌面客户端</strong></td>
+          <td>Electron + React</td>
+          <td>跨平台（Win/Mac），always-on-top 浮动窗口，窗口检测用 active-win，模拟粘贴用 nut.js</td>
+        </tr>
+        <tr>
+          <td><strong>Web 管理后台</strong></td>
+          <td>React + TypeScript</td>
+          <td>话术树管理、用户管理、权限配置、数据统计</td>
+        </tr>
+        <tr>
+          <td><strong>后端 API</strong></td>
+          <td>Node.js + Express/NestJS</td>
+          <td>话术 CRUD、权限校验、同步推送（WebSocket）</td>
+        </tr>
+        <tr>
+          <td><strong>数据库</strong></td>
+          <td>PostgreSQL + Redis</td>
+          <td>PG 存话术/用户/权限，Redis 做缓存和搜索索引</td>
+        </tr>
+        <tr>
+          <td><strong>搜索</strong></td>
+          <td>pinyin-pro + 全文索引</td>
+          <td>拼音/首字母/中文关键词混合搜索</td>
+        </tr>
+        <tr>
+          <td><strong>AI</strong></td>
+          <td>DeepSeek API</td>
+          <td>翻译、改写、推荐、生成。约 0.01 元/条调用成本</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>10.2 复杂度评估</h3>
+  <div class="callout callout-amber">
+    <div class="callout-title">这是个中等偏复杂的项目</div>
+    涉及：前端话术编辑器、分类树、拼音搜索引擎、权限系统、云端同步、团队空间、AI 接入层、桌面浮动面板、窗口吸附、后台管理。属于<strong>中大型 SaaS + 桌面应用</strong>工程。建议分阶段做，先跑通 MVP 再逐步加功能，避免一次性投入太大方向跑偏。
+  </div>
+</section>
+
+<!-- Summary -->
+<section>
+  <div class="section-num">SUMMARY</div>
+  <h2>总结与待讨论事项</h2>
+
+  <h3>已确认的事实</h3>
+  <ul>
+    <li>客服宝没有 AI，快语 AI 有 AI——两者内核不同</li>
+    <li>我们的需求更接近"销售话术赋能平台"，不是快捷回复工具</li>
+    <li>客服宝的所有功能（含窗口吸附）技术上都可以自建</li>
+    <li>可以在客服宝基础上嵌入 AI，实现翻译、改写、推荐等 6 项增强</li>
+    <li>只需 Windows + macOS 桌面端，暂不需要手机端</li>
+  </ul>
+
+  <h3>待团队讨论决定的事项</h3>
+  <ol>
+    <li><strong>买还是做？</strong>核心判断点：多语言翻译 + 话术分级 + Win/Mac 双端 + 数据自主，这些是否是硬需求？如果是，买来的工具解决不了。</li>
+    <li><strong>如果要自建，从哪个阶段开始？</strong>建议从 MVP（话术树 + 搜索 + 浮动面板）起步，验证可用后再加团队协作和 AI。</li>
+    <li><strong>AI 的优先级</strong>：翻译和改写是否第一期就要？还是先做纯话术管理，第二期再加 AI？</li>
+    <li><strong>窗口吸附 vs 纯浮动面板</strong>：是否第一期就要吸附功能？还是先用"置顶浮动面板 + 复制粘贴"，后续再加吸附？</li>
+    <li><strong>话术数据的准备</strong>：现有的话术资料是否已整理成分级结构？还是需要先花时间梳理？</li>
+  </ol>
+
+  <div class="callout callout-green" style="margin-top:24px;">
+    <div class="callout-title">建议的下一步</div>
+    团队讨论后确定方向。如果决定自建，我可以先出一份详细的功能规格文档和技术方案，包含每个功能的具体交互设计、数据库结构、API 设计和开发排期，供团队评审后启动开发。
+  </div>
+</section>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="container">
+    <p>本报告基于对快语 AI、客服宝的公开资料调研及技术可行性分析编制。</p>
+    <p>供团队内部讨论使用 | 2026年8月6日</p>
+  </div>
+</div>
+
+</body>
+</html>
