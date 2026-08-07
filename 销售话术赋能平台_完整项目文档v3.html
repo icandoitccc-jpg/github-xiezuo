@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>销售话术赋能平台 · 完整项目文档（可追溯·可交接）</title>
+<style>
+:root {
+  --bg: #f8f7f4;
+  --surface: #ffffff;
+  --border: #e4e2dc;
+  --text: #2c2c2a;
+  --text-sec: #6b6a65;
+  --text-hint: #9c9b94;
+  --accent: #534ab7;
+  --accent-light: #eeedfe;
+  --green: #0f6e56;
+  --green-light: #e1f5ee;
+  --amber: #854f0b;
+  --amber-light: #faeeda;
+  --coral: #993c1d;
+  --coral-light: #faece7;
+  --blue: #185fa5;
+  --blue-light: #e6f1fb;
+  --radius: 10px;
+  --radius-lg: 16px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  font-size: 15px;
+}
+.container { max-width: 960px; margin: 0 auto; padding: 40px 32px 80px; }
+
+.report-header {
+  text-align: center;
+  padding: 48px 32px 40px;
+  background: linear-gradient(135deg, #534ab7 0%, #3c3489 100%);
+  color: #fff;
+  border-radius: var(--radius-lg);
+  margin-bottom: 40px;
+}
+.report-header h1 { font-size: 26px; font-weight: 600; margin-bottom: 8px; letter-spacing: 0.5px; }
+.report-header .subtitle { font-size: 15px; opacity: 0.85; }
+.report-header .meta { margin-top: 20px; font-size: 13px; opacity: 0.7; }
+.report-header .badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.2);
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  margin-top: 12px;
+}
+
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 16px;
+  padding-left: 14px;
+  border-left: 4px solid var(--accent);
+  line-height: 1.4;
+}
+.section-title .num {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 26px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.subsection-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 24px 0 12px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 16px;
+}
+.card-accent { border-left: 3px solid var(--accent); }
+.card-green { border-left: 3px solid var(--green); }
+.card-amber { border-left: 3px solid var(--amber); }
+.card-blue { border-left: 3px solid var(--blue); }
+.card-coral { border-left: 3px solid var(--coral); }
+
+.tldr {
+  background: var(--accent-light);
+  border: 1px solid #cecbf6;
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  margin-bottom: 32px;
+}
+.tldr h3 { font-size: 15px; color: var(--accent); margin-bottom: 12px; }
+.tldr p { font-size: 14px; color: var(--text); margin-bottom: 8px; }
+.tldr p:last-child { margin-bottom: 0; }
+
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 14px; }
+th { background: #f1efe8; text-align: left; padding: 10px 14px; font-weight: 600; color: var(--text); border-bottom: 2px solid var(--border); }
+td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: var(--text-sec); vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: #fafaf7; }
+
+.tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  margin: 0 4px 4px 0;
+}
+.tag-green { background: var(--green-light); color: var(--green); }
+.tag-blue { background: var(--blue-light); color: var(--blue); }
+.tag-amber { background: var(--amber-light); color: var(--amber); }
+.tag-coral { background: var(--coral-light); color: var(--coral); }
+.tag-purple { background: var(--accent-light); color: var(--accent); }
+
+.module-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+.module-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  position: relative;
+}
+.module-card .module-num {
+  position: absolute;
+  top: 20px; right: 24px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #e4e2dc;
+  line-height: 1;
+}
+.module-card h4 { font-size: 16px; font-weight: 600; margin-bottom: 6px; padding-right: 40px; }
+.module-card .purpose { font-size: 13px; color: var(--accent); margin-bottom: 12px; font-weight: 500; }
+.module-card .features { font-size: 14px; color: var(--text-sec); }
+.module-card .features li { margin-bottom: 6px; padding-left: 18px; position: relative; list-style: none; }
+.module-card .features li::before { content: ""; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--border); }
+.module-card .solves {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border);
+  font-size: 13px;
+  color: var(--text-sec);
+}
+.module-card .solves strong { color: var(--coral); }
+
+.phase {
+  display: flex;
+  gap: 0;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+.phase-item {
+  flex: 1;
+  min-width: 220px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-right: 12px;
+  margin-bottom: 12px;
+  position: relative;
+}
+.phase-item:last-child { margin-right: 0; }
+.phase-item .phase-label {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.phase-0 .phase-label { background: #f3e8ff; color: #7c2d92; }
+.phase-1 .phase-label { background: var(--green-light); color: var(--green); }
+.phase-2 .phase-label { background: var(--blue-light); color: var(--blue); }
+.phase-3 .phase-label { background: var(--amber-light); color: var(--amber); }
+.phase-4 .phase-label { background: var(--coral-light); color: var(--coral); }
+.phase-item h5 { font-size: 15px; margin-bottom: 8px; }
+.phase-item ul { font-size: 13px; color: var(--text-sec); padding-left: 16px; }
+.phase-item ul li { margin-bottom: 4px; }
+
+.arch-diagram {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  margin: 16px 0;
+}
+.arch-layer {
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+.arch-layer:last-child { margin-bottom: 0; }
+.arch-layer-desktop { background: var(--accent-light); border: 1px solid #cecbf6; }
+.arch-layer-backend { background: var(--green-light); border: 1px solid #9fe1cb; }
+.arch-layer-external { background: var(--amber-light); border: 1px solid #fac775; }
+.arch-layer h5 { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+.arch-layer-desktop h5 { color: var(--accent); }
+.arch-layer-backend h5 { color: var(--green); }
+.arch-layer-external h5 { color: var(--amber); }
+.arch-layer p { font-size: 13px; color: var(--text-sec); }
+.arch-arrow { text-align: center; font-size: 20px; color: var(--text-hint); margin: 4px 0; }
+
+.callout {
+  background: var(--amber-light);
+  border-left: 4px solid var(--amber);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 16px 20px;
+  margin: 16px 0;
+  font-size: 14px;
+  color: var(--amber);
+}
+.callout strong { font-weight: 600; }
+
+.callout-green {
+  background: var(--green-light);
+  border-left: 4px solid var(--green);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 16px 20px;
+  margin: 16px 0;
+  font-size: 14px;
+  color: var(--green);
+}
+
+.callout-coral {
+  background: var(--coral-light);
+  border-left: 4px solid var(--coral);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 16px 20px;
+  margin: 16px 0;
+  font-size: 14px;
+  color: var(--coral);
+}
+
+.decision-table th { font-size: 13px; }
+.decision-table .highlight { background: var(--green-light); }
+
+.report-footer {
+  text-align: center;
+  padding: 32px;
+  font-size: 13px;
+  color: var(--text-hint);
+  border-top: 1px solid var(--border);
+  margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+  .container { padding: 20px 16px 40px; }
+  .phase { flex-direction: column; }
+  .phase-item { margin-right: 0; margin-bottom: 12px; }
+  table { font-size: 13px; }
+  th, td { padding: 8px 10px; }
+}
+
+ul.bullet, ol.bullet { padding-left: 20px; margin: 8px 0; }
+ul.bullet li, ol.bullet li { margin-bottom: 6px; color: var(--text-sec); }
+
+.hl { background: #fff3cd; padding: 1px 4px; border-radius: 3px; font-weight: 500; }
+.hl-green { color: var(--green); font-weight: 600; }
+.hl-coral { color: var(--coral); font-weight: 600; }
+.hl-amber { color: var(--amber); font-weight: 600; }
+
+/* Timeline */
+.timeline { position: relative; padding-left: 24px; }
+.timeline::before { content: ""; position: absolute; left: 8px; top: 4px; bottom: 4px; width: 2px; background: var(--border); }
+.timeline-item { position: relative; margin-bottom: 24px; }
+.timeline-item::before { content: ""; position: absolute; left: -20px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); border: 2px solid var(--surface); }
+.timeline-item .timeline-date { font-size: 12px; color: var(--text-hint); margin-bottom: 2px; }
+.timeline-item .timeline-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.timeline-item .timeline-desc { font-size: 13px; color: var(--text-sec); }
+
+/* Status badges */
+.status-done { color: var(--green); font-weight: 600; }
+.status-pending { color: var(--amber); font-weight: 600; }
+.status-blocked { color: var(--coral); font-weight: 600; }
+
+/* PoC checklist */
+.poc-checklist { list-style: none; padding-left: 0; }
+.poc-checklist li { padding: 8px 0; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 10px; }
+.poc-checklist li:last-child { border-bottom: none; }
+.poc-checklist .check-icon { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; }
+.poc-checklist .check-yes { background: var(--green-light); color: var(--green); }
+.poc-checklist .check-no { background: var(--coral-light); color: var(--coral); }
+.poc-checklist .check-adjust { background: var(--amber-light); color: var(--amber); }
+
+/* Risk table */
+.risk-table td:nth-child(1) { width: 40%; font-weight: 600; color: var(--text); }
+.risk-table td:nth-child(2) { width: 15%; }
+.risk-table td:nth-child(3) { width: 45%; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="report-header">
+  <h1>销售话术赋能平台</h1>
+  <div class="subtitle">完整项目文档 · 需求方案 · 技术架构 · 决策记录 · 可交接</div>
+  <div class="meta">
+    文档版本：v3.0 · 最后更新：2026年8月7日<br>
+    项目状态：技术验证（PoC）阶段 · 尚未开始正式开发
+  </div>
+  <div class="badge">本文档为可追溯交接文件 — 如开发方积分不足或需要更换开发者，新接手者凭此文档可了解项目全貌</div>
+</div>
+
+<!-- TL;DR -->
+<div class="tldr">
+  <h3>一页速览</h3>
+  <p><strong>这是什么：</strong>一个桌面端软件（Electron），帮销售团队统一管理、快速查找、一键发送话术（文字+图片+文件），并集成 AI 翻译和改写能力。</p>
+  <p><strong>解决什么：</strong>话术不统一→答错误导客户；新人不会答→老带新成本高；转化率参差→需要可复制的标准推销流程；多语言→海外客户沟通效率低；找图找文件→操作步骤多。</p>
+  <p><strong>软件性质：</strong>桌面客户端（Electron）+ 云端后台（阿里云 ECS），不是纯网站也不是浏览器插件——因为需要浮动面板、窗口检测、剪贴板控制等桌面级能力。</p>
+  <p><strong>参考对标：</strong>客服宝模型（话术管理+搜索+团队共享+浮动面板+图文发送）+ AI 增强（翻译/改写/半自动推荐）。不复制快语 AI 的"自动读对话"功能。</p>
+  <p><strong>当前阶段：</strong>团队已确认方向，下一步是<strong>技术验证（PoC）</strong>——先在 macOS 上做一个最小可运行版本，证明能力后再进入正式开发。不承诺日历工期，以验收关卡为准。</p>
+  <p><strong>核心决策：</strong>放弃快语 AI 的"四层吸附"（做不了生产级），采用客服宝的"两层吸附"（物理贴靠+模拟发送，可做）。第一版先做 Windows 或 macOS 单端验证，不贪双端。</p>
+</div>
+
+<!-- ==================== Part 1: 决策历程 ==================== -->
+<div class="section">
+  <div class="section-title"><span class="num">1</span>决策历程：我们是怎么走到这一步的</div>
+  <p style="color:var(--text-sec); margin-bottom:16px;">这一节记录了团队的完整决策路径。如果将来需要交接，新接手者通过这节可以理解"为什么做了这些选择"。</p>
+
+  <div class="card card-accent">
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">第一步</div>
+        <div class="timeline-title">调研快语 AI 和客服宝</div>
+        <div class="timeline-desc">同事前公司用过客服宝，推荐了这个方向。网上对比发现快语 AI 营销排名靠前。经深入调研发现两者内核完全不同——客服宝没有 AI，靠拼音/关键词搜索，是"我搜我发"模型；快语 AI 有 AI 读对话自动推荐，是"AI 帮你选"模型。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">第二步</div>
+        <div class="timeline-title">拆解"吸附"功能，发现四层技术</div>
+        <div class="timeline-desc">"吸附"不是一个功能，是四层：①物理贴靠（找窗口+贴旁边+跟着动）→ ②读对话内容（UI Automation）→ ③AI 自动匹配（大模型推荐）→ ④模拟发送（自动粘贴+回车）。快语四层都做，客服宝只做①+④。第②层是技术壁垒——需要逐个逆向每个 App 的窗口结构，微信一更新就可能失效。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">第三步</div>
+        <div class="timeline-title">明确业务需求，发现品类不同</div>
+        <div class="timeline-desc">团队是海外 B2B 批发销售，痛点是话术不统一、新人不会答、转化率参差、多语言障碍。这些痛点的核心不是"打字慢"（快语解决的），而是"答得对、答得统一、新人能上手"（客服宝模型解决的）。品类从"快捷回复工具"重判为"销售话术赋能平台（Sales Enablement）"。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">第四步</div>
+        <div class="timeline-title">确认客服宝模型 + AI 增强</div>
+        <div class="timeline-desc">放弃快语 AI 的第②③层（读对话+自动推荐），保留客服宝的第①④层（物理贴靠+模拟发送），在此基础上加 AI 翻译/改写/半自动推荐。AI 角色从"替你决定发什么"变成"帮你处理你选的话术"。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">第五步</div>
+        <div class="timeline-title">加入图文功能需求</div>
+        <div class="timeline-desc">业务员介绍产品时需要发文字+产品图，当前流程是搜话术粘贴 + 去文件夹翻图两个分散动作。确认话术可关联多张图片/文件，点一下复制到剪贴板。系统剪贴板同一时间只能放文字或图片，但程序可以快速切换（先粘图再粘字），用户感觉是"一键发出"。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">第六步</div>
+        <div class="timeline-title">引入外部评估（ChatGPT），接受修正</div>
+        <div class="timeline-desc">因积分顾虑，让 ChatGPT 在 WorkBuddy 和扣子之间选承接方。ChatGPT 选择 WorkBuddy（Electron 桌面开发能力强），但提出重要修正：①第一阶段写得太大应再砍；②自动粘贴是高风险不应放第一版；③窗口吸附比说的更难；④不要信工期承诺要用验收关卡；⑤先做技术验证再谈正式开发。WorkBuddy 接受全部修正。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">当前状态</div>
+        <div class="timeline-title">准备技术验证（PoC）</div>
+        <div class="timeline-desc">方案已确定，下一步是先做一个可运行的技术验证版本。ChatGPT 建议 PoC 做 Windows .exe，但 WorkBuddy 运行在 macOS 上无法本地打包 Windows .exe，建议 PoC 先在 macOS 上做（能实际运行测试），Windows 打包问题等验证通过后用 GitHub Actions 解决。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== Part 2: 快语 vs 客服宝 ==================== -->
+<div class="section">
+  <div class="section-title"><span class="num">2</span>快语 AI 与客服宝：两个产品的内核差异</div>
+
+  <div class="subsection-title">2.1 基本信息对比</div>
+  <table>
+    <tr><th style="width:120px;"></th><th>客服宝</th><th>快语 AI</th></tr>
+    <tr><td><strong>开发商</strong></td><td>深圳千百尺网络科技</td><td>深圳西部港湾科技</td></tr>
+    <tr><td><strong>有没有 AI</strong></td><td>没有——纯拼音/关键词搜索</td><td>有——DeepSeek V4 大模型</td></tr>
+    <tr><td><strong>核心模型</strong></td><td>我搜我发（人主导）</td><td>AI 帮你选（AI 主导）</td></tr>
+    <tr><td><strong>解决什么痛点</strong></td><td>找得慢、发得慢</td><td>不知道该发什么</td></tr>
+    <tr><td><strong>吸附层数</strong></td><td>2 层（物理贴靠 + 模拟发送）</td><td>4 层（+ 读对话内容 + AI 自动匹配）</td></tr>
+    <tr><td><strong>多语言翻译</strong></td><td><span class="hl-coral">没有</span></td><td>有（AI 翻译，100+ 语言）</td></tr>
+    <tr><td><strong>价格</strong></td><td>免费版功能很全，专业版低价</td><td>聊天助手 39.9 元/年；工作台按店铺数计费</td></tr>
+    <tr><td><strong>支持平台</strong></td><td>80+ 聊天软件，Win/Mac/安卓/iOS</td><td>微信/QQ/企微/WhatsApp/钉钉 + 电商工作台</td></tr>
+  </table>
+
+  <div class="subsection-title">2.2 "吸附"功能四层拆解</div>
+  <div class="card card-amber">
+    <p style="margin-bottom:12px;">这是整个项目最关键的技术理解——"吸附"不是一个功能，是四层技术的叠加：</p>
+    <table>
+      <tr><th style="width:60px;">层级</th><th>做什么</th><th style="width:120px;">谁用了</th><th style="width:140px;">能不能做</th></tr>
+      <tr><td><strong>第1层</strong></td><td><strong>物理贴靠</strong>：找到聊天窗口位置，把面板贴旁边，窗口移动面板跟着移动。用 Win32 API（Windows）或 Accessibility API（macOS）</td><td>客服宝 + 快语</td><td><span class="hl-green">能做</span></td></tr>
+      <tr><td><strong>第2层</strong></td><td><strong>读对话内容</strong>：用 UI Automation API 把聊天窗口里的文字读出来。需要逐个逆向每个 App 的窗口结构，App 更新就可能失效</td><td>仅快语</td><td><span class="hl-coral">做不了生产级</span></td></tr>
+      <tr><td><strong>第3层</strong></td><td><strong>AI 自动匹配</strong>：拿第2层读到的对话文本发给大模型，从话术库推荐最匹配的。依赖第2层</td><td>仅快语</td><td><span class="hl-coral">依赖第2层，无法独立做</span></td></tr>
+      <tr><td><strong>第4层</strong></td><td><strong>模拟发送</strong>：模拟键盘 Ctrl+V 粘贴话术 + 模拟回车发送。SendInput（Windows）/ CGEvent（macOS）</td><td>客服宝 + 快语</td><td><span class="hl-green">能做（有风险，见后文）</span></td></tr>
+    </table>
+    <div class="callout" style="margin-top:16px;">
+      <strong>关键结论：</strong>我们放弃第2层和第3层（快语的 AI 自动读对话+推荐），保留第1层和第4层（客服宝的物理贴靠+模拟发送）。这不是"放弃吸附"，而是"放弃 AI 自动读对话"——物理贴靠体验保留，只是不自动猜你要发什么，靠你自己搜。
+    </div>
+  </div>
+
+  <div class="subsection-title">2.3 两个产品和微信/Windows 有合作吗？</div>
+  <div class="card">
+    <p><strong>没有。</strong>两家都用的是 Windows/macOS 操作系统对所有程序公开的底层 API（Win32 API / Accessibility API），不是谁给了谁授权。微信作为一个窗口，无法阻止另一个程序读取它的位置、在旁边放面板、或模拟键盘往输入框打字。</p>
+    <p style="margin-top:8px;"><strong>和微信/Tencent：</strong>没有官方合作，属于"灰色操作"。微信一更新 UI 结构，UI Automation 读取就可能失效（快语受此影响，客服宝不读内容所以不受影响）。</p>
+    <p style="margin-top:8px;"><strong>和电商平台：</strong>客服宝靠 OS 级 API 吸附桌面客户端，无官方合作。快语的电商工作台有 OAuth 授权绑定店铺，但消息交互仍是自己内嵌网页+JS 注入扒的。</p>
+  </div>
+</div>
+
+<!-- ==================== Part 3: 业务需求 ==================== -->
+<div class="section">
+  <div class="section-title"><span class="num">3</span>我们的业务需求</div>
+
+  <div class="subsection-title">3.1 团队画像</div>
+  <div class="card card-blue">
+    <ul class="bullet">
+      <li><strong>业务类型：</strong>海外 B 端批发销售</li>
+      <li><strong>客户分布：</strong>世界各地，多语言沟通</li>
+      <li><strong>使用平台：</strong>微信、企业微信、WhatsApp、Facebook、千牛、1688、淘宝</li>
+      <li><strong>业务流程：</strong>售前咨询 → 成交推进 → 售后处理，同一时间多线并发</li>
+      <li><strong>团队结构：</strong>老业务员 + 新业务员，水平参差，需要标准化</li>
+      <li><strong>设备：</strong>桌面端（Windows + macOS），暂不需要手机端</li>
+    </ul>
+  </div>
+
+  <div class="subsection-title">3.2 六大业务痛点</div>
+  <table>
+    <tr><th style="width:180px;">痛点</th><th>具体表现</th><th style="width:200px;">影响</th></tr>
+    <tr><td>话术不统一</td><td>同一个问题，不同业务员回答不一样，甚至互相矛盾</td><td>答错误导客户，专业形象受损</td></tr>
+    <tr><td>新人上手慢</td><td>新业务员不知道怎么回答，靠问老员工，老员工被频繁打断</td><td>培训成本高，老员工效率下降</td></tr>
+    <tr><td>转化率参差</td><td>老业务员知道怎么推进成交，新人不会，转化率差距大</td><td>业绩波动，不可复制</td></tr>
+    <tr><td>多语言障碍</td><td>全球客户说不同语言，业务员需要逐条翻译，慢且容易出错</td><td>沟通效率低，可能翻译不当</td></tr>
+    <tr><td>找图找文件麻烦</td><td>介绍产品时要发文字+产品图，图存在各种文件夹里，找起来费时</td><td>每次多一个动作，多线并发时更累</td></tr>
+    <tr><td>经验无法沉淀</td><td>老业务员离职，话术经验跟着走，新人从零开始</td><td>知识资产流失</td></tr>
+  </table>
+
+  <div class="subsection-title">3.3 八项具体诉求</div>
+  <div class="card card-green">
+    <ol class="bullet">
+      <li><strong>结构化话术知识库</strong>——按"售前 / 成交推进 / 售后 / 公司通用"分级分类，拆到子场景，每条话术有标准版+多语言版</li>
+      <li><strong>快速搜索</strong>——拼音/首字母/关键词混合搜索，彩色标签一眼识别，1-2 秒找到需要的话术</li>
+      <li><strong>桌面浮动面板</strong>——一个始终置顶的小窗口，不用切换软件，随时搜话术、复制粘贴</li>
+      <li><strong>图文一起发</strong>——一条话术可以关联产品图片/文件，点一下图和文字都能发出去</li>
+      <li><strong>团队三级共享</strong>——公司话术全员可用、小组话术组内共享、私人话术个人专属</li>
+      <li><strong>多语言翻译</strong>——选一条话术，AI 一键翻译成目标语言，支持批量生成多语言版本</li>
+      <li><strong>多端同步</strong>——Windows + macOS 桌面端实时同步，改了话术另一端马上看到</li>
+      <li><strong>不需要手机端</strong>——暂时统一桌面端</li>
+    </ol>
+  </div>
+
+  <div class="subsection-title">3.4 品类重判：这不是"快捷回复工具"，是"销售话术赋能平台"</div>
+  <div class="card card-accent">
+    <p>去掉快语的"AI 自动读对话"后，我们要做的东西，品类已经从"快捷回复工具"（快语/客服宝的品类）变成了<strong>"销售话术赋能平台（Sales Enablement）"</strong>。</p>
+    <p style="margin-top:12px;">区别在于：</p>
+    <table style="margin-top:8px;">
+      <tr><th style="width:140px;"></th><th>快捷回复工具（客服宝/快语）</th><th>销售话术赋能平台（我们的方向）</th></tr>
+      <tr><td><strong>解决什么</strong></td><td>打字慢、发得慢</td><td>答得对、答得统一、新人能上手、转化能复制</td></tr>
+      <tr><td><strong>核心价值</strong></td><td>省打字时间</td><td>把老业务员的经验沉淀成全团队可复用资产</td></tr>
+      <tr><td><strong>谁主导</strong></td><td>人搜人发（或 AI 替你选）</td><td>人主导，AI 辅助（翻译/改写/补缺口）</td></tr>
+      <tr><td><strong>对标产品</strong></td><td>客服宝、快语</td><td>Mindtickle、Highspot、Seismic、HubSpot Sales Hub</td></tr>
+    </table>
+    <p style="margin-top:12px;">这意味着：平台不重要了（因为只是复制粘贴，跟用哪个聊天软件无关），核心是那套<strong>结构化、可检索、团队共享、多语言</strong>的话术知识库。</p>
+  </div>
+</div>
+
+<!-- ==================== Part 4: 软件性质 ==================== -->
+<div class="section">
+  <div class="section-title"><span class="num">4</span>软件性质：这是什么类型的软件</div>
+
+  <div class="card card-blue">
+    <p style="font-size:16px; font-weight:600; margin-bottom:12px;">桌面客户端 + 云端后台</p>
+    <p>这不是一个纯网站，也不是浏览器插件，而是一个<strong>安装在电脑上的桌面软件</strong>，配合一个<strong>云端服务器</strong>提供数据存储和 AI 服务。</p>
+
+    <div class="arch-diagram">
+      <div class="arch-layer arch-layer-desktop">
+        <h5>桌面客户端（业务员电脑上安装）</h5>
+        <p>Electron 应用 · Windows + macOS 双平台 · 一套代码编译两端</p>
+        <p style="margin-top:8px;">
+          <span class="tag tag-purple">浮动面板（置顶窗口）</span>
+          <span class="tag tag-purple">窗口检测与物理贴靠</span>
+          <span class="tag tag-purple">拼音搜索</span>
+          <span class="tag tag-purple">剪贴板控制</span>
+          <span class="tag tag-purple">模拟键盘输入</span>
+          <span class="tag tag-purple">图文发送</span>
+        </p>
+      </div>
+      <div class="arch-arrow">↕ HTTPS / WebSocket</div>
+      <div class="arch-layer arch-layer-backend">
+        <h5>云端后台（阿里云 ECS 服务器）</h5>
+        <p>Node.js API 服务 · PostgreSQL 数据库 · 阿里云 OSS 图片/文件存储</p>
+        <p style="margin-top:8px;">
+          <span class="tag tag-green">话术数据存储</span>
+          <span class="tag tag-green">用户权限管理</span>
+          <span class="tag tag-green">实时同步</span>
+          <span class="tag tag-green">团队空间</span>
+          <span class="tag tag-green">管理后台</span>
+        </p>
+      </div>
+      <div class="arch-arrow">↕ HTTPS</div>
+      <div class="arch-layer arch-layer-external">
+        <h5>外部 AI 服务（按量付费）</h5>
+        <p>DeepSeek API · 翻译/改写/生成/推荐</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>为什么不是纯网站？</strong>浮动面板（始终置顶）、检测聊天窗口位置、操控剪贴板（复制图片）、模拟键盘输入（自动粘贴）都是<strong>操作系统桌面级能力</strong>，浏览器网页做不到。所以必须做成桌面客户端。
+    </div>
+    <div class="callout-green">
+      <strong>为什么不是浏览器插件？</strong>浏览器插件只能在浏览器里工作，无法检测桌面版微信/QQ 窗口，也无法做成独立的浮动窗口。桌面客户端是唯一能同时覆盖桌面端和网页端聊天软件的方案。
+    </div>
+  </div>
+</div>
+
+<!-- ==================== Part 5: 功能模块 ==================== -->
+<div class="section">
+  <div class="section-title"><span class="num">5</span>功能板块设计（7 大模块）</div>
+  <p style="color:var(--text-sec); margin-bottom:20px;">每个模块标注了"解决什么需求"和"属于哪个建设阶段"。</p>
+
+  <div class="module-grid">
+
+    <div class="module-card">
+      <div class="module-num">01</div>
+      <h4>话术知识库管理</h4>
+      <div class="purpose">用途：把散落在各人手里的经验，沉淀为全团队可复用的标准资产</div>
+      <ul class="features">
+        <li>树形分类结构：售前 / 成交推进 / 售后 / 公司通用 → 子分类 → 具体话术</li>
+        <li>每条话术包含：标题、正文内容、彩色标签、关联图片/文件、多语言版本</li>
+        <li>话术增删改查，支持富文本编辑（加粗、列表、换行等）</li>
+        <li>话术版本历史：谁改了什么、什么时候改的，可回退</li>
+        <li>使用次数统计：哪条话术最常用，哪条没人用</li>
+      </ul>
+      <div class="solves"><strong>解决：</strong>话术不统一、经验无法沉淀、老员工离职知识流失 · <span class="tag tag-green">阶段0+1</span></div>
+    </div>
+
+    <div class="module-card">
+      <div class="module-num">02</div>
+      <h4>智能搜索系统</h4>
+      <div class="purpose">用途：1-2 秒内找到需要的话术，不用记全名，不用切窗口</div>
+      <ul class="features">
+        <li>拼音搜索：打"chanpin"或"cp"都能匹配到"产品卖点"</li>
+        <li>首字母搜索：打"cpwy"匹配"产品卖点话术"</li>
+        <li>中文关键词：直接打"运费""退货""最小起订量"</li>
+        <li>混合搜索：拼音+中文+首字母可以混着打</li>
+        <li>彩色标签筛选：红色=售后、绿色=售前、蓝色=产品、橙色=成交推进，一眼识别</li>
+        <li>分类树浏览：不想搜就沿树点进去找</li>
+        <li>最近使用 / 收藏夹：常用话术一秒调出</li>
+      </ul>
+      <div class="solves"><strong>解决：</strong>找话术慢、新人不知道搜什么关键词 · <span class="tag tag-green">阶段0+1</span></div>
+    </div>
+
+    <div class="module-card">
+      <div class="module-num">03</div>
+      <h4>桌面浮动面板</h4>
+      <div class="purpose">用途：不用切软件，话术面板随时在手边，聊天窗口旁边直接操作</div>
+      <ul class="features">
+        <li>始终置顶：面板浮在所有窗口之上，不会被聊天窗口挡住</li>
+        <li>自由拖动：拖到屏幕任意位置，不影响工作</li>
+        <li>全局快捷键：按一个快捷键（如 Ctrl+`）面板弹出/隐藏</li>
+        <li>搜索栏内置：面板里直接搜，不用打开主窗口</li>
+        <li>缩略图预览：带图片的话术显示缩略图</li>
+        <li>窗口物理贴靠（后期增强）：自动检测聊天窗口，面板贴旁边跟着移动</li>
+      </ul>
+      <div class="solves"><strong>解决：</strong>多线并发时来回切窗口的精神内耗、操作效率低 · <span class="tag tag-green">阶段0+1（贴靠在阶段2）</span></div>
+    </div>
+
+    <div class="module-card">
+      <div class="module-num">04</div>
+      <h4>图文一键发送</h4>
+      <div class="purpose">用途：点一下，文字和图片都能复制/发送，不用分别找字和找图</div>
+      <ul class="features">
+        <li>每条话术可关联多张图片（产品图、细节图、场景图）和文件（PDF报价单、产品手册等）</li>
+        <li><strong>默认模式（复制到剪贴板）</strong>：点话术→文字到剪贴板→Ctrl+V粘贴；点缩略图→图片到剪贴板→Ctrl+V粘贴。100%稳定，不挑平台</li>
+        <li><strong>增强模式（自动粘贴）</strong>：点一下→程序自动粘文字→自动粘图片→模拟回车。和客服宝一样的"一键发出"体验</li>
+        <li>系统剪贴板同一时间只能放一种（文字或图片），增强模式下程序快速切换两次</li>
+        <li>两种模式随时一键切换，增强模式遇到不兼容的输入框可秒切回默认</li>
+      </ul>
+      <div class="solves"><strong>解决：</strong>介绍产品时要分别找字和找图、操作步骤多 · <span class="tag tag-green">阶段1（复制）</span> <span class="tag tag-blue">阶段2（自动粘贴）</span></div>
+    </div>
+
+    <div class="module-card">
+      <div class="module-num">05</div>
+      <h4>团队协作与权限</h4>
+      <div class="purpose">用途：全团队用同一套话术，新人能查到标准答案，但敏感话术可控</div>
+      <ul class="features">
+        <li><strong>三级话术空间</strong>：公司话术（全员可见，管理员维护）/ 小组话术（按部门/产品线分组，组内共享）/ 私人话术（只有作者自己看到）</li>
+        <li>角色权限：管理员（全权）、编辑者（可改本组话术）、查看者（只能看和用）</li>
+        <li>实时同步：任何一端改了话术，其他端几秒内刷新</li>
+        <li>操作日志：谁加了/改了/删了哪条话术，有记录</li>
+      </ul>
+      <div class="solves"><strong>解决：</strong>话术不统一、新人培训成本高、经验不可复制 · <span class="tag tag-green">阶段1（公司+私人）</span> <span class="tag tag-blue">阶段2（小组+实时同步）</span></div>
+    </div>
+
+    <div class="module-card">
+      <div class="module-num">06</div>
+      <h4>AI 增强层</h4>
+      <div class="purpose">用途：AI 不替你决定发什么，而是帮你翻译、改写、补缺口</div>
+      <ul class="features">
+        <li><strong>一键翻译</strong>：选一条话术，指定目标语言，AI 翻译。支持英/日/西/阿/法/俄等主流语言</li>
+        <li><strong>话术改写/地区适配</strong>：同一条话术，日本客户要正式措辞，美国客户要直接口语，AI 调语气</li>
+        <li><strong>半自动推荐</strong>：把客户问的一句话粘贴进来，AI 从话术库里找匹配的排好序</li>
+        <li><strong>兜底生成</strong>：库里没覆盖的问题，AI 生成草稿，确认后可存入库</li>
+        <li><strong>批量多语言变体</strong>：一条中文话术，AI 一次性生成 5 个语言版本</li>
+        <li><strong>知识缺口检测</strong>：AI 分析哪些客户问题库里没覆盖，提醒管理者补话术</li>
+      </ul>
+      <div class="solves"><strong>解决：</strong>多语言翻译慢且不准、话术需要按地区适配、知识库有缺口但没人发现 · <span class="tag tag-green">阶段1（翻译）</span> <span class="tag tag-blue">阶段2-3（其余）</span></div>
+    </div>
+
+    <div class="module-card">
+      <div class="module-num">07</div>
+      <h4>管理后台</h4>
+      <div class="purpose">用途：管理者维护话术质量、监控使用情况、控制 AI 成本</div>
+      <ul class="features">
+        <li>用户管理：添加/删除业务员账号，分配角色和小组</li>
+        <li>使用统计：每天发了多少话术、哪条最常用、哪些没人用、搜索失败记录</li>
+        <li>话术质量审计：过期话术提醒、重复话术检测</li>
+        <li>AI 用量监控：翻译/生成调用次数和费用</li>
+        <li>数据导出：话术库可导出为 Excel/JSON 备份</li>
+      </ul>
+      <div class="solves"><strong>解决：</strong>没有管理视角、话术质量无人维护、AI 成本不可控 · <span class="tag tag-amber">阶段3</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ==================== Part 6: 技术方案 ==================== -->
+<div class="section">
+  <div class="section-title"><span class="num">6</span>技术实现方案</div>
+
+  <div class="subsection-title">6.1 技术选型</div>
+  <table>
+    <tr><th style="width:160px;">组件</th><th>技术方案</th><th style="width:200px;">为什么选它</th></tr>
+    <tr><td><strong>桌面客户端</strong></td><td>Electron + React + TypeScript</td><td>一套代码编译 Windows + macOS；生态成熟；剪贴板/窗口控制库丰富</td></tr>
+    <tr><td><strong>后端 API</strong></td><td>Node.js + Express/Fastify</td><td>与前端同语言，开发效率高；WebSocket 原生支持</td></tr>
+    <tr><td><strong>数据库</strong></td><td>PostgreSQL</td><td>支持全文搜索、JSON 字段（话术结构灵活）、成熟稳定</td></tr>
+    <tr><td><strong>图片/文件存储</strong></td><td>阿里云 OSS</td><td>按量付费、CDN 加速、与 ECS 同机房传输快</td></tr>
+    <tr><td><strong>实时同步</strong></td><td>WebSocket</td><td>话术改动即时推送到所有在线客户端</td></tr>
+    <tr><td><strong>拼音搜索</strong></td><td>pinyin-pro（npm 库）</td><td>成熟方案，支持全拼/首字母/混合</td></tr>
+    <tr><td><strong>窗口检测</strong></td><td>active-win / get-windows</td><td>跨平台库，检测当前活动窗口标题和位置</td></tr>
+    <tr><td><strong>模拟输入</strong></td><td>nut.js / robotjs</td><td>模拟键盘粘贴和回车，跨平台</td></tr>
+    <tr><td><strong>AI 服务</strong></td><td>DeepSeek API</td><td>性价比高，中文能力强</td></tr>
+  </table>
+
+  <div class="callout">
+    <strong>技术选型风险提示（来自外部评估）：</strong>
+    <ul style="margin-top:8px; padding-left:20px;">
+      <li><code>robotjs</code> 长期维护情况与新版本兼容性需要实际验证</li>
+      <li><code>nut.js</code> 的许可、打包体积和原生依赖需要评估</li>
+      <li>macOS 应用签名和公证、Windows 安装包签名没有被纳入工作量，需额外处理</li>
+      <li>自动更新方案需要单独设计</li>
+      <li>DeepSeek "约 0.01 元/条"不能作为固定成本，实际成本取决于模型、输入长度、输出长度和缓存策略</li>
+      <li>ECS 能否与 ERP 共用，不能只看"2核4G"，还要看当前负载、数据库资源、安全隔离和故障影响</li>
+    </ul>
+  </div>
+
+  <div class="subsection-title">6.2 部署方案</div>
+  <div class="card card-amber">
+    <table>
+      <tr><th style="width:160px;">部署组件</th><th>部署位置</th><th>说明</th></tr>
+      <tr><td><strong>后端 API + 数据库</strong></td><td>阿里云 ECS</td><td>团队已有 ECS 跑 ERP。可共用（如资源够），也可新开一台（建议 2核4G 起步，约 100-200元/月）。需评估 ERP 负载和隔离风险</td></tr>
+      <tr><td><strong>图片/文件存储</strong></td><td>阿里云 OSS</td><td>按存储量+流量计费，初期约几元/月</td></tr>
+      <tr><td><strong>桌面客户端</strong></td><td>每个业务员电脑</td><td>打包成 .exe（Windows）和 .dmg（macOS），提供下载链接安装</td></tr>
+      <tr><td><strong>AI 服务</strong></td><td>DeepSeek 云端 API</td><td>外部服务，按调用量付费，不需要自己部署</td></tr>
+      <tr><td><strong>域名（可选）</strong></td><td>需购买</td><td>如果要让客户端通过域名访问后台（而非IP），需买一个域名+SSL证书</td></tr>
+      <tr><td><strong>代码仓库</strong></td><td>GitHub</td><td>版本管理、CI/CD（可配 GitHub Actions 做 Windows 打包）</td></tr>
+    </table>
+  </div>
+
+  <div class="subsection-title">6.3 安全性</div>
+  <div class="card">
+    <ul class="bullet">
+      <li><strong>数据传输加密</strong>：客户端与服务器之间全 HTTPS 加密</li>
+      <li><strong>用户认证</strong>：账号密码登录 + JWT Token，不支持匿名访问</li>
+      <li><strong>权限隔离</strong>：私人话术只有作者能看，小组话术只有组成员能看</li>
+      <li><strong>数据备份</strong>：数据库每日自动备份，话术库可随时导出</li>
+      <li><strong>AI 数据安全</strong>：发送给 DeepSeek 的只有话术文本，不含客户隐私信息</li>
+      <li><strong>API Key 安全</strong>：DeepSeek API Key 必须通过环境变量读取，不能写入前端代码</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ==================== Part 7: 已知技术风险 ==================== -->
+<div class="section">
+  <div class="section-title"><span class="num">7</span>已知技术风险与对策</div>
+  <p style="color:var(--text-sec); margin-bottom:16px;">以下风险已识别，均有对策。这是给交接者的重要参考——遇到这些问题不要意外，方案在这里。</p>
+
+  <table class="risk-table">
+    <tr><th>风险</th><th>等级</th><th>对策</th></tr>
+    <tr><td>macOS 要手动授权辅助功能</td><td><span class="tag tag-amber">中</span></td><td>Mac 的安全机制要求用户在"系统设置→隐私与安全性→辅助功能"里勾选应用。一次性操作，安装时引导用户完成</td></tr>
+    <tr><td>App 更新后窗口标题/类名变化导致检测失效</td><td><span class="tag tag-amber">中</span></td><td>在代码里做配置化，App 更新后改一条匹配规则就行，不用改代码。维护成本低但需要跟进</td></tr>
+    <tr><td>模拟粘贴被某些输入框拒绝</td><td><span class="tag tag-coral">高</span></td><td>设计双模式：默认"复制到剪贴板"（100%稳定），增强"自动粘贴"（不兼容时切回默认）。不要把"所有平台通用一键发送"当承诺</td></tr>
+    <tr><td>剪贴板同一时间只能放文字或图片</td><td><span class="tag tag-amber">中</span></td><td>增强模式下程序快速切换两次（先粘图再粘字），间隔 100-200ms。用户感觉是"一键发出"</td></tr>
+    <tr><td>窗口吸附涉及多显示器/屏幕缩放/全屏/焦点竞争</td><td><span class="tag tag-coral">高</span></td><td>吸附放在第二阶段，不放进 PoC 和第一阶段。逐个处理边界情况，不追求"一招通吃"</td></tr>
+    <tr><td>Windows .exe 打包在 macOS 上做不了</td><td><span class="tag tag-amber">中</span></td><td>方案1：GitHub Actions 配 Windows 构建环境。方案2：找一台 Windows 机器做打包。PoC 阶段先做 macOS .dmg</td></tr>
+    <tr><td>应用签名和公证（macOS notarization / Windows code signing）</td><td><span class="tag tag-amber">中</span></td><td>需购买开发者证书。未签名的应用会被系统安全提示拦截，但不影响功能。正式发布前处理</td></tr>
+    <tr><td>自动更新机制</td><td><span class="tag tag-blue">低</span></td><td>Electron 有 electron-updater 方案，后期集成</td></tr>
+    <tr><td>多人同时编辑同一条话术的冲突</td><td><span class="tag tag-blue">低</span></td><td>乐观锁 + 版本号，编辑冲突时提示用户</td></tr>
+    <tr><td>AI 调用成本不可控</td><td><span class="tag tag-amber">中</span></td><td>设每人/每日 AI 调用上限，管理后台监控用量</td></tr>
+  </table>
+</div>
+
+<!-- ==================== Part 8: PoC 技术验证 ==================== -->
+<div class="section">
+  <div class="section-title"><span class="num">8</span>技术验证（PoC）：先证明能做，再谈正式开发</div>
+  <div class="callout-coral">
+    <strong>核心原则：</strong>不承诺日历工期，用验收关卡衡量。PoC 跑通了再谈第一阶段。PoC 跑不通，花的积分也很有限，不亏。
+  </div>
+
+  <div class="subsection-title">8.1 PoC 范围（调整后）</div>
+  <div class="card card-accent">
+    <p style="margin-bottom:16px;">外部评估（ChatGPT）建议的 PoC 原始 10 条任务，WorkBuddy 做了标注和调整：</p>
+    <ul class="poc-checklist">
+      <li>
+        <span class="check-icon check-yes">✓</span>
+        <div><strong>创建 Electron + React + TypeScript 项目</strong>，提供完整 Git 仓库结构 → <span class="status-done">能做</span></div>
+      </li>
+      <li>
+        <span class="check-icon check-adjust">⚠</span>
+        <div><strong>支持 Windows</strong> → <span class="status-pending">调整为先做 macOS</span>（WorkBuddy 运行在 Mac 上能实际测试，Windows 打包用 GitHub Actions 后续解决）</div>
+      </li>
+      <li>
+        <span class="check-icon check-yes">✓</span>
+        <div><strong>始终置顶、可拖动、全局快捷键显示/隐藏的浮动窗口</strong> → <span class="status-done">能做</span></div>
+      </li>
+      <li>
+        <span class="check-icon check-yes">✓</span>
+        <div><strong>20 条中文测试话术 + 中文关键词/全拼/拼音首字母搜索</strong> → <span class="status-done">能做</span></div>
+      </li>
+      <li>
+        <span class="check-icon check-yes">✓</span>
+        <div><strong>点击话术 → 复制文字到系统剪贴板</strong> → <span class="status-done">能做</span></div>
+      </li>
+      <li>
+        <span class="check-icon check-yes">✓</span>
+        <div><strong>点击图片 → 复制本地测试图片到系统剪贴板</strong> → <span class="status-done">能做</span></div>
+      </li>
+      <li>
+        <span class="check-icon check-yes">✓</span>
+        <div><strong>DeepSeek 翻译接口，API Key 通过环境变量读取</strong> → <span class="status-done">能做</span></div>
+      </li>
+      <li>
+        <span class="check-icon check-yes">✓</span>
+        <div><strong>启动命令、构建命令、README</strong> → <span class="status-done">能做</span></div>
+      </li>
+      <li>
+        <span class="check-icon check-yes">✓</span>
+        <div><strong>实际运行项目，修复构建与运行错误</strong> → <span class="status-done">能做（macOS 上）</span></div>
+      </li>
+      <li>
+        <span class="check-icon check-no">✗</span>
+        <div><strong>打包生成 Windows .exe</strong> → <span class="status-blocked">本地做不了</span>，改为打包 macOS .dmg。Windows 打包需 GitHub Actions 或 Windows 机器</div>
+      </li>
+    </ul>
+    <div class="callout-green" style="margin-top:16px;">
+      <strong>结论：</strong>10 条里 9 条能做，第 10 条打包改为 macOS .dmg。整个 PoC 可以在 macOS 上完整交付。
+    </div>
+  </div>
+
+  <div class="subsection-title">8.2 PoC 暂不实现的内容</div>
+  <div class="card">
+    <ul class="bullet">
+      <li>macOS（PoC 就在 macOS 上做，但正式第一阶段从 Windows 或 macOS 单端开始）</li>
+      <li>窗口吸附（物理贴靠——放第二阶段）</li>
+      <li>自动粘贴和自动发送（高风险，放第二阶段逐平台适配）</li>
+      <li>多用户权限（PoC 单用户即可）</li>
+      <li>PostgreSQL（PoC 可用 SQLite 或内存存储）</li>
+      <li>WebSocket 实时同步</li>
+      <li>阿里云 OSS</li>
+      <li>管理后台</li>
+      <li>AI 推荐（只做翻译）</li>
+      <li>小组权限</li>
+    </ul>
+  </div>
+
+  <div class="subsection-title">8.3 PoC 交付物</div>
+  <div class="card card-green">
+    <ul class="bullet">
+      <li>完整代码（Git 仓库）</li>
+      <li>目录结构说明</li>
+      <li>启动和打包步骤（README）</li>
+      <li>已完成与未完成清单</li>
+      <li>macOS .dmg 构建结果</li>
+      <li>实际运行截图</li>
+      <li>已知问题列表</li>
+    </ul>
+  </div>
+
+  <div class="subsection-title">8.4 PoC 验收标准</div>
+  <div class="card card-coral">
+    <p>以下全部通过，才算 PoC 过关，才进入正式第一阶段：</p>
+    <ol class="bullet" style="margin-top:8px;">
+      <li>项目能 <code>npm install</code> + <code>npm run dev</code> 正常启动，无报错</li>
+      <li>浮动窗口出现在屏幕上，始终置顶，可拖动，快捷键可呼出/隐藏</li>
+      <li>搜索栏输入拼音/首字母/中文，能正确过滤出匹配的话术</li>
+      <li>点击一条文字话术，能在系统剪贴板粘贴出正确内容</li>
+      <li>点击一条带图片的话术，能在系统剪贴板粘贴出正确的图片</li>
+      <li>选择一条话术点击翻译，能调用 DeepSeek API 返回翻译结果（API Key 在环境变量中，不在代码里）</li>
+      <li>能打包出 macOS .dmg 安装包</li>
+      <li>代码结构清晰，有 README 说明</li>
+    </ol>
+  </div>
+</div>
+
+<!-- ==================== Part 9: 分阶段建设 ==================== -->
+<div class="section">
+  <div class="section-title"><span class="num">9</span>分阶段建设计划</div>
+  <p style="color:var(--text-sec); margin-bottom:16px;">在 PoC 验证通过后，按以下阶段推进。不承诺日历工期，每个阶段有明确的验收标准。</p>
+
+  <div class="phase">
+    <div class="phase-item phase-0">
+      <span class="phase-label">阶段 0 · PoC</span>
+      <h5>技术验证</h5>
+      <p style="font-size:13px; color:var(--text-sec); margin-bottom:8px;">目标：证明能做</p>
+      <ul>
+        <li>Electron + React + TS 项目</li>
+        <li>置顶浮动窗口 + 快捷键</li>
+        <li>20 条测试话术 + 拼音搜索</li>
+        <li>复制文字到剪贴板</li>
+        <li>复制图片到剪贴板</li>
+        <li>DeepSeek 翻译接口</li>
+        <li>macOS .dmg 打包</li>
+      </ul>
+    </div>
+    <div class="phase-item phase-1">
+      <span class="phase-label">阶段 1 · MVP</span>
+      <h5>最小可用版</h5>
+      <p style="font-size:13px; color:var(--text-sec); margin-bottom:8px;">目标：能存话术、能搜到、能复制发送、能翻译</p>
+      <ul>
+        <li>话术知识库 CRUD + 树形分类</li>
+        <li>拼音/关键词搜索 + 彩色标签</li>
+        <li>桌面浮动面板（置顶 + 复制模式）</li>
+        <li>公司话术 + 私人话术（两级）</li>
+        <li>AI 一键翻译</li>
+        <li>图文复制发送（默认模式）</li>
+        <li>单端先行（Windows 或 macOS）</li>
+      </ul>
+      <p style="font-size:12px; color:var(--coral); margin-top:8px;"><strong>不做：</strong>macOS（如果先做 Windows）、小组权限、WebSocket 同步、自动粘贴、窗口吸附、富文本、版本回退、AI 推荐、统计后台</p>
+    </div>
+    <div class="phase-item phase-2">
+      <span class="phase-label">阶段 2</span>
+      <h5>核心体验版</h5>
+      <p style="font-size:13px; color:var(--text-sec); margin-bottom:8px;">目标：和客服宝一样的使用体验</p>
+      <ul>
+        <li>另一端平台（macOS 或 Windows）</li>
+        <li>窗口物理贴靠（检测聊天窗口 + 面板跟随）</li>
+        <li>自动粘贴增强模式（逐平台适配）</li>
+        <li>小组话术 + 实时同步</li>
+        <li>文件附件支持（PDF/文档）</li>
+        <li>AI 话术改写/地区适配</li>
+        <li>收藏夹 + 最近使用</li>
+      </ul>
+    </div>
+    <div class="phase-item phase-3">
+      <span class="phase-label">阶段 3</span>
+      <h5>团队赋能版</h5>
+      <p style="font-size:13px; color:var(--text-sec); margin-bottom:8px;">目标：AI 主动辅助 + 管理视角</p>
+      <ul>
+        <li>AI 半自动推荐</li>
+        <li>AI 兜底生成 + 存入知识库</li>
+        <li>批量多语言变体生成</li>
+        <li>使用统计与分析</li>
+        <li>知识缺口检测</li>
+        <li>管理后台完善</li>
+      </ul>
+    </div>
+    <div class="phase-item phase-4">
+      <span class="phase-label">阶段 4</span>
+      <h5>持续优化</h5>
+      <p style="font-size:13px; color:var(--text-sec); margin-bottom:8px;">目标：根据实际使用反馈迭代</p>
+      <ul>
+        <li>更多平台窗口适配</li>
+        <li>话术审批工作流</li>
+        <li>数据看板/报表</li>
+        <li>性能优化</li>
+        <li>（如有需要）手机端 PWA</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== Part 10: 买 vs 做 ==================== -->
+<div class="section">
+  <div class="section-title"><span class="num">10</span>买现成 vs 自己做：决策对比</div>
+
+  <table class="decision-table">
+    <tr>
+      <th style="width:140px;"></th>
+      <th>买客服宝</th>
+      <th class="highlight">自己做</th>
+    </tr>
+    <tr>
+      <td><strong>初期成本</strong></td>
+      <td>专业版按人/年付费，3人团队约几百元/年</td>
+      <td>开发积分消耗（较高，但一次性）+ 服务器约100-200元/月</td>
+    </tr>
+    <tr>
+      <td><strong>功能匹配度</strong></td>
+      <td>80% 匹配——话术管理、搜索、吸附、图文发送都有；但<strong>没有多语言翻译</strong></td>
+      <td class="highlight">100% 定制——话术树按你们的售前/成交/售后/公司通用结构来，翻译是核心功能</td>
+    </tr>
+    <tr>
+      <td><strong>多语言能力</strong></td>
+      <td><span class="hl-coral">没有</span>——客服宝没有 AI，不能翻译</td>
+      <td class="highlight"><span class="hl-green">核心功能</span>——DeepSeek 一键翻译+改写+批量多语言变体</td>
+    </tr>
+    <tr>
+      <td><strong>数据控制权</strong></td>
+      <td>话术存在客服宝的云上，不在你们手里</td>
+      <td class="highlight">话术存在自己的服务器上，完全可控，可导出</td>
+    </tr>
+    <tr>
+      <td><strong>定制灵活性</strong></td>
+      <td>固定功能，不能改，不能加"成交推进流程话术树"</td>
+      <td class="highlight">完全可定制——分类、标签、权限都按业务来</td>
+    </tr>
+    <tr>
+      <td><strong>维护成本</strong></td>
+      <td>零维护——客服宝团队负责更新</td>
+      <td>需要有人维护服务器、跟进反馈迭代</td>
+    </tr>
+    <tr>
+      <td><strong>上手速度</strong></td>
+      <td>下载安装即用</td>
+      <td>需等开发完成（PoC 先行验证）</td>
+    </tr>
+    <tr>
+      <td><strong>长期成本</strong></td>
+      <td>持续付费，人数越多越贵</td>
+      <td class="highlight">服务器费+AI调用费，与人数无关，团队扩大不增加成本</td>
+    </tr>
+    <tr>
+      <td><strong>AI 运行成本</strong></td>
+      <td>不适用（没有AI）</td>
+      <td>DeepSeek API 按量付费，具体成本取决于使用量</td>
+    </tr>
+  </table>
+
+  <div class="callout-green">
+    <strong>关键差异：</strong>客服宝没有 AI 翻译——而多语言是你们海外 B2B 业务的<strong>第一刚需</strong>。如果买客服宝，翻译还得用别的工具单独做，流程割裂。自己做的话翻译是内置的，选话术→一键翻译→发送，一气呵成。
+  </div>
+</div>
+
+<!-- ==================== Part 11: 外部评估与修正 ==================== -->
+<div class="section">
+  <div class="section-title"><span class="num">11</span>外部评估意见与修正记录</div>
+  <p style="color:var(--text-sec); margin-bottom:16px;">团队因积分顾虑，请 ChatGPT 在 WorkBuddy 和扣子之间选承接方。ChatGPT 选择 WorkBuddy，同时提出了一系列修正意见。以下是修正记录，确保决策有据可查。</p>
+
+  <div class="subsection-title">11.1 已接受的修正</div>
+  <div class="card card-green">
+    <table>
+      <tr><th style="width:40px;">#</th><th>ChatGPT 的意见</th><th style="width:120px;">是否接受</th><th style="width:200px;">修正后状态</th></tr>
+      <tr><td>1</td><td>第一阶段写得太大，应再砍。建议只做：登录、话术CRUD、拼音搜索、置顶窗口、复制文字、复制图片、AI翻译、公司+私人话术。砍掉 macOS、小组权限、WebSocket、自动粘贴、窗口吸附、富文本、版本回退、AI推荐、统计后台</td><td><span class="hl-green">完全接受</span></td><td>MVP 范围已缩减（见阶段1）</td></tr>
+      <tr><td>2</td><td>自动粘贴是高风险功能，不应放第一版。不同平台行为不同，不要把"所有平台通用一键发送"当承诺。正确做法：第一版只保证复制，第二版逐个平台做适配器</td><td><span class="hl-green">完全接受</span></td><td>自动粘贴移到阶段2，逐平台适配</td></tr>
+      <tr><td>3</td><td>窗口吸附比说的更难。涉及多显示器、屏幕缩放、最小化、全屏、焦点竞争、窗口标题变化等。"窗口检测与吸附 ✅"只能理解为"存在实现路径"，不是"已确认稳定"</td><td><span class="hl-green">完全接受</span></td><td>吸附移到阶段2，风险已记录（见第7节）</td></tr>
+      <tr><td>4</td><td>不要给时间承诺。AI 工具不能靠对话直接保证日历工期。应设定验收关卡而非工期</td><td><span class="hl-green">完全接受</span></td><td>所有阶段改为验收标准，不写工期</td></tr>
+      <tr><td>5</td><td>技术细节需实际验证：robotjs 维护状态、nut.js 打包体积、macOS 签名公证、Windows 签名、自动更新、DeepSeek 成本估算、ECS 共用风险</td><td><span class="hl-green">完全接受</span></td><td>全部记入风险表（见第7节）</td></tr>
+      <tr><td>6</td><td>先做技术验证（PoC）再谈完整项目。不要直接开发</td><td><span class="hl-green">完全接受</span></td><td>PoC 方案已制定（见第8节）</td></tr>
+      <tr><td>7</td><td>扣子适合做 AI 模块原型（翻译/改写/推荐的 prompt 验证），不适合做桌面软件主开发</td><td><span class="hl-green">接受</span></td><td>AI prompt 可在扣子上预调，再接入代码</td></tr>
+    </table>
+  </div>
+
+  <div class="subsection-title">11.2 需要调整的意见</div>
+  <div class="card card-amber">
+    <table>
+      <tr><th style="width:40px;">#</th><th>ChatGPT 的建议</th><th style="width:120px;">调整原因</th><th style="width:200px;">调整方案</th></tr>
+      <tr><td>1</td><td>PoC 先做 Windows，不做 macOS</td><td>WorkBuddy 运行在 macOS 上，无法本地打包/测试 Windows .exe</td><td>PoC 先在 macOS 上做（能实际运行测试），Windows 打包用 GitHub Actions 后续解决</td></tr>
+    </table>
+  </div>
+
+  <div class="subsection-title">11.3 承接方选择结论</div>
+  <div class="card card-blue">
+    <table>
+      <tr><th style="width:200px;"></th><th>WorkBuddy / CodeBuddy</th><th>扣子（Coze）</th></tr>
+      <tr><td><strong>Electron 桌面端</strong></td><td><span class="hl-green">更适合</span></td><td>不推荐</td></tr>
+      <tr><td><strong>Node.js 后端</strong></td><td><span class="hl-green">更适合</span></td><td>可做有限原型</td></tr>
+      <tr><td><strong>PostgreSQL 数据库</strong></td><td><span class="hl-green">更适合</span></td><td>不适合作为核心开发环境</td></tr>
+      <tr><td><strong>Windows/macOS 打包</strong></td><td><span class="hl-green">更适合</span></td><td>不推荐</td></tr>
+      <tr><td><strong>窗口检测与剪贴板</strong></td><td><span class="hl-green">更适合（但需真机测试）</span></td><td>基本不适合</td></tr>
+      <tr><td><strong>AI 翻译/改写工作流</strong></td><td>可以</td><td><span class="hl-green">很适合（做原型）</span></td></tr>
+      <tr><td><strong>知识库检索原型</strong></td><td>可以</td><td><span class="hl-green">很适合</span></td></tr>
+      <tr><td><strong>完整生产软件</strong></td><td><span class="hl-green">有条件可做</span></td><td>不建议单独承担</td></tr>
+    </table>
+    <p style="margin-top:12px;"><strong>最终安排：</strong>WorkBuddy 做"软件本体"（桌面客户端+后端+数据库+打包），扣子做"AI 能力实验室"（翻译/改写/推荐的 prompt 先在扣子上调好，再通过 API 接入 Electron 软件）。</p>
+  </div>
+</div>
+
+<!-- ==================== Part 12: 交接说明 ==================== -->
+<div class="section">
+  <div class="section-title"><span class="num">12</span>交接说明（给后续接手者）</div>
+  <div class="callout-coral">
+    <strong>如果你是新的接手者（因为积分不足或其他原因），请先读这一节。</strong>
+  </div>
+
+  <div class="card card-coral">
+    <div class="subsection-title" style="margin-top:0;">项目当前状态</div>
+    <ul class="bullet">
+      <li><strong>决策阶段：</strong>已完成——团队确认采用客服宝模型 + AI 增强，放弃快语 AI 的自动读对话功能</li>
+      <li><strong>开发阶段：</strong>尚未开始——下一步是 PoC 技术验证</li>
+      <li><strong>代码仓库：</strong>尚未创建</li>
+      <li><strong>服务器：</strong>未部署——团队有阿里云 ECS（现跑 ERP），可共用或新开</li>
+    </ul>
+
+    <div class="subsection-title">接手者需要知道的 5 件事</div>
+    <ol class="bullet">
+      <li><strong>不要做"快语 AI 的四层吸附"</strong>——第2层（UI Automation 读对话内容）是技术壁垒，做不了生产级。只做第1层（物理贴靠）+ 第4层（模拟发送）。</li>
+      <li><strong>自动粘贴是高风险功能</strong>——不要承诺"所有平台通用一键发送"。第一版只做"复制到剪贴板"，自动粘贴放后面逐平台适配。</li>
+      <li><strong>先做单端验证</strong>——不要一开始就做 Windows + macOS 双端。先做一个端跑通，再加另一个。</li>
+      <li><strong>DeepSeek API Key 必须走环境变量</strong>——不能写在前端代码里，不能提交到 Git。</li>
+      <li><strong>用验收关卡而非工期衡量进度</strong>——不要承诺"几周交付"，定义"做到什么算过关"。</li>
+    </ol>
+
+    <div class="subsection-title">推荐的技术栈（已确认）</div>
+    <ul class="bullet">
+      <li>桌面客户端：Electron + React + TypeScript</li>
+      <li>后端：Node.js + Express/Fastify</li>
+      <li>数据库：PostgreSQL（正式）/ SQLite（PoC 可用）</li>
+      <li>图片存储：阿里云 OSS</li>
+      <li>拼音搜索：pinyin-pro（npm）</li>
+      <li>窗口检测：active-win / get-windows</li>
+      <li>模拟输入：nut.js / robotjs（需实际验证兼容性）</li>
+      <li>AI：DeepSeek API</li>
+      <li>实时同步：WebSocket</li>
+      <li>代码管理：GitHub（可配 GitHub Actions 做 Windows 打包）</li>
+    </ul>
+
+    <div class="subsection-title">已有的报告和文档</div>
+    <ul class="bullet">
+      <li>《客服话术工具调研与自建可行性评估报告》——快语/客服宝调研 + 吸附技术拆解 + 功能可行性逐条评估</li>
+      <li>《销售话术赋能平台 · 需求方案与技术架构》——早期版本（功能清单 + 技术方案，部分内容已被本文档修正）</li>
+      <li>本文档（v3.0）——最完整的可追溯文档，包含所有决策记录和修正</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ==================== Part 13: 待讨论 ==================== -->
+<div class="section">
+  <div class="section-title"><span class="num">13</span>待团队讨论决定的事项</div>
+
+  <div class="card card-coral">
+    <ol class="bullet">
+      <li><strong>买还是做？</strong>核心判断点：多语言翻译对你们有多重要？如果重要→客服宝满足不了→自己做；如果不重要→客服宝够用→买。</li>
+      <li><strong>如果做，PoC 先在哪个端？</strong>WorkBuddy 在 Mac 上能实测 macOS，Windows 打包需要额外方案。团队是先验 macOS 还是想办法验 Windows？</li>
+      <li><strong>如果做，MVP 第一阶段范围确认：</strong>第9节"阶段1"列的 7 项功能，有没有要加的或砍的？</li>
+      <li><strong>服务器方案：</strong>和 ERP 共用一台 ECS，还是新开一台？需评估 ERP 当前负载。</li>
+      <li><strong>话术分类体系：</strong>售前/成交推进/售后/公司通用 这四个一级分类够不够？要不要再细化？谁来负责初始话术录入？</li>
+      <li><strong>用户角色：</strong>谁是管理员？分几个小组？每个小组谁能编辑话术？</li>
+      <li><strong>AI 使用策略：</strong>翻译/改写/生成都开放给所有业务员用，还是只有部分功能开放？需不需要设每人的 AI 调用上限？</li>
+      <li><strong>扣子分工：</strong>是否安排人先用扣子搭建 AI 翻译/改写的 prompt 原型，验证效果后再接入代码？</li>
+      <li><strong>Windows 打包方案：</strong>是用 GitHub Actions 云端构建，还是找一台 Windows 机器本地打包？</li>
+    </ol>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="report-footer">
+  <p>本文档为项目完整记录 · 包含所有决策历程、技术分析、风险评估、修正记录和交接说明</p>
+  <p style="margin-top:8px;">文档版本 v3.0 · 2026年8月7日 · 如有调整请更新版本号</p>
+  <p style="margin-top:8px; font-size:12px; opacity:0.6;">生成工具：WorkBuddy · 部署于 GitHub Pages</p>
+</div>
+
+</div>
+</body>
+</html>
