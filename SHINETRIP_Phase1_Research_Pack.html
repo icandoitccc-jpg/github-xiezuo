@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHINETRIP 山趣户外 — Phase 1 Research Pack: Global Vehicle Camping</title>
+<style>
+:root {
+  --bg: #ffffff;
+  --surface: #f8f9fa;
+  --border: #e0e0e0;
+  --text: #1a1a1a;
+  --text-secondary: #555;
+  --accent: #2c5f2d;
+  --accent-light: #97bc97;
+  --warning: #d97706;
+  --danger: #dc2626;
+  --info: #2563eb;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 40px 80px;
+}
+h1 { font-size: 2.2em; color: var(--accent); margin: 40px 0 10px; border-bottom: 3px solid var(--accent); padding-bottom: 10px; }
+h2 { font-size: 1.6em; color: var(--accent); margin: 50px 0 15px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+h3 { font-size: 1.3em; color: #333; margin: 30px 0 10px; }
+h4 { font-size: 1.1em; color: #444; margin: 20px 0 8px; }
+p { margin: 10px 0; }
+table { border-collapse: collapse; width: 100%; margin: 15px 0; font-size: 0.88em; }
+th, td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+th { background: var(--surface); font-weight: 600; color: var(--accent); }
+tr:nth-child(even) { background: #fafafa; }
+ul, ol { margin: 10px 0 10px 25px; }
+li { margin: 4px 0; }
+code { background: var(--surface); padding: 2px 6px; border-radius: 3px; font-size: 0.9em; }
+blockquote { border-left: 4px solid var(--accent-light); padding: 10px 20px; margin: 15px 0; background: var(--surface); font-style: italic; }
+.note { background: #fffbe6; border-left: 4px solid var(--warning); padding: 12px 16px; margin: 15px 0; border-radius: 4px; }
+.critical { background: #fef2f2; border-left: 4px solid var(--danger); padding: 12px 16px; margin: 15px 0; border-radius: 4px; }
+.info-box { background: #eff6ff; border-left: 4px solid var(--info); padding: 12px 16px; margin: 15px 0; border-radius: 4px; }
+.conf-high { color: #16a34a; font-weight: 600; }
+.conf-medium { color: var(--warning); font-weight: 600; }
+.conf-low { color: var(--danger); font-weight: 600; }
+.toc { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 20px 30px; margin: 30px 0; }
+.toc h3 { margin-top: 0; }
+.toc ol { margin-left: 20px; }
+.toc li { margin: 6px 0; }
+.toc a { color: var(--accent); text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.stage-card { border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin: 15px 0; background: var(--surface); }
+.stage-card h4 { color: var(--accent); margin-top: 0; }
+.tag { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.8em; font-weight: 600; margin-right: 5px; }
+.tag-confirmed { background: #dcfce7; color: #166534; }
+.tag-partial { background: #fef3c7; color: #92400e; }
+.tag-weak { background: #fee2e2; color: #991b1b; }
+.tag-insufficient { background: #f3f4f6; color: #6b7280; }
+.tier-label { font-weight: 700; font-size: 1.1em; }
+hr { border: none; border-top: 2px solid var(--border); margin: 40px 0; }
+.footer { text-align: center; color: var(--text-secondary); font-size: 0.85em; margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--border); }
+@media print { body { max-width: none; padding: 10px; } .toc { display: none; } }
+</style>
+</head>
+<body>
+
+<h1>SHINETRIP 山趣户外 — Phase 1 Research Pack</h1>
+<p style="font-size:1.15em; color:#555;"><strong>Global Vehicle Camping: Taxonomy, Market Maturity, Consumer Trends & Product Design Trends</strong></p>
+<p style="color:#888;">Research Date: August 15, 2026 | Data Priority: 2023–2026 | Method: Multi-source web research (government, industry association, trade media, brand official, social media)</p>
+
+<div class="critical">
+<strong>研究纪律声明：</strong>本文件为 Phase 1 事实基础研究包，不包含结论性判断或品牌建议。所有市场数据均标注原始来源。不同统计口径的数据并列展示，不自行选择。证据不足之处明确标注"目前证据不足"。
+</div>
+
+<div class="toc">
+<h3>目录 / Table of Contents</h3>
+<ol>
+  <li><a href="#d1">Deliverable 1: Global Vehicle Camping Taxonomy</a></li>
+  <li><a href="#d2">Deliverable 2: Market Maturity Model</a></li>
+  <li><a href="#d3">Deliverable 3: Global Market Maturity Matrix</a></li>
+  <li><a href="#d4">Deliverable 4: Key Consumer Trends</a></li>
+  <li><a href="#d5">Deliverable 5: Product Design Trends</a></li>
+  <li><a href="#d6">Deliverable 6: Evidence Library</a></li>
+  <li><a href="#d7">Deliverable 7: Open Questions</a></li>
+</ol>
+</div>
+
+<!-- ============================================================ -->
+<hr id="d1">
+<h1>Deliverable 1: Global Vehicle Camping Taxonomy</h1>
+
+<h2>1.1 核心结构区分</h2>
+<p>12 个概念可归为 <strong>三个根本不同的族类</strong> + 两个交叉维度：</p>
+
+<table>
+<tr><th>族类</th><th>回答的问题</th><th>包含概念</th></tr>
+<tr><td><strong>Trip-type / 活动类型</strong></td><td>"你做什么？"</td><td>Car Camping (US), Auto Camping (JP/EU), Overlanding, 4WD Touring (AU), SUV Camping, Rooftop Tent Camping</td></tr>
+<tr><td><strong>Vehicle class / 车辆类别</strong></td><td>"你开什么？"</td><td>Campervan, RV / Motorhome</td></tr>
+<tr><td><strong>Lifestyle identity / 生活方式认同</strong></td><td>"你是谁？"</td><td>Vanlife, 车中泊 (JP), 中国自驾露营/汽车露营</td></tr>
+</table>
+
+<div class="info-box">
+<strong>最关键的结构性区分：</strong>Vehicle-as-gear-carrier（车作为装备运输工具，睡在车旁——car camping, auto camping, 床车）vs. Vehicle-as-shelter（车作为住所本身，睡在车内——车中泊, SUV camping, campervan, RV, vanlife）。
+</div>
+
+<h2>1.2 完整分类对照表</h2>
+
+<table>
+<tr>
+<th>#</th><th>概念</th><th>定义</th><th>典型用户</th><th>车辆类型</th><th>典型距离</th><th>露营时间</th><th>营地类型</th><th>睡在哪</th><th>专业程度</th><th>入门门槛</th><th>与其他形式的区别</th>
+</tr>
+<tr>
+<td>1</td><td><strong>Car Camping (US)</strong></td><td>开车到营地，在车旁搭帐篷过夜。车是装备运输工具，不是住所。核心是<strong>目的地</strong>。</td><td>家庭、初次露营者、周末玩家。美国最主流户外活动形式</td><td>任何车辆：轿车、SUV、minivan、pickup</td><td>1-4小时车程，区域为主</td><td>1-2晚（周末）</td><td>有设施的 drive-in 营地：国家公园/州立公园/私人营地（$15-50/晚）</td><td>帐篷（车旁）</td><td>低</td><td>极低（基础装备 $200-1,400）</td><td>vs. Overlanding：目的地vs旅程；有设施vs离网。vs. SUV Camping：帐篷vs车内</td>
+</tr>
+<tr>
+<td>2</td><td><strong>Vehicle Camping (通用)</strong></td><td>伞形术语：任何车辆参与的露营。涵盖睡在车内或车旁。监管机构(BLM/NPS)将在户外地点车内过夜视为露营</td><td>无法精确定义——刻意宽泛</td><td>所有类型</td><td>可变</td><td>可变（联邦土地通常≤14天/点）</td><td>任何允许露营的地点</td><td>车内或车旁</td><td>低-高（取决于子类型）</td><td>低</td><td><strong>上位概念</strong>，非任何单一活动的同义词。无权威定义</td>
+</tr>
+<tr>
+<td>3</td><td><strong>Auto Camping (JP/EU)</strong></td><td>汽车作为装备运输工具，在指定オートキャンプ場搭帐篷过夜。车不是住所。日本术语，90%+用户使用普通乘用车(minivan/轿车)，非campervan</td><td>日本家庭和情侣；欧洲历史中产阶级车主家庭</td><td>普通乘用车：minivan、旅行车、kei car、SUV</td><td>国内，到风景名胜区</td><td>1-3晚</td><td>オートキャンプ場（车可开到营位的商业营地）：区画サイト（有电源）vs フリーサイト</td><td>帐篷（车旁）</td><td>低</td><td>低</td><td>vs. 车中泊：帐篷vs车内。vs. Car Camping(US)：相同活动，不同地区术语和营地文化。词源争议：是否为和制英语</td>
+</tr>
+<tr>
+<td>4</td><td><strong>Overlanding</strong></td><td>自给自足的车辆探险旅行，<strong>旅程本身比目的地更重要</strong>。通常涉及非铺装/偏远道路，连续多日离网，携带一切所需物资（庇护、食物、水、电、救援装备）</td><td>探险/冒险导向的个人和情侣；社交媒体影响深（美国后疫情爆发）；猎人和渔民</td><td>4WD/AWD 卡车、SUV、van：Toyota Tacoma/4Runner/Land Cruiser, Jeep Wrangler, Ford Bronco</td><td>长距离，土路为主，跨区域</td><td>多晚，频繁移动</td><td>分散/离网露营：BLM、国家森林、偏远停车点</td><td>RTT、地帐或车内</td><td>高（越野驾驶、轮胎管理、车辆救援、导航）</td><td>中-高（装备$300+起步，车辆改装持续投入）</td><td>vs. Car Camping：旅程vs目的地；离网vs有设施。vs. 4WD Touring：同一活动，不同名称</td>
+</tr>
+<tr>
+<td>5</td><td><strong>4WD Touring (AU)</strong></td><td>Overlanding 的澳大利亚变体。"世界其他地方叫overlanding，我们叫touring"。增加outback规模、camper trailer偏好、UHF无线电文化</td><td>澳洲家庭、情侣、solo旅行者；后疫情国内旅行爆发；grey nomads（退休长途旅行者）</td><td>4WD：Land Cruiser, Nissan Patrol, Mitsubishi Pajero + camper trailer 或 RTT</td><td>非常大——数百到数千公里</td><td>多日至数月</td><td>偏远/免费露营（bush camping on crown land/outback stations），部分caravan parks</td><td>RTT、地帐、trailer</td><td>高（远程生存、机械知识、河流穿越、救援）</td><td>高（需要 capable 4WD + 大量配件投入）</td><td>vs. Overlanding：同一现象，澳洲名称和风味。vs. 4WDing：4WDing是技术赛道驾驶；touring是旅行看国家</td>
+</tr>
+<tr>
+<td>6</td><td><strong>Vanlife</strong></td><td>以van为家的<strong>生活方式</strong>（和社交媒体运动），全时或部分时间居住在改装van中。#vanlife Instagram 15M+帖子。不是旅行类型</td><td>远程工作者、数字游民、极简主义者、创意人；千禧一代/Z世代为主</td><td>改装cargo van和factory campervan：Mercedes Sprinter, Ford Transit, VW Crafter/Transporter</td><td>连续——无固定距离；生活方式跨越数月/数年</td><td>数月至数年（全时）</td><td>高度可变：分散公共土地、营地、城市隐秘停车点</td><td>在van内（家）</td><td>中-高（电气/太阳能系统、隔热、空间设计）</td><td>高（van + 改装 = 数万美元起），但生活方式门槛可低（廉价二手车起步）</td><td>vs. Campervan：vanlife是哲学/生活方式；campervan是车辆类型。vs. RVing：RVing是度假旅行；vanlife是居住/认同</td>
+</tr>
+<tr>
+<td>7</td><td><strong>Campervan</strong></td><td>van底盘改装的紧凑型休旅车：床（通常可折叠）、小厨房、基本储物，通常无独立卫浴。<7m，<3.5t。≈美国Class B motorhome</td><td>情侣和小团体公路旅行；首次RV用户；预算旅行者；租赁用户（新西兰巨大市场）</td><td>VW Transporter/Crafter, Ford Transit, Fiat Ducato, Peugeot Boxer等</td><td>区域至多国</td><td>数日至数周</td><td>营地/holiday parks、wild camping</td><td>在van内</td><td>低-中</td><td>中（新车昂贵，但租赁便宜且普遍；<3.5t标准驾照）</td><td>vs. Motorhome：更小、更简单、更少设施。vs. Vanlife：campervan是车辆/度假模式；vanlife是全时生活方式</td>
+</tr>
+<tr>
+<td>8</td><td><strong>RV / Motorhome</strong></td><td>RVIA定义：为临时居住设计的车辆类型单元。两大类——Motorized (Class A/B/C) 和 Towable (travel trailer, fifth-wheel, pop-up, truck camper)。Motorhome = 自行式子集</td><td>美国家庭；退休者/snowbirds（季节性迁徙）；典型车主48岁，已婚，家庭收入~$75k（此数据来源较旧，2011年前）</td><td>Class A (26-45ft, $100-140k), B (17-23ft, $95-135k), C (20-30ft, $80-120k); towable各类</td><td>区域至横跨全国</td><td>数日至数月（snowbird季节性数月）</td><td>RV parks（有hookup）+ boondocking</td><td>在RV内</td><td>中（驾驶/停放大型车辆、hookup、dump station、维护）</td><td>高（新车$10k-$140k+；拖挂需要truck）</td><td>vs. Campervan：RV是美国伞形类别；campervan≈Class B。vs. Overlanding：RVing是舒适/度假导向</td>
+</tr>
+<tr>
+<td>9</td><td><strong>Rooftop Tent Camping</strong></td><td>使用车顶帐篷的露营方式。<strong>是装备解决方案，不是独立活动</strong>。起源于澳大利亚/非洲（防野生动物和湿地）。硬壳1-3分钟展开，软壳5-10分钟</td><td>Overlanders和频繁露营/移动频繁的周末玩家；不喜欢雨中搭帐篷的人</td><td>SUV、truck、4WD、van（需有额定车顶架，动态载荷75-100kg）</td><td>周末至多周</td><td>1-2晚典型</td><td>分散/偏远、海滩、trailhead</td><td>在车顶上</td><td>低-中</td><td>中（RTT $1,200-$5,500 + 车架$300-1,000 + 床品 ≈ $1,500+）</td><td>不是独立类别——是car camping/overlanding/4WD touring使用的装备。vs. SUV camping：RTT睡在车上；SUV camping睡在车内</td>
+</tr>
+<tr>
+<td>10</td><td><strong>SUV Camping</strong></td><td>SUV既是交通工具也是住所——睡在车内（后排座椅折叠平放+睡垫）。被描述为"overlanding lite"</td><td>solo旅行者和情侣；周末玩家；猎人；注重睡眠质量/防风雨/安全的人</td><td>SUV/crossover（后排可折叠平放）：Subaru Outback/Forester, Toyota RAV4/4Runner, Honda CR-V</td><td>区域——周末山区、国家公园</td><td>1-3晚</td><td>营地、分散公共土地、trailhead</td><td>在SUV内</td><td>低</td><td>低（无需新车；平台套件数百至~$1k）</td><td>vs. Car Camping：睡在车内vs帐篷旁。vs. 车中泊：结构相同，独立文化传统</td>
+</tr>
+<tr>
+<td>11</td><td><strong>車中泊 (JP)</strong></td><td>日本特有的在<strong>普通乘用车内</strong>过夜的旅行方式。不需要campervan改装或8-number牌照。"三种神器"：10cm充气床垫+电动泵、遮光帘、便携电源</td><td>预算敏感的日本旅行者——家庭（滑雪周末）、情侣、surfer/skier/fisher、solo冒险者</td><td>普通乘用车：minivan(Nissan Serena, Honda Stepwagon)、kei car、SUV、有全平座椅的sedan；混动车型带AC100V/1500W插座最受欢迎</td><td>国内——城市到度假地或风景名胜</td><td>1-2晚（周末）</td><td>RV Parks（JRVA认证，¥1,500-4,000/晚）、指定停车场、营地。道の駅<strong>不允许</strong>过夜</td><td>在车内</td><td>低</td><td>极低（任何你拥有的车 + 基本装备）</td><td>vs. Auto Camping：车内vs帐篷旁。vs. Campervan：不需8-number注册。vs. Vanlife：偶尔旅行vs全时居住。vs. SUV Camping：结构相同，独立文化发展</td>
+</tr>
+<tr>
+<td>12</td><td><strong>中国自驾露营/汽车露营</strong></td><td>以汽车为载体结合帐篷/房车等进行野外生活。<strong>独特的三级法律分类体系</strong>：床车(普通私家车+气垫) < 宿营车(合规轻改面包车，不需RV牌照) < 房车(MIIT认证旅居车)</td><td>曾以55-60岁退休者为主；现转向28-45岁亲子家庭、95后精致露营；床车用户为20-30岁预算敏感年轻人</td><td>轿车、SUV、minivan、轻客(改装)、NEV(V2L)、自行式/拖挂式房车</td><td>国内——周末郊区到长途路线(西藏/新疆/318)</td><td>1-2晚；房车用户数周</td><td>商业营地/露营基地(有220V电源/水/卫生间)；免费/野营地点较少</td><td>帐篷旁(床车/宿营车/房车均有)</td><td>低(床车)至中(房车维护/合规)</td><td>低(床车/宿营车数万元)至高(房车¥300k-500k)</td><td>vs. Car Camping(US)：相同核心活动；中国更营地导向(少分散土地)、NEV/glamping驱动。vs. 車中泊：中国独特贡献是床车/宿营车/房车法律分级</td>
+</tr>
+</table>
+
+<h2>1.3 概念重叠与根本差异分析</h2>
+
+<h3>近义词（同一活动，不同名称）</h3>
+<ul>
+<li><strong>Overlanding ≈ 4WD Touring (AU)：</strong>功能完全相同——自给自足、偏远、旅程优先的车辆旅行。差异是国家词汇+部分装备文化（AU偏好camper trailer和UHF radio）</li>
+<li><strong>Car Camping (US) ≈ Auto Camping (JP) ≈ 汽车露营 (CN)：</strong>相同核心——开车+装备到营地，帐篷旁过夜。差异是制度性的（US国家公园营地；JP商业オートキャンプ場；CN营地+法律分级）</li>
+<li><strong>SUV Camping ≈ 車中泊 (JP)：</strong>都是"在普通乘用车内睡觉"。独立发展，相同装备逻辑</li>
+<li><strong>Campervan ≈ Class B motorhome：</strong>美国Class B就是campervan</li>
+<li><strong>Vanlife ⊃ campervan：</strong>生活方式 ⊃ 车辆工具</li>
+</ul>
+
+<h3>根本不同的轴线（非同义词）</h3>
+<ul>
+<li><strong>目的地/便利 (car camping) vs 旅程/自给自足 (overlanding)：</strong>美国来源中最清晰的分界线</li>
+<li><strong>活动类型 vs 车辆类别 vs 生活方式认同：</strong>回答不同问题（你做什么/你开什么/你是谁）</li>
+<li><strong>车作为装备运输工具 (car camping, auto camping, 床车) vs 车作为住所 (車中泊, SUV camping, campervan, RV, vanlife)：</strong>最决定性的结构差异</li>
+<li><strong>RTT camping 是正交的：</strong>一种睡眠技术，横跨car camping/overlanding/4WD touring使用，不是独立的旅行者身份类别</li>
+</ul>
+
+<h3>地区术语陷阱</h3>
+<div class="note">
+<ul>
+<li>"Auto camping"：历史美/欧术语（1920s）指汽车帐篷露营；在日本成为主流术语；在今天的欧洲大陆 autocamper/camping-car 指campervan/motorhome——<strong>与日语含义相反</strong></li>
+<li>"Vehicle camping" vs "car camping" vs "SUV camping"：美国商业用途近乎互换；正式定义 car camping = 帐篷旁，但零售用法已包括车内</li>
+<li>"RV" 是美国类别定义(RVIA)——排除mobile homes、改装车辆、越野车辆；"campervan"在美国分类中是RV(Class B)，而欧洲分类将它们视为相邻类别</li>
+</ul>
+</div>
+
+<h2>1.4 数据缺口与研究说明</h2>
+<ul>
+<li><strong>"Vehicle camping" (通用) 和 "SUV camping" 无权威定义</strong>——商业/博客驱动。本报告以共识用法报告，冲突立场已标注</li>
+<li><strong>Auto camping 词源争议：</strong>日本Auto Camping协会称非和制英语（在海外见过AUTOCAMP标识）；HK旅行媒体称和制英语。主要证据(1916年日本政府铁道出版物 + 1915-1920s美国市政"autocamping"场地)支持是进口术语</li>
+<li><strong>中国RV保有量数字因来源而异</strong>（25-30万辆估计，2024），取决于定义（注册旅居车 vs 改装宿营车 vs 床车）。MIIT旅居车公告计数是最可靠的官方序列</li>
+<li><strong>Vanlife市场规模：</strong>无可靠经济数据；#vanlife 15M Instagram帖子仅是文化规模代理指标</li>
+<li><strong>RV车主人口统计数据</strong>（48岁，$75k收入）可追溯至2011年前行业调查（Curtin 2011, cited by FEMA/USFA）——应视为过时</li>
+</ul>
+
+<!-- ============================================================ -->
+<hr id="d2">
+<h1>Deliverable 2: Market Maturity Model</h1>
+
+<div class="info-box">
+<strong>方法论说明：</strong>初始假设为四阶段模型。经过证据验证，四阶段框架基本成立，但对阶段定义和边界进行了调整。以下是基于真实市场证据的修正版模型。
+</div>
+
+<h2>2.1 四阶段市场成熟度模型</h2>
+
+<div class="stage-card">
+<h4>Stage 1 — Professional / Enthusiast（专业/爱好者驱动）</h4>
+<p><strong>定义：</strong>市场由越野玩家、改装玩家、专业户外玩家驱动。产品强调性能、耐久性、极端环境适应性。渠道以专业经销商和改装店为主。</p>
+<p><strong>核心特征：</strong></p>
+<ul>
+<li>用户画像：高专业度、高投入、男性为主</li>
+<li>产品逻辑：功能优先于设计/美观；"buy-once-cry-once"哲学</li>
+<li>典型产品：recovery gear、dual battery、12V fridge、RTT、专业改装件</li>
+<li>品牌沟通：技术参数驱动；口碑社区为主</li>
+<li>销售渠道：4WD配件店/改装店、专业展会</li>
+</ul>
+<p><strong>代表市场/场景：</strong>澳大利亚4WD touring文化核心；美国overlanding早期阶段(2015前)；南非overlanding</p>
+<p><strong>证据支持：</strong><span class="conf-high">High</span> — Overland Expo数据显示95%玩家改装车辆；澳大利亚ARB(1975)、Darche(1991)等品牌历史可追溯数十年</p>
+</div>
+
+<div class="stage-card">
+<h4>Stage 2 — Outdoor Expansion（户外消费者扩展）</h4>
+<p><strong>定义：</strong>普通户外消费者和SUV用户开始进入。产品开始出现入门级版本。渠道从专业店扩展到大卖场。</p>
+<p><strong>核心特征：</strong></p>
+<ul>
+<li>用户画像：有户外经验但非专业的SUV车主；家庭周末露营</li>
+<li>产品逻辑：功能与价格平衡；出现中端品牌</li>
+<li>典型产品：入门级RTT、便携电源、折叠桌椅、基本烹饪装备</li>
+<li>品牌沟通：开始从技术参数转向使用场景</li>
+<li>销售渠道：大型户外零售连锁(REI, Anaconda, BCF)加入</li>
+</ul>
+<p><strong>代表市场/场景：</strong>美国2015-2020阶段；加拿大当前overlanding零售起步；韩国后疫情boom期</p>
+<p><strong>证据支持：</strong><span class="conf-high">High</span> — KOA数据显示家庭露营回归疫情前水平；加拿大Alu-Cab 2026年全国分销标志此阶段</p>
+</div>
+
+<div class="stage-card">
+<h4>Stage 3 — Lifestyle Adoption（生活方式采纳）</h4>
+<p><strong>定义：</strong>家庭、情侣、女性消费者、城市消费者大量进入。产品开始强调易用、快速部署、舒适、设计、颜色、生活方式。</p>
+<p><strong>核心特征：</strong></p>
+<ul>
+<li>用户画像：城市消费者、女性(70% of VALA users)、Z世代/千禧一代(72% of new overlanders)、宠物主(53%带宠物)</li>
+<li>产品逻辑：易用性第一（快速搭建）；设计/颜色成为购买驱动力；"社交属性"重要</li>
+<li>典型产品：pop-up帐篷(60秒内)、设计感家具、彩色装备、pet camping gear</li>
+<li>品牌沟通：生活方式/向往感营销 > 技术参数；社交媒体为主渠道</li>
+<li>销售渠道：DTC电商、社交媒体电商、快闪店</li>
+<li><strong>关键转折：</strong>汽车品牌主动进入户外生活方式市场（Jeep Camp, 路虎路营季, BYD/理想V2L露营营销）</li>
+</ul>
+<p><strong>代表市场/场景：</strong>中国当前（床车爆发、EV V2L露营、小红书驱动）；美国overlanding主流化(12M participants 2025)；日本車中泊扩散</p>
+<p><strong>证据支持：</strong><span class="conf-high">High</span> — 多来源量化数据（KOA, Overland Expo, iiMedia, VALA）</p>
+</div>
+
+<div class="stage-card">
+<h4>Stage 4 — Ecosystem（完整生态）</h4>
+<p><strong>定义：</strong>汽车品牌、户外品牌、零售商、营地、内容平台、改装渠道形成完整生态。法规成熟、基础设施完善、二手市场发达。</p>
+<p><strong>核心特征：</strong></p>
+<ul>
+<li>产业链完整：制造商 → 经销商 → 租赁 → 配件 → 服务 → 保险 → 二手 → 内容平台</li>
+<li>基础设施成熟：大量认证营地、free camp网络、dump station、充电设施</li>
+<li>法规框架清晰：车辆分类、营地标准、安全认证</li>
+<li>资本进入：PE/机构投资者收购/整合营地</li>
+<li>展会经济：大型贸易展(Caravan Salon Düsseldorf 255,000 visitors; Gocaf 100,000+)</li>
+<li>协会/行业组织成熟：RVIA(US), CIAA(AU), CIVD(DE), NCC(UK), JRVA(JP)</li>
+</ul>
+<p><strong>代表市场/场景：</strong>美国(mass-market mature)；澳大利亚(deep-culture mature)；德国(manufacturing hub mature)</p>
+<p><strong>证据支持：</strong><span class="conf-high">High</span> — 行业协会数据、上市公司报告、大型展会数据</p>
+</div>
+
+<h2>2.2 对初始假设的修正</h2>
+<div class="note">
+<strong>修正1：</strong>阶段边界不是清晰的线性递进。中国同时呈现Stage 3（lifestyle adoption, 床车/EV/社媒驱动）和Stage 1/2特征（基础设施仍不完善、法规仍在演进）。市场可以<strong>跨阶段共存</strong>。
+</div>
+<div class="note">
+<strong>修正2：</strong>韩国案例证明市场可以<strong>倒退</strong>。韩国经历了COVID boom(Stage 2-3跃迁)后的急剧收缩（camper销量-81%），说明没有基础设施和真实需求支撑的boom不可持续。
+</div>
+<div class="note">
+<strong>修正3：</strong>"Ecosystem"阶段不要求所有子市场都成熟。美国在RV生态成熟的同时，overlanding retail仍在快速成长。澳大利亚在4WD touring生态成熟的同时，campervan segment仍在增长。
+</div>
+<div class="note">
+<strong>修正4：</strong>建议增加一个前置认知——<strong>Stage 0 — Nascent / Explorer-led</strong>。东南亚(泰国/SEA)目前处于此阶段：以国际overlanders和本地pickup文化为基础，正式基础设施极少，但overlanding路线网络正在形成。
+</div>
+
+<!-- ============================================================ -->
+<hr id="d3">
+<h1>Deliverable 3: Global Market Maturity Matrix</h1>
+
+<h2>3.1 Tier 1 市场详细分析</h2>
+
+<h3>🇦🇺 Australia — Deep-culture Mature (Stage 4)</h3>
+<table>
+<tr><th>维度</th><th>详情</th></tr>
+<tr><td>发展阶段</td><td><strong>最成熟市场之一。</strong>世界第三大RV市场(908,513辆注册RV, Jan 2024, CIAA)。产业贡献AU$27.1B/年，6,000+企业，50,000+直接雇员</td></tr>
+<tr><td>主流形式</td><td>4WD touring + camper trailer（核心文化）; caravan towing（grey nomad长途）; RTT（主流15+年）; free/dry camping（huge culture）; campervan（增长最快+41% production 2024）</td></tr>
+<tr><td>用户类型</td><td>30-54岁 = 46% trips（新主导群体，grey nomads暂时转向国际旅行）; 91% trips在regional Australia; "working nomads"增长</td></tr>
+<tr><td>典型车辆</td><td>Dual-cab utes: Toyota HiLux, Ford Ranger, Isuzu D-Max, LandCruiser 70/200/300, Nissan Patrol; large SUVs (Prado, Everest)</td></tr>
+<tr><td>基础设施</td><td>~2,500-3,000 caravan holiday parks (revenue AU$3.1B); extensive free-camp network (council sites, roadside rest areas, farm stays, pub camping); iconic 4WD tracks (Simpson Desert, Cape York, Birdsville Track, Gibb River Road)</td></tr>
+<tr><td>产品消费成熟度</td><td>极化：premium local (ARB, Darche, OZtent) vs budget Chinese imports (83% of camping goods import volume from China); full 12V/solar/lithium setups标准; deep accessory culture</td></tr>
+<tr><td>主流品牌</td><td>4WD/camping: ARB(1975), Darche(1991), OZtent, OZtrail, 23Zero, Front Runner, TJM; RV: Jayco Australia(leader), Avida, Patriot Campers; global: iKamper, Dometic, Engel</td></tr>
+<tr><td>销售渠道</td><td>Big-box: Anaconda, BCF; 4WD accessory dealers/installers (ARB stores, TJM); caravan dealers (AU$3.3B industry, fragmented); online (Wild Earth, DTC)</td></tr>
+<tr><td>社交媒体文化</td><td>Very strong Facebook group culture; Wikicamps app = national infrastructure; YouTube extensive 4WD touring channels; CIAA maintains 508,000-consumer database</td></tr>
+<tr><td>增长方向</td><td>Shorter/more frequent trips (avg 3.8 nights, cost-of-living); campervan rental recovery; premiumisation of hard-shell RTTs; younger family segment</td></tr>
+</table>
+
+<h3>🇺🇸 United States — Mass-market Mature (Stage 4)</h3>
+<table>
+<tr><th>维度</th><th>详情</th></tr>
+<tr><td>发展阶段</td><td><strong>全球最大规模。</strong>66%美国家庭2025年露营(64% in 2019); 52.2M active camper households (+24.3% vs 2019); peak 58.5M in 2022. Camping = 56% of all leisure trips</td></tr>
+<tr><td>主流形式</td><td>Tent/car camping (volume base); RV towable-dominant (342,220 units 2025, 90% towable); Overlanding/RTT (12M Americans 2025, +50% from 8M in 2024); Glamping (rising); Vanlife (~5% of RV households but 30B TikTok views)</td></tr>
+<tr><td>用户类型</td><td>Millennials = 31%, Gen Z = 26% of campers; Gen Z+Millennials = 72% of NEW overlanders; 41% of overlanders under 30; Boomers most likely to own RV (73%); Gen Z most likely to rent (45%)</td></tr>
+<tr><td>典型车辆</td><td>Overlanding: Jeep Wrangler/Gladiator, Toyota Tacoma/4Runner, Ford Bronco; RV: half-ton & HD pickups towing; Sprinter/Transit/ProMaster camper vans. 95% of overlanders modify rigs; 1-in-4 spent $20K+</td></tr>
+<tr><td>基础设施</td><td>16,200+ private RV parks/1.3M+ campsites; ~1,500 public campgrounds; <strong>640M+ acres public land</strong> (BLM 245M acres, US Forest Service dispersed 14-day limit); 2024 NPS record 331.9M visits. BUT 56% of campers struggle to find sites (up from 10.6% in 2019)</td></tr>
+<tr><td>产品消费成熟度</td><td>Bifurcated: mass-market (Walmart/Amazon Coleman, Ozark Trail) vs premium overland (iKamper, Alu-Cab, Go Fast Campers). RTT market ~US$270-394M, NA ≈38-40%. 45% prefer quick-deploy hard shells</td></tr>
+<tr><td>主流品牌</td><td>RTT/overland: iKamper, Roofnest, Thule(Tepui), Yakima, Go Fast Campers, Alu-Cab, OVS, Smittybilt; RV: Thor, Forest River, Winnebago, Grand Design, Airstream; general: Coleman, Yeti, REI Co-op, Dometic</td></tr>
+<tr><td>销售渠道</td><td>REI (~180 stores), Bass Pro/Cabela's, Dick's/Public Lands; overland specialty e-comm & installers; 56% of overlanders buy gear at events (Overland Expo); RV: 500+ dealer networks (Camping World, Lazydays)</td></tr>
+<tr><td>社交媒体文化</td><td>#vanlife 30B+ TikTok views, 15M+ Instagram posts; 61% of beginner overlanders cite YouTube as entry spark; Apps: The Dyrt, Campendium, iOverlander, AllTrails, Recreation.gov</td></tr>
+<tr><td>增长方向</td><td>RV shipments recovering (+2.5% 2025); RV rental surge (renters doubled to 8%); overlanding 10-25% market growth projected; EV-integrated gear (31% seek EV-compatible); glamping expansion; campground investment/consolidation</td></tr>
+</table>
+
+<h3>🇨🇦 Canada — Mature, Parks-led (Stage 3-4)</h3>
+<table>
+<tr><th>维度</th><th>详情</th></tr>
+<tr><td>发展阶段</td><td>6.3M households camped (2023, +29% vs 2019); camping & RV industry CA$16.2B GDP, 141K jobs; campground/RV park revenue CA$3.3B (+11.5% YoY). More tent-centric than US (3.0M tent vs 1.4M RV campers)</td></tr>
+<tr><td>主流形式</td><td>Frontcountry campground camping (core); RV/camping trailer (Canada = NA's largest trailer consumer, 27K units); Backcountry/wilderness (5% of nights but cultural pillar); Overlanding/RTT (emerging-to-growth); Glamping (1.47M participants +145% vs 2021)</td></tr>
+<tr><td>用户类型</td><td>44% under 35; 18-24 share rose 10%→18% since 2014; 31% plan to spend less (most price-pessimistic in NA); "Buy Canadian"/staycation boost: 55% of RVers travelling exclusively within Canada 2025</td></tr>
+<tr><td>典型车辆</td><td>Ford F-150/Ranger, Toyota Tacoma, RAM 1500 with RTT/canopy; Class C motorhomes and travel trailers; Canadian-made off-road trailers (Tactical Overland CA$36.4K)</td></tr>
+<tr><td>基础设施</td><td>48 national parks, ~250 frontcountry campgrounds (Parks Canada); provincial parks (Ontario ~100+ parks, 20,000+ campsites); Crown land dispersed camping; 2025 bookings +25-60%</td></tr>
+<tr><td>产品消费成熟度</td><td>Mid-to-high: full RTT/awning/rack ecosystems sold by specialists; premium imports (Alu-Cab coast-to-coast distribution Jun 2026); price sensitivity rising but campers redirect budget</td></tr>
+<tr><td>主流品牌</td><td>Domestic: MEC, Tactical Overland, Wild Coast Tents, Cap-it; Imported: Go Fast Campers, Tepui/Thule, Roofnest, iKamper, OVS, Alu-Cab; RVs: Thor, Forest River, Escape Trailer Industries (BC)</td></tr>
+<tr><td>销售渠道</td><td>MEC (~25 stores), SAIL, Cabela's/Bass Pro; 4x4/truck accessory installers (Cap-it); RV dealers under RVDA Canada; DTC online growing</td></tr>
+<tr><td>社交媒体文化</td><td>Strong but smaller than US; Vancouver Island/West Coast overland culture; Parks Canada app, iOverlander, The Dyrt (Canada); Facebook groups per province</td></tr>
+<tr><td>增长方向</td><td>2025-26 staycation boom (weak CAD + US avoidance); overlanding retail scaling nationally; glamping/cabin expansion; Indigenous-led park tourism; wildfire-adaptation of infrastructure</td></tr>
+</table>
+
+<h3>🇳🇿 New Zealand — Structured-niche Mature (Stage 4, regulation-shaped)</h3>
+<table>
+<tr><th>维度</th><th>详情</th></tr>
+<tr><td>发展阶段</td><td>Campervan-first market: holiday parks = 30%+ of ALL commercial guest nights; 9.87M holiday park guest nights 2024 (record). ~200K RV campers/year. RV tourist spend NZ$1.1-1.3B/yr. <strong>Market is regulation-shaped</strong></td></tr>
+<tr><td>主流形式</td><td>Campervan/motorhome travel (national signature); Freedom camping (legally restricted to Certified Self-Contained vehicles); DOC campsites (200-300+, NZ$8-25/night); Holiday parks (TOP 10 chain); Tent/car camping (subordinate)</td></tr>
+<tr><td>用户类型</td><td>Domestic: NZMCA members skew 50+ (retiree culture); International: backpacker/budget (JUCY) through premium (maui, Wilderness); 2025 shift: young professionals "van weekends"; International RV tourists visit 6.8 regions/trip avg (highest dispersal)</td></tr>
+<tr><td>典型车辆</td><td>Self-contained campervans/motorhomes: Mercedes Sprinter, Ford Transit, Toyota HiAce; Backpacker sleeper vans; 4WD/RTT niche (LandCruiser Prado/Hilux)</td></tr>
+<tr><td>基础设施</td><td>~300 holiday parks; 200-300+ DOC campsites; 500+ freedom camping sites; national dump-station network. <strong>Self-Containment Standard NZS 5465</strong>: green warrant mandatory (fixed toilet) — rentals from Dec 2024, private vehicles from Jun 2025; fines NZ$400-2,400</td></tr>
+<tr><td>产品消费成熟度</td><td>High within campervan category: solar, lithium, water filtration standard on rental/private fleets; compliance-driven retrofit boom; budget van rentals up from ~NZ$45/day (2022) to NZ$120+/day peak 2025</td></tr>
+<tr><td>主流品牌</td><td>Rental (THL — world's largest commercial RV rental): maui(premium), Britz(mid), Mighty(budget); JUCY, Wilderness; Manufacturing: Action Manufacturing, TrailLite; Gear: Macpac, Kathmandu, Torpedo7, Bivouac</td></tr>
+<tr><td>销售渠道</td><td>Rental: OTA + direct web; Sales: dealer networks (TrailLite, RV Super Centre), TradeMe marketplace; Gear: Macpac/Kathmandu retail chains</td></tr>
+<tr><td>社交媒体文化</td><td>CamperMate and Rankers NZ apps = de facto national camping info layer; #vanlife NZ content feeds inbound tourism; JUCY cult brand via painted-van Instagram; NZMCA community (rallies, parks network)</td></tr>
+<tr><td>增长方向</td><td>Inbound recovery: 3.51M visitor arrivals YE Dec 2025; THL H1 profit +17%; compliance-driven fleet upgrade cycle; short-getaway domestic van trips; clean-tech/modular van builds</td></tr>
+</table>
+
+<h2>3.2 Tier 2 市场详细分析</h2>
+
+<h3>🇯🇵 Japan — Mature, Refining (Stage 3-4)</h3>
+<table>
+<tr><th>维度</th><th>详情</th></tr>
+<tr><td>发展阶段</td><td>5.9M auto camping participants (2024, -1.7% YoY due to heat/inflation, but above pre-pandemic); 93.1% intend to continue; caravanning market US$613.1M (2024) → US$1,550.4M by 2030 (CAGR 16.9%); ~165K registered campervans</td></tr>
+<tr><td>主流形式</td><td>Auto camping (tent beside car, traditional); 車中泊 (in-car sleeping, rapidly growing); Campervan travel (~165K vehicles); Solo camping (16.2% of campers)</td></tr>
+<tr><td>用户类型</td><td>Family with children = 47.3% (largest, +3.7pp); Couples = 25.0%; Solo = 16.2%; RV users ~80% in 50s-60s but manufacturers report growing 30s-40s (FLEX Inc. ~60% of customers)</td></tr>
+<tr><td>典型车辆</td><td>Toyota Hiace (dominant campervan base, ~¥7M/~$47K); Kei cars (uniquely Japanese, budget 車中泊); Minivans (Honda Step WGN, Toyota Alphard, Nissan Serena); Compact campers from ~¥5M</td></tr>
+<tr><td>基础设施</td><td><strong>World's best overnight parking infrastructure:</strong> 1,200+ Michi-no-Eki (roadside stations, free parking/24h restrooms); 580 RV Parks (JRVA-certified, target 1,000 by 2027); Lawson convenience store RV Park experiment (6 stores, Jul 2025-Jun 2026)</td></tr>
+<tr><td>产品消费成熟度</td><td>Highly mature: dedicated outdoor chains (Mont-bell, Snow Peak, Naturehike Japan); DIY 車中泊 modification ecosystem; average spending ¥23,258/trip (+¥2,865 YoY)</td></tr>
+<tr><td>主流品牌</td><td>Campervan: FLEX Inc. (Hiace specialists), KRC, Recvee Corp.; Rental: Carstay, RV JAPAN; Outdoor gear: Snow Peak (Japanese origin), Mont-bell, Naturehike, Captain Stag; OEM: Toyota, Honda, Nissan, Suzuki</td></tr>
+<tr><td>销售渠道</td><td>Specialty dealerships; Rental platforms (Carstay RV sharing); Direct from manufacturers; Online (Kurumatabi Club); Campground booking (nap — largest reservation site)</td></tr>
+<tr><td>社交媒体文化</td><td>YouTube 車中泊 channels highly popular; "Yuru Camp" anime significantly boosted camping among young people/women; NHK recommended 車中泊 as hotel alternative (late 2024); Instagram high-aesthetic camping photography</td></tr>
+<tr><td>增长方向</td><td>Democratization via sub-¥5M compact campers; dual-use vehicles; disaster preparedness function (2024 Noto earthquake); pet-friendly expansion (81% of campgrounds); rising hotel costs (¥16,679/room, +12.6% YoY) driving 車中泊</td></tr>
+</table>
+
+<h3>🇰🇷 South Korea — Post-boom Contraction/Restructuring (Stage 2, adjusting)</h3>
+<table>
+<tr><th>维度</th><th>详情</th></tr>
+<tr><td>发展阶段</td><td><strong>Post-COVID boom followed by sharp correction.</strong> Participants: 6.34M (2023) → 5.46M (2024, -13.9%); Camper registrations: 7,300 (2021) → 1,361 (2024, -81.4%); Market value: ₩3,472.4B (2021) → ₩764.4B (2025, -78%); ~60 campgrounds closing annually</td></tr>
+<tr><td>主流形式</td><td>차박 (Chabak, car camping) — dominant cultural phenomenon; Glamping (heavy investment during boom); Camping car (sales crashed); Car trunk camping (day-use)</td></tr>
+<tr><td>用户类型</td><td>Post-COVID campers (many exited); Budget-conscious shift from premium to affordable; Weekend-escape demographic near Seoul; Younger families</td></tr>
+<tr><td>典型车辆</td><td>SUVs: Hyundai Palisade, Kia Sorento, Genesis GV80; Vans: Hyundai Staria, Kia Carnival; Emerging EV campers: Kia PV5, Hyundai ST1</td></tr>
+<tr><td>基础设施</td><td>Overbuilt during boom, now contracting; Limited public land camping (unlike US/Europe); National parks with some designated areas; Gocaf exhibition: 100,000+ visitors, 430 exhibitors</td></tr>
+<tr><td>产品消费成熟度</td><td>Moderate, adjusting: Strong domestic brands (Kolon Sport, Black Yak); <strong>iKamper</strong> (Skycamp series, global award winner); WINDSWAVES (car-side awnings); Cross-border e-commerce pressure (AliExpress, Temu)</td></tr>
+<tr><td>主流品牌</td><td>Outdoor: Kolon Sport, Black Yak, Nepa, The North Face Korea; RTT: iKamper (global brand); Awning: WINDSWAVES</td></tr>
+<tr><td>销售渠道</td><td>Colorado Ski Shop (official Gocaf partner); Department stores; Online: Coupang, Naver Shopping; International e-commerce: AliExpress, Temu; Used vehicle market depressed</td></tr>
+<tr><td>社交媒体文化</td><td>Instagram #차박; YouTube Korean camping YouTubers; Naver blogs/cafes; "Bulmyeong" (불멍, staring at campfire) cultural concept — now ironically "sokmyeong" (속멍, agonizing) for distressed owners</td></tr>
+<tr><td>增长方向</td><td>Market consolidation/shakeout; Budget shift to affordable car camping; EV camping vehicles (Kia PV5, Hyundai ST1); Sustainability focus; Korean brands achieving international recognition; Long-term CAGR 6.1% projected</td></tr>
+</table>
+
+<h3>🇩🇪 Germany — Mature, Growth Phase (Stage 4)</h3>
+<table>
+<tr><th>维度</th><th>详情</th></tr>
+<tr><td>发展阶段</td><td><strong>Europe's largest camping market, global manufacturing hub.</strong> 44.7M camping overnight stays (2025 record, +4.2% YoY, +24.9% vs 2019); 908K campervans registered; 96,392 new leisure vehicle registrations 2024; industry revenue €15.1B</td></tr>
+<tr><td>主流形式</td><td>Motorhome travel (Reisemobil, most popular); Caravan towing (declining slightly); Campervan (Kastenwagen, growing); Overlanding (growing segment)</td></tr>
+<tr><td>用户类型</td><td>37% aged 30-40 (young professionals); ~50% from upper income third — "quality migration completed"; "No longer backpacker with tent. Professional in thirties with €80,000 motorhome"</td></tr>
+<tr><td>典型车辆</td><td>Mercedes-Benz Sprinter (dominant base); Fiat Ducato; VW Crafter/Transporter; Ford Transit; Manufactured: Hymer, Knaus Tabbert, Hobby, Dethleffs, Adria, Rapido</td></tr>
+<tr><td>基础设施</td><td>3,202 campgrounds with 240,000 pitches; ADAC campsites (auto club quality certification); Reisemobilstellplätze (dedicated motorhome stopovers); Average cost €40/night (cheapest in Western Europe); Pitch prices +32.2% since 2020</td></tr>
+<tr><td>产品消费成熟度</td><td>Highly mature: DCHV (425 business members + 107 supporting); Complete ecosystem; Caravan Salon Düsseldorf (255,000 visitors, 778 exhibitors, world's largest); 118,641 vehicles produced 2024; Record 187,219 used registrations</td></tr>
+<tr><td>主流品牌</td><td>Motorhomes: Hymer (inventor of motorhome, since 1957), Knaus Tabbert (€1.08B revenue 2024), Hobby, Dethleffs, Adria, Rapido, Eura Mobil, Carthago, Niesmann & Bischoff, Morelo; New: XPERIAN (Knaus Tabbert 2024)</td></tr>
+<tr><td>销售渠道</td><td>425+ DCHV specialty dealerships; Caravan Salon Düsseldorf (world's largest); ABF and regional shows; Highly developed used market; RENT AND TRAVEL rental</td></tr>
+<tr><td>社交媒体文化</td><td>Less influencer-driven than UK; More traditional/practical; Caravan Salon = major annual gathering; ADAC authoritative campground ratings; Quality/premium focus</td></tr>
+<tr><td>增长方向</td><td>Record demand, constrained supply (3,200 sites barely changed); Investment/modernization wave (PE firms, foreign chains); Market consolidation; Electric/hybrid motorhomes; Self-sufficiency trend (Hymer CrossOver/CrossTrail)</td></tr>
+</table>
+
+<h3>🇬🇧 United Kingdom — Mature, Transitioning (Stage 3-4)</h3>
+<table>
+<tr><th>维度</th><th>详情</th></tr>
+<tr><td>发展阶段</td><td><strong>Structural shift:</strong> Motorhome sales +38% (2024) while touring caravan sales -12.7%. Crossover point: campervan/motorhome demand exceeded touring caravan for first time in 2023. 5.8M camping/glamping/touring trips (2024); ~500K caravans on UK roads</td></tr>
+<tr><td>主流形式</td><td>Tent camping (2.0M trips); Campervan/motorhome (1.8M trips, overtaking caravans); Touring caravan (1.4M, declining); Glamping (0.6M, fastest-growing)</td></tr>
+<tr><td>用户类型</td><td>Staycation boom: 22% of UK adults camped since pandemic; 38% were newcomers (~4.5M new); #vanlife demographic younger/aspirational; Caravanning demographic older/practical</td></tr>
+<tr><td>典型车辆</td><td><strong>VW Transporter (T6.1, T7): industry standard for campervan conversions</strong>; Ford Transit/Transit Custom; Mercedes Sprinter; Fiat Ducato</td></tr>
+<tr><td>基础设施</td><td>Dense holiday park network (coastal and rural); NCC industry body; Year-round serviced sites; Strong resale market; Glamping proliferation</td></tr>
+<tr><td>产品消费成熟度</td><td>Highly mature: NCC Approval and Type Approval (non-negotiable safety); M1 Tested Seating; Professional conversion ecosystem; Owner Satisfaction Awards (3,553 votes 2025); Entry-level ~£15K, luxury ~£60K+</td></tr>
+<tr><td>主流品牌</td><td>VW specialists: Bilbo's (since 1979, multiple Gold Awards), CamperKing, Spartan Campers; Luxury: Vantage Motorhomes, Vanlife Conversions, Quirky Campers; Multi-vehicle: CMC Reimo, Consort, Danbury, Devon Conversions</td></tr>
+<tr><td>销售渠道</td><td>Direct from converters (factory visits); Approved used programs; Dealerships; Rental/sharing platforms growing; Trade shows</td></tr>
+<tr><td>社交媒体文化</td><td><strong>#vanlife movement:</strong> "Social media influencers turned #vanlife into cult"; Notable: Courtnie & Nate (500K+); Instagram dominance for campervans; Facebook groups for caravanning; "Van life can be made aspirational for social media, caravanning is more practical"</td></tr>
+<tr><td>增长方向</td><td>Campervan overtaking caravans (structural); Flexible ownership (rental/subscription/sharing); EV compatibility challenge (lighter cars, towing concerns); Used market resilience; Staycation persistence</td></tr>
+</table>
+
+<h3>🇫🇷 France — Mature, Stable Growth (Stage 4)</h3>
+<table>
+<tr><th>维度</th><th>详情</th></tr>
+<tr><td>发展阶段</td><td>610,000 motorhomes registered (2024); ~€1.5B market; 90,000+ motorhomes/campers/caravans sold 2025 (25K new + 67K used); New sales +8%; 4-5 star campsites 63.6M overnight stays</td></tr>
+<tr><td>主流形式</td><td>Motorhome travel (camping-car, dominant); Campervan (fourgon aménagé, +5.38% Jul 2025); Caravan (declining -6.21%); Mobile home rental (massive Mediterranean/Atlantic fleet); Aires de camping-cars (municipal stopovers)</td></tr>
+<tr><td>用户类型</td><td><strong>2/3 of motorhome buyers are retirees</strong> (core demographic); Vanlifers mostly working professionals (growing younger); Average annual mileage 8,600 km; Families main campsite users</td></tr>
+<tr><td>典型车辆</td><td>Trigano (major French manufacturer, +20% sales H1 2024); Renault Master; Fiat Ducato; Citroën Jumper/Peugeot Boxer; VW</td></tr>
+<tr><td>基础设施</td><td><strong>France Passion network: 2,200 free stopovers</strong> at farms/vineyards/artisans; Camping-Car Park: 500+ public motorhome spaces (avg €12/night, 3.3M nights 2023); Municipal campsites; Mediterranean/Atlantic coastal campsites (world's largest concentration)</td></tr>
+<tr><td>产品消费成熟度</td><td>Highly mature: UNI VDL (national manufacturers association); FNHPA (outdoor hospitality); Salon des véhicules de loisirs (annual Paris show); Camping-Car Magazine; Le Bon Coin second-hand market</td></tr>
+<tr><td>主流品牌</td><td>Manufacturers: Trigano (Chausson, Challenger, Flash, Autostar), Rapido, Pilote, Benimar, Bürstner; Infrastructure: Camping-Car Park, France Passion</td></tr>
+<tr><td>销售渠道</td><td>Salon des véhicules de loisirs (Paris, major sales event); Perpignan show (Jan 2026 confirmed momentum); Dealerships; Le Bon Coin (dominant online classifieds); Rental fleets</td></tr>
+<tr><td>社交媒体文化</td><td>Slower tourism / remote work trend; Camping-Car Magazine; French YouTube camping-car channels; France Passion community app; "Discover French regions in totally different way"</td></tr>
+<tr><td>增长方向</td><td>Market growth (new +8%, used +3.6%); Demographic expansion (retirees → younger vanlifers); Infrastructure monetization (Camping-Car Park expanding); Slow tourism movement; Price accessibility focus</td></tr>
+</table>
+
+<h2>3.3 Tier 3 市场详细分析</h2>
+
+<h3>🇨🇳 China — High-Growth Emerging, Structural Transformation (Stage 2-3)</h3>
+<table>
+<tr><th>维度</th><th>详情</th></tr>
+<tr><td>发展阶段</td><td><strong>最活跃的新兴市场。</strong>三级分类：旅居车(13,258 units 2025, +12.87%), 宿营车(7,376 units, <strong>+85.61%</strong>), 床车(millions, untracked). RV ownership 300K+ (2024), target 1M by 2030. Market ¥108.49B (2024). <0.2 RVs/1,000 people = massive headroom</td></tr>
+<tr><td>主流形式</td><td>床车 (fastest-growing, DIY democratization); 宿营车 (+85.61% breakout category); 旅居车 (steady growth); EV camping (V2L as killer feature); RV rental (growing); 精致露营 (glamping-style)</td></tr>
+<tr><td>用户类型</td><td>65% of RV users parent-child families; 80后 = 57%; Under 35 projected 38% by 2025; 床车 demographic: 20s-30s budget-conscious; VALA camping vehicles: ~70% women aged 25-40; Self-drive: 43.5B person-trips (2024)</td></tr>
+<tr><td>典型车辆</td><td><strong>NEV game-changers:</strong> BYD Han DM-i, Li Auto L8/L9 (range-extender, 6-seat→1.9m bed, 24h AC, fridge), NIO ES6/ES8, XPeng P5, AITO M9 (2.1m bed, 6kW V2L, satellite internet), BYD Fang Cheng Bao (6kW V2L), Kia EV5; EV vans: Wuling Yangguang, Kai-Ri Jiangtun</td></tr>
+<tr><td>基础设施</td><td>15,000 highway service areas (80% added RV water/electric piles); 64,700 campground-related enterprises (2024); 20 provinces piloting campground land use policy; C6 driver's license (2022) for towing; High-end campsites 95% occupancy (Qinghai Lake summer 2025)</td></tr>
+<tr><td>产品消费成熟度</td><td>Rapidly maturing, multilayered: Premium RV (¥300K-500K), Mid-range (¥150K-250K), Budget towable (¥80K-120K), 床车 DIY (¥280 minimum); NEV RV penetration 8.1% (2024) → 25-30% (2025 forecast); Smart system penetration 20%+</td></tr>
+<tr><td>主流品牌</td><td>RV: Damon(大通), Jingma(骏马), Foton(福田); EV OEMs: BYD, Li Auto, NIO, XPeng, AITO/Huawei, Geely Radar; Outdoor gear: Mobi Garden(牧高笛), Naturehike, Black Deer(黑鹿), Snow Peak(Japan premium)</td></tr>
+<tr><td>销售渠道</td><td>4S dealerships (EV camping as secondary use case); RV specialty dealers; Online: Douyin/TikTok, Xiaohongshu DTC; Xianyu (second-hand for solar panels/DIY kits); Rental platforms; Trade shows (Hainan Expo, Qingdao RV Show)</td></tr>
+<tr><td>社交媒体文化</td><td><strong>Social media is PRIMARY growth engine:</strong> Douyin #房车自驾游 650B+ views, #房车生活 100B+ views; Xiaohongshu "房车旅行" 2M+ notes; Users crowdsource GPS coordinates of free camping spots; "种草" culture drives discovery; Mobi Garden built in-house "Camping Lab" content factory</td></tr>
+<tr><td>增长方向</td><td>宿营车 explosion (+85.61%); EV camping revolution (V2L 3.3-6kW); 床车 democratization (millions); Price decline (avg RV below ¥300K); Policy breakthrough (C6 license, 20 provinces); "RV+" services (41% of orders); Used EV van "Tesla moment" for camping</td></tr>
+</table>
+
+<h3>🇹🇭 Thailand — Emerging, Early Growth (Stage 0-1)</h3>
+<table>
+<tr><th>维度</th><th>详情</th></tr>
+<tr><td>发展阶段</td><td>RV and car camping market in early development; fueled by domestic travel growth and pickup truck culture; 40-50 national parks with designated camping areas</td></tr>
+<tr><td>主流形式</td><td>Pickup truck camping (dominant); Tent camping at national parks; Glamping (growing); RV/motorhome (very niche); Car-side day camping</td></tr>
+<tr><td>用户类型</td><td>Domestic travelers (post-COVID surge); Pickup truck owners (Toyota Hilux, Ford Ranger); International overlanders (Thailand as SEA hub); Younger urbanites (emerging)</td></tr>
+<tr><td>典型车辆</td><td>Toyota Hilux (dominant); Ford Ranger; Pickup-based campers (Thai-Japanese JV assembly); Slide-in campers ($10K-$50K USD)</td></tr>
+<tr><td>基础设施</td><td>40-50 national parks with camping; Private campsites growing (Tigger Camp Nakhon Nayok); 37 free government campsites (2025 New Year); RV parks very limited (key challenge); Bangkok Auto Salon (annual, BITEC)</td></tr>
+<tr><td>产品消费成熟度</td><td>Early stage: International brands entering (Winnebago, Thor, Forest River, Hymer); YAKIMA debuted at Bangkok Auto Salon 2025 (roof boxes, awnings, tents, drawer system — manufactured at Nanjing factory); Local dealers: Camptown Bangkok, Baan Caravan</td></tr>
+<tr><td>主流品牌</td><td>Local RV assembly: Motorhome & Camping Car (Thai-Japanese JV); International: Winnebago, Thor, Forest River, Hymer; Accessories: YAKIMA (entering); OEMs: Toyota, Ford</td></tr>
+<tr><td>销售渠道</td><td>Dealerships (Camptown Bangkok, Baan Caravan); Auto shows (Bangkok Auto Salon); International imports through distributors; Limited e-commerce</td></tr>
+<tr><td>社交媒体文化</td><td>Dongchedi Thai RV content; Instagram/Facebook growing community; Chinese tourist influence (Chinese-language content); Bangkok Auto Salon as cultural event</td></tr>
+<tr><td>增长方向</td><td>Pickup truck camping culture; International brand entry; National park camping expansion; Glamping growth; Accessory market development; Regional tourism hub positioning</td></tr>
+</table>
+
+<h3>🌏 Southeast Asia (Regional) — Nascent, High Potential (Stage 0)</h3>
+<table>
+<tr><th>维度</th><th>详情</th></tr>
+<tr><td>发展阶段</td><td>Earliest-stage vehicle camping market; significant overlanding route potential but limited formal infrastructure</td></tr>
+<tr><td>主流形式</td><td>Overlanding (long-distance adventure driving); Pickup truck camping (dominant in Thailand, growing in Malaysia/Indonesia); Tent camping at national parks/beaches; Car-side day camping</td></tr>
+<tr><td>关键overlanding路线</td><td>Mae Hong Son Loop (TH, 600km), Peninsula Traverse (MY, 800-1,500km), Trans-Flores Highway (ID, 600km), Halsema Highway (PH, 250km), Thakhek Loop (LA, 450km), Ha Giang Loop (VN, 350km), Sarawak Traverse (MY Borneo, 2,000+km)</td></tr>
+<tr><td>用户类型</td><td>International overlanders (European, Australian, increasingly Chinese); Local emerging middle class; Expatriate community; Chinese self-drive tourists (growing)</td></tr>
+<tr><td>典型车辆</td><td>Toyota Hilux/Ford Ranger (dominant across SEA); 4×4 SUVs (Land Cruiser, Pajero, Patrol); Motorcycles (dual-sport); Imported RVs from Japan/Australia</td></tr>
+<tr><td>基础设施</td><td>Malaysia: best in SEA (excellent highway network); Thailand: 40-50 national parks; Indonesia: limited formal camping; Philippines: mixed quality roads; Laos/Cambodia: minimal infrastructure; Vietnam: developing</td></tr>
+<tr><td>产品消费成熟度</td><td>Very early: minimal domestic manufacturing; International brands entering through Thailand as hub; YAKIMA using Nanjing factory to supply SEA; Accessory market centered on pickup modifications</td></tr>
+<tr><td>社交媒体文化</td><td>iOverlander app (primary platform for overlanders); Maps.me (offline navigation); Facebook country-specific groups; YouTube Western/Chinese overlanders documenting SEA routes</td></tr>
+<tr><td>增长方向</td><td>Thailand as gateway; Malaysia as easiest entry point; Cross-border overlanding routes; Borneo emerging (first RV convoy Dec 2024 — 11 RVs, 33 adventurers, 2,000+ km); Chinese tourist influx; Infrastructure gap as opportunity</td></tr>
+</table>
+
+<h2>3.4 跨市场成熟度总览</h2>
+
+<table>
+<tr>
+<th>市场</th><th>阶段</th><th>核心形式</th><th>用户特征</th><th>典型车辆</th><th>基础设施</th><th>社媒角色</th><th>独特特征</th>
+</tr>
+<tr><td><strong>US</strong></td><td>Stage 4</td><td>Car camping + RV + Overlanding</td><td>66%家庭露营; Z世代/Millennials 72%新增</td><td>Jeep, Tacoma, F-150, Sprinter</td><td>640M+ acres公共土地; 16,200+私人营地</td><td>YouTube(61%入门), TikTok #vanlife 30B</td><td>全球最大规模; overlanding 50%年增长</td></tr>
+<tr><td><strong>AU</strong></td><td>Stage 4</td><td>4WD touring + caravans + RTT</td><td>30-54岁主导(46%); grey nomads文化</td><td>HiLux, Ranger, LandCruiser + trailer</td><td>Outback track网络; free camp文化</td><td>Facebook groups; Wikicamps app</td><td>世界第三大RV市场; deep accessory culture</td></tr>
+<tr><td><strong>CA</strong></td><td>Stage 3-4</td><td>Frontcountry camping + emerging overland</td><td>44% under 35; staycation boom</td><td>F-150, Tacoma, RAM 1500</td><td>48 national parks; Crown land</td><td>Apps + Facebook groups</td><td>More tent-centric than US; parks-led</td></tr>
+<tr><td><strong>NZ</strong></td><td>Stage 4</td><td>Campervan + freedom camping</td><td>NZMCA 50+ retirees; intl backpackers</td><td>Sprinter, Transit, HiAce</td><td>DOC 200-300+ sites; self-containment law</td><td>CamperMate app; JUCY Instagram</td><td>Regulation-shaped market; THL全球最大租赁</td></tr>
+<tr><td><strong>JP</strong></td><td>Stage 3-4</td><td>Auto camping + 車中泊</td><td>家庭47.3%; 30s-40s增长; anime影响</td><td>Hiace, kei car, minivan</td><td>1,200+ Michi-no-Eki; 580 RV Parks</td><td>YouTube; Yuru Camp anime</td><td>World's best overnight infrastructure</td></tr>
+<tr><td><strong>KR</strong></td><td>Stage 2 (adjusting)</td><td>차박 + glamping</td><td>Post-boom contraction; budget shift</td><td>Palisade, Sorento, Staria</td><td>Overbuilt, contracting</td><td>Instagram; Naver cafes</td><td>iKamper全球品牌; boom-bust案例</td></tr>
+<tr><td><strong>DE</strong></td><td>Stage 4</td><td>Motorhome (Reisemobil)</td><td>37% aged 30-40; 50% upper income</td><td>Sprinter, Ducato, Crafter</td><td>3,202 campgrounds; ADAC</td><td>Trade shows; ADAC ratings</td><td>Global manufacturing hub; Caravan Salon</td></tr>
+<tr><td><strong>UK</strong></td><td>Stage 3-4</td><td>Campervan (overtaking caravans)</td><td>Staycation; #vanlife younger</td><td>VW Transporter (standard)</td><td>Dense holiday parks</td><td>#vanlife "cult"; Instagram</td><td>Structural shift: campervan > caravan</td></tr>
+<tr><td><strong>FR</strong></td><td>Stage 4</td><td>Motorhome (camping-car)</td><td>2/3 retirees; vanlifers growing</td><td>Trigano, Renault Master, Ducato</td><td>France Passion 2,200; Camping-Car Park 500+</td><td>Magazines; communities</td><td>France Passion network; slow tourism</td></tr>
+<tr><td><strong>CN</strong></td><td>Stage 2-3</td><td>床车 + 宿营车 + EV camping</td><td>家庭65%; 女性70%(VALA); 80后57%</td><td>BYD, Li Auto, NIO, AITO (V2L)</td><td>15,000 service areas (80% RV ready)</td><td><strong>Dominant</strong>: Douyin 650B views</td><td>床车DIY; EV V2L; 三级法律分类</td></tr>
+<tr><td><strong>TH</strong></td><td>Stage 0-1</td><td>Pickup truck camping</td><td>Domestic travelers; intl overlanders</td><td>Hilux, Ranger</td><td>40-50 national parks; RV parks limited</td><td>Emerging; Facebook</td><td>SEA gateway; pickup culture</td></tr>
+<tr><td><strong>SEA</strong></td><td>Stage 0</td><td>Overlanding routes</td><td>Intl overlanders; Chinese self-drive</td><td>Hilux, Ranger, Land Cruiser</td><td>Malaysia best; others minimal</td><td>iOverlander; YouTube</td><td>Route network forming; first RV convoy 2024</td></tr>
+</table>
+
+<!-- ============================================================ -->
+<hr id="d4">
+<h1>Deliverable 4: Key Consumer Trends</h1>
+
+<h2>4.1 核心趋势验证：汽车露营从专业玩家向lifestyle用户扩张</h2>
+<div class="info-box">
+<strong>结论：CONFIRMED — 趋势成立，且正在加速。</strong>多来源量化证据（KOA, Overland Expo, iiMedia, VALA）一致支持。但需注意：此趋势在美国和中国最为明显，在欧洲大陆更多表现为motorhome主流化而非"从overlanding到lifestyle"的转变。
+</div>
+
+<table>
+<tr><th>趋势</th><th>证据</th><th>代表市场</th><th>代表品牌</th><th>来源</th><th>置信度</th></tr>
+<tr>
+<td><strong>Overlanding参与爆发式增长</strong></td>
+<td>美国overlanding参与者从8M(2024)增至12M(2025)，+50%一年；Overland Expo参与从5K(2021)增至~80K(2024)</td>
+<td>US</td>
+<td>Overland Expo, iKamper, ARB</td>
+<td>Overland Expo 2025 Industry Report (1,200+ surveys, 178 brands); rv-pro.com, Aug 2025</td>
+<td><span class="conf-high">High</span></td>
+</tr>
+<tr>
+<td><strong>Car camping增长而传统RV下降</strong></td>
+<td>Car camping兴趣+41% since 2019 (KOA); 同期传统RV popularity下降14-29%; 52M+ NA家庭2025年露营; "Car camping"成HipCamp第4常用搜索filter</td>
+<td>US, CA</td>
+<td>KOA, HipCamp</td>
+<td>KOA 2026 Camping Report; travelify.net, May 2026</td>
+<td><span class="conf-high">High</span></td>
+</tr>
+<tr>
+<td><strong>人口结构年轻化、城市化</strong></td>
+<td>Gen Z+Millennials = 72%新增overlanders; 41% under 30; 43%城市居民; 61% cite YouTube as entry spark</td>
+<td>US</td>
+<td>Overland Expo</td>
+<td>rvnews.com, Aug 2025</td>
+<td><span class="conf-high">High</span></td>
+</tr>
+<tr>
+<td><strong>中国市场"民用"车辆露营大爆发</strong></td>
+<td>2025露营核心市场¥213.97B(~$29B), 预计2030达¥487.98B; 自驾出行占77.4%总出行; VALA ~70%用户为25-40岁女性; 宿营车+56.5% YoY</td>
+<td>CN</td>
+<td>VALA, BYD, Li Auto, Mobi Garden</td>
+<td>toutiao.com; 10100.com, 2025-2026</td>
+<td><span class="conf-high">High</span></td>
+</tr>
+<tr>
+<td><strong>家庭露营是核心增长段</strong></td>
+<td>中国56.6%露营者家庭出行; 72.9%已婚有子; KOA 35%成人认为带娃露营最易; 55%带宠物</td>
+<td>CN, US, JP</td>
+<td>KOA, iiMedia</td>
+<td>10100.com; csgf.org.cn, 2025</td>
+<td><span class="conf-high">High</span></td>
+</tr>
+<tr>
+<td><strong>女性消费者结构性增长</strong></td>
+<td>Overland Expo女性参与: 19%(2023)→22%(2025); 68%拥有overland车辆; 48%为改装而来; VALA 70%女性用户; 52%美国女性计划增加户外时间(Winnebago 2025)</td>
+<td>US, CN</td>
+<td>VALA, Winnebago, Classic Overland</td>
+<td>hosangit.net; toutiao.com; campersmarts.com, 2025-2026</td>
+<td><span class="conf-high">High</span></td>
+</tr>
+<tr>
+<td><strong>宠物友好露营增长</strong></td>
+<td>KOA: 53%露营者带狗(超过带家人的21%); 日本81%营地pet-friendly; 全球pet户外装备市场$4.3B(2024)→$8.1B(2033); Adidas/Jordan/TNF进入pet户外</td>
+<td>US, JP, CN</td>
+<td>Ruffwear, Adidas, Jordan, Snow Peak</td>
+<td>KOA 2025; moderncampground.com; amz123.com, 2025</td>
+<td><span class="conf-high">High</span></td>
+</tr>
+<tr>
+<td><strong>快速搭建装备成主流</strong></td>
+<td>Pop-up帐篷(60秒内): Coleman Galiano, Decathlon Quechua 2 Seconds; RTT 45-60秒: iKamper Skycamp 3.0 Mini, Roofnest Falcon 3 EVO; 22%新手最大障碍是"不会用装备"</td>
+<td>Global</td>
+<td>Coleman, Decathlon, iKamper, Roofnest</td>
+<td>advnture.com; t3.com; camping.dealoria.store, 2025</td>
+<td><span class="conf-high">High</span></td>
+</tr>
+<tr>
+<td><strong>设计/颜色驱动购买</strong></td>
+<td>43%年轻消费者优先考虑美观(vs 28%专业参数); 军绿色→Morandi色系(奶白/珊瑚粉/冰川蓝); PRIMITIVE Barbie联名; SheIn 200+颜色/月; NEIGHBORHOOD x Helinox</td>
+<td>CN, Global</td>
+<td>PRIMITIVE, Mobi Garden, SheIn, Helinox</td>
+<td>jinfengkou.com; goodlifebookstore.com.tw; smzdm.com, 2025</td>
+<td><span class="conf-high">High</span></td>
+</tr>
+<tr>
+<td><strong>社交媒体成为首要发现渠道</strong></td>
+<td>70% Gen Z购买前查社媒; TikTok #camping ~18B views; YouTube 61% overland入门来源; Douyin #房车自驾游 650B+ views; 小红书"房车旅行"2M+笔记</td>
+<td>Global (CN最强)</td>
+<td>Douyin, Xiaohongshu, TikTok, YouTube</td>
+<td>rvnews.com; byteoutdoor.com; jinfengkou.com, 2025</td>
+<td><span class="conf-high">High</span></td>
+</tr>
+<tr>
+<td><strong>EV V2L改变车辆露营（中国独有）</strong></td>
+<td>NEV渗透率>50%(2025); BYD 6kW V2L; Li Auto "bed mode"+3.5kW V2L+2t towing; AITO M9 6kW V2L+卫星互联网; EV idle噪音40dB vs ICE 46dB; 充电成本<1/3燃油</td>
+<td>CN</td>
+<td>BYD, Li Auto, NIO, AITO/Huawei</td>
+<td>gov.cn; autohome.com.cn; cvworld.cn, 2025</td>
+<td><span class="conf-high">High</span> (CN) / <span class="conf-medium">Medium</span> (Global)</td>
+</tr>
+<tr>
+<td><strong>酒店成本推动车中泊/床车</strong></td>
+<td>日本酒店均价¥16,679(+12.6% YoY); 72%露营者认为露营更经济; BUT: 美国实际酒店价格(real ADR) vs 2019基本持平(-1.7%); 德国露营价格涨幅超酒店</td>
+<td>JP, CN</td>
+<td>—</td>
+<td>costar.com; KOA 2025; magdeburg-klickt.de, 2025-2026</td>
+<td><span class="conf-medium">Medium</span> — 成本是次要动机，非首要</td>
+</tr>
+<tr>
+<td><strong>汽车品牌主动进入户外生活方式</strong></td>
+<td>Jeep Camp Jeep 2024; 路虎"路营季"+Defender Urban Camp Shanghai 2026; BYD V2L camping营销; Li Auto "露营版"; Ford Bronco record 146,007 sales 2025</td>
+<td>CN, US</td>
+<td>Jeep, Land Rover, BYD, Li Auto, Ford</td>
+<td>cheshi.com; jiemian.com; wallstreet-online.de, 2024-2026</td>
+<td><span class="conf-high">High</span> — 但主要是需求响应而非独立原因</td>
+</tr>
+</table>
+
+<h2>4.2 驱动力验证总览</h2>
+
+<table>
+<tr><th>#</th><th>驱动力</th><th>判定</th><th>置信度</th><th>关键证据</th></tr>
+<tr><td>1</td><td>疫情后户外习惯保持</td><td><span class="tag-confirmed">Supported</span></td><td><span class="conf-high">High</span></td><td>52.2M NA家庭(2025) +24.3% vs 2019; Germany 44.7M overnights +24.9% vs 2019; Japan above pre-pandemic</td></tr>
+<tr><td>2</td><td>国内旅行/road trip增长</td><td><span class="tag-confirmed">Supported</span></td><td><span class="conf-high">High</span></td><td>China self-drive ¥1.5T market +20% YoY; 77.4% of travel modes; US AAA 857M summer trips +3.6%</td></tr>
+<tr><td>3</td><td>SUV/pickup普及</td><td><span class="tag-confirmed">Supported as enabler</span></td><td><span class="conf-medium">Medium</span></td><td>US SUVs+trucks = 75% registrations; China off-road SUV +70%; 无直接因果研究</td></tr>
+<tr><td>4</td><td>EV供电能力(V2L)</td><td><span class="tag-confirmed">Supported (CN)</span></td><td><span class="conf-high">High</span> (CN) / <span class="conf-medium">Medium</span> (Global)</td><td>NEV >50% penetration; V2L standard feature across BYD/Li Auto/NIO; 弱于全球其他地区</td></tr>
+<tr><td>5</td><td>Remote work/数字游民</td><td><span class="tag-partial">Supported but maturing</span></td><td><span class="conf-medium">Medium-High</span></td><td>18.5M US nomads +153% vs 2019; BUT growth decelerated to +2.2% (2025)</td></tr>
+<tr><td>6</td><td>家庭户外活动增长</td><td><span class="tag-confirmed">Supported</span></td><td><span class="conf-high">High</span></td><td>CN 72.9% married with children; JP 47.3% with children; KOA 22% include grandparents</td></tr>
+<tr><td>7</td><td>宠物友好旅行</td><td><span class="tag-confirmed">Supported</span></td><td><span class="conf-high">High</span></td><td>53% bring dogs; JP 81% campgrounds pet-friendly; CN pet market ¥312.6B</td></tr>
+<tr><td>8</td><td>酒店/旅行成本</td><td><span class="tag-partial">Partially supported</span></td><td><span class="conf-medium">Medium</span></td><td>72% cite cost motive; BUT real hotel ADR ~flat vs 2019; camping prices also rising; cost is secondary motive</td></tr>
+<tr><td>9</td><td>社交媒体传播</td><td><span class="tag-confirmed">Supported as amplifier</span></td><td><span class="conf-high">High</span> (qualitative)</td><td>68% use social to find destinations; #camping ~18B views; Douyin 650B+ views</td></tr>
+<tr><td>10</td><td>户外生活方式主流化</td><td><span class="tag-confirmed">Supported</span></td><td><span class="conf-high">High</span></td><td>US outdoor economy $1.257T (2.4% GDP); China 400M+ participants</td></tr>
+<tr><td>11</td><td>女性消费者增长</td><td><span class="tag-confirmed">Supported</span></td><td><span class="conf-medium">Medium-High</span></td><td>CN female 32%→49% (2020→2025); US 52% plan more outdoor; Overland Expo 19%→22%</td></tr>
+<tr><td>12</td><td>Gen Z/Millennials采纳</td><td><span class="tag-confirmed">Supported</span></td><td><span class="conf-high">High</span></td><td>61% of new campers; Gen Z +13pp since 2019; Gen Z spends 2x Boomers</td></tr>
+<tr><td>13</td><td>营地/国家公园/公共土地</td><td><span class="tag-confirmed">Supported</span></td><td><span class="conf-high">High</span></td><td>NPS record 331.9M visits; CN 223,400+ camping companies; PE pouring into campgrounds</td></tr>
+<tr><td>14</td><td>汽车品牌进入户外</td><td><span class="tag-confirmed">Supported (reactive)</span></td><td><span class="conf-high">High</span></td><td>Jeep/Land Rover/BYD/Li Auto all market camping; mostly responding to demand</td></tr>
+</table>
+
+<div class="note">
+<strong>关键批判性发现：</strong>
+<ul>
+<li><strong>成本压力(D8)是最被夸大的驱动力。</strong>实际酒店价格vs 2019基本持平；露营价格也在上涨；露营动机排名中自然/健康高于成本</li>
+<li><strong>中国的故事是独特的。</strong>V2L/camping-mode是BYD/理想/NIO的刻意产品策略；中国自驾出行是最大单一市场</li>
+<li><strong>社媒(D9)和汽车品牌营销(D14)是放大器，非根本原因。</strong>两者与趋势强相关但无数据证明独立创造了参与</li>
+<li><strong>因果性主要是推断性的</strong>——对于SUV车队组成(D3)和远程工作(D5)：两者都是有强间接支持的合理enabler，但没有发表的研究直接量化其对car-camping增长的贡献</li>
+</ul>
+</div>
+
+<!-- ============================================================ -->
+<hr id="d5">
+<h1>Deliverable 5: Product Design Trends</h1>
+
+<h2>5.1 Ease of Use — 第一设计优先级</h2>
+<p>易用性是车辆露营装备最重要的设计转变。各价位品牌都在竞速搭建时间、免工具部署和直觉操作。</p>
+
+<table>
+<tr><th>品牌</th><th>产品</th><th>搭建时间</th><th>关键特征</th><th>来源</th></tr>
+<tr><td>iKamper</td><td>Skycamp 3.0 Mini</td><td><60秒</td><td>硬壳翻盖式，蜂窝铝板，适配小型车</td><td>zzdsport.com, 2025</td></tr>
+<tr><td>Roofnest</td><td>Falcon 3 EVO</td><td>45秒</td><td>U-bar扩展，空气动力学硬壳</td><td>camping.dealoria.store, 2025</td></tr>
+<tr><td>Coleman</td><td>Galiano 2 FastPitch</td><td><60秒</td><td>Pop-up设计，屋顶可卷回观星</td><td>t3.com, 2025</td></tr>
+<tr><td>Coleman</td><td>6-Person Instant Cabin</td><td>60秒</td><td>伸缩杆，预装雨披，颜色编码</td><td>camping.dealoria.store, 2025</td></tr>
+<tr><td>Decathlon/Quechua</td><td>2 Seconds Easy Fresh & Black</td><td><10秒</td><td>弹簧弹出式，遮光层</td><td>advnture.com, t3.com, 2025</td></tr>
+<tr><td>Gazelle</td><td>T4 Hub Tent</td><td>90秒</td><td>弹簧hub系统，6个可调窗户</td><td>camping.dealoria.store, 2025</td></tr>
+<tr><td>Mobi Garden</td><td>Cold Mountain series</td><td>快速搭建</td><td>ExoSpeed Flex "速搭科技" + 防风</td><td>smzdm.com, 2025</td></tr>
+</table>
+
+<p><strong>设计原则：</strong></p>
+<ul>
+<li>预装框架系统（弹簧hub、伸缩杆）</li>
+<li>免工具安装（吸盘、旋转锁、C型钩）</li>
+<li>颜色编码组件确保傻瓜式组装</li>
+<li>预装组件（雨披、罩子）</li>
+<li>液压/机械助力臂</li>
+</ul>
+
+<h2>5.2 Modularity — 功能性 vs 新奇/可玩性</h2>
+
+<h3>功能性模块化（解决实际问题）</h3>
+<table>
+<tr><th>品牌/系统</th><th>产品</th><th>解决的问题</th><th>价格段</th><th>来源</th></tr>
+<tr><td>Snow Peak</td><td>IGT (Iron Grill Table)</td><td>模块化营地厨房：可换灶台/砧板/水槽/竹托盘/储物；3种框架尺寸、4种腿高；"buy-once-cry-once"数十年耐用</td><td>Premium</td><td>progunfighter.com; sohu.com, 2024-2025</td></tr>
+<tr><td>Front Runner</td><td>Wolf Pack / Cub Box Drawer</td><td>可拆卸储物箱clip入drawer slide；113kg载荷；箱在车与营地间转运</td><td>Premium</td><td>dometic.com; frontrunneroutfitters.com, 2025</td></tr>
+<tr><td>Goose Gear</td><td>Modular Plate System</td><td>CNC切割胶合板车内柜；双滑轨(fridge+stove独立)；350lb-rated全拉伸导轨</td><td>Premium</td><td>4wdtalk.com; alwaysreadyhq.com, 2024-2025</td></tr>
+<tr><td>ARB</td><td>Outback Solutions Drawer</td><td>钢框，防滚回机制，可堆叠组合</td><td>Premium</td><td>alwaysreadyhq.com, 2025</td></tr>
+<tr><td>Dirtbox Overland</td><td>Modular Ecosystem</td><td>Flatbed/canopy/slideout/awning/shower/drawer；"从canopy起步可升级到flatbed系统"投资保护</td><td>Mid-Premium</td><td>ovrmag.com, 2024</td></tr>
+<tr><td>DECKED</td><td>Truck Bed Storage</td><td>HDPE deck双层：下方抽屉+上方载货</td><td>Mid-Premium</td><td>alwaysreadyhq.com, 2025</td></tr>
+</table>
+
+<h3>新奇/可玩性模块化（创意表达/美观）</h3>
+<table>
+<tr><th>品牌</th><th>产品</th><th>特征</th><th>价格段</th><th>来源</th></tr>
+<tr><td>SheIn</td><td>Modular Tents</td><td>可拆卸内帐转换配置；200+颜色/月选择；bohemian/cyberpunk风格</td><td>Accessible</td><td>jinfengkou.com, 2025</td></tr>
+<tr><td>原始人/PRIMITIVE</td><td>Barbie联名系列</td><td>粉色露营装备；"pink camping style"小红书/抖音 trending</td><td>Accessible-Mid</td><td>ysr.cn, 2025</td></tr>
+<tr><td>Camp Chef</td><td>Sherpa Table</td><td>4个颜色编码可拆卸储物袋(红=餐具，蓝=食材)；一个可作水槽/冰桶</td><td>Mid</td><td>campgear360.com, 2025</td></tr>
+<tr><td>中国多品牌</td><td>"模块化露营套装"</td><td>可连接野餐垫、坐垫背包变形、模块化炊具；"一套20+用途"</td><td>Budget</td><td>bandao.cn; mcjgc.cn, 2025</td></tr>
+</table>
+
+<div class="info-box">
+<strong>关键区分：</strong>功能性模块化面向严肃overlander/expedition旅行者，premium定价，数十年耐用预期。新奇/可玩性模块化面向lifestyle露营者和社媒创作者，accessible定价，季节性/趋势驱动替换。Snow Peak IGT同时服务两种功能——既是功能性基准，也 enabling 创意配置（"成人乐高"）。
+</div>
+
+<h2>5.3 Vehicle-to-Camp Integration — Vehicle → Camp → Living</h2>
+
+<h3>Shelter（庇护）</h3>
+<p><strong>270度自立式awning + 集成LED照明</strong>是增长最快的shelter类别。后尾门tent在中国SUV用户中爆发。</p>
+<table>
+<tr><th>品牌</th><th>产品</th><th>关键特征</th><th>来源</th></tr>
+<tr><td>Darche</td><td>270 Freestanding LED Awning</td><td>11.5 sqm, 320GSM, 集成双色LED</td><td>outbackequipment.com.au, 2025</td></tr>
+<tr><td>The Bush Company</td><td>270 XT MAX</td><td>12 sqm, 315GSM, 50km/h抗风</td><td>outbackequipment.com.au, 2025</td></tr>
+<tr><td>Naturehike</td><td>NH20L tailgate tent</td><td>3000mm防水, 6.2kg, SUV/MPV</td><td>goods.taobao.com, 2025</td></tr>
+<tr><td>Hasika</td><td>SUV Tailgate Shade</td><td>3000mm防水, UPF50+, 防虫网</td><td>shopday.com, 2025</td></tr>
+</table>
+
+<h3>Cooking（烹饪）</h3>
+<p>清晰的价位分层：budget ($400-850 木质滑轨) → mid-range ($1,000-3,000 铝合金集成) → premium ($3,000+ expedition-grade)。</p>
+<table>
+<tr><th>品牌</th><th>产品</th><th>关键特征</th><th>价格</th></tr>
+<tr><td>ARB</td><td>Slide Out Camp Kitchen</td><td>2眼灶, 折叠水槽, 台面, 储物抽屉, 全集成</td><td>$2,650-2,850</td></tr>
+<tr><td>VOZ</td><td>Slide Out Camping Kitchen</td><td>船用级聚合物, 集成水槽/龙头, 30+物品组织</td><td>$2,995</td></tr>
+<tr><td>Goose Gear</td><td>CampKitchen Module</td><td>双滑轨(fridge+stove), 竹砧板, MaxLite</td><td>Premium</td></tr>
+<tr><td>SHIWAGIN</td><td>Overland Kitchen Slide-Out</td><td>折叠水槽, 挂钩, 垃圾架, 1分钟搭建</td><td>$650-850</td></tr>
+<tr><td>Snow Peak</td><td>IGT System</td><td>模块化烤架桌, 可换插件, 数十年使用</td><td>Premium</td></tr>
+</table>
+
+<h3>Storage（收纳）</h3>
+<table>
+<tr><th>品牌</th><th>系统</th><th>关键特征</th></tr>
+<tr><td>Front Runner</td><td>Wolf Pack / Cub Pack / Flat Pack</td><td>可堆叠, clip-to-close容器; 可调隔板</td></tr>
+<tr><td>Goose Gear</td><td>Drawer Modules</td><td>Baltic Birch 11层鸽尾榫; 350lb全拉伸; MaxLite 26%更轻更强</td></tr>
+<tr><td>Pelican</td><td>Cargo Vehicle Drawer</td><td>密封垫圈, 高冲击聚合物, 极端防尘</td></tr>
+<tr><td>Leitner</td><td>Active Cargo System</td><td>外部bed rack/外骨架, 垂直挂载</td></tr>
+</table>
+
+<h3>Power（电力）— 增长最快的配件类别</h3>
+<table>
+<tr><th>品牌</th><th>市场地位</th><th>关键产品</th><th>来源</th></tr>
+<tr><td>EcoFlow</td><td><strong>25.8%全球份额</strong> (2024); 1M+欧洲用户</td><td>DELTA 2, DELTA Pro, Delta 3 Ultra; 1小时充电</td><td>vecharged.com, 2025</td></tr>
+<tr><td>Jackery</td><td>"户外之王"(最轻); XBC曲面太阳能瓦(2025)</td><td>Explorer 1000 Pro, 2000 Plus, 5000 Plus</td><td>zdnet.com, 2025</td></tr>
+<tr><td>Bluetti</td><td>首批LiFePO4采用者; 3,500+循环</td><td>AC200P, Elite 200 V2, Apex 300</td><td>vecharged.com, 2025</td></tr>
+<tr><td>Anker</td><td>5年质保(市场最长); 146国覆盖</td><td>SOLIX C1000, F2000, F3800, C800 Plus</td><td>vecharged.com, 2025</td></tr>
+</table>
+<p><strong>趋势：</strong>LiFePO4电池化学成为标准(3,000+循环, 8-10年寿命)；快速充电(<1小时)；高容量竞赛(Jackery 5000 Plus可扩展至60kWh)。</p>
+
+<h3>V2L — 新兴game-changer</h3>
+<table>
+<tr><th>车辆</th><th>V2L输出</th><th>关键特征</th></tr>
+<tr><td>Ford F-150 Lightning</td><td>9.6 kW</td><td>Pro Power Onboard, 多个120/240V插座</td></tr>
+<tr><td>Rivian R1T/R1S</td><td>7.7 kW</td><td>货箱+车内插座</td></tr>
+<tr><td>Chevrolet Silverado EV</td><td>10.2 kW</td><td>120/240V around bed and cabin</td></tr>
+<tr><td>BYD (多车型)</td><td>2.4-6 kW</td><td>集成V2L端口, 亚洲/澳洲流行</td></tr>
+<tr><td>AITO M9</td><td>6 kW</td><td>2.1m床, 160°零重力座椅, 卫星互联网</td></tr>
+</table>
+<p><strong>实际案例：</strong>挪威EV车主周末用V2L供电冰箱(80W)+咖啡机(1,300W)+炉灶(800W)+灯串(40W)，周末后剩余>50%电量。</p>
+
+<h3>Refrigeration（制冷）</h3>
+<p>全球便携户外冰箱市场 $1.17B (2024) → $1.82B (2032), CAGR 6.7%。亚太领先(34.2%份额)。</p>
+<table>
+<tr><th>品牌</th><th>总部</th><th>定位</th><th>关键产品</th></tr>
+<tr><td>Dometic</td><td>Sweden</td><td>全球市场领导者(按收入)</td><td>CFX5系列(WiFi, 2025改进隔热)</td></tr>
+<tr><td>Engel</td><td>Japan/AU</td><td>耐久性基准</td><td>MT系列(Sawafuji Swing Motor)</td></tr>
+<tr><td>ARB 4x4</td><td>Australia</td><td>越野overlanding</td><td>Zero + Elements系列(2025升级)</td></tr>
+<tr><td>BougeRV / Alpicool</td><td>China</td><td>中端市场增长</td><td>Dual-zone, app控制, 性价比</td></tr>
+</table>
+<p><strong>趋势：</strong>压缩机型号主导(58.4%份额)；双区架构快速扩展；app/WiFi控制(Dometic CFX5, BougeRV)；slide mount与收纳系统集成。</p>
+
+<h3>Sleeping（睡眠）</h3>
+<table>
+<tr><th>品牌</th><th>产品</th><th>关键特征</th><th>价格</th></tr>
+<tr><td>iKamper</td><td>Skycamp 3.0 Mini</td><td>适配所有车辆(含Mini Cooper), <60秒, 蜂窝铝, 隔热</td><td>$3,699</td></tr>
+<tr><td>Roofnest</td><td>Falcon 3 EVO / Condor 2 XL Air</td><td>45秒/4季 / 大型折叠, glamping级舒适</td><td>$3,495 / Premium</td></tr>
+<tr><td>Luno</td><td>Custom-fit air mattresses</td><td>将普通SUV变成"睡眠舱"</td><td>Budget-Mid</td></tr>
+<tr><td>CargoKits</td><td>Slide-forward sleeping platform</td><td>2人睡, 不需拆座椅</td><td>Premium</td></tr>
+</table>
+
+<h3>Lighting（照明）</h3>
+<ul>
+<li><strong>集成awning照明：</strong>几乎所有premium 270° awning现在内置LED灯带(Darche, CampBoss, 23Zero, Tuff Terrain, Hard Korr — 均有双/三色LED)</li>
+<li><strong>复古LED灯笼：</strong>TikTok驱动趋势, USB充电, 4种模式, 360°旋转 ($12.28 avg, 10,055 units/month)</li>
+<li><strong>电源站集成照明：</strong>Anker SOLIX C800 Plus内置LED灯+伸缩杆</li>
+</ul>
+
+<h2>5.4 产品设计趋势总结</h2>
+
+<table>
+<tr><th>维度</th><th>趋势</th><th>证据强度</th><th>代表品牌</th></tr>
+<tr><td>Ease of Use</td><td>快速搭建是#1设计优先级；品牌竞速搭建时间；22%新手最大障碍是"不会用装备"</td><td><span class="conf-high">High</span></td><td>iKamper, Roofnest, Coleman, Decathlon, Mobi Garden</td></tr>
+<tr><td>Deployment</td><td>Pop-up/弹出/一键展开从帐篷扩展到RTT、awning、厨房；免工具安装成为标配</td><td><span class="conf-high">High</span></td><td>Decathlon Quechua, iKamper, Darche, ARB</td></tr>
+<tr><td>Modularity</td><td>功能性模块化(premium, 数十年耐用) vs 新奇模块化(accessible, 趋势驱动)清晰分化</td><td><span class="conf-high">High</span></td><td>Snow Peak IGT, Front Runner, Goose Gear vs SheIn, PRIMITIVE</td></tr>
+<tr><td>Vehicle Integration</td><td>从Vehicle→Camp→Living形成完整产品生态；组件间开始互通(awning灯由电源站供电, 冰箱在抽屉滑轨上, RTT通过awning拉链可达)</td><td><span class="conf-high">High</span></td><td>ARB, Goose Gear, Front Runner, Dirtbox</td></tr>
+<tr><td>Lifestyle Design</td><td>颜色/设计成为购买驱动力(43% vs 28%专业参数)；军绿→Morandi色系；streetwear-fashion跨界</td><td><span class="conf-high">High</span></td><td>PRIMITIVE, Mobi Garden, NEIGHBORHOOD x Helinox, SheIn</td></tr>
+<tr><td>V2L Integration</td><td>EV V2L正在改变车辆露营电力方案；中国独有强度；全球新兴</td><td><span class="conf-high">High</span> (CN) / <span class="conf-medium">Medium</span> (Global)</td><td>BYD, Li Auto, Ford F-150 Lightning, Rivian</td></tr>
+</table>
+
+<!-- ============================================================ -->
+<hr id="d6">
+<h1>Deliverable 6: Evidence Library</h1>
+
+<table>
+<tr>
+<th>Claim</th><th>Evidence</th><th>Geography</th><th>Date</th><th>Source</th><th>Source Type</th><th>Confidence</th>
+</tr>
+<tr><td>52.2M NA households camped in 2025, +24.3% vs 2019</td><td>KOA 12th Annual Camping Report: 52.2M households; 66% of US households camped; peak 58.5M in 2022</td><td>US/CA</td><td>2025-2026</td><td>KOA Camping & Outdoor Hospitality Report (sgbonline.com, rvnews.com)</td><td>Industry Association</td><td><span class="conf-high">High</span></td></tr>
+<tr><td>Overlanding 12M Americans 2025, +50% from 8M in 2024</td><td>Overland Expo 2025 Industry Report: 1,200+ overlander surveys, 178 brand surveys; 2.9M identify as overlanders</td><td>US</td><td>Aug 2025</td><td>Overland Expo / rv-pro.com / rvnews.com</td><td>Industry Report</td><td><span class="conf-high">High</span></td></tr>
+<tr><td>US outdoor recreation = $1.257T gross output (2024), 2.4% of GDP</td><td>BEA (Bureau of Economic Analysis) government data: $696.7B value-added, 5.2M jobs, grew 84.2% since 2012</td><td>US</td><td>Mar 2026</td><td>bea.gov</td><td>Government</td><td><span class="conf-high">High</span></td></tr>
+<tr><td>Australia 908,513 registered RVs (Jan 2024), AU$27.1B industry</td><td>CIAA State of the Industry Report, 10th edition</td><td>AU</td><td>May 2025</td><td>caravanindustry.com.au / assets.pc.gov.au</td><td>Industry Association</td><td><span class="conf-high">High</span></td></tr>
+<tr><td>Germany 44.7M camping overnights (2025), +24.9% vs 2019</td><td>Destatis (Federal Statistical Office): camping = 9.0% of all guest overnights</td><td>DE</td><td>2026</td><td>Destatis / magdeburg-klickt.de</td><td>Government</td><td><span class="conf-high">High</span></td></tr>
+<tr><td>Japan 5.9M auto campers (2024), -1.7% YoY but above pre-pandemic</td><td>JACF Auto Camping White Paper 2025: 93.1% intend to continue; avg 5.0 trips/person/year</td><td>JP</td><td>Jul 2025</td><td>JACF / moderncampground.com</td><td>Industry Association</td><td><span class="conf-high">High</span></td></tr>
+<tr><td>China self-drive = 77.4% of all travel modes; ¥1.5T market</td><td>China Tourism Vehicle & Boat Association report; Ministry of Culture & Tourism data</td><td>CN</td><td>2024-2025</td><td>zgcsb.com / finance.people.com.cn</td><td>Government/Industry</td><td><span class="conf-high">High</span></td></tr>
+<tr><td>China NEV penetration >50% (Oct 2025); V2L standard feature</td><td>CAAM data; NEV share 40.9% (2024), 47.5% Jan-Nov 2025, 51.6% monthly Oct 2025</td><td>CN</td><td>2025</td><td>gov.cn / CAAM</td><td>Government</td><td><span class="conf-high">High</span></td></tr>
+<tr><td>China 宿营车 sales +85.61% (2025); 旅居车 +12.87%</td><td>China Report Hall / 21RV.com market data</td><td>CN</td><td>2025</td><td>chinabgao.com / 21RV.com</td><td>Industry Research</td><td><span class="conf-medium">Medium</span></td></tr>
+<tr><td>RV shipments 342,220 units US 2025 (+2.5%), 90% towable</td><td>RVIA monthly shipment reports Dec 2025</td><td>US</td><td>Dec 2025</td><td>rvia.org</td><td>Industry Association</td><td><span class="conf-high">High</span></td></tr>
+<tr><td>Gen Z+Millennials = 72% of new overlanders; 41% under 30</td><td>Overland Expo 2025: 1,200+ surveys</td><td>US</td><td>Aug 2025</td><td>rvnews.com</td><td>Industry Report</td><td><span class="conf-high">High</span></td></tr>
+<tr><td>53% of campers bring dogs; JP 81% campgrounds pet-friendly</td><td>KOA 2025 report; JACF White Paper 2025</td><td>US/JP</td><td>2025</td><td>KOA / moderncampground.com</td><td>Industry Association</td><td><span class="conf-high">High</span></td></tr>
+<tr><td>VALA ~70% users women aged 25-40; market share 60% in camper segment</td><td>VALA data via industry media</td><td>CN</td><td>2025</td><td>toutiao.com</td><td>Media (industry)</td><td><span class="conf-medium">Medium</span></td></tr>
+<tr><td>Douyin #房车自驾游 650B+ views; #房车生活 100B+ views</td><td>Douyin platform data cited in industry media</td><td>CN</td><td>2025</td><td>Multiple Chinese media citing Douyin</td><td>Social Platform</td><td><span class="conf-medium">Medium</span> — view count from media citations, not directly verified</td></tr>
+<tr><td>TikTok #camping ~18B cumulative views globally</td><td>Industry source citing TikTok 2024 Q2 data; NA >45% of views</td><td>Global</td><td>2024</td><td>10100.com encyclopedia</td><td>E-commerce encyclopedia</td><td><span class="conf-low">Low</span> — commercial source, verify before reuse</td></tr>
+<tr><td>US hotels: real ADR ~1.7% below 2019 levels (inflation-adjusted)</td><td>CoStar/STR data; ADR trailed inflation in 2/3 of past 36 months</td><td>US</td><td>2024-2025</td><td>costar.com / ten-x.com / hoteldata.com</td><td>Industry Data</td><td><span class="conf-high">High</span></td></tr>
+<tr><td>SUVs+trucks = 75% of US 2024 light-vehicle registrations</td><td>JATO Dynamics data</td><td>US</td><td>2024-2025</td><td>theshopmag.com / autos.yahoo.com</td><td>Trade Media (citing JATO)</td><td><span class="conf-high">High</span></td></tr>
+<tr><td>China off-road SUV sales 940K units 2024, +70% YoY</td><td>Industry analysis data</td><td>CN</td><td>2024-2025</td><td>cht.chinabgao.com</td><td>Industry Analysis</td><td><span class="conf-medium">Medium</span></td></tr>
+<tr><td>NZ freedom camping green warrant mandatory (rentals Dec 2024, private Jun 2025)</td><td>MBIE legislation; Self-Containment Standard NZS 5465; fines NZ$400-2,400</td><td>NZ</td><td>2024-2025</td><td>MBIE / lonelyplanet.nl / wildaboutnz.co.nz</td><td>Government</td><td><span class="conf-high">High</span></td></tr>
+<tr><td>UK motorhome sales +38%; touring caravan sales -12.7% (2024)</td><td>NCC data; Pitchup.com: only 16% reservations from touring caravans, 50%+ from campervans</td><td>UK</td><td>2024-2025</td><td>NCC / Pitchup.com / campsites.co.uk</td><td>Industry Association</td><td><span class="conf-high">High</span></td></tr>
+<tr><td>Korea camper registrations crashed -81.4% from 2021 peak</td><td>Ministry of Land, Infrastructure and Transport data; Carisyou</td><td>KR</td><td>2024-2025</td><td>openvan.camp / moderncampground.com</td><td>Government/Industry</td><td><span class="conf-high">High</span></td></tr>
+<tr><td>Global RTT market US$270-394M (2024/25), CAGR 7.4-8.9%; NA ~38-40%</td><td>Multiple market research firms (Global Growth Insights, DataHorizzon, PMResearch)</td><td>Global</td><td>2024-2026</td><td>Multiple market research reports</td><td>Market Research</td><td><span class="conf-medium">Medium</span> — estimates vary by scope definition</td></tr>
+<tr><td>EcoFlow 25.8% global portable power station market share</td><td>Industry analysis</td><td>Global</td><td>2024-2025</td><td>vecharged.com / explorerapproved.com</td><td>Industry Media</td><td><span class="conf-medium">Medium</span></td></tr>
+<tr><td>Global portable outdoor fridge market $1.17B (2024) → $1.82B (2032)</td><td>Multiple market research reports</td><td>Global</td><td>2024-2025</td><td>intelmarketresearch.com / pmarketresearch.com</td><td>Market Research</td><td><span class="conf-medium">Medium</span></td></tr>
+<tr><td>Japan 1,200+ Michi-no-Eki; 580 RV Parks (target 1,000 by 2027)</td><td>JRVA data; Lawson RV Park experiment (6 stores, Jul 2025-Jun 2026)</td><td>JP</td><td>2025</td><td>JRVA / vantripjapan.jp / itmedia.co.jp</td><td>Industry Association</td><td><span class="conf-high">High</span></td></tr>
+<tr><td>France 2,200 France Passion stopovers + 500+ Camping-Car Park sites</td><td>France Passion network; Camping-Car Park: 3.3M nights (2023), avg €12/night</td><td>FR</td><td>2023-2025</td><td>UNI VDL / FNHPA / openvan.camp</td><td>Industry Association</td><td><span class="conf-high">High</span></td></tr>
+<tr><td>Germany 3,202 campgrounds, 240,000 pitches; €15.1B industry</td><td>CIVD / Destatis / BVCD; 96,392 new registrations 2024; Caravan Salon 255K visitors</td><td>DE</td><td>2024-2025</td><td>CIVD / camperchamp.com / openvan.camp</td><td>Industry Association</td><td><span class="conf-high">High</span></td></tr>
+<tr><td>China camping economy core market ¥213.97B (2024) → ¥248.32B (2025E)</td><td>iiMedia Research</td><td>CN</td><td>2024-2025</td><td>iimedia.cn</td><td>Industry Research</td><td><span class="conf-medium">Medium</span></td></tr>
+<tr><td>US NPS record 331.9M recreation visits (2024); 56% campers struggle to find sites</td><td>NPS data; The Dyrt survey</td><td>US</td><td>2024-2025</td><td>NPS / The Dyrt</td><td>Government/Industry</td><td><span class="conf-high">High</span></td></tr>
+<tr><td>US digital nomads 18.5M (2025), +153% vs 2019, but growth +2.2% YoY</td><td>MBO Partners State of Independence</td><td>US</td><td>2025</td><td>MBO Partners via axis-intelligence.com / employerrecords.com</td><td>Industry Survey</td><td><span class="conf-medium">Medium-High</span></td></tr>
+</table>
+
+<div class="note">
+<strong>数据口径警告：</strong>以下市场数字来自不同统计口径，不可混用——
+<ul>
+<li><strong>Camping Equipment Market</strong> ($89.8B 2024, Fortune Business Insights) — 含所有露营装备，不限车辆露营</li>
+<li><strong>RV Market</strong> (RVIA shipments 342K units 2025) — 仅RV车辆出货量，不含装备/配件</li>
+<li><strong>Overlanding Market</strong> (12M participants) — 参与人数，非市场规模</li>
+<li><strong>Outdoor Recreation Market</strong> ($1.257T, BEA) — 含全部户外休闲经济，远超露营</li>
+<li><strong>Car Camping Market</strong> — 无统一权威定义；不同研究机构覆盖范围差异大</li>
+<li><strong>China Camping Economy</strong> (¥108.49B 2024) — 含全部露营经济(含glamping/营地/服务)，非仅装备</li>
+</ul>
+</div>
+
+<!-- ============================================================ -->
+<hr id="d7">
+<h1>Deliverable 7: Open Questions</h1>
+
+<p>以下问题在 Phase 1 研究中无法充分回答，需要在 Phase 2 深入研究。</p>
+
+<h2>7.1 市场规模与口径问题</h2>
+<ol>
+<li><strong>"Vehicle Camping Market"的权威市场规模不存在。</strong>现有数据要么是Camping Equipment Market(含全部露营装备)、RV Market(仅车辆出货)、或Outdoor Recreation Economy(含全部户外)。需要一个专门针对"vehicle-based camping"的装备+服务市场规模估算。Phase 2应尝试通过自下而上的方式(各品类相加)构建估算。</li>
+<li><strong>RTT市场数据差异大：</strong>不同研究机构给出US$270M-$394M(2024/25)，差异源于scope定义(是否含车架/配件/安装)。需要确认统一口径。</li>
+<li><strong>中国床车市场规模无法量化。</strong>数百万辆普通私家车被DIY改装为床车，但这部分完全不在任何官方统计中。如何估算这一"隐形市场"的实际经济规模？</li>
+<li><strong>韩国市场整体数据矛盾。</strong>一方面camper registrations -81.4%，另一方面overall outdoor/camping market ₩7T (2024) projected ₩10T by 2028 (CAGR 12%)。需确认这两个数字是否覆盖不同范围。</li>
+</ol>
+
+<h2>7.2 消费者行为问题</h2>
+<ol>
+<li><strong>SUV车队组成与露营参与之间的因果关系未被证明。</strong> SUV普及是enabler还是correlation？Phase 2需要消费者调研数据。</li>
+<li><strong>V2L对露营参与的实际驱动力有多大？</strong>在中国V2L是刻意产品策略，但有多少EV车主因V2L功能而开始露营(而非已有露营习惯者购买了EV)？</li>
+<li><strong>社交媒体的因果角色。</strong>社媒是发现渠道(68%用于找目的地)，但有多少人因社媒内容而首次尝试车辆露营(而非已有兴趣者通过社媒获取信息)？</li>
+<li><strong>女性消费者的产品需求差异。</strong>现有数据表明女性优先考虑design philosophy/balance/home-like logic/hot showers/organization/ease of cleaning，但缺乏系统的产品需求研究。Phase 2需要专门的women in vehicle camping消费者调研。</li>
+<li><strong>不同汽车露营形式的消费者重叠程度。</strong>一个overlander是否也是car camper？一个車中泊用户是否也auto camp？跨形式参与的数据不存在。</li>
+</ol>
+
+<h2>7.3 市场成熟度问题</h2>
+<ol>
+<li><strong>中国市场处于哪个阶段？</strong>同时呈现Stage 3(lifestyle adoption, 床车/EV/社媒驱动)和Stage 1/2(基础设施不完善、法规演进中)。是否需要修改模型以容纳"跨阶段共存"市场？</li>
+<li><strong>韩国的boom-bust是否预示其他市场的未来？</strong>中国是否可能经历类似调整？哪些因素可以防止boom-bust？</li>
+<li><strong>东南亚市场的发展路径。</strong>是从overlanding routes自然发展(如澳大利亚)，还是需要政府基础设施投资驱动(如中国)？</li>
+<li><strong>法规对市场发展的影响程度。</strong>NZ self-containment law塑造了整个市场；中国C6 license和20省试点的影响有多大？其他国家是否有类似法规变动预期？</li>
+</ol>
+
+<h2>7.4 产品与品牌问题</h2>
+<ol>
+<li><strong>功能性模块化与新奇模块化的市场边界在哪里？</strong>Snow Peak IGT同时服务两种需求。一个品牌能否同时覆盖两个市场？还是必须选择？</li>
+<li><strong>V2L对便携电源站市场的影响。</strong>EV车主是否还会购买便携电源站？还是V2L将替代这一需求？目前EcoFlow/Jackery等品牌如何看待这一威胁？</li>
+<li><strong>中国户外品牌(Snow Peak, Mobi Garden, Naturehike)在车辆露营specific产品上的布局如何？</strong>这些品牌目前主要做一般露营装备，是否有专门的vehicle camping产品线？</li>
+<li><strong>车辆集成产品的售后/安装渠道。</strong>ARB/Goose Gear等产品需要专业安装。在不同市场，安装渠道的成熟度如何？这是否是品牌进入的瓶颈？</li>
+<li><strong>快速搭建产品的耐久性。</strong>Pop-up帐篷和快速展开RTT的机械复杂度更高。长期耐久性数据缺乏。品牌声称的"setup in 60 seconds"是否在反复使用后仍成立？</li>
+</ol>
+
+<h2>7.5 区域市场深度问题</h2>
+<ol>
+<li><strong>中国床车用户的具体画像和消费行为。</strong>这一"隐形市场"的数百万用户是谁？他们买什么装备？花费多少？在哪里露营？目前只有社媒观察，缺乏系统调研。</li>
+<li><strong>日本車中泊与auto camping用户的重叠。</strong>同一个用户是否在不同场景下使用两种形式？产品需求如何不同？</li>
+<li><strong>德国制造hub对全球产品创新的影响。</strong>Hymer/Knaus Tabbert等制造商的产品创新(如CrossOver/CrossTrail off-grid系列)是否影响global产品趋势？还是主要服务欧洲市场？</li>
+<li><strong>澳大利亚4WD accessory culture的全球影响力。</strong>ARB/Darche等澳洲品牌的产品哲学如何影响global vehicle camping产品趋势？</li>
+<li><strong>东南亚overlanding route网络的商业化潜力。</strong>目前以国际overlanders为主。本地中产阶级是否会形成消费市场？时间框架？</li>
+</ol>
+
+<h2>7.6 供应链与制造问题</h2>
+<ol>
+<li><strong>中国制造的车辆露营装备在全球供应链中的角色。</strong>澳大利亚83%露营进口来自中国；YAKIMA南京工厂供应东南亚。哪些品类已经中国制造主导？哪些仍由西方/澳洲/日本品牌本地制造？</li>
+<li><strong>premium overland gear的制造壁垒。</strong>ARB/Goose Gear/Alu-Cab等产品是否依赖特定制造工艺/材料/专利？中国制造商能否进入这一segment？</li>
+<li><strong>EV露营配件的供应链成熟度。</strong>V2L适配器、EV专用露营装备(静音发电机替代、智能温控等)的供应链是否已形成？还是仍是碎片化早期状态？</li>
+</ol>
+
+<div class="footer">
+<p>SHINETRIP 山趣户外 — Phase 1 Research Pack: Global Vehicle Camping</p>
+<p>Research Date: August 15, 2026 | Compiled from multi-source web research</p>
+<p style="margin-top:10px; font-style:italic;">Research first. Conclusion later. 本文件为事实基础研究，不包含结论性判断或品牌建议。所有数据标注原始来源。证据不足之处明确标注。</p>
+</div>
+
+</body>
+</html>
