@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Daily 2026-09-05 | AI Coding & Embodied Intelligence</title>
+  <style>
+    :root { --bg:#fff; --text:#1a1a1a; --sub:#555; --line:#e5e5e5; --accent:#2563eb; --tag:#f3f4f6; }
+    * { box-sizing:border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif; background:var(--bg); color:var(--text); margin:0; padding:32px 24px; line-height:1.55; }
+    .wrap { max-width:720px; margin:0 auto; }
+    header { border-bottom:2px solid var(--text); padding-bottom:12px; margin-bottom:24px; }
+    h1 { font-size:22px; margin:0 0 6px; letter-spacing:-0.3px; }
+    .meta { font-size:12px; color:var(--sub); }
+    .card { border:1px solid var(--line); border-radius:6px; padding:16px; margin-bottom:16px; }
+    .card-header { display:flex; align-items:flex-start; gap:10px; margin-bottom:10px; }
+    .num { width:22px; height:22px; border-radius:50%; background:var(--text); color:#fff; font-size:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px; }
+    .title { font-size:15px; font-weight:600; margin:0; }
+    .tag { display:inline-block; font-size:11px; color:var(--sub); background:var(--tag); padding:2px 7px; border-radius:3px; margin-top:6px; }
+    .why { margin-top:10px; }
+    .why strong { font-size:12px; color:var(--accent); }
+    p { font-size:13.5px; color:var(--text); margin:0 0 6px; }
+    p:last-child { margin-bottom:0; }
+    footer { margin-top:24px; font-size:11px; color:var(--sub); border-top:1px solid var(--line); padding-top:10px; }
+    a { color:var(--accent); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>AI Daily · 2026-09-05</h1>
+      <div class="meta">Focus: AI Coding & Embodied Intelligence | 3-5 curated items</div>
+    </header>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="num">1</div>
+        <div>
+          <h2 class="title">英伟达 129 亿美元收购 Hugging Face，承诺保持开源中立</h2>
+          <span class="tag">AI Infrastructure / 开源生态</span>
+        </div>
+      </div>
+      <p>9 月 3 日，NVIDIA 正式宣布以约 <strong>129.3 亿美元</strong> 收购开源模型平台 Hugging Face。Hugging Face 托管超 300 万模型、数据集与 Spaces 应用，是开源 AI 的事实中心。黄仁勋承诺平台将继续保持中立开放，并支持 AMD ROCm、Google TPU 等非 NVIDIA 硬件。</p>
+      <div class="why"><strong>Why it matters：</strong>这是 AI 基础设施领域迄今最大规模并购之一。对开发者而言，Transformers、Diffusers、Gradio 等工具链短期不受影响；长期需关注开源模型托管渠道多元化，避免单一平台依赖。同时，Hugging Face 与 CUDA/NIM 的整合可能重塑模型部署与推理服务格局。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="num">2</div>
+        <div>
+          <h2 class="title">Meta 发布 Muse Spark 1.3：编码能力宣称超越 GPT-5.6 Sol，工具调用减少 20%</h2>
+          <span class="tag">AI Coding / 编码 Agent</span>
+        </div>
+      </div>
+      <p>9 月 2 日，Meta 发布 Muse Spark 1.3，官方称其编码能力超越 OpenAI GPT-5.6 Sol、持平 Anthropic Claude Fable 5.1。新版本针对长程 Agent 任务优化，工具调用次数下降约 20%，同等任务 token 消耗减少 25%，并能在指令模糊时主动澄清、关键操作前请求确认。</p>
+      <div class="why"><strong>Why it matters：</strong>价格维持 $1.25/$4.25 不变的情况下提升效率，意味着单位任务成本显著下降。对于依赖 AI 完成大量编码、测试、重构任务的团队，这是降低 Agent 工作流运行成本与提升可靠性的直接利好。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="num">3</div>
+        <div>
+          <h2 class="title">Perplexity 将开源 Lily：Apple Silicon 本地推理引擎，比 MLX-LM 快 35%</h2>
+          <span class="tag">Local AI / 推理优化</span>
+        </div>
+      </div>
+      <p>Perplexity 公布专为 Apple Silicon 设计的本地推理引擎 Lily，基于 Rust 运行时与自研 Metal 内核，执行路径完全不依赖 PyTorch 或 MLX。在 128GB 统一内存的 M5 Max 上，prompt 处理比 MLX-LM 快 23%，token 生成快 35%。</p>
+      <div class="why"><strong>Why it matters：</strong>本地推理正从通用框架走向“模型级专用内核”。随着编码 Agent 让写新代码成本极低，为特定模型定制推理引擎变得经济可行。Lily 开源后，对端侧 AI、隐私敏感场景及 Mac 为主力开发环境的团队是重要信号。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="num">4</div>
+        <div>
+          <h2 class="title">广东“十骏”人形机器人亮相中博会具身智能展</h2>
+          <span class="tag">Embodied Intelligence / 人形机器人</span>
+        </div>
+      </div>
+      <p>9 月 4 日，第二十一届中国国际中小企业博览会具身智能展在广州开幕。广东“十骏”——逐际动力、自变量、智平方、乐聚、众擎、美的、小鹏、荣耀、优必选、越疆——携核心产品集体亮相，覆盖核心零部件、人形整机、AI 算法与行业应用。乐聚展出了全球首款 5G-A 人形机器人 Kuavo，逐际动力 LimX Luna 可完成跳跃、一字马等高难度动作。</p>
+      <div class="why"><strong>Why it matters：</strong>广东省工信厅称广东拥有全国最完整的具身智能产业链配套体系。“十骏”同台标志中国人形机器人产业从技术攻关进入落地应用方阵，供应链、整机厂与应用场景开始形成区域集群效应。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="num">5</div>
+        <div>
+          <h2 class="title">机器人“大脑”路线之争：VLA 与世界模型走向融合</h2>
+          <span class="tag">Embodied Intelligence / VLA / 世界模型</span>
+        </div>
+      </div>
+      <p>2026 世界机器人大会（WRC）期间，行业讨论重心从“端到端是不是答案”转向“VLA vs 世界模型 vs 大一统模型”哪一个更适合机器人大脑。清华大学苏航判断，VLA 与世界模型并非二选一，未来更可能是融合架构：VLA 负责动作生成，世界模型负责状态预测与反馈校正。擎朗智能发布的 KOM 3.0 被定位为全球首个融合潜空间世界模型的服务行业 VLA 架构，机器人可在执行动作前内部预演物理结果。</p>
+      <div class="why"><strong>Why it matters：</strong>具身智能竞争焦点正从“谁能动”转向“谁会想”。融合 VLA + 世界模型有望显著降低机器人在真实环境中的试错成本，加速服务、工业、物流等场景的常态化上岗。</div>
+    </div>
+
+    <footer>
+      生成时间：2026-09-05 14:00 CST · 来源：博客园 iTech、腾讯新闻、AGI Hunt、HeadsUpAI 等公开报道
+    </footer>
+  </div>
+</body>
+</html>
