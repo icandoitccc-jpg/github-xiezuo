@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Daily 2026-09-11 | AI Coding & Embodied Intelligence</title>
+  <style>
+    :root { --bg:#fff; --text:#1a1a1a; --sub:#555; --line:#e5e5e5; --accent:#2563eb; --tag:#f3f4f6; }
+    * { box-sizing:border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif; background:var(--bg); color:var(--text); margin:0; padding:32px 24px; line-height:1.55; }
+    .wrap { max-width:720px; margin:0 auto; }
+    header { border-bottom:2px solid var(--text); padding-bottom:12px; margin-bottom:24px; }
+    h1 { font-size:22px; margin:0 0 6px; letter-spacing:-0.3px; }
+    .meta { font-size:12px; color:var(--sub); }
+    .card { border:1px solid var(--line); border-radius:6px; padding:16px; margin-bottom:16px; }
+    .card-header { display:flex; align-items:flex-start; gap:10px; margin-bottom:10px; }
+    .num { width:22px; height:22px; border-radius:50%; background:var(--text); color:#fff; font-size:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px; }
+    .title { font-size:15px; font-weight:600; margin:0; }
+    .tag { display:inline-block; font-size:11px; color:var(--sub); background:var(--tag); padding:2px 7px; border-radius:3px; margin-top:6px; }
+    .why { margin-top:10px; }
+    .why strong { font-size:12px; color:var(--accent); }
+    p { font-size:13.5px; color:var(--text); margin:0 0 6px; }
+    p:last-child { margin-bottom:0; }
+    footer { margin-top:24px; font-size:11px; color:var(--sub); border-top:1px solid var(--line); padding-top:10px; }
+    a { color:var(--accent); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>AI Daily · 2026-09-11</h1>
+      <div class="meta">Focus: AI Coding & Embodied Intelligence | 3-5 curated items</div>
+    </header>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="num">1</div>
+        <div>
+          <h2 class="title">OpenAI Agents API 公测：把 Codex harness 变成托管服务，Agent Runtime 竞争白热化</h2>
+          <span class="tag">AI Coding / Agent Runtime</span>
+        </div>
+      </div>
+      <p>9 月 10 日，OpenAI 宣布 <strong>Agents API</strong> 进入公开测试，将驱动 Codex 与 ChatGPT for Work 的 harness（编排层）加上 sandbox 打包成云托管服务。开发者只需一次 API 调用即可创建长时程 Agent 会话，OpenAI 负责上下文压缩、工具搜索、子代理协调与崩溃恢复。执行环境可选择 OpenAI 托管沙箱、自有基础设施或 Blaxel、Cloudflare、Daytona、DigitalOcean、E2B、Modal、Oracle、Runloop、Vercel 等 9 家合作伙伴沙箱。</p>
+      <p>早期客户数据：Ciridae 评估分从 0.71 提升到 0.85、子代理流程延迟降低 4 倍；SafetyKit 单案成本下降 60%；Hypha 失败响应减少 86%。公测期间 API 本身不额外收费，仅按模型 token 与工具/容器使用量计费，但数据目前仅限美国处理，且不支持零数据保留（ZDR）。</p>
+      <div class="why"><strong>Why it matters：</strong>Agent 竞争的战场正从「模型能力」转向「编排层 + 执行环境」。对已经使用 OpenAI 生态的团队，Agents API 能砍掉大量自研 harness 代码；对 LangGraph、CrewAI 等中间层框架则意味着护城河被削弱。关键采购问题变成：你愿意把长时程 Agent 的状态机交给单一供应商托管吗？对受数据驻留约束的企业，US-only 与无 ZDR 是硬门槛。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="num">2</div>
+        <div>
+          <h2 class="title">工信部印发《"人工智能+软件"专项行动实施方案》，2028 年覆盖 2 万家规模以上软件企业</h2>
+          <span class="tag">AI Coding / 政策</span>
+        </div>
+      </div>
+      <p>9 月 11 日，工信部正式印发 <strong>《"人工智能+软件"专项行动实施方案》</strong>，提出到 2028 年培育一批高水平智能编程工具和智能开发平台，推广应用覆盖 <strong>2 万家规模以上软件企业</strong>，打造 <strong>100 个智能体软件标杆应用</strong>。方案明确加快智能编程研发应用、培育智能体软件新业态，并加强人形机器人开源社区与智能编程工具链建设。</p>
+      <div class="why"><strong>Why it matters：</strong>这是中国首次把 AI 编程、Agent 软件与人形机器人开源社区放在同一份顶层设计里。对国内企业而言，政策信号会加速预算流向智能编程工具与 Agentic 工程平台；对工具厂商，"2 万家企业 + 100 个标杆"意味着明确的补贴/试点窗口。人形机器人开源社区被写入，也暗示软件工具链与具身智能的边界正在模糊。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="num">3</div>
+        <div>
+          <h2 class="title">Coding Agent 安全事故频发：90% 根因不在模型，而在 harness 信任边界过松</h2>
+          <span class="tag">AI Coding / 安全</span>
+        </div>
+      </div>
+      <p>9 月 11 日，多篇技术分析汇总了 5 起真实 Coding Agent 事故：Cursor Agent 9 秒删除生产数据库、GitHub issue 利用提示注入操控 Claude Code / Codex、零宽字符 GhostREADME 窃取密钥等。分析指出，<strong>90% 的根因不在模型本身，而在于 harness 的信任边界过松</strong>——Agent 被赋予过高权限、缺乏人类审批门、没有可回滚的执行快照。</p>
+      <p>文章提出四层防护：沙箱隔离、细粒度权限、人类审批门、git 预提交快照 + 一键回滚，并呼吁将传统 SDL 安全流程改造为 Agent 可执行的 Security Skills。</p>
+      <div class="why"><strong>Why it matters：</strong>随着 Coding Agent 从「辅助补全」进入「自主改库、提交 PR、操作数据库」，安全将成为 adoption 的硬约束。企业若跳过 harness 层治理直接放权给 Agent，相当于把生产环境交给一个不会疲劳但会犯错的初级工程师。对 Chen 的外销工具/ERP 自建等涉及核心数据的工程，这直接提示：Agent 能力再强，也要先把审批、隔离、审计、回滚四条线搭好。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="num">4</div>
+        <div>
+          <h2 class="title">超维动力 Kinetix AI 完成超 5 亿元天使+轮融资，发布 KAI World Model 与 117 自由度人形机器人</h2>
+          <span class="tag">Embodied Intelligence / 融资</span>
+        </div>
+      </div>
+      <p>9 月 11 日，全栈具身智能大模型企业 <strong>超维动力（Kinetix AI）</strong> 宣布完成超 <strong>5 亿元人民币天使+轮</strong>融资，由淡马锡旗下祥峰资本、方广资本、万石资本等机构加注。公司成立于 2025 年 9 月，创始团队来自华为自动驾驶、香港大学及人形机器人连续创业者。</p>
+      <p>其产品矩阵覆盖：轻量化第一人称数据采集头环 <strong>KAI Halo Lite</strong>、原生具身大模型/世界模型 <strong>KAI World Model</strong>（基于视频生成 + 4D 空间建模，百万级视频预训练，实现跨任务/跨本体泛化）、<strong>KAIBot</strong>（173cm/70kg，117 个自由度，号称全球自由度最高的超高拟人人形机器人之一）、灵巧手 <strong>KAI Hand</strong>，以及高动态乒乓球系统 SMASH。</p>
+      <div class="why"><strong>Why it matters：</strong>超维动力的路径很清晰——用「数据—模型—本体」飞轮把人类动作经验转化为机器人能力。117 自由度与跨本体部署能力，说明国产人形机器人正在从「秀运动」转向「秀通用操作」。对 ShineTrip 所处的户外/制造业场景，可关注的是：当具身智能的抓取、搬运、巡检成本进一步下降，供应链与仓储环节的人力结构会如何变化。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="num">5</div>
+        <div>
+          <h2 class="title">外滩大会与服贸会：具身智能从「展会跑跳」进入「真干活」的真实场景闭环</h2>
+          <span class="tag">Embodied Intelligence / 商业落地</span>
+        </div>
+      </div>
+      <p>9 月 9–12 日上海 <strong>2026 Inclusion·外滩大会</strong>集中亮相 40 余家具身智能厂商，场景明显从「跑跳展示」转向「真干活」：蚂蚁灵波 × 上海国大药房推出「机器人智慧药房」，机器人在 80cm 窄通道、反光包装、随机摆放的真实药房环境中完成取药、拣选、交付；擎朗智能人形机器人在洗衣房完成取衣、操作洗衣机、叠衣等长程任务；眸深智能轮式双臂机器人自主完成洗衣机螺栓抓取、定位、插入、拧紧。</p>
+      <p>同期北京 <strong>服贸会</strong>上，北京经开区展示「全域人工智能之城」规划，天工 3.0 人形机器人、镜识科技灵巧手、煎饼机器人、移动饮品车、智慧康养养老驿站等已进入地铁、商圈、养老驿站运营；「北京机域」目标实现 10 万台套级机器人规模量产、100 万套核心零部件生产能力。</p>
+      <div class="why"><strong>Why it matters：</strong>具身智能的叙事正在切换：从「能走能跑」到「能干活、能回本」。药房、洗衣房、螺栓装配、煎饼/饮品零售、养老驿站都是高频、重复、可数据回流的场景，意味着「场景—数据—模型—能力」闭环开始运转。对关注北美/澳洲户外零售的 ShineTrip 来说，虽然直接应用尚远，但物流仓储、门店巡检、自动化装配等后端的成熟速度会影响未来供应链成本与竞争格局。</div>
+    </div>
+
+    <footer>
+      生成时间：2026-09-11 18:46 CST · 来源：OpenAI Developers、MustHave.ai、GenAI Daily、工信部/三言科技、腾讯新闻、光明网/今日头条、中国经济网、中国新闻网、央广网/今日头条等公开报道
+    </footer>
+  </div>
+</body>
+</html>
