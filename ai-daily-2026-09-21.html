@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Daily 2026-09-21 | AI Coding & Embodied Intelligence</title>
+  <style>
+    :root { --bg:#fff; --text:#1a1a1a; --sub:#555; --line:#e5e5e5; --accent:#2563eb; --tag:#f3f4f6; }
+    * { box-sizing:border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif; background:var(--bg); color:var(--text); margin:0; padding:32px 24px; line-height:1.55; }
+    .wrap { max-width:720px; margin:0 auto; }
+    header { border-bottom:2px solid var(--text); padding-bottom:12px; margin-bottom:24px; }
+    h1 { font-size:22px; margin:0 0 6px; letter-spacing:-0.3px; }
+    .meta { font-size:12px; color:var(--sub); }
+    .card { border:1px solid var(--line); border-radius:6px; padding:16px; margin-bottom:16px; }
+    .card-header { display:flex; align-items:flex-start; gap:10px; margin-bottom:10px; }
+    .num { width:22px; height:22px; border-radius:50%; background:var(--text); color:#fff; font-size:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px; }
+    .title { font-size:15px; font-weight:600; margin:0; }
+    .tag { display:inline-block; font-size:11px; color:var(--sub); background:var(--tag); padding:2px 7px; border-radius:3px; margin-top:6px; }
+    .why { margin-top:10px; }
+    .why strong { font-size:12px; color:var(--accent); }
+    p { font-size:13.5px; color:var(--text); margin:0 0 6px; }
+    p:last-child { margin-bottom:0; }
+    .note { font-size:12px; color:var(--sub); background:var(--tag); border-radius:4px; padding:8px 10px; margin-top:8px; }
+    .brief { border:1px solid var(--line); border-radius:6px; padding:14px 16px; margin-bottom:16px; }
+    .brief h2 { font-size:14px; margin:0 0 8px; }
+    .brief li { font-size:12.5px; color:var(--text); margin:0 0 6px; line-height:1.5; }
+    footer { margin-top:24px; font-size:11px; color:var(--sub); border-top:1px solid var(--line); padding-top:10px; }
+    a { color:var(--accent); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>AI Daily · 2026-09-21</h1>
+      <div class="meta">Focus: AI Coding &amp; Embodied Intelligence | 5 curated items + briefs</div>
+    </header>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="num">1</div>
+        <div>
+          <h2 class="title">TypeSafe Jev 爆红：不生成文本的「System One」决策模型，APUS 率先开源复现</h2>
+          <span class="tag">AI Coding / Agent 基础设施</span>
+        </div>
+      </div>
+      <p>9 月 15 日前 OpenAI 研究员 Diogo Almeida 创立的 TypeSafe AI 发布 <strong>Jev</strong>，一款不生成任何自然语言、只输出类型化决策（Choice / Score / Noul）与置信概率的「System One」模型。它不是聊天模型，而是面向 agent pipeline 里最高频的原子判断：工单该转给谁、下一步调用哪个工具、这段输出是否安全。官方称在分类决策任务上最快提速约 200 倍、成本最低降至约四百分之一，输入定价 $42/十亿 tokens，输出免费；Vercel 称其成为 AI Gateway 史上被采用最快的新模型，24 小时内接近 13% 付费团队使用。</p>
+      <p>爆火的同时，质疑与复现同步出现：Sebastian Raschka 认为飞跃来自数据与泛化而非新算法；ConvAI 创始人称 2025 年 3 月已有类似 arXiv 论文与开源权重；Delip Rao 指出 Jev 的判据类型可映射到他 8 个月前的 Autorubric 工作。9 月 19 日，中国 APUS 实验室发布全球首批独立开源复现 <strong>fast-browser-use</strong>，支持 macOS/Linux/Windows 纯本地离线运行，MIT 协议开放代码，把 Jev 的「跳过自回归解码、隐状态直接打分」机制落地到浏览器自动化场景。</p>
+      <div class="why"><strong>Why it matters：</strong>Jev 验证了 agent 架构的「快慢分工」：昂贵大模型负责规划等慢思考，高频原子判断交给轻量决策模型。如果这一分工成立，未来 agent 流水线将被拆成「系统二推理 + 系统一决策 + 工具执行」三层，推理成本曲线会显著下移。APUS 的快速复现也说明，Jev 的壁垒可能不在架构本身，而在工程封装、校准数据与生态接入速度。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="num">2</div>
+        <div>
+          <h2 class="title">Google 开源 AX：为 Agent 工作负载重新发明的「Kubernetes」</h2>
+          <span class="tag">AI Coding / Agent 运行时</span>
+        </div>
+      </div>
+      <p>9 月 20 日，Google 工程师 rakyll 在 GitHub 发布 <strong>AX（google/ax）</strong>，一个面向 agentic 工作负载的开源编排器与运行时，上线即获约 2k stars。AX 建立在 Google 的 Agent Substrate 之上，用声明式 YAML（Task / Workspace / Gateway / Model 四个原语）管理沙箱、网络策略、模型配置和长时间运行的有状态任务，支持 checkpoint / resume、ssh 进沙箱调试，并声称可将现有部署的 agent sandbox 密度提升 10–20 倍，目标单集群承载十亿级任务。</p>
+      <p>AX 的设计前提很直接：传统 K8s 假设服务是无状态的、快速启停的，而 agent 会积累状态、在模型响应时长时间空闲、可能因循环调用 API 而烧钱。因此需要新的执行抽象——有状态 actor、快速恢复、低成本空闲、严格网络围栏。项目仍处于 v1alpha1，Google 明确警告稳定前会有重大破坏性变更。</p>
+      <div class="why"><strong>Why it matters：</strong>云厂商开始把「agent 原生基础设施」当作下一个战场。AX 的开源意味着 Google 想先定义 agent 工作负载的编排范式，类似当年 K8s 定义容器编排。对企业而言，AX 提供了一条在自有 K8s 集群上运行大规模、可审计、可恢复 agent 的路径；对行业而言，它把「agent 不是微服务、也不是批处理」这一共识变成了可运行的代码。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="num">3</div>
+        <div>
+          <h2 class="title">TovanaEngine：给 Coding Agent 装上「仓库级经验记忆」</h2>
+          <span class="tag">AI Coding / 世界模型</span>
+        </div>
+      </div>
+      <p>一位开发者在 Reddit 开源了 <strong>TovanaEngine</strong>，一个面向 coding agent 的本地「世界模型」。它在超过 <strong>50,000 次真实 SWE-bench Verified agent 运行</strong>（覆盖 25 个模型）上训练，把 merge rate、review time、repo size 等行为信号混合成超过 100 万个 state-to-state 转移，让 agent 不再只依赖当前运行的上下文，而能基于历史经验判断「类似任务通常怎么成功、哪些路径容易浪费推理」。</p>
+      <p>TovanaEngine 完全本地运行在 Docker 中，无需账号、数据不出机器，提供 MCP 与 HTTP API。作者坦承这只是早期版本，更多模型在路上。与同日热议的 Jev 相对，TovanaEngine 解决的是另一个瓶颈：coding agent 的「记忆」——不是单次会话的上下文，而是跨任务、跨仓库、跨模型的经验累积。</p>
+      <div class="why"><strong>Why it matters：</strong>当前 coding agent 的最大短板之一，是每次启动都像第一次进仓库。TovanaEngine 尝试把「repo-level experience」变成可复用的模型权重，如果有效，将改变 agent 的训练与部署方式：企业可以用自己的代码库历史 fine-tune 一个私有世界模型，让 agent 熟悉内部框架、常见陷阱和代码风格。这是从「通用 agent」走向「企业专属 agent」的关键基础设施。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="num">4</div>
+        <div>
+          <h2 class="title">启元 Q1/T1 消费级人形正式开售：19,999 元起，首个接入腾讯 WorkBuddy 的具身智能企业</h2>
+          <span class="tag">Embodied Intelligence / 消费级商业化</span>
+        </div>
+      </div>
+      <p>9 月 20 日，上纬新材旗下启元机器人在上海西岸梦中心举办发布会，<strong>Q1（88cm 背包级人形）与 T1（可变形轮足/四足）正式开售</strong>，基础版均定价 19,999 元，Q1 探索版 26,999 元，T1 Pro 29,999 元，10 月 1 日起按订单顺序发货。据半年报披露，启元消费级机器人预收货款已达 2.1 亿元，线下体验店覆盖上海、广州、深圳、杭州等 7 城，首期万台级产线由蓝思科技旗下公司承接。</p>
+      <p>产品层面，Q1 全身 22 个柔顺力控自由度、可折叠入双肩包、支持 3D 打印外观定制；T1 主打「Transformer 跨形态一体架构」，可在轮足人形与四足形态间自主切换，最高移动速度 3m/s、载荷 3kg。生态层面，启元宣布 Q1/T1 正式接入 <strong>腾讯 WorkBuddy</strong>，成为首个接入该平台的具身智能企业——腾讯云将 WorkBuddy 定位为「大脑」，启元机器人作为「身体」，用户可通过自然语言调用 WorkBuddy 的技能生态。</p>
+      <div class="why"><strong>Why it matters：</strong>消费级人形首次以「2 万元以内」进入规模化销售阶段，预收款 2.1 亿若兑现将是 C 端市场最大规模的真金白银验证。与腾讯 WorkBuddy 的合作则验证了「云端 Agent 生态 + 消费级本体」的分工范式：硬件负责感知与执行，智能与技能由云端持续供给。这与宇树开源大脑、法拉第未来「一脑多形」共同指向 2026 年具身智能的胜负手——不在硬件参数，而在「大脑 + 生态 + 交付」的体系能力。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="num">5</div>
+        <div>
+          <h2 class="title">监管给具身智能 IPO 降温：宇树股价腰斩后，证监会窗口指导提高上市门槛</h2>
+          <span class="tag">Embodied Intelligence / 资本市场</span>
+        </div>
+      </div>
+      <p>9 月 21 日，Reuters 援引知情人士报道称，中国证监会正通过非正式「窗口指导」提高人形机器人企业的上市审批门槛，部分公司 IPO 进程实质放缓。导火索是宇树科技一个月前在上海上市后股价暴涨 5 倍以上，随后从高点回落约 55%；梅卡曼德上市即破发、创始人邵天兰公开质疑部分高估值企业靠「数据训练中心、关联交易、地方政府项目」做收入，也加剧了市场对估值泡沫的担忧。</p>
+      <p>监管审查的核心问题是收入质量：地方政府出资 80%–90% 的数采中心 / 合资公司订单，能否代表真实商业需求？知情人士称，若剥离这类收入，部分机器人公司估值可能下跌 60%–70%。目前至少 6 家人形机器人企业正筹备上市，包括云深处、自变量机器人、智元机器人等。业内普遍认为，收紧不代表政策支持退出，而是把筛选标准从「技术叙事 + 融资轮次」转向「实际部署、订单规模、可持续盈利」。</p>
+      <div class="why"><strong>Why it matters：</strong>资本市场是具身智能产业化的关键燃料。监管降温意味着行业从「 blanket euphoria（全面狂热）」进入「selective rationality（选择性理性）」：只靠 demo 和政府项目撑估值的阶段正在结束，接下来能拿到公共资金的必须是真有量产、真有订单、真有复购的企业。这对供应链、零部件厂和下游应用方的定价预期都会产生连锁影响。</div>
+    </div>
+
+    <div class="brief">
+      <h2>同日简讯 · Briefs</h2>
+      <ul>
+        <li>🏫 <strong>「机器人学校」全国超 70 家启用</strong>：中国信通院报告显示，截至 2026 年 6 月底全国已建成启用超 70 家具身智能训练场，另有 40 多家在建/规划；浙江 14 个、江苏/北京/广东/山东各 8 个。训练场正从单一数据采集向「算力 + 数据 + 模型 + 场景验证 + 供需对接」的公共产业底座转型，11 月 1 日《具身智能数据集质量要求及评估方法》行业标准将正式实施。</li>
+        <li>📊 <strong>ττ-bench：真实客户场景 agent 通过率仅 23.9%</strong>：把为未知客户交付 agent 当作真实合同工作，最佳配置 Claude Opus 5 + Claude Code 在 53 个 held-out 客户模拟中仅通过 23.9%，人类专家手写参考为 82.2%；失败主因是「检索了文档但没理解文档」。这说明当前 coding agent 在真实客户交付上仍有巨大鸿沟。</li>
+        <li>🧠 <strong>OpenAI 万级并发 agent 解 Navier–Stokes</strong>：约 10,000 个并发 agent 交换数百万条消息，88 小时得出结果，再花 17 小时做 Lean 形式化验证。该规模的核心难点是重复工作、矛盾假设与分支合并时机。</li>
+        <li>💰 <strong>Claude Code thinking budgets 被「静默减半」？</strong>：对 43,000 次 Claude Code 调用的 65 天分析显示，thinking budgets 中位数仅 123 tokens，用户怀疑 Anthropic 暗中削减了推理预算。若属实，意味着付费用户可能没拿到完整模型推理能力。</li>
+        <li>🛡️ <strong>AI coding agent 权限事故继续</strong>：Reddit 用户称某编码 agent 一次性删除约 48,000 个文件；另 AIR 9/17 披露的 Plugin4Shell 零点击 RCE（影响 Claude Code / Codex / Copilot / Gemini CLI）继续发酵，社区共识是 agent 不应自行 merge 代码，循环应停在 write / test / commit / PR。</li>
+      </ul>
+    </div>
+
+    <footer>
+      <div>Sources / 来源：<a href="https://agihunt.info/en/daily/2026-09-21">AGI HUNT · AI News Daily 2026-09-21</a> · <a href="https://www.cnr.cn/tech/techph/20260920/t20260920_527819594.shtml">央广网 · APUS 开源复现 Jev</a> · <a href="https://news.sciencenet.cn/htmlnews/2026/9/571794.shtm">科学网 · System One 模型 Jev</a> · <a href="https://wpnews.pro/news/google-ax-google-s-open-agentic-orchestrator">Web Pulse · Google AX</a> · <a href="https://agihunt.info/en/e/1a0bf4cab989902e0de0b6db3ed">AGI Hunt · TovanaEngine</a> · <a href="https://www.ithome.com/1/004/871.htm">IT之家 · 启元 Q1/T1</a> · <a href="https://finance.sina.com.cn/tech/shenji/2026-09-20/doc-inismvpe9367146.shtml">新浪科技 · 启元接入 WorkBuddy</a> · <a href="https://www.aol.com/articles/china-slows-humanoid-robot-ipo-030518000.html">Reuters / AOL · 中国放缓人形机器人 IPO</a> · <a href="http://adimg.ce.cn/cysc/newmain/yc/jsxw/202609/t20260921_3226395.shtml">中国经济网 · 机器人学校</a></div>
+      <div style="margin-top:6px;">Editor: WorkBuddy · Generated 2026-09-21 14:18 GMT+8 · 部分数据为厂商自述或媒体报道，未经第三方独立验证</div>
+    </footer>
+  </div>
+</body>
+</html>
