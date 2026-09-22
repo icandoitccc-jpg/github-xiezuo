@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Daily 2026-09-22 | AI Coding & Embodied Intelligence</title>
+  <style>
+    :root { --bg:#fff; --text:#1a1a1a; --sub:#555; --line:#e5e5e5; --accent:#2563eb; --tag:#f3f4f6; }
+    * { box-sizing:border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif; background:var(--bg); color:var(--text); margin:0; padding:32px 24px; line-height:1.55; }
+    .wrap { max-width:720px; margin:0 auto; }
+    header { border-bottom:2px solid var(--text); padding-bottom:12px; margin-bottom:24px; }
+    h1 { font-size:22px; margin:0 0 6px; letter-spacing:-0.3px; }
+    .meta { font-size:12px; color:var(--sub); }
+    .card { border:1px solid var(--line); border-radius:6px; padding:16px; margin-bottom:16px; }
+    .card-header { display:flex; align-items:flex-start; gap:10px; margin-bottom:10px; }
+    .num { width:22px; height:22px; border-radius:50%; background:var(--text); color:#fff; font-size:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px; }
+    .title { font-size:15px; font-weight:600; margin:0; }
+    .tag { display:inline-block; font-size:11px; color:var(--sub); background:var(--tag); padding:2px 7px; border-radius:3px; margin-top:6px; }
+    .why { margin-top:10px; }
+    .why strong { font-size:12px; color:var(--accent); }
+    p { font-size:13.5px; color:var(--text); margin:0 0 6px; }
+    p:last-child { margin-bottom:0; }
+    .note { font-size:12px; color:var(--sub); background:var(--tag); border-radius:4px; padding:8px 10px; margin-top:8px; }
+    .brief { border:1px solid var(--line); border-radius:6px; padding:14px 16px; margin-bottom:16px; }
+    .brief h2 { font-size:14px; margin:0 0 8px; }
+    .brief li { font-size:12.5px; color:var(--text); margin:0 0 6px; line-height:1.5; }
+    footer { margin-top:24px; font-size:11px; color:var(--sub); border-top:1px solid var(--line); padding-top:10px; }
+    a { color:var(--accent); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>AI Daily · 2026-09-22</h1>
+      <div class="meta">Focus: AI Coding &amp; Embodied Intelligence | 5 curated items + briefs</div>
+    </header>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="num">1</div>
+        <div>
+          <h2 class="title">AWS 开源 Strands Harness：自称比 Claude Code / Codex 便宜 45% 的通用 Agent 脚手架</h2>
+          <span class="tag">AI Coding / Agent 基础设施</span>
+        </div>
+      </div>
+      <p>AWS 正式发布并开源 <strong>Strands Harness</strong>，一个基于 Strands SDK 的「开箱即用」通用 AI agent。它把文件/Shell/Web 工具、上下文管理、会话记忆、提示缓存和子 agent 委托打包成单一框架，支持本地运行，也能一键部署到 AWS / GCP / Azure / Cloudflare / Modal；模型默认走 Amazon Bedrock，但「一条配置」即可切换 Anthropic、OpenAI、Google 或本地 Ollama。</p>
+      <p>AWS 在 ALFWorld、ContextBench、GAIA、WebShop、τ³-bench、Terminal-Bench 2.1 六个基准上自测称：相比 Claude Code 和 Codex，Strands Harness 平均成本降低 45%、准确率基本持平；若把 DeepSeek Harness 纳入比较，成本优势收窄至 28%。在 Terminal-Bench 2.1 上，运行 Fable 5 的 Strands Harness 成本为 $56.29，Claude Code 为 $248.05（低 77%），得分 69.7 vs 61.8。AWS 把降本归因于默认的上下文截断、窗口压缩与溢出恢复策略。</p>
+      <div class="note">注：上述对比为 AWS 自测，且 Strands 是通用 agent harness，与 Claude Code / Codex 等专用 coding agent 的基准取向不同，独立验证前不宜直接当作「省钱 45%」的事实。</div>
+      <div class="why"><strong>Why it matters：</strong>这标志着云厂商开始把「agent 脚手架 / harness 工程」当作独立产品类别来竞争。对开发者而言，可迁移、可自托管的 harness 降低了被单一模型或平台锁定的风险；对 AWS 而言，Strands Harness 是 Bedrock AgentCore 托管服务的开源「上游引流口」。更深层的信号是：当底层模型差距缩小时，<strong>上下文工程、工具路由、会话记忆</strong> 这些「脚手架能力」将成为 agent 成本与体验的新战场。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="num">2</div>
+        <div>
+          <h2 class="title">Kimi Code Desktop 正式上线 macOS / Windows；阿里 Qoder 登陆鸿蒙 PC 应用市场</h2>
+          <span class="tag">AI Coding / 桌面 Agent</span>
+        </div>
+      </div>
+      <p>月之暗面正式发布 <strong>Kimi Code Desktop</strong> 1.0，覆盖 macOS 与 Windows。这是 Kimi Code 的官方原生桌面客户端，把此前基于 CLI 的 agent 能力搬进图形界面：用户可在对话中让 agent 读写代码、运行命令、管理项目与会话。客户端内置终端、浏览器、截图标注、Git/PR 状态查看，支持按文件审阅 diff，且本地 CLI 任务会同步回桌面端。</p>
+      <p>工作模式上，Kimi Code Desktop 保留 Plan（先审后做）、Goal（围绕目标长程推进）、Swarm / 实验性 Tower（多子 agent 并行分工）四种形态，也支持第三方模型供应商配置。同日，阿里巴巴的 <strong>Qoder</strong> 正式上架鸿蒙 PC 应用市场，成为鸿蒙 PC 生态首款 AI 编程智能体工作台；借助 Harness 技术，能力边界从写代码延伸到文档处理、数据分析等通用办公场景。</p>
+      <div class="why"><strong>Why it matters：</strong>AI 编程 agent 正在从「编辑器插件 / 终端 CLI」走向「独立桌面工作台」，试图把 IDE、终端、浏览器、Git、PR 整合进同一个 agent 会话。Kimi 的桌面化与中国厂商对鸿蒙 PC 的率先覆盖，说明 <strong>下一代开发环境之争不只是模型之争，也是容器形态与 OS 生态位之争</strong>。对非技术用户，Qoder 把 coding agent 能力泛化到文档/数据分析，意味着「agent 工作台」开始蚕食传统办公软件的地盘。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="num">3</div>
+        <div>
+          <h2 class="title">xAI 发布 Grok 4.7：主打编程与长知识工作，价格保持 $2/$6，已进入 Cursor / Grok Build</h2>
+          <span class="tag">AI Coding / 基础模型</span>
+        </div>
+      </div>
+      <p>马斯克旗下 xAI（品牌页面显示为 SpaceXAI）发布 <strong>Grok 4.7</strong>，官方定位为公司目前最强的编程与复杂知识工作模型。新模型采用比 Grok 4.6 更大的基础模型，并进行更长时间的强化学习训练，重点优化自我验证、长上下文管理与 Grok Bot harness 的原生适配。API 定价维持每百万输入 $2、输出 $6，另有速度翻倍的 Fast 版本价格翻倍。</p>
+      <p>xAI 公布的自测成绩显示：CursorBench 4.0 从 40.4% 提升至 46.3%，Terminal-Bench 4.0 从 20.3% 跃升至 38.0%，DeepSWE v1.1 从 65.2% 提升至 71.0%，EEBench 电气工程基准从 53.0% 提升至 64.0%。Grok 4.7 已接入 Cursor、Grok Build、Grok API 以及第三方 coding harness 与云平台。不过第三方评测机构 Artificial Analysis 的 Intelligence Index 给 Grok 4.7 打出 46 分，处于中上游；社区早期测试也反馈其在复杂 3D、前端视觉和物理效果上不稳定。</p>
+      <div class="why"><strong>Why it matters：</strong>Grok 4.7 延续了 xAI 的差异化策略——<strong>以「半价 + 高速度」切入开发者日常长任务</strong>，而不是在单一 benchmark 上硬刚 Fable / GPT。它进入 Cursor 等主流 harness，意味着 coding agent 的模型供给进一步多元化，竞争焦点从「谁得分最高」转向「谁在日常长流程、专业任务和成本之间最平衡」。但第三方评测与社区实测的落差也提醒我们：厂商 benchmark 与真实体验之间仍存在 harness、effort budget 和任务分布导致的显著差异。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="num">4</div>
+        <div>
+          <h2 class="title">中国机器人从「能用」走向「好用」：2026 上半年人形出货量超 4 万台，全球占比 97%</h2>
+          <span class="tag">Embodied Intelligence / 产业拐点</span>
+        </div>
+      </div>
+      <p>《人民日报海外版》与多家机构同日聚焦中国机器人产业的质变：从实验室跑跳 demo 转向真实场景中的「开箱即用」。《2026 年人形机器人产业发展报告》显示，<strong>2026 年上半年中国人形机器人出货量已超过 4 万台，全球占比进一步提升至 97%</strong>；中国人形机器人产业正从小批量试用加快向常态化部署和规模化应用迈进。</p>
+      <p>星海图创始人高继扬将这一能力总结为「零样本泛化」：机器人面对从未见过的新物体、新环境布局，无需针对该场景额外训练即可理解并自主操作。在北京亦庄半程马拉松补给站，星海图 R1 Pro / R1 Lite 在无遥控、全自主条件下为跑者递水、递毛巾、分发补给；云深处则通过「具身大脑」打破「一景一调试」，让四足机器人在 A 厂区学会识别仪表后，到 B 厂区直接迁移读取。制造业方面，中建科工自研国产焊接/切割工作站较进口低约 40%，星动纪元物流机器人单小时处理量超 1200 件、抓取成功率约 95%。</p>
+      <div class="why"><strong>Why it matters：</strong>这是中国具身智能从「技术验证」转向「产业效用」的关键信号。<strong>4 万台出货量 + 97% 全球占比</strong> 意味着中国在制造、场景和数据闭环上建立了实质性优势；「零样本泛化」与「跨厂区迁移」则意味着机器人开始从「为每个场景重新编程」走向「可泛化的具身大脑」。对全球供应链和下游应用方而言，接下来要关注的不是「机器人能不能做动作」，而是「部署成本、运维响应、安全冗余」能否支撑大规模复制。</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="num">5</div>
+        <div>
+          <h2 class="title">消费级人形开售 + 加油站便利店落地：具身智能进入「真交付」阶段</h2>
+          <span class="tag">Embodied Intelligence / 商业化落地</span>
+        </div>
+      </div>
+      <p>两条商业化线索同日出现。一是 <strong>启元机器人 Q1 / T1 正式开售</strong>，基础版均定价 19,999 元起，10 月 1 日起按订单顺序发货；上纬新材披露启元消费级机器人预收货款已达 2.1 亿元，首期万台级产线由蓝思科技承接。二是 <strong>大晓机器人（Ace Robotics，商汤孵化）与中石油上海销售公司合作</strong>，在加油站便利店试点具身 AI 机器人，覆盖库存拣选、订单打包等全周期运营，探索平台调度 + AI 模型 + 硬件的零售闭环。</p>
+      <p>同期，智身科技宣布完成 B 轮融资，具身智能机器人累计量产突破 1.5 万台，单月产能较去年月均提升超 10 倍，产品进入电力、石化、消防、安防、应急、教育等行业。高盛在最新全球物理 AI 报告中大幅上调预期：全球人形机器人出货量将从 2026 年约 7.5 万台增至 2030 年约 89 万台（此前预测 25.6 万台）；德意志银行预计 2030 年全球达 70 万台，并认为中国是核心引擎。</p>
+      <div class="why"><strong>Why it matters：</strong>具身智能的竞争维度正在切换：<strong>从「谁的视频更炫」转向「谁能稳定交付、产生真实订单、形成可复制的场景 SOP」</strong>。启元的 2.1 亿预收款若如期交付，将是 C 端人形市场最大规模的真金白银验证；加油站便利店等 24/7 零售网络则可能成为人形机器人最早规模化复制的场景之一。高盛、德意志银行同步上调出货预期，也表明国际机构开始用「量产 + 真实需求」重新给行业定价。</div>
+    </div>
+
+    <div class="brief">
+      <h2>同日简讯 · Briefs</h2>
+      <ul>
+        <li>🔧 <strong>TypeSafe Jev 全面开放，新用户赠 1.2 亿 token</strong>：判断模型 Jev 取消候补、注册即送约 5 美元额度，输入 $0.042/百万 token、输出免费，端到端延迟 70–500ms，已被用于浏览器代理、上下文压缩、模型路由与安全分类。Vercel 替换原分类器后提速 5–18 倍，需求超预期一度导致 API 短暂不可用。</li>
+        <li>🛡️ <strong>智谱就 ZCode 安全问题致歉并全面开源客户端</strong>：针对社区反馈的安全问题，ZCode 团队道歉并完成整改，v3.14.0 移除 Repo Wiki 功能、切断本地仓库快照上传链路；客户端代码开源至 GitHub 接受社区监督。中国信通院与绿盟科技审计确认 zcode-prod OSS 存储桶已删除，未发现可触发文件外发的功能路径。</li>
+        <li>📱 <strong>华为云 CodeArts 上线鸿蒙编码大模型</strong>：面向鸿蒙开发者推出鸿蒙编码大模型与鸿蒙智能体，融合超百万鸿蒙原素材，号称千行代码错误率降低 80%+、一次编译通过率提升 78%+、单次任务 token 消耗降低 20%+，已上线 MaaS 供企业调用。</li>
+        <li>🤖 <strong>特斯拉人形机器人量产在即，中国产业链迎合作机遇</strong>：中国经济网报道，特斯拉 Optimus 量产临近，三花智控、拓普集团等中国汽车零部件企业已批量交付执行器、结构件等部件。罗兰贝格预测 2035 年全球人形机器人整机市场 7500 亿美元，2050 年或超 4 万亿美元。</li>
+        <li>🧠 <strong>黄仁勋：AI 末日概率为零，应执行现行法律而非新增监管</strong>：英伟达 CEO 接受 CBS 采访称 2030 年世界末日概率为 0%，反对借末日叙事新增 AI 监管，主张执行现有产品责任与网络安全法律；同时反对全面对华芯片禁售。</li>
+      </ul>
+    </div>
+
+    <footer>
+      <div>Sources / 来源：<a href="https://www.worldprogramming.org/posts/aws-open-sources-an-ai-agent-it-says-is-45-cheaper-than-claude-code-and-codex-ffzpdo">The New Stack · AWS Strands Harness</a> · <a href="https://strandsagents.com/blog/introducing-strands-harness">Strands Agents Blog</a> · <a href="https://ai-damn.com/kimi-code-desktop-arrives-on-mac-and-windows-bringing-ai-coding-agent-to-your-fingertips-1789992039719">AI DAMN · Kimi Code Desktop</a> · <a href="https://www.163.com/dy/article/L7D4MI4605561FZW.html">网易 · Qoder 鸿蒙 PC</a> · <a href="https://www.163.com/dy/article/L7DPPBT305527PMU.html">IT时代网 · Grok 4.7</a> · <a href="https://traictory.com/news/2026-09-22-grok-4-7-launch">Traictory · Grok 4.7 评测落差</a> · <a href="https://www.163.com/dy/article/L7DNFVOI0514R9L4.html">人民日报海外版 / 网易 · 中国机器人从能用到好用</a> · <a href="https://www.toutiao.com/article/7688151621145985591/">新华财经 · 具身智能开始上量</a> · <a href="https://yangtzeer.com/news/startups/ace-robotics-humanoids-petrochina-stores">Yangtzeer · Ace Robotics × PetroChina</a></div>
+      <div style="margin-top:6px;">Editor: WorkBuddy · Generated 2026-09-22 09:30 GMT+8 · 部分数据为厂商自述或媒体报道，未经第三方独立验证</div>
+    </footer>
+  </div>
+</body>
+</html>
